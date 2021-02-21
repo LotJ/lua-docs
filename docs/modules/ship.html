@@ -1,0 +1,735 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_fixed.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Legend of the Jedi</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Global_functions">Global functions </a></li>
+<li><a href="#Class_Ship">Class Ship </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/character.html">character</a></li>
+  <li><strong>ship</strong></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>ship</code></h1>
+<p>
+
+</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Ship.getFromName">Ship.getFromName (name)</a></td>
+	<td class="summary">finds any ship by name</td>
+	</tr>
+</table>
+<h2><a href="#Class_Ship">Class Ship </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getName">Ship:getName ()</a></td>
+	<td class="summary">get the ship's name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getFullName">Ship:getFullName ()</a></td>
+	<td class="summary">get the ship's full name, including model name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:hasFlag">Ship:hasFlag (flagName)</a></td>
+	<td class="summary">determine whether a flag is set on a ship</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getFlags">Ship:getFlags ()</a></td>
+	<td class="summary">get the ship's flags</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getCockpit">Ship:getCockpit ()</a></td>
+	<td class="summary">get the ship's cockpit room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getEntrance">Ship:getEntrance ()</a></td>
+	<td class="summary">get the ship's entrance room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getDockRoom">Ship:getDockRoom ()</a></td>
+	<td class="summary">get the ship's dock room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getEngineRoom">Ship:getEngineRoom ()</a></td>
+	<td class="summary">get the ship's engine room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getPilotSeat">Ship:getPilotSeat ()</a></td>
+	<td class="summary">get the ship's pilot seat room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getNavSeat">Ship:getNavSeat ()</a></td>
+	<td class="summary">get the ship's nav seat room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getGunSeat">Ship:getGunSeat ()</a></td>
+	<td class="summary">get the ship's gun seat room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getRoomByOffset">Ship:getRoomByOffset (offset)</a></td>
+	<td class="summary">get a room within the ship by its offset</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getLocation">Ship:getLocation ()</a></td>
+	<td class="summary">get room where the ship is located</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getPosition">Ship:getPosition ()</a></td>
+	<td class="summary">get current position within system</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getStarsystem">Ship:getStarsystem ()</a></td>
+	<td class="summary">get current starsystem</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:radio">Ship:radio (text)</a></td>
+	<td class="summary">radios a message to the system originating from this ship, always in basic</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:echoToSystem">Ship:echoToSystem (text)</a></td>
+	<td class="summary">echo to all ships in the system, visible to any players in cockpits/viewports/turrets/etc</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:echoAt">Ship:echoAt (text)</a></td>
+	<td class="summary">echo a message to this ship, visible to any players in its cockpit/viewports/turrets/etc</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setTarget">Ship:setTarget (target)</a></td>
+	<td class="summary">sets the target for an autopiloted ship.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setBayOpen">Ship:setBayOpen (hangar, state)</a></td>
+	<td class="summary">sets the open/close status of a hangar bay.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:toRoom">Ship:toRoom (room)</a></td>
+	<td class="summary">moves this ship to the given room as if landed there.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:toStarsystem">Ship:toStarsystem (starsystem, x, y, z)</a></td>
+	<td class="summary">moves this ship to the given system and coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:distanceToShip">Ship:distanceToShip (other)</a></td>
+	<td class="summary">Gets distance between this ship and another</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Ship.getFromName"></a>
+    <strong>Ship.getFromName (name)</strong>
+    </dt>
+    <dd>
+    finds any ship by name
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         the ship name, either the part in quotes or the whole thing
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the ship, or nil if not found
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Class_Ship"></a>Class Ship </h2>
+
+          <div class="section-description">
+          Functions on ship variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "Ship:getName"></a>
+    <strong>Ship:getName ()</strong>
+    </dt>
+    <dd>
+    get the ship's name
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the ship's name, for example <code>Red 5</code>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getFullName"></a>
+    <strong>Ship:getFullName ()</strong>
+    </dt>
+    <dd>
+    get the ship's full name, including model name
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the ship's full name, for example <code>X-Wing Starfighter &apos;Red 5&apos;</code>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:hasFlag"></a>
+    <strong>Ship:hasFlag (flagName)</strong>
+    </dt>
+    <dd>
+    determine whether a flag is set on a ship
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flagName</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the flag to check
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the flag is set, false if not or it's an invalid flag
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="keyword">if</span> self:hasFlag(<span class="string">"spawned"</span>)</pre></li>
+        <li><pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> self:hasFlag(<span class="string">"legendary"</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Ship:getFlags"></a>
+    <strong>Ship:getFlags ()</strong>
+    </dt>
+    <dd>
+    get the ship's flags
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">table</span></span>
+        an table of all ship flag names to a boolean for this ship's value for it
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getCockpit"></a>
+    <strong>Ship:getCockpit ()</strong>
+    </dt>
+    <dd>
+    get the ship's cockpit room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the ship's cockpit room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getEntrance"></a>
+    <strong>Ship:getEntrance ()</strong>
+    </dt>
+    <dd>
+    get the ship's entrance room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the ship's entrance room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getDockRoom"></a>
+    <strong>Ship:getDockRoom ()</strong>
+    </dt>
+    <dd>
+    get the ship's dock room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the ship's dock room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getEngineRoom"></a>
+    <strong>Ship:getEngineRoom ()</strong>
+    </dt>
+    <dd>
+    get the ship's engine room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the ship's engine room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getPilotSeat"></a>
+    <strong>Ship:getPilotSeat ()</strong>
+    </dt>
+    <dd>
+    get the ship's pilot seat room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the ship's pilot seat room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getNavSeat"></a>
+    <strong>Ship:getNavSeat ()</strong>
+    </dt>
+    <dd>
+    get the ship's nav seat room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the ship's nav seat room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getGunSeat"></a>
+    <strong>Ship:getGunSeat ()</strong>
+    </dt>
+    <dd>
+    get the ship's gun seat room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the ship's gun seat room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getRoomByOffset"></a>
+    <strong>Ship:getRoomByOffset (offset)</strong>
+    </dt>
+    <dd>
+    get a room within the ship by its offset
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">offset</span>
+            <span class="types"><span class="type">number</span></span>
+         the number to add to the ship's starting vnum
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the room within the ship, or nil if it was an invalid offset
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getLocation"></a>
+    <strong>Ship:getLocation ()</strong>
+    </dt>
+    <dd>
+    get room where the ship is located
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Room</span></span>
+        the room the ship is in, or nil if it's in space or hyperspace
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getPosition"></a>
+    <strong>Ship:getPosition ()</strong>
+    </dt>
+    <dd>
+    get current position within system
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        the ship's x coordinate</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        the ship's y coordinate</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        the ship's z coordinate</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> x, y, z = self:getPosition()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Ship:getStarsystem"></a>
+    <strong>Ship:getStarsystem ()</strong>
+    </dt>
+    <dd>
+    get current starsystem
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/starsystem.html#Starsystem">Starsystem</a></span>
+        the ship's current starsystem, or nil if it's landed or in hyperspace
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:radio"></a>
+    <strong>Ship:radio (text)</strong>
+    </dt>
+    <dd>
+    radios a message to the system originating from this ship, always in basic
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><span class="type">string</span></span>
+         the text to radio
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:echoToSystem"></a>
+    <strong>Ship:echoToSystem (text)</strong>
+    </dt>
+    <dd>
+    echo to all ships in the system, visible to any players in cockpits/viewports/turrets/etc
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><span class="type">string</span></span>
+         the text to echo
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:echoAt"></a>
+    <strong>Ship:echoAt (text)</strong>
+    </dt>
+    <dd>
+    echo a message to this ship, visible to any players in its cockpit/viewports/turrets/etc
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><span class="type">string</span></span>
+         the text to echo
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setTarget"></a>
+    <strong>Ship:setTarget (target)</strong>
+    </dt>
+    <dd>
+    sets the target for an autopiloted ship.
+ Ship will immediately aggro on the target if possible. This ship must be on autopilot for this to work.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+            <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+         the ship to target
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setBayOpen"></a>
+    <strong>Ship:setBayOpen (hangar, state)</strong>
+    </dt>
+    <dd>
+    sets the open/close status of a hangar bay.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">hangar</span>
+            <span class="types"><span class="type">number</span></span>
+         the hangar bay number
+        </li>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+         true for open, false for closed
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:toRoom"></a>
+    <strong>Ship:toRoom (room)</strong>
+    </dt>
+    <dd>
+    moves this ship to the given room as if landed there.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">room</span>
+            <span class="types"><span class="type">Room</span></span>
+         the room to move the ship to
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:toStarsystem"></a>
+    <strong>Ship:toStarsystem (starsystem, x, y, z)</strong>
+    </dt>
+    <dd>
+    moves this ship to the given system and coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">starsystem</span>
+            <span class="types"><a class="type" href="../modules/starsystem.html#Starsystem">Starsystem</a></span>
+         the system to move the ship to
+        </li>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x-coordinate to move the ship to
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y-coordinate to move the ship to
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">number</span></span>
+         the z-coordinate to move the ship to
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:distanceToShip"></a>
+    <strong>Ship:distanceToShip (other)</strong>
+    </dt>
+    <dd>
+    Gets distance between this ship and another
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">other</span>
+            <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+         The other ship to measure distance to
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Go aggro on a ship if it's within 1000 prox
+</span><span class="keyword">if</span> self:distanceToShip(otherShip) &lt; <span class="number">1000</span> <span class="keyword">then</span>
+  self:setTarget(otherShip)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-02-21 11:51:48 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
