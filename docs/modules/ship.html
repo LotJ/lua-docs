@@ -39,7 +39,9 @@
 
 <h2>Modules</h2>
 <ul class="nowrap">
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
   <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/room.html">room</a></li>
   <li><strong>ship</strong></li>
   <li><a href="../modules/ship_template.html">ship_template</a></li>
   <li><a href="../modules/starsystem.html">starsystem</a></li>
@@ -156,6 +158,14 @@
 	<td class="summary">moves this ship to the given system and coordinates.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:getSelfDestruct">Ship:getSelfDestruct ()</a></td>
+	<td class="summary">returns current self destruct status</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setSelfDestruct">Ship:setSelfDestruct (delay)</a></td>
+	<td class="summary">sets or clears self destruct.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:distanceToShip">Ship:distanceToShip (other)</a></td>
 	<td class="summary">Gets distance between this ship and another</td>
 	</tr>
@@ -179,6 +189,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
          the ship name, either the part in quotes or the whole thing
         </li>
     </ul>
@@ -186,6 +197,7 @@
     <h3>Returns:</h3>
     <ol>
 
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
         the ship, or nil if not found
     </ol>
 
@@ -212,7 +224,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the ship's name, for example <code>Red 5</code>
     </ol>
 
@@ -304,7 +316,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the ship's cockpit room
     </ol>
 
@@ -324,7 +336,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the ship's entrance room
     </ol>
 
@@ -344,7 +356,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the ship's dock room
     </ol>
 
@@ -364,7 +376,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the ship's engine room
     </ol>
 
@@ -384,7 +396,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the ship's pilot seat room
     </ol>
 
@@ -404,7 +416,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the ship's nav seat room
     </ol>
 
@@ -424,7 +436,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the ship's gun seat room
     </ol>
 
@@ -451,7 +463,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the room within the ship, or nil if it was an invalid offset
     </ol>
 
@@ -471,7 +483,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Room</span></span>
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the room the ship is in, or nil if it's in space or hyperspace
     </ol>
 
@@ -650,7 +662,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">room</span>
-            <span class="types"><span class="type">Room</span></span>
+            <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
          the room to move the ship to
         </li>
     </ul>
@@ -694,6 +706,47 @@
 
 </dd>
     <dt>
+    <a name = "Ship:getSelfDestruct"></a>
+    <strong>Ship:getSelfDestruct ()</strong>
+    </dt>
+    <dd>
+    returns current self destruct status
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the countdown to self destruct, or nil if disabled
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setSelfDestruct"></a>
+    <strong>Ship:setSelfDestruct (delay)</strong>
+    </dt>
+    <dd>
+    sets or clears self destruct.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         the countdown to self destruct, or nil or 0 to disable it
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:distanceToShip"></a>
     <strong>Ship:distanceToShip (other)</strong>
     </dt>
@@ -728,7 +781,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-02-21 11:51:48 </i>
+<i style="float:right;">Last updated 2021-02-24 09:47:26 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

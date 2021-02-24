@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_fixed.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Legend of the Jedi</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Class_Room">Class Room </a></li>
+<li><a href="#Global_functions">Global functions </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><strong>room</strong></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>room</code></h1>
+<p>
+
+</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Class_Room">Class Room </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Room:getName">Room:getName ()</a></td>
+	<td class="summary">return the room's name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:getDescription">Room:getDescription ()</a></td>
+	<td class="summary">return the room's description</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:getVNum">Room:getVNum ()</a></td>
+	<td class="summary">return the room's vnum</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:getInArea">Room:getInArea ()</a></td>
+	<td class="summary">return the area containing the room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:getInShip">Room:getInShip ()</a></td>
+	<td class="summary">return the ship this room is part of</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:characters">Room:characters ()</a></td>
+	<td class="summary">get an iterator over characters in the room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:objects">Room:objects ()</a></td>
+	<td class="summary">get an iterator over objects in the room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:ships">Room:ships ()</a></td>
+	<td class="summary">get an iterator over ships in the room</td>
+	</tr>
+</table>
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Room.getFromVNum">Room.getFromVNum (vnum)</a></td>
+	<td class="summary">finds a room by vnum</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header has-description"><a name="Class_Room"></a>Class Room </h2>
+
+          <div class="section-description">
+          Functions on room variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "Room:getName"></a>
+    <strong>Room:getName ()</strong>
+    </dt>
+    <dd>
+    return the room's name
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the room's name, including color codes
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:getDescription"></a>
+    <strong>Room:getDescription ()</strong>
+    </dt>
+    <dd>
+    return the room's description
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the room's description, including color codes
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:getVNum"></a>
+    <strong>Room:getVNum ()</strong>
+    </dt>
+    <dd>
+    return the room's vnum
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the room's vnum
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:getInArea"></a>
+    <strong>Room:getInArea ()</strong>
+    </dt>
+    <dd>
+    return the area containing the room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Area</span></span>
+        the area containing the room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:getInShip"></a>
+    <strong>Room:getInShip ()</strong>
+    </dt>
+    <dd>
+    return the ship this room is part of
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        the ship containing the room, or nil if it's not part of a ship
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:characters"></a>
+    <strong>Room:characters ()</strong>
+    </dt>
+    <dd>
+    get an iterator over characters in the room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/character.html#Character">Character</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> char <span class="keyword">in</span> room:characters() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:objects"></a>
+    <strong>Room:objects ()</strong>
+    </dt>
+    <dd>
+    get an iterator over objects in the room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of ???
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> room:objects() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:ships"></a>
+    <strong>Room:ships ()</strong>
+    </dt>
+    <dd>
+    get an iterator over ships in the room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/ship.html#Ship">Ship</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> ship <span class="keyword">in</span> room:ships() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Room.getFromVNum"></a>
+    <strong>Room.getFromVNum (vnum)</strong>
+    </dt>
+    <dd>
+    finds a room by vnum
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vnum</span>
+            <span class="types"><span class="type">number</span></span>
+         the room vnum
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+        the room, or nil if not found
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-02-24 09:47:26 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
