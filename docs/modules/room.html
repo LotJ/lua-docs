@@ -32,8 +32,8 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Class_Room">Class Room </a></li>
 <li><a href="#Global_functions">Global functions </a></li>
+<li><a href="#Class_Room">Class Room </a></li>
 </ul>
 
 
@@ -41,6 +41,7 @@
 <ul class="nowrap">
   <li><a href="../modules/char_proto.html">char_proto</a></li>
   <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/core.html">core</a></li>
   <li><a href="../modules/object.html">object</a></li>
   <li><strong>room</strong></li>
   <li><a href="../modules/ship.html">ship</a></li>
@@ -61,6 +62,13 @@
 </p>
 
 
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Room.getFromVNum">Room.getFromVNum (vnum)</a></td>
+	<td class="summary">finds a room by vnum</td>
+	</tr>
+</table>
 <h2><a href="#Class_Room">Class Room </a></h2>
 <table class="function_list">
 	<tr>
@@ -96,6 +104,14 @@
 	<td class="summary">get an iterator over ships in the room</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Room:getVar">Room:getVar (varName, default)</a></td>
+	<td class="summary">get a room's variable by name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:setVar">Room:setVar (varName, value, ttl)</a></td>
+	<td class="summary">set a variable on a room</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Room:onEnter">Room:onEnter (callback)</a></td>
 	<td class="summary">registers a function to run when a character (player or NPC) enters a room.</td>
 	</tr>
@@ -108,18 +124,42 @@
 	<td class="summary">registers a function to run when a character (player or NPC) enters a custom command.</td>
 	</tr>
 </table>
-<h2><a href="#Global_functions">Global functions </a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#Room.getFromVNum">Room.getFromVNum (vnum)</a></td>
-	<td class="summary">finds a room by vnum</td>
-	</tr>
-</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Room.getFromVNum"></a>
+    <strong>Room.getFromVNum (vnum)</strong>
+    </dt>
+    <dd>
+    finds a room by vnum
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vnum</span>
+            <span class="types"><span class="type">number</span></span>
+         the room vnum
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+        the room, or nil if not found
+    </ol>
+
+
+
+
+</dd>
+</dl>
     <h2 class="section-header has-description"><a name="Class_Room"></a>Class Room </h2>
 
           <div class="section-description">
@@ -302,6 +342,63 @@
 
 </dd>
     <dt>
+    <a name = "Room:getVar"></a>
+    <strong>Room:getVar (varName, default)</strong>
+    </dt>
+    <dd>
+    get a room's variable by name
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">varName</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the variable to get
+        </li>
+        <li><span class="parameter">default</span>
+         an optional default value (string, number, or boolean) to return if the variable is unset
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the value, or the default or nil if it's not set. Can be a bool, number, or string.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:setVar"></a>
+    <strong>Room:setVar (varName, value, ttl)</strong>
+    </dt>
+    <dd>
+    set a variable on a room
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">varName</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the variable to set
+        </li>
+        <li><span class="parameter">value</span>
+         the value, a string, number, or boolean. Pass in nil here to remove a variable.
+        </li>
+        <li><span class="parameter">ttl</span>
+            <span class="types"><span class="type">number</span></span>
+         the number of seconds to keep the variable, in seconds. (optional, if not specified it's kept indefinitely)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "Room:onEnter"></a>
     <strong>Room:onEnter (callback)</strong>
     </dt>
@@ -391,44 +488,13 @@
 
 </dd>
 </dl>
-    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "Room.getFromVNum"></a>
-    <strong>Room.getFromVNum (vnum)</strong>
-    </dt>
-    <dd>
-    finds a room by vnum
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">vnum</span>
-            <span class="types"><span class="type">number</span></span>
-         the room vnum
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
-        the room, or nil if not found
-    </ol>
-
-
-
-
-</dd>
-</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-03-18 20:11:06 </i>
+<i style="float:right;">Last updated 2021-03-23 10:31:03 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

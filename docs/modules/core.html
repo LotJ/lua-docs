@@ -32,7 +32,7 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Class_Object">Class Object </a></li>
+<li><a href="#Global_functions">Global functions </a></li>
 </ul>
 
 
@@ -40,8 +40,8 @@
 <ul class="nowrap">
   <li><a href="../modules/char_proto.html">char_proto</a></li>
   <li><a href="../modules/character.html">character</a></li>
-  <li><a href="../modules/core.html">core</a></li>
-  <li><strong>object</strong></li>
+  <li><strong>core</strong></li>
+  <li><a href="../modules/object.html">object</a></li>
   <li><a href="../modules/room.html">room</a></li>
   <li><a href="../modules/ship.html">ship</a></li>
   <li><a href="../modules/ship_template.html">ship_template</a></li>
@@ -52,7 +52,7 @@
 
 <div id="content">
 
-<h1>Module <code>object</code></h1>
+<h1>Module <code>core</code></h1>
 <p>
 
 </p>
@@ -61,15 +61,23 @@
 </p>
 
 
-<h2><a href="#Class_Object">Class Object </a></h2>
+<h2><a href="#Global_functions">Global functions </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Object:getVar">Object:getVar (varName, default)</a></td>
-	<td class="summary">get an object's variable by name</td>
+	<td class="name" nowrap><a href="#LOTJ.debug">LOTJ.debug (msg)</a></td>
+	<td class="summary">send a message to the debug channel</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Object:setVar">Object:setVar (varName, value, ttl)</a></td>
-	<td class="summary">set a variable on an object</td>
+	<td class="name" nowrap><a href="#LOTJ.log">LOTJ.log (msg)</a></td>
+	<td class="summary">send a message to the log channel</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LOTJ.getGlobalVar">LOTJ.getGlobalVar (varName, default)</a></td>
+	<td class="summary">get a global variable by name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LOTJ.setGlobalVar">LOTJ.setGlobalVar (varName, value, ttl)</a></td>
+	<td class="summary">set a global variable</td>
 	</tr>
 </table>
 
@@ -77,18 +85,57 @@
 <br/>
 
 
-    <h2 class="section-header has-description"><a name="Class_Object"></a>Class Object </h2>
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
 
-          <div class="section-description">
-          Functions on object variables
-          </div>
     <dl class="function">
     <dt>
-    <a name = "Object:getVar"></a>
-    <strong>Object:getVar (varName, default)</strong>
+    <a name = "LOTJ.debug"></a>
+    <strong>LOTJ.debug (msg)</strong>
     </dt>
     <dd>
-    get an object's variable by name
+    send a message to the debug channel
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">msg</span>
+            <span class="types"><span class="type">string</span></span>
+         the text to debug. Use <code>chan +debug filter *keyword*</code> to view, where keyword is a unique word included in your message.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LOTJ.log"></a>
+    <strong>LOTJ.log (msg)</strong>
+    </dt>
+    <dd>
+    send a message to the log channel
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">msg</span>
+            <span class="types"><span class="type">string</span></span>
+         the text to log
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LOTJ.getGlobalVar"></a>
+    <strong>LOTJ.getGlobalVar (varName, default)</strong>
+    </dt>
+    <dd>
+    get a global variable by name
 
 
     <h3>Parameters:</h3>
@@ -113,18 +160,18 @@
 
 </dd>
     <dt>
-    <a name = "Object:setVar"></a>
-    <strong>Object:setVar (varName, value, ttl)</strong>
+    <a name = "LOTJ.setGlobalVar"></a>
+    <strong>LOTJ.setGlobalVar (varName, value, ttl)</strong>
     </dt>
     <dd>
-    set a variable on an object
+    set a global variable
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">varName</span>
             <span class="types"><span class="type">string</span></span>
-         the name of the variable to set
+         the name of the variable to set. It must include a namespace, preferably the name of the area setting it, like "wroona.myVar"
         </li>
         <li><span class="parameter">value</span>
          the value, a string, number, or boolean. Pass in nil here to remove a variable.
@@ -138,12 +185,6 @@
 
 
 
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="comment">-- Set timesDropped to 1 more than the last value, handling the case where
-</span><span class="comment">-- it hasn't been set yet by using 0 as the default
-</span>obj:setVar(<span class="string">"timesDropped"</span>, obj:getVar(<span class="string">"timesDropped"</span>, <span class="number">0</span>)+<span class="number">1</span>)</pre>
-    </ul>
 
 </dd>
 </dl>
