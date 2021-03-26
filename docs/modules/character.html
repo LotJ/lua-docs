@@ -40,6 +40,7 @@
 <ul class="nowrap">
   <li><a href="../modules/char_proto.html">char_proto</a></li>
   <li><strong>character</strong></li>
+  <li><a href="../modules/clan.html">clan</a></li>
   <li><a href="../modules/core.html">core</a></li>
   <li><a href="../modules/object.html">object</a></li>
   <li><a href="../modules/room.html">room</a></li>
@@ -94,6 +95,22 @@
 	<td class="summary">get the character's current carried weight.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:carrying">Character:carrying ()</a></td>
+	<td class="summary">get an iterator over objects in the character's inventory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:wearing">Character:wearing ()</a></td>
+	<td class="summary">get an iterator over objects the character is wearing.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getClan">Character:getClan ()</a></td>
+	<td class="summary">get the character's current clan.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:isNPC">Character:isNPC ()</a></td>
+	<td class="summary">whether this character is an NPC.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:getStrength">Character:getStrength ()</a></td>
 	<td class="summary">get the character's current strength attribute.</td>
 	</tr>
@@ -128,6 +145,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character:getCredits">Character:getCredits ()</a></td>
 	<td class="summary">get the character's current carried credits.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:canSee">Character:canSee (target)</a></td>
+	<td class="summary">whether this character can see the given object or character.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:getMainAbility">Character:getMainAbility ()</a></td>
@@ -348,6 +369,103 @@
 
 </dd>
     <dt>
+    <a name = "Character:carrying"></a>
+    <strong>Character:carrying ()</strong>
+    </dt>
+    <dd>
+    get an iterator over objects in the character's inventory.
+ Any objects they're wearing are ignored, as our items inside containers.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/object.html#Object">Object</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:carrying() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:wearing"></a>
+    <strong>Character:wearing ()</strong>
+    </dt>
+    <dd>
+    get an iterator over objects the character is wearing.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/object.html#Object">Object</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:wearing() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:getClan"></a>
+    <strong>Character:getClan ()</strong>
+    </dt>
+    <dd>
+    get the character's current clan.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
+        the character's current clan, or nil if they're not in one
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:isNPC"></a>
+    <strong>Character:isNPC ()</strong>
+    </dt>
+    <dd>
+    whether this character is an NPC.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is an NPC, false if they're a player
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> ch:isNPC() <span class="keyword">then</span>
+  ch:echoAt(<span class="string">"You're a player!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character:getStrength"></a>
     <strong>Character:getStrength ()</strong>
     </dt>
@@ -525,6 +643,38 @@
 
 
 
+
+</dd>
+    <dt>
+    <a name = "Character:canSee"></a>
+    <strong>Character:canSee (target)</strong>
+    </dt>
+    <dd>
+    whether this character can see the given object or character.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+         a <a href="../modules/character.html#Character">Character</a> or <a href="../modules/object.html#Object">Object</a>
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character can see the given thing, false otherwise
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> self:canSee(ch) <span class="keyword">then</span>
+  self:force(<span class="string">"say I can't see you!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
 
 </dd>
     <dt>
@@ -826,7 +976,7 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-03-24 23:30:20 </i>
+<i style="float:right;">Last updated 2021-03-25 21:17:39 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
