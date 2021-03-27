@@ -63,28 +63,28 @@
 <h2><a href="#Class_CharProto">Class CharProto </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#CharProto:onAct">CharProto:onAct (message, callback)</a></td>
+	<td class="summary">registers a function to run when the given action message is shown to the mob.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#CharProto:onDeath">CharProto:onDeath (callback)</a></td>
 	<td class="summary">registers a function to run when a mob is killed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CharProto:onEnter">CharProto:onEnter (callback)</a></td>
+	<td class="summary">registers a function to run whenever the mob itself enters a new room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#CharProto:onFight">CharProto:onFight (callback)</a></td>
 	<td class="summary">registers a function to run during each combat round the mob is in.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onAct">CharProto:onAct (message, callback)</a></td>
-	<td class="summary">registers a function to run when the given action message is shown to the mob.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#CharProto:onSpeech">CharProto:onSpeech (message, callback)</a></td>
-	<td class="summary">registers a function to run when the given text is spoken in the room.</td>
-	</tr>
-	<tr>
 	<td class="name" nowrap><a href="#CharProto:onGreet">CharProto:onGreet (callback)</a></td>
 	<td class="summary">registers a function to run when the another character enters the room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onEnter">CharProto:onEnter (callback)</a></td>
-	<td class="summary">registers a function to run whenever the mob itself enters a new room.</td>
+	<td class="name" nowrap><a href="#CharProto:onSpeech">CharProto:onSpeech (message, callback)</a></td>
+	<td class="summary">registers a function to run when the given text is spoken in the room.</td>
 	</tr>
 </table>
 
@@ -98,6 +98,40 @@
           Functions on character prototype variables
           </div>
     <dl class="function">
+    <dt>
+    <a name = "CharProto:onAct"></a>
+    <strong>CharProto:onAct (message, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when the given action message is shown to the mob.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><span class="type">string</span></span>
+         the message to trigger on
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/character.html#Character">Character</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who did the action
+ 3. the full text of the action message
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onAct(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, actor, fullText)
+  actor:echoAt(<span class="string">"You can't aim at me!"</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
     <dt>
     <a name = "CharProto:onDeath"></a>
     <strong>CharProto:onDeath (callback)</strong>
@@ -133,6 +167,35 @@
 
 </dd>
     <dt>
+    <a name = "CharProto:onEnter"></a>
+    <strong>CharProto:onEnter (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run whenever the mob itself enters a new room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/character.html#Character">Character</a>
+ 2. the <a href="../modules/room.html#Room">Room</a> it came from
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onEnter(<span class="keyword">function</span>(self, oldRoom)
+  <span class="comment">-- Do stuff
+</span><span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "CharProto:onFight"></a>
     <strong>CharProto:onFight (callback)</strong>
     </dt>
@@ -163,25 +226,20 @@
 
 </dd>
     <dt>
-    <a name = "CharProto:onAct"></a>
-    <strong>CharProto:onAct (message, callback)</strong>
+    <a name = "CharProto:onGreet"></a>
+    <strong>CharProto:onGreet (callback)</strong>
     </dt>
     <dd>
-    registers a function to run when the given action message is shown to the mob.
+    registers a function to run when the another character enters the room.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">message</span>
-            <span class="types"><span class="type">string</span></span>
-         the message to trigger on
-        </li>
         <li><span class="parameter">callback</span>
             <span class="types"><span class="type">func</span></span>
          the function to run, taking arguments:
  1. this <a href="../modules/character.html#Character">Character</a>
- 2. the <a href="../modules/character.html#Character">Character</a> who did the action
- 3. the full text of the action message
+ 2. the <a href="../modules/character.html#Character">Character</a> who entered
         </li>
     </ul>
 
@@ -190,8 +248,8 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onAct(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, actor, fullText)
-  actor:echoAt(<span class="string">"You can't aim at me!"</span>)
+        <pre class="example">self:onGreet(<span class="keyword">function</span>(self, target)
+  target:echoAt(<span class="string">"You notice "</span>..self:getShortDescription()..<span class="string">" waving at you."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
@@ -230,64 +288,6 @@
     </ul>
 
 </dd>
-    <dt>
-    <a name = "CharProto:onGreet"></a>
-    <strong>CharProto:onGreet (callback)</strong>
-    </dt>
-    <dd>
-    registers a function to run when the another character enters the room.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">callback</span>
-            <span class="types"><span class="type">func</span></span>
-         the function to run, taking arguments:
- 1. this <a href="../modules/character.html#Character">Character</a>
- 2. the <a href="../modules/character.html#Character">Character</a> who entered
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">self:onGreet(<span class="keyword">function</span>(self, target)
-  target:echoAt(<span class="string">"You notice "</span>..self:getShortDescription()..<span class="string">" waving at you."</span>)
-<span class="keyword">end</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "CharProto:onEnter"></a>
-    <strong>CharProto:onEnter (callback)</strong>
-    </dt>
-    <dd>
-    registers a function to run whenever the mob itself enters a new room.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">callback</span>
-            <span class="types"><span class="type">func</span></span>
-         the function to run, taking arguments:
- 1. this <a href="../modules/character.html#Character">Character</a>
- 2. the <a href="../modules/room.html#Room">Room</a> it came from
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">self:onEnter(<span class="keyword">function</span>(self, oldRoom)
-  <span class="comment">-- Do stuff
-</span><span class="keyword">end</span>)</pre>
-    </ul>
-
-</dd>
 </dl>
 
 
@@ -295,7 +295,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-03-27 10:49:29 </i>
+<i style="float:right;">Last updated 2021-03-27 11:18:49 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

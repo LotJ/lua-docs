@@ -63,6 +63,122 @@
 <h2><a href="#Class_Character">Class Character </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Character:awardCredits">Character:awardCredits (amount)</a></td>
+	<td class="summary">award (or fine) credits.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:canSee">Character:canSee (target)</a></td>
+	<td class="summary">whether this character can see the given object or character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:carrying">Character:carrying ()</a></td>
+	<td class="summary">get an iterator over objects in the character's inventory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:damage">Character:damage (amount, byCh)</a></td>
+	<td class="summary">damage a character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:echoAround">Character:echoAround (text)</a></td>
+	<td class="summary">display some text to everyone in the character's room except for the character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:echoAt">Character:echoAt (text)</a></td>
+	<td class="summary">display some text to the character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:emote">Character:emote (text)</a></td>
+	<td class="summary">perform the given emote.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:force">Character:force (command)</a></td>
+	<td class="summary">make the character enter the given command.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:gainExp">Character:gainExp (ability, amount, groupGain)</a></td>
+	<td class="summary">award experience to the player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getCarryWeight">Character:getCarryWeight ()</a></td>
+	<td class="summary">get the character's current carried weight.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getCharisma">Character:getCharisma ()</a></td>
+	<td class="summary">get the character's current charisma attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getClan">Character:getClan ()</a></td>
+	<td class="summary">get the character's current clan.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getConstitution">Character:getConstitution ()</a></td>
+	<td class="summary">get the character's current constitution attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getCredits">Character:getCredits ()</a></td>
+	<td class="summary">get the character's current carried credits.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getDescription">Character:getDescription ()</a></td>
+	<td class="summary">get the full description for a character (what you see when looking at them).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getDexterity">Character:getDexterity ()</a></td>
+	<td class="summary">get the character's current dexterity attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getFollowing">Character:getFollowing ()</a></td>
+	<td class="summary">get the character this one is currently following.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getForce">Character:getForce ()</a></td>
+	<td class="summary">get the character's current force attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getHp">Character:getHp ()</a></td>
+	<td class="summary">get the character's current hp.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getInArea">Character:getInArea ()</a></td>
+	<td class="summary">get the character's current area.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getInRoom">Character:getInRoom ()</a></td>
+	<td class="summary">get the character's current room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getIntelligence">Character:getIntelligence ()</a></td>
+	<td class="summary">get the character's current intelligence attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getLuck">Character:getLuck ()</a></td>
+	<td class="summary">get the character's current luck attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getMainAbility">Character:getMainAbility ()</a></td>
+	<td class="summary">get the character's main class name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getMana">Character:getMana ()</a></td>
+	<td class="summary">get the character's current mana.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getMaxHp">Character:getMaxHp ()</a></td>
+	<td class="summary">get the character's maximum hp.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getMaxMana">Character:getMaxMana ()</a></td>
+	<td class="summary">get the character's maximum mana.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getMaxMove">Character:getMaxMove ()</a></td>
+	<td class="summary">get the character's maximum movement.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getMove">Character:getMove ()</a></td>
+	<td class="summary">get the character's current movement.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:getName">Character:getName ()</a></td>
 	<td class="summary">get the name (keywords) for a character.</td>
 	</tr>
@@ -71,152 +187,56 @@
 	<td class="summary">get the short description for a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setShortDescription">Character:setShortDescription (desc)</a></td>
-	<td class="summary">set the short description for an NPC.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getDescription">Character:getDescription ()</a></td>
-	<td class="summary">get the full description for a character (what you see when looking at them).</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:setDescription">Character:setDescription (desc)</a></td>
-	<td class="summary">set the full description for an NPC (what you see when looking at them).</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getInRoom">Character:getInRoom ()</a></td>
-	<td class="summary">get the character's current room.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getInArea">Character:getInArea ()</a></td>
-	<td class="summary">get the character's current area.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getFollowing">Character:getFollowing ()</a></td>
-	<td class="summary">get the character this one is currently following.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getCarryWeight">Character:getCarryWeight ()</a></td>
-	<td class="summary">get the character's current carried weight.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:carrying">Character:carrying ()</a></td>
-	<td class="summary">get an iterator over objects in the character's inventory.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:wearing">Character:wearing ()</a></td>
-	<td class="summary">get an iterator over objects the character is wearing.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getClan">Character:getClan ()</a></td>
-	<td class="summary">get the character's current clan.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:isNPC">Character:isNPC ()</a></td>
-	<td class="summary">whether this character is an NPC.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getHp">Character:getHp ()</a></td>
-	<td class="summary">get the character's current hp.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getMaxHp">Character:getMaxHp ()</a></td>
-	<td class="summary">get the character's maximum hp.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getMana">Character:getMana ()</a></td>
-	<td class="summary">get the character's current mana.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getMaxMana">Character:getMaxMana ()</a></td>
-	<td class="summary">get the character's maximum mana.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getMove">Character:getMove ()</a></td>
-	<td class="summary">get the character's current movement.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getMaxMove">Character:getMaxMove ()</a></td>
-	<td class="summary">get the character's maximum movement.</td>
-	</tr>
-	<tr>
 	<td class="name" nowrap><a href="#Character:getStrength">Character:getStrength ()</a></td>
 	<td class="summary">get the character's current strength attribute.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getIntelligence">Character:getIntelligence ()</a></td>
-	<td class="summary">get the character's current intelligence attribute.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getWisdom">Character:getWisdom ()</a></td>
-	<td class="summary">get the character's current wisdom attribute.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getDexterity">Character:getDexterity ()</a></td>
-	<td class="summary">get the character's current dexterity attribute.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getConstitution">Character:getConstitution ()</a></td>
-	<td class="summary">get the character's current constitution attribute.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getCharisma">Character:getCharisma ()</a></td>
-	<td class="summary">get the character's current charisma attribute.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getLuck">Character:getLuck ()</a></td>
-	<td class="summary">get the character's current luck attribute.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getForce">Character:getForce ()</a></td>
-	<td class="summary">get the character's current force attribute.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getCredits">Character:getCredits ()</a></td>
-	<td class="summary">get the character's current carried credits.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:canSee">Character:canSee (target)</a></td>
-	<td class="summary">whether this character can see the given object or character.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:getMainAbility">Character:getMainAbility ()</a></td>
-	<td class="summary">get the character's main class name.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:toRoom">Character:toRoom (room)</a></td>
-	<td class="summary">transfer the character to the given room.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:force">Character:force (command)</a></td>
-	<td class="summary">make the character enter the given command.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:echoAt">Character:echoAt (text)</a></td>
-	<td class="summary">display some text to the character.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:echoAround">Character:echoAround (text)</a></td>
-	<td class="summary">display some text to everyone in the character's room except for the character.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:gainExp">Character:gainExp (ability, amount, groupGain)</a></td>
-	<td class="summary">award experience to the player.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:damage">Character:damage (amount, byCh)</a></td>
-	<td class="summary">damage a character.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character:awardCredits">Character:awardCredits (amount)</a></td>
-	<td class="summary">award (or fine) credits.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:getVar">Character:getVar (varName, default)</a></td>
 	<td class="summary">get a character's variable by name</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:getWisdom">Character:getWisdom ()</a></td>
+	<td class="summary">get the character's current wisdom attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:isAFK">Character:isAFK ()</a></td>
+	<td class="summary">whether a player is AFK.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:isBotting">Character:isBotting ()</a></td>
+	<td class="summary">whether a player is botting.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:isNPC">Character:isNPC ()</a></td>
+	<td class="summary">whether this character is an NPC.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:say">Character:say (text)</a></td>
+	<td class="summary">say some text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:sayTo">Character:sayTo (target, text)</a></td>
+	<td class="summary">say some text to a target.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:setDescription">Character:setDescription (desc)</a></td>
+	<td class="summary">set the full description for an NPC (what you see when looking at them).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:setShortDescription">Character:setShortDescription (desc)</a></td>
+	<td class="summary">set the short description for an NPC.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:setVar">Character:setVar (varName, value, ttl)</a></td>
 	<td class="summary">set a variable on a character</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:toRoom">Character:toRoom (room)</a></td>
+	<td class="summary">transfer the character to the given room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:wearing">Character:wearing ()</a></td>
+	<td class="summary">get an iterator over objects the character is wearing.</td>
 	</tr>
 </table>
 
@@ -230,6 +250,661 @@
           Functions on character variables
           </div>
     <dl class="function">
+    <dt>
+    <a name = "Character:awardCredits"></a>
+    <strong>Character:awardCredits (amount)</strong>
+    </dt>
+    <dd>
+    award (or fine) credits.
+ If the number is negative, it will remove that many credits.
+ If that would take the player below 0, the amount is adjusted to leave them with exactly 0.
+ This function doesn't echo anything to the player on its own, so you may want to add an echoAt.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amount</span>
+            <span class="types"><span class="type">number</span></span>
+         the number of credits to award or remove
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example">ch:echoAt(<span class="string">"Good job! Here are 5000 credits."</span>)
+ch:awardCredits(<span class="number">5000</span>)</pre></li>
+        <li><pre class="example">ch:echoAt(<span class="string">"Uh oh! The pirate takes a lot of your credits."</span>)
+ch:awardCredits(-<span class="number">50000</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:canSee"></a>
+    <strong>Character:canSee (target)</strong>
+    </dt>
+    <dd>
+    whether this character can see the given object or character.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+         a <a href="../modules/character.html#Character">Character</a> or <a href="../modules/object.html#Object">Object</a>
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character can see the given thing, false otherwise
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> self:canSee(ch) <span class="keyword">then</span>
+  self:force(<span class="string">"say I can't see you!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:carrying"></a>
+    <strong>Character:carrying ()</strong>
+    </dt>
+    <dd>
+    get an iterator over objects in the character's inventory.
+ Any objects they're wearing are ignored, as our items inside containers.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/object.html#Object">Object</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:carrying() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:damage"></a>
+    <strong>Character:damage (amount, byCh)</strong>
+    </dt>
+    <dd>
+    damage a character.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amount</span>
+            <span class="types"><span class="type">number</span></span>
+         of damage to do.
+        </li>
+        <li><span class="parameter">byCh</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character doing the damage, if applicable. Can be omitted or set to nil.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:damage(<span class="number">1000</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:echoAround"></a>
+    <strong>Character:echoAround (text)</strong>
+    </dt>
+    <dd>
+    display some text to everyone in the character's room except for the character.
+ <code>$n</code> can be used to refer to the character.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><span class="type">string</span></span>
+         the message to show
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:echoAround(<span class="string">"$n trembles in fear."</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:echoAt"></a>
+    <strong>Character:echoAt (text)</strong>
+    </dt>
+    <dd>
+    display some text to the character.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><span class="type">string</span></span>
+         the message to show
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:echoAt(<span class="string">"You hear a strange sound in the distance..."</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:emote"></a>
+    <strong>Character:emote (text)</strong>
+    </dt>
+    <dd>
+    perform the given emote.
+ Convenience alias for <code>self:force(&quot;emote &quot;..text)</code>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><span class="type">string</span></span>
+         the action to emote
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:force"></a>
+    <strong>Character:force (command)</strong>
+    </dt>
+    <dd>
+    make the character enter the given command.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">command</span>
+            <span class="types"><span class="type">string</span></span>
+         the command to run
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:force(<span class="string">"say Hello there!"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:gainExp"></a>
+    <strong>Character:gainExp (ability, amount, groupGain)</strong>
+    </dt>
+    <dd>
+    award experience to the player.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ability</span>
+            <span class="types"><span class="type">string</span></span>
+         the class name (bounty hunting, combat, etc)
+        </li>
+        <li><span class="parameter">amount</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount of experience to award
+        </li>
+        <li><span class="parameter">groupGain</span>
+            <span class="types"><span class="type">bool</span></span>
+         whether to give the same experience to a leader main's group (optional, defaults to false)
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:gainExp(<span class="string">"combat"</span>, <span class="number">10000</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:getCarryWeight"></a>
+    <strong>Character:getCarryWeight ()</strong>
+    </dt>
+    <dd>
+    get the character's current carried weight.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the combined weight of all items the character is carrying
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getCharisma"></a>
+    <strong>Character:getCharisma ()</strong>
+    </dt>
+    <dd>
+    get the character's current charisma attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's current charisma, including worn items and effects
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getClan"></a>
+    <strong>Character:getClan ()</strong>
+    </dt>
+    <dd>
+    get the character's current clan.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
+        the character's current clan, or nil if they're not in one
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getConstitution"></a>
+    <strong>Character:getConstitution ()</strong>
+    </dt>
+    <dd>
+    get the character's current constitution attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's current constitution, including worn items and effects
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getCredits"></a>
+    <strong>Character:getCredits ()</strong>
+    </dt>
+    <dd>
+    get the character's current carried credits.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's carried credit balance
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getDescription"></a>
+    <strong>Character:getDescription ()</strong>
+    </dt>
+    <dd>
+    get the full description for a character (what you see when looking at them).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the description for this character
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getDexterity"></a>
+    <strong>Character:getDexterity ()</strong>
+    </dt>
+    <dd>
+    get the character's current dexterity attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's current dexterity, including worn items and effects
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getFollowing"></a>
+    <strong>Character:getFollowing ()</strong>
+    </dt>
+    <dd>
+    get the character this one is currently following.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        the character they're following, or nil if not following anyone
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getForce"></a>
+    <strong>Character:getForce ()</strong>
+    </dt>
+    <dd>
+    get the character's current force attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's current force, including worn items and effects
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getHp"></a>
+    <strong>Character:getHp ()</strong>
+    </dt>
+    <dd>
+    get the character's current hp.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the character's current hp
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getInArea"></a>
+    <strong>Character:getInArea ()</strong>
+    </dt>
+    <dd>
+    get the character's current area.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">Area</span></span>
+        the area
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getInRoom"></a>
+    <strong>Character:getInRoom ()</strong>
+    </dt>
+    <dd>
+    get the character's current room.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+        the room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getIntelligence"></a>
+    <strong>Character:getIntelligence ()</strong>
+    </dt>
+    <dd>
+    get the character's current intelligence attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's current intelligence, including worn items and effects
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getLuck"></a>
+    <strong>Character:getLuck ()</strong>
+    </dt>
+    <dd>
+    get the character's current luck attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's current luck, including worn items and effects
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getMainAbility"></a>
+    <strong>Character:getMainAbility ()</strong>
+    </dt>
+    <dd>
+    get the character's main class name.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the character's main class
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> ch:getMainAbility() == <span class="string">"bounty hunting"</span> <span class="keyword">then</span>
+  <span class="comment">-- do stuff
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:getMana"></a>
+    <strong>Character:getMana ()</strong>
+    </dt>
+    <dd>
+    get the character's current mana.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the character's current mana
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getMaxHp"></a>
+    <strong>Character:getMaxHp ()</strong>
+    </dt>
+    <dd>
+    get the character's maximum hp.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the character's maximum hp
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getMaxMana"></a>
+    <strong>Character:getMaxMana ()</strong>
+    </dt>
+    <dd>
+    get the character's maximum mana.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the character's maximum mana
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getMaxMove"></a>
+    <strong>Character:getMaxMove ()</strong>
+    </dt>
+    <dd>
+    get the character's maximum movement.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the character's maximum movemenv
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getMove"></a>
+    <strong>Character:getMove ()</strong>
+    </dt>
+    <dd>
+    get the character's current movement.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the character's current movement
+    </ol>
+
+
+
+
+</dd>
     <dt>
     <a name = "Character:getName"></a>
     <strong>Character:getName ()</strong>
@@ -271,369 +946,6 @@
 
 </dd>
     <dt>
-    <a name = "Character:setShortDescription"></a>
-    <strong>Character:setShortDescription (desc)</strong>
-    </dt>
-    <dd>
-    set the short description for an NPC.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">desc</span>
-            <span class="types"><span class="type">string</span></span>
-         the new short description
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">ch:setShortDescription(<span class="string">"an angry pirate captain"</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:getDescription"></a>
-    <strong>Character:getDescription ()</strong>
-    </dt>
-    <dd>
-    get the full description for a character (what you see when looking at them).
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">string</span></span>
-        the description for this character
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:setDescription"></a>
-    <strong>Character:setDescription (desc)</strong>
-    </dt>
-    <dd>
-    set the full description for an NPC (what you see when looking at them).
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">desc</span>
-            <span class="types"><span class="type">string</span></span>
-         the new description
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getInRoom"></a>
-    <strong>Character:getInRoom ()</strong>
-    </dt>
-    <dd>
-    get the character's current room.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
-        the room
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getInArea"></a>
-    <strong>Character:getInArea ()</strong>
-    </dt>
-    <dd>
-    get the character's current area.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">Area</span></span>
-        the area
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getFollowing"></a>
-    <strong>Character:getFollowing ()</strong>
-    </dt>
-    <dd>
-    get the character this one is currently following.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
-        the character they're following, or nil if not following anyone
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getCarryWeight"></a>
-    <strong>Character:getCarryWeight ()</strong>
-    </dt>
-    <dd>
-    get the character's current carried weight.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the combined weight of all items the character is carrying
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:carrying"></a>
-    <strong>Character:carrying ()</strong>
-    </dt>
-    <dd>
-    get an iterator over objects in the character's inventory.
- Any objects they're wearing are ignored, as our items inside containers.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-        an iterator of <a href="../modules/object.html#Object">Object</a>
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:carrying() <span class="keyword">do</span>
-  <span class="comment">-- do something
-</span><span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:wearing"></a>
-    <strong>Character:wearing ()</strong>
-    </dt>
-    <dd>
-    get an iterator over objects the character is wearing.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-        an iterator of <a href="../modules/object.html#Object">Object</a>
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:wearing() <span class="keyword">do</span>
-  <span class="comment">-- do something
-</span><span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:getClan"></a>
-    <strong>Character:getClan ()</strong>
-    </dt>
-    <dd>
-    get the character's current clan.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
-        the character's current clan, or nil if they're not in one
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:isNPC"></a>
-    <strong>Character:isNPC ()</strong>
-    </dt>
-    <dd>
-    whether this character is an NPC.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        true if the character is an NPC, false if they're a player
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> ch:isNPC() <span class="keyword">then</span>
-  ch:echoAt(<span class="string">"You're a player!"</span>)
-<span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:getHp"></a>
-    <strong>Character:getHp ()</strong>
-    </dt>
-    <dd>
-    get the character's current hp.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">integer</span></span>
-        the character's current hp
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getMaxHp"></a>
-    <strong>Character:getMaxHp ()</strong>
-    </dt>
-    <dd>
-    get the character's maximum hp.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">integer</span></span>
-        the character's maximum hp
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getMana"></a>
-    <strong>Character:getMana ()</strong>
-    </dt>
-    <dd>
-    get the character's current mana.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">integer</span></span>
-        the character's current mana
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getMaxMana"></a>
-    <strong>Character:getMaxMana ()</strong>
-    </dt>
-    <dd>
-    get the character's maximum mana.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">integer</span></span>
-        the character's maximum mana
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getMove"></a>
-    <strong>Character:getMove ()</strong>
-    </dt>
-    <dd>
-    get the character's current movement.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">integer</span></span>
-        the character's current movement
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getMaxMove"></a>
-    <strong>Character:getMaxMove ()</strong>
-    </dt>
-    <dd>
-    get the character's maximum movement.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">integer</span></span>
-        the character's maximum movemenv
-    </ol>
-
-
-
-
-</dd>
-    <dt>
     <a name = "Character:getStrength"></a>
     <strong>Character:getStrength ()</strong>
     </dt>
@@ -651,419 +963,6 @@
 
 
 
-
-</dd>
-    <dt>
-    <a name = "Character:getIntelligence"></a>
-    <strong>Character:getIntelligence ()</strong>
-    </dt>
-    <dd>
-    get the character's current intelligence attribute.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the character's current intelligence, including worn items and effects
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getWisdom"></a>
-    <strong>Character:getWisdom ()</strong>
-    </dt>
-    <dd>
-    get the character's current wisdom attribute.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the character's current wisdom, including worn items and effects
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getDexterity"></a>
-    <strong>Character:getDexterity ()</strong>
-    </dt>
-    <dd>
-    get the character's current dexterity attribute.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the character's current dexterity, including worn items and effects
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getConstitution"></a>
-    <strong>Character:getConstitution ()</strong>
-    </dt>
-    <dd>
-    get the character's current constitution attribute.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the character's current constitution, including worn items and effects
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getCharisma"></a>
-    <strong>Character:getCharisma ()</strong>
-    </dt>
-    <dd>
-    get the character's current charisma attribute.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the character's current charisma, including worn items and effects
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getLuck"></a>
-    <strong>Character:getLuck ()</strong>
-    </dt>
-    <dd>
-    get the character's current luck attribute.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the character's current luck, including worn items and effects
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getForce"></a>
-    <strong>Character:getForce ()</strong>
-    </dt>
-    <dd>
-    get the character's current force attribute.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the character's current force, including worn items and effects
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:getCredits"></a>
-    <strong>Character:getCredits ()</strong>
-    </dt>
-    <dd>
-    get the character's current carried credits.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the character's carried credit balance
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Character:canSee"></a>
-    <strong>Character:canSee (target)</strong>
-    </dt>
-    <dd>
-    whether this character can see the given object or character.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">target</span>
-         a <a href="../modules/character.html#Character">Character</a> or <a href="../modules/object.html#Object">Object</a>
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        true if the character can see the given thing, false otherwise
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> self:canSee(ch) <span class="keyword">then</span>
-  self:force(<span class="string">"say I can't see you!"</span>)
-<span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:getMainAbility"></a>
-    <strong>Character:getMainAbility ()</strong>
-    </dt>
-    <dd>
-    get the character's main class name.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">string</span></span>
-        the character's main class
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">if</span> ch:getMainAbility() == <span class="string">"bounty hunting"</span> <span class="keyword">then</span>
-  <span class="comment">-- do stuff
-</span><span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:toRoom"></a>
-    <strong>Character:toRoom (room)</strong>
-    </dt>
-    <dd>
-    transfer the character to the given room.
- This does not show the character the room contents, so you may wish to <code>ch:force(&quot;look&quot;)</code> afterward.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">room</span>
-         the room to send them to, either a <a href="../modules/room.html#Room">Room</a> object or vnum
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">ch:toRoom(<span class="number">12345</span>)
-ch:force(<span class="string">"look"</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:force"></a>
-    <strong>Character:force (command)</strong>
-    </dt>
-    <dd>
-    make the character enter the given command.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">command</span>
-            <span class="types"><span class="type">string</span></span>
-         the command to run
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">ch:force(<span class="string">"say Hello there!"</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:echoAt"></a>
-    <strong>Character:echoAt (text)</strong>
-    </dt>
-    <dd>
-    display some text to the character.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">text</span>
-            <span class="types"><span class="type">string</span></span>
-         the message to show
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">ch:echoAt(<span class="string">"You hear a strange sound in the distance..."</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:echoAround"></a>
-    <strong>Character:echoAround (text)</strong>
-    </dt>
-    <dd>
-    display some text to everyone in the character's room except for the character.
- <code>$n</code> can be used to refer to the character.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">text</span>
-            <span class="types"><span class="type">string</span></span>
-         the message to show
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">ch:echoAround(<span class="string">"$n trembles in fear."</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:gainExp"></a>
-    <strong>Character:gainExp (ability, amount, groupGain)</strong>
-    </dt>
-    <dd>
-    award experience to the player.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">ability</span>
-            <span class="types"><span class="type">string</span></span>
-         the class name (bounty hunting, combat, etc)
-        </li>
-        <li><span class="parameter">amount</span>
-            <span class="types"><span class="type">number</span></span>
-         the amount of experience to award
-        </li>
-        <li><span class="parameter">groupGain</span>
-            <span class="types"><span class="type">bool</span></span>
-         whether to give the same experience to a leader main's group (optional, defaults to false)
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">ch:gainExp(<span class="string">"combat"</span>, <span class="number">10000</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:damage"></a>
-    <strong>Character:damage (amount, byCh)</strong>
-    </dt>
-    <dd>
-    damage a character.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">amount</span>
-            <span class="types"><span class="type">number</span></span>
-         of damage to do.
-        </li>
-        <li><span class="parameter">byCh</span>
-            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
-         the character doing the damage, if applicable. Can be omitted or set to nil.
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">ch:damage(<span class="number">1000</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character:awardCredits"></a>
-    <strong>Character:awardCredits (amount)</strong>
-    </dt>
-    <dd>
-    award (or fine) credits.
- If the number is negative, it will remove that many credits.
- If that would take the player below 0, the amount is adjusted to leave them with exactly 0.
- This function doesn't echo anything to the player on its own, so you may want to add an echoAt.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">amount</span>
-            <span class="types"><span class="type">number</span></span>
-         the number of credits to award or remove
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <li><pre class="example">ch:echoAt(<span class="string">"Good job! Here are 5000 credits."</span>)
-ch:awardCredits(<span class="number">5000</span>)</pre></li>
-        <li><pre class="example">ch:echoAt(<span class="string">"Uh oh! The pirate takes a lot of your credits."</span>)
-ch:awardCredits(-<span class="number">50000</span>)</pre></li>
-    </ul>
 
 </dd>
     <dt>
@@ -1103,6 +1002,186 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:getWisdom"></a>
+    <strong>Character:getWisdom ()</strong>
+    </dt>
+    <dd>
+    get the character's current wisdom attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's current wisdom, including worn items and effects
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:isAFK"></a>
+    <strong>Character:isAFK ()</strong>
+    </dt>
+    <dd>
+    whether a player is AFK.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the player is AFK, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:isBotting"></a>
+    <strong>Character:isBotting ()</strong>
+    </dt>
+    <dd>
+    whether a player is botting.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the player is botting, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:isNPC"></a>
+    <strong>Character:isNPC ()</strong>
+    </dt>
+    <dd>
+    whether this character is an NPC.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is an NPC, false if they're a player
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> ch:isNPC() <span class="keyword">then</span>
+  ch:echoAt(<span class="string">"You're a player!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:say"></a>
+    <strong>Character:say (text)</strong>
+    </dt>
+    <dd>
+    say some text.
+ Convenience alias for <code>self:force(&quot;say &quot;..text)</code>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><span class="type">string</span></span>
+         the text to speak
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:sayTo"></a>
+    <strong>Character:sayTo (target, text)</strong>
+    </dt>
+    <dd>
+    say some text to a target.
+ Convenience alias for <code>self:force(&quot;sayto \&quot;&quot;..target:getName()..&quot;\&quot;&quot; &quot;..text)</code>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the person to speak to
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><span class="type">string</span></span>
+         the text to speak
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:setDescription"></a>
+    <strong>Character:setDescription (desc)</strong>
+    </dt>
+    <dd>
+    set the full description for an NPC (what you see when looking at them).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">desc</span>
+            <span class="types"><span class="type">string</span></span>
+         the new description
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:setShortDescription"></a>
+    <strong>Character:setShortDescription (desc)</strong>
+    </dt>
+    <dd>
+    set the short description for an NPC.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">desc</span>
+            <span class="types"><span class="type">string</span></span>
+         the new short description
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:setShortDescription(<span class="string">"an angry pirate captain"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character:setVar"></a>
     <strong>Character:setVar (varName, value, ttl)</strong>
     </dt>
@@ -1137,6 +1216,57 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     </ul>
 
 </dd>
+    <dt>
+    <a name = "Character:toRoom"></a>
+    <strong>Character:toRoom (room)</strong>
+    </dt>
+    <dd>
+    transfer the character to the given room.
+ This does not show the character the room contents, so you may wish to <code>ch:force(&quot;look&quot;)</code> afterward.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">room</span>
+         the room to send them to, either a <a href="../modules/room.html#Room">Room</a> object or vnum
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:toRoom(<span class="number">12345</span>)
+ch:force(<span class="string">"look"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:wearing"></a>
+    <strong>Character:wearing ()</strong>
+    </dt>
+    <dd>
+    get an iterator over objects the character is wearing.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/object.html#Object">Object</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:wearing() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
 </dl>
 
 
@@ -1144,7 +1274,7 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-03-27 10:49:29 </i>
+<i style="float:right;">Last updated 2021-03-27 11:18:49 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
