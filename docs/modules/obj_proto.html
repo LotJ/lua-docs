@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_fixed.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Class_ObjProto">Class ObjProto </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><strong>obj_proto</strong></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>obj_proto</code></h1>
+<p>Functions for object prototypes, including triggers</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Class_ObjProto">Class ObjProto </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onAct">ObjProto:onAct (message, callback)</a></td>
+	<td class="summary">registers a function to run when the given action message is shown in the object's room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onCommand">ObjProto:onCommand (command, callback)</a></td>
+	<td class="summary">registers a function to run when a character (player or NPC) enters a custom command.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onDamage">ObjProto:onDamage (callback)</a></td>
+	<td class="summary">registers a function to run after an object gets damaged.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onDrop">ObjProto:onDrop (callback)</a></td>
+	<td class="summary">registers a function to run after a character drops this object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onExamine">ObjProto:onExamine (callback)</a></td>
+	<td class="summary">registers a function to run after a character examines this object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onGet">ObjProto:onGet (callback)</a></td>
+	<td class="summary">registers a function to run after a character gets this object from the room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onGreet">ObjProto:onGreet (callback)</a></td>
+	<td class="summary">registers a function to run when a character enters the room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onPull">ObjProto:onPull (callback)</a></td>
+	<td class="summary">registers a function to run after a button object is pulled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onPush">ObjProto:onPush (callback)</a></td>
+	<td class="summary">registers a function to run after a button object is pushed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onRandom">ObjProto:onRandom (chance, callback)</a></td>
+	<td class="summary">registers a function with a chance to run every main tick (52-87 seconds, random).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onRemove">ObjProto:onRemove (callback)</a></td>
+	<td class="summary">registers a function to run after a character unequips this object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onSpeech">ObjProto:onSpeech (message, callback)</a></td>
+	<td class="summary">registers a function to run when the given text is spoken in the room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onTime">ObjProto:onTime (hour, callback)</a></td>
+	<td class="summary">registers a function to run every time the hour changes to a certain value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onUse">ObjProto:onUse (callback)</a></td>
+	<td class="summary">registers a function to run after an object is used.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ObjProto:onWear">ObjProto:onWear (callback)</a></td>
+	<td class="summary">registers a function to run after a character equips this object.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header has-description"><a name="Class_ObjProto"></a>Class ObjProto </h2>
+
+          <div class="section-description">
+          Functions on object prototype variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "ObjProto:onAct"></a>
+    <strong>ObjProto:onAct (message, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when the given action message is shown in the object's room.
+ Only applies to objects on the ground in the room, not anything in character inventories.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><span class="type">string</span></span>
+         the message to trigger on
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who did the action
+ 3. the full text of the action message
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onAct(<span class="string">"grips the piloting controls"</span>, <span class="keyword">function</span>(self, actor, fullText)
+  actor:echoAt(<span class="string">"The console beeps loudly and the controls are disabled."</span>)
+  actor:force(<span class="string">"pilot"</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onCommand"></a>
+    <strong>ObjProto:onCommand (command, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character (player or NPC) enters a custom command.
+ Works on any objects in the room or in the character's inventory (including equipped items).
+ Does not work for objects in a container.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">command</span>
+            <span class="types"><span class="type">string</span></span>
+         the command name
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/object.html#Object">Object</a> instance
+ 1. the <a href="../modules/character.html#Character">Character</a> who entered the command
+ 2. the argument they entered to the command, if any
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onCommand(<span class="string">"repair"</span>, <span class="keyword">function</span>(self, ch, argument)
+  ch:echoAt(<span class="string">"You repaired "</span>..self:getShortDescription()..<span class="string">"."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onDamage"></a>
+    <strong>ObjProto:onDamage (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run after an object gets damaged.
+ This function runs before the object is potentially reduced to scraps. For objects
+ tracking durability as a value, you can modify that durability here to prevent it
+ from being destroyed. Other object types just have a random chance to break, and
+ you can't prevent that here.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who is wearing the object (will be nil if it's on the ground)
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onDamage(<span class="keyword">function</span>(self, ch)
+  ch:echoAt(self:getShortDescription()..<span class="string">" emits a sad noise."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onDrop"></a>
+    <strong>ObjProto:onDrop (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run after a character drops this object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who dropped the object
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onDrop(<span class="keyword">function</span>(self, ch)
+  ch:echoAt(self:getShortDescription()..<span class="string">" falls to the ground with a loud clunk."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onExamine"></a>
+    <strong>ObjProto:onExamine (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run after a character examines this object.
+ This covers both <code>look &lt;thing&gt;</code> and <code>examine &lt;thing&gt;</code>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who examined the object
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onExamine(<span class="keyword">function</span>(self, ch)
+  ch:echoAt(<span class="string">"You notice bright red button on the underside of the device."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onGet"></a>
+    <strong>ObjProto:onGet (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run after a character gets this object from the room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who picked up the object
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onGet(<span class="keyword">function</span>(self, ch)
+  ch:echoAt(<span class="string">"You carefully scoop up the pile of powder."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onGreet"></a>
+    <strong>ObjProto:onGreet (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character enters the room.
+ Only works for objects on the ground.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who entered
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onGreet(<span class="keyword">function</span>(self, target)
+  target:echoAt(<span class="string">"You notice "</span>..self:getShortDescription()..<span class="string">" blinking red."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onPull"></a>
+    <strong>ObjProto:onPull (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run after a button object is pulled.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who pulled it
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onPull(<span class="keyword">function</span>(self, ch)
+  ch:echoAt(self:getShortDescription()..<span class="string">" does something because you pulled it."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onPush"></a>
+    <strong>ObjProto:onPush (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run after a button object is pushed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who pushed it
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onPush(<span class="keyword">function</span>(self, ch)
+  ch:echoAt(self:getShortDescription()..<span class="string">" does something because you pushed it."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onRandom"></a>
+    <strong>ObjProto:onRandom (chance, callback)</strong>
+    </dt>
+    <dd>
+    registers a function with a chance to run every main tick (52-87 seconds, random).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">chance</span>
+            <span class="types"><span class="type">integer</span></span>
+         the chance, 1-100, that the trigger will fire on a given tick
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onRandom(<span class="number">25</span>, <span class="keyword">function</span>(self)
+  <span class="comment">-- Do stuff
+</span><span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onRemove"></a>
+    <strong>ObjProto:onRemove (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run after a character unequips this object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who removed the object
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onRemove(<span class="keyword">function</span>(self, ch)
+  ch:emote(<span class="string">"makes a controlled descent and removes their jetpack."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onSpeech"></a>
+    <strong>ObjProto:onSpeech (message, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when the given text is spoken in the room.
+ Works for objects on the ground or in the direct inventory/equip of any characters in the room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><span class="type">string</span></span>
+         the message to trigger on
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who spoke
+ 3. the full text spoken
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onSpeech(<span class="string">"activate"</span>, <span class="keyword">function</span>(self, speaker, fullText)
+  speaker:echoAt(<span class="string">"The trash compactor whirs as it activates."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onTime"></a>
+    <strong>ObjProto:onTime (hour, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run every time the hour changes to a certain value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">hour</span>
+            <span class="types"><span class="type">integer</span></span>
+         the hour of day to trigger at, 0-23
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onTime(<span class="number">6</span>, <span class="keyword">function</span>(self)
+  <span class="comment">-- Do something at 6am every day
+</span><span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onUse"></a>
+    <strong>ObjProto:onUse (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run after an object is used.
+ Setting an onUse allows the use command on any object regardless of its type.
+ When an onUse happens, the default messages about using the object are suppressed,
+ although the default behavior still kicks in (toggling lights, etc).
+ For objects of type <code>device</code>, the object can be used with a target. This can be a
+ character or object accessible to the player, and if present, either of these arguments
+ will be passed to the onUse function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who used it
+ 3. the <a href="../modules/character.html#Character">Character</a> targeted by the use command, for devices
+ 4. the <a href="../modules/object.html#Object">Object</a> targeted by the use command, for devices
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example">self:onUse(<span class="keyword">function</span>(self, ch)
+  ch:echoAt(self:getShortDescription()..<span class="string">" does something because you used it."</span>)
+<span class="keyword">end</span>)</pre></li>
+        <li><pre class="example">self:onUse(<span class="keyword">function</span>(self, ch, targetCh, targetObj)
+  <span class="keyword">if</span> <span class="keyword">not</span> targetCh <span class="keyword">then</span>
+    ch:echoAt(<span class="string">"This can only be used on a character."</span>)
+    <span class="keyword">return</span>
+  <span class="keyword">end</span>
+  targetCh:echoAt(<span class="string">"You feel a surge of static electricity."</span>)
+  targetCh:echoAround(<span class="string">"$n's hair sticks out in every direction."</span>)
+<span class="keyword">end</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "ObjProto:onWear"></a>
+    <strong>ObjProto:onWear (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run after a character equips this object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/object.html#Object">Object</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who wore the object
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onWear(<span class="keyword">function</span>(self, ch)
+  ch:emote(<span class="string">"loosely straps "</span>..self:getShortDescription()..<span class="string">" over their shoulder."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-04-18 14:11:23 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

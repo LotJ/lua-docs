@@ -43,6 +43,7 @@
   <li><a href="../modules/character.html">character</a></li>
   <li><a href="../modules/clan.html">clan</a></li>
   <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
   <li><a href="../modules/object.html">object</a></li>
   <li><strong>room</strong></li>
   <li><a href="../modules/ship.html">ship</a></li>
@@ -103,16 +104,40 @@
 	<td class="summary">get an iterator over objects in the room</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Room:onAct">Room:onAct (message, callback)</a></td>
+	<td class="summary">registers a function to run when the given action message is shown in the room.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Room:onCommand">Room:onCommand (command, callback)</a></td>
 	<td class="summary">registers a function to run when a character (player or NPC) enters a custom command.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:onDrop">Room:onDrop (callback)</a></td>
+	<td class="summary">registers a function to run when a character drop an object in the room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:onEnter">Room:onEnter (callback)</a></td>
+	<td class="summary">registers a function to run when a character (player or NPC) leaves a room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:onEnter">Room:onEnter (callback)</a></td>
 	<td class="summary">registers a function to run when a character (player or NPC) enters a room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Room:onEnter">Room:onEnter (callback)</a></td>
-	<td class="summary">registers a function to run when a character (player or NPC) leaves a room.</td>
+	<td class="name" nowrap><a href="#Room:onLook">Room:onLook (keyword, callback)</a></td>
+	<td class="summary">registers a function to run when a character looks, either at the room or a given keyword.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:onRandom">Room:onRandom (chance, callback)</a></td>
+	<td class="summary">registers a function with a chance to run every main tick (52-87 seconds, random).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:onSpeech">Room:onSpeech (message, callback)</a></td>
+	<td class="summary">registers a function to run when the given text is spoken in the room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:onTime">Room:onTime (hour, callback)</a></td>
+	<td class="summary">registers a function to run every time the hour changes to a certain value.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:setVar">Room:setVar (varName, value, ttl)</a></td>
@@ -345,6 +370,41 @@
 
 </dd>
     <dt>
+    <a name = "Room:onAct"></a>
+    <strong>Room:onAct (message, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when the given action message is shown in the room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><span class="type">string</span></span>
+         the message to trigger on
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/room.html#Room">Room</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who did the action
+ 3. the full text of the action message
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onAct(<span class="string">"grips the piloting controls"</span>, <span class="keyword">function</span>(self, actor, fullText)
+  actor:echoAt(<span class="string">"The console beeps loudly and the controls are disabled."</span>)
+  actor:force(<span class="string">"pilot"</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Room:onCommand"></a>
     <strong>Room:onCommand (command, callback)</strong>
     </dt>
@@ -361,8 +421,9 @@
         <li><span class="parameter">callback</span>
             <span class="types"><span class="type">func</span></span>
          the function to run, taking arguments:
- 1. the <a href="../modules/character.html#Character">Character</a> entering the room
- 2. the argument they entered to the command, if any
+ 1. the <a href="../modules/room.html#Room">Room</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who entered the command
+ 3. the argument they entered to the command, if any
         </li>
     </ul>
 
@@ -378,11 +439,11 @@
 
 </dd>
     <dt>
-    <a name = "Room:onEnter"></a>
-    <strong>Room:onEnter (callback)</strong>
+    <a name = "Room:onDrop"></a>
+    <strong>Room:onDrop (callback)</strong>
     </dt>
     <dd>
-    registers a function to run when a character (player or NPC) enters a room.
+    registers a function to run when a character drop an object in the room.
 
 
     <h3>Parameters:</h3>
@@ -390,7 +451,9 @@
         <li><span class="parameter">callback</span>
             <span class="types"><span class="type">func</span></span>
          the function to run, taking arguments:
- 1. the <a href="../modules/character.html#Character">Character</a> entering the room
+ 1. the <a href="../modules/room.html#Room">Room</a>
+ 2. the <a href="../modules/object.html#Object">Object</a> which was dropped
+ 3. the <a href="../modules/character.html#Character">Character</a> dropping the object
         </li>
     </ul>
 
@@ -399,8 +462,8 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onEnter(<span class="keyword">function</span>(self, ch)
-  ch:echoAt(<span class="string">"As you enter, you notice something interesting!"</span>)
+        <pre class="example">self:onDrop(<span class="keyword">function</span>(self, obj, ch)
+  ch:echoAt(<span class="string">"An alarm rings out and a voice blares over the loudspeaker blaming you for littering "</span>..obj:getShortDescription())
 <span class="keyword">end</span>)</pre>
     </ul>
 
@@ -418,7 +481,8 @@
         <li><span class="parameter">callback</span>
             <span class="types"><span class="type">func</span></span>
          the function to run, taking arguments:
- 1. the <a href="../modules/character.html#Character">Character</a> entering the room
+ 1. the <a href="../modules/room.html#Room">Room</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> entering the room
         </li>
     </ul>
 
@@ -430,6 +494,175 @@
         <pre class="example">self:onLeave(<span class="keyword">function</span>(self, ch, toRoom)
   ch:echoAt(<span class="string">"Right before you leave for "</span>..toRoom:getName()..<span class="string">", you hear a loud noise!"</span>)
 <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:onEnter"></a>
+    <strong>Room:onEnter (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character (player or NPC) enters a room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/room.html#Room">Room</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> entering the room
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onEnter(<span class="keyword">function</span>(self, ch)
+  ch:echoAt(<span class="string">"As you enter, you notice something interesting!"</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:onLook"></a>
+    <strong>Room:onLook (keyword, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character looks, either at the room or a given keyword.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">keyword</span>
+            <span class="types"><span class="type">string</span></span>
+
+<p> the keyword the character must look at to trigger the function. To</p>
+<pre><code>     trigger on using just plain "look", including when they enter a room, use an empty
+     string. If it's not empty, this will only be matched if nothing else in the room
+     matched the same keyword.
+</code></pre>
+
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/room.html#Room">Room</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who looked
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example">self:onLook(<span class="string">""</span>, <span class="keyword">function</span>(self, ch)
+  ch:echoAt(<span class="string">"As you look around, you notice something strange behind the &amp;kcurtain&amp;k."</span>)
+<span class="keyword">end</span>)</pre></li>
+        <li><pre class="example">self:onLook(<span class="string">"curtain"</span>, <span class="keyword">function</span>(self, ch)
+  ch:echoAt(<span class="string">"You look behind the curtain and find a hidden treasure!"</span>)
+<span class="keyword">end</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:onRandom"></a>
+    <strong>Room:onRandom (chance, callback)</strong>
+    </dt>
+    <dd>
+    registers a function with a chance to run every main tick (52-87 seconds, random).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">chance</span>
+            <span class="types"><span class="type">integer</span></span>
+         the chance, 1-100, that the trigger will fire on a given tick
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/room.html#Room">Room</a>
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onRandom(<span class="number">25</span>, <span class="keyword">function</span>(self)
+  <span class="comment">-- Do stuff
+</span><span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:onSpeech"></a>
+    <strong>Room:onSpeech (message, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when the given text is spoken in the room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><span class="type">string</span></span>
+         the message to trigger on
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/room.html#Room">Room</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who spoke
+ 3. the full text spoken
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onSpeech(<span class="string">"activate"</span>, <span class="keyword">function</span>(self, speaker, fullText)
+  speaker:echoAt(<span class="string">"The trash compactor whirs as it activates."</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:onTime"></a>
+    <strong>Room:onTime (hour, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run every time the hour changes to a certain value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">hour</span>
+            <span class="types"><span class="type">integer</span></span>
+         the hour of day to trigger at, 0-23
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/room.html#Room">Room</a>
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onTime(<span class="number">6</span>, <span class="keyword">function</span>(self)
+  <span class="comment">-- Do something at 6am every day
+</span><span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
@@ -493,7 +726,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-03-27 11:18:49 </i>
+<i style="float:right;">Last updated 2021-04-18 14:11:23 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
