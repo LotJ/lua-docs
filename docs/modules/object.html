@@ -64,6 +64,26 @@
 <h2><a href="#Class_Object">Class Object </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Object:echo">Object:echo (message, args)</a></td>
+	<td class="summary">send a message to the occupants of the room the object is in.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:getCarriedBy">Object:getCarriedBy ()</a></td>
+	<td class="summary">get the character holding this object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:getInRoom">Object:getInRoom ()</a></td>
+	<td class="summary">get the room containing this object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:getName">Object:getName ()</a></td>
+	<td class="summary">return the object's name (keywords).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:getShortDescription">Object:getShortDescription ()</a></td>
+	<td class="summary">return the object's short description.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Object:getVNum">Object:getVNum ()</a></td>
 	<td class="summary">return the object's vnum</td>
 	</tr>
@@ -74,6 +94,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#Object:setVar">Object:setVar (varName, value, ttl)</a></td>
 	<td class="summary">set a variable on an object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:toChar">Object:toChar (ch)</a></td>
+	<td class="summary">send an object to the given character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:toRoom">Object:toRoom (room)</a></td>
+	<td class="summary">send an object to the given room on the ground.</td>
 	</tr>
 </table>
 
@@ -87,6 +115,125 @@
           Functions on object variables
           </div>
     <dl class="function">
+    <dt>
+    <a name = "Object:echo"></a>
+    <strong>Object:echo (message, args)</strong>
+    </dt>
+    <dd>
+    send a message to the occupants of the room the object is in.
+ This will do nothing if the object is inside a container, but works if the object is on a
+ character's inventory, equipped, or in a room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><span class="type">string</span></span>
+         the message to send. Can contain tokens referring to subsequent arguments, substituted appropriately for viewers.
+        </li>
+        <li><span class="parameter">args</span>
+            <span class="types"><span class="type">any</span></span>
+         any number of arguments corresponding to the <code>{#}</code> tokens in the message. <code>{1}</code> will refer to the first arg, etc.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onSpeech(<span class="string">"activate"</span>, <span class="keyword">function</span>(self)
+  <span class="keyword">local</span> ch = self:getCarriedBy()
+  <span class="keyword">if</span> ch <span class="keyword">then</span>
+    self:echo(<span class="string">"{1} in {2.'} inventory begins humming softly."</span>, self, ch)
+  <span class="keyword">else</span>
+    self:echo(<span class="string">"{1} begins humming softly on the ground."</span>, self)
+  <span class="keyword">end</span>
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Object:getCarriedBy"></a>
+    <strong>Object:getCarriedBy ()</strong>
+    </dt>
+    <dd>
+    get the character holding this object.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        the character holding this object. Will be nil if it's on the ground or in any container.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Object:getInRoom"></a>
+    <strong>Object:getInRoom ()</strong>
+    </dt>
+    <dd>
+    get the room containing this object.
+ Will work even if it's in a container or carried by someone.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+        the room containing this object.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Object:getName"></a>
+    <strong>Object:getName ()</strong>
+    </dt>
+    <dd>
+    return the object's name (keywords).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the object's name (keywords)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Object:getShortDescription"></a>
+    <strong>Object:getShortDescription ()</strong>
+    </dt>
+    <dd>
+    return the object's short description.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the object's short description
+    </ol>
+
+
+
+
+</dd>
     <dt>
     <a name = "Object:getVNum"></a>
     <strong>Object:getVNum ()</strong>
@@ -170,6 +317,60 @@
     </ul>
 
 </dd>
+    <dt>
+    <a name = "Object:toChar"></a>
+    <strong>Object:toChar (ch)</strong>
+    </dt>
+    <dd>
+    send an object to the given character.
+ This will remove it from wherever it currently is, whether in a container, on the ground,
+ or carried by someone else.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ch</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         The character to send the object to
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Object.invoke(<span class="number">12345</span>):toChar(someCharacter)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Object:toRoom"></a>
+    <strong>Object:toRoom (room)</strong>
+    </dt>
+    <dd>
+    send an object to the given room on the ground.
+ This will remove it from wherever it currently is, whether in a container, on the ground,
+ or carried by someone else.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">room</span>
+            <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+         The room to send the object to
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Object.invoke(<span class="number">12345</span>):toRoom(someRoom)</pre>
+    </ul>
+
+</dd>
 </dl>
 
 
@@ -177,7 +378,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-04-18 14:26:44 </i>
+<i style="float:right;">Last updated 2021-04-18 23:04:29 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
