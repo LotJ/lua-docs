@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_fixed.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Fight_Prog">Fight Prog </a></li>
+<li><a href="#Death_Prog">Death Prog </a></li>
+<li><a href="#Greet_Prog">Greet Prog </a></li>
+<li><a href="#Death_on_Stun_Prog">Death-on-Stun Prog </a></li>
+<li><a href="#Anti_Aim_Prog">Anti-Aim Prog </a></li>
+<li><a href="#Anti_Grab_Prog">Anti-Grab Prog </a></li>
+</ul>
+
+
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><strong>Before and After: Lylek Drone</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+
+<h1>Before and After: Lylek Drone</h1>
+
+<p>Here's an example of a mob with some progs, and what they'd look like once converted to lua. Note that each lua block would be combined into a single lprog, they're just separated here for easier comparison.</p>
+
+<p><a name="Fight_Prog"></a></p>
+<h2>Fight Prog</h2>
+
+<pre><code> 1&gt;fight_prog 99
+ if rand(13)
+ mpecho The lylek drone lashes out violently with a tentacle!
+ if isaffected($n) == sanctuary
+ mpechoat $n Your serene vitality softens the creature's blow.
+ mpdamage $n 75
+ else
+ if isaffected($n) == shockshield
+ mpechoat $n Harnessing your fury, you ignore the pain of the creature's blow.
+ mpdamage $n 75
+ else
+ mpdamage $n 150
+ endif
+ endif
+ endif
+</code></pre>
+
+
+
+<pre>
+self:onFight(<span class="keyword">function</span>(self, target)
+  <span class="keyword">if</span> <span class="global">math</span>.random(<span class="number">100</span>) &lt;= <span class="number">13</span> <span class="keyword">then</span>
+    <span class="comment">-- Using {} tokens in echo means we can put the name of the mob and target
+</span>    <span class="comment">-- in easily, rather than typing out any names here.
+</span>    self:echo(<span class="string">"{1} lashes out violently at {2} with a tentacle!"</span>, self, target)
+
+    <span class="comment">-- Note that we don't check for damage-reducing effects because this damage
+</span>    <span class="comment">-- function automatically accounts for them.
+</span>    <span class="comment">-- Also, let's make it a little fancier by randomizing the damage.
+</span>    <span class="comment">-- Instead of always 150, this will be 101-200
+</span>    target:damage(<span class="number">100</span>+<span class="global">math</span>.random(<span class="number">100</span>), self)
+  <span class="keyword">end</span>
+<span class="keyword">end</span>)
+</pre>
+
+
+<p><a name="Death_Prog"></a></p>
+<h2>Death Prog</h2>
+
+<pre><code> 2&gt;death_prog 100
+ mpgain $n 3 20000
+</code></pre>
+
+
+
+<pre>
+self:onDeath(<span class="keyword">function</span>(self, killer)
+  killer:gainExp(<span class="string">"bounty hunting"</span>, <span class="number">20000</span>)
+<span class="keyword">end</span>)
+</pre>
+
+
+<p><a name="Greet_Prog"></a></p>
+<h2>Greet Prog</h2>
+
+<pre><code> 3&gt;all_greet_prog 100
+ if ispc($n)
+ mpecho A Lylek drone snarls with a high pitched, aggressive hiss!
+ mpkill $n
+ endif
+</code></pre>
+
+
+
+<pre>
+self:onGreet(<span class="keyword">function</span>(self, ch)
+  <span class="keyword">if</span> ch:isPC() <span class="keyword">then</span>
+    self:echo(<span class="string">"{1} snarls with a high pitched, aggressive hiss!"</span>, self)
+    self:attack(ch)
+  <span class="keyword">end</span>
+<span class="keyword">end</span>)
+</pre>
+
+
+<p><a name="Death_on_Stun_Prog"></a></p>
+<h2>Death-on-Stun Prog</h2>
+
+<pre><code> 4&gt;act_prog 'is stunned, but will probably recover.'
+ mpdamage $n 800
+</code></pre>
+
+
+
+<pre>
+self:onAct(<span class="string">"is stunned, but will probably recover"</span>, <span class="keyword">function</span>(self, ch)
+  <span class="comment">-- Let's add a message so it's less mysterious to others in the room.
+</span>  self:echo(<span class="string">"{1} capitalizes on {2.'s} injuries and unleashes a sudden attack!"</span>, self, ch)
+  ch:damage(<span class="number">800</span>, self) <span class="comment">-- The second argument (self) attributes the kill to the lylek.
+</span><span class="keyword">end</span>)
+</pre>
+
+
+<p><a name="Anti_Aim_Prog"></a></p>
+<h2>Anti-Aim Prog</h2>
+
+<pre><code> 5&gt;act_prog 'begins drawing a bead on you!'
+ mpkill $n
+ mpecho The lylek drone lashes out violently with a tentacle!
+ mpforce $n stop
+ if isaffected($n) == sanctuary
+ mpechoat $n Your serene vitality softens the creature's blow.
+ mpdamage $n 75
+ else
+ if isaffected($n) == shockshield
+ mpechoat $n Harnessing your fury, you ignore the pain of the creature's blow.
+ mpdamage $n 75
+ else
+ mpdamage $n 150
+ endif
+ endif
+</code></pre>
+
+
+
+<pre>
+self:onAct(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, ch)
+  self:attack(ch)
+  self:echo(<span class="string">"{1} lashes out violently at {2} with a tentacle!"</span>, self, ch)
+  ch:damage(<span class="number">100</span>+<span class="global">math</span>.random(<span class="number">100</span>), self)
+  ch:force(<span class="string">"stop"</span>)
+<span class="keyword">end</span>)
+</pre>
+
+
+<p><a name="Anti_Grab_Prog"></a></p>
+<h2>Anti-Grab Prog</h2>
+
+<pre><code> 6&gt;act_prog p grabs ahold of you!
+ struggle
+ emote lashes out with a snarl!
+ mpdamage $n 300
+ struggle
+</code></pre>
+
+
+
+<pre>
+self:onAct(<span class="string">"grabs ahold of you!"</span>, <span class="keyword">function</span>(self, ch)
+  self:force(<span class="string">"struggle"</span>)
+  self:emote(<span class="string">"lashes out with a snarl!"</span>)
+  ch:damage(<span class="number">300</span>, self)
+  self:force(<span class="string">"struggle"</span>)
+<span class="keyword">end</span>)
+</pre>
+
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-04-19 12:23:16 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

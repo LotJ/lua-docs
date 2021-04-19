@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_fixed.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Comments">Comments </a></li>
+<li><a href="#Declaring_Local_Variables">Declaring Local Variables </a></li>
+<li><a href="#If_Else_Checks">If/Else Checks </a></li>
+<li><a href="#Calling_functions">Calling functions </a></li>
+<li><a href="#Constructing_Strings">Constructing Strings </a></li>
+<li><a href="#Code_Blocks__Scopes_">Code Blocks (Scopes) </a></li>
+<li><a href="#Loops">Loops </a></li>
+</ul>
+
+
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><strong>Lua Basics</strong></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+
+<h1>Lua Basics</h1>
+
+<p>Lua is a dynamically-typed language which is interpreted by the game when executed. It's beyond the scope of this documentation to provide a thorough lua tutorial, but there will be plenty of exaxmples. Here are a few key things to keep in mind:</p>
+
+
+<p><a name="Comments"></a></p>
+<h2>Comments</h2>
+
+<p>You can add comments to your code in order to make the intent clearer to future readers. <strong><em>Please do this!</em></strong> You may know what the complex code in your prog does today, but when another builder has to update it 4 years from now, what do you want them know?</p>
+
+<p>Comments begin with a <code>--</code> and can be on their own line or after some code on the same line.</p>
+
+<pre>
+<span class="comment">-- This is a comment on its own line.
+</span>
+<span class="keyword">local</span> testVar = <span class="number">5</span> <span class="comment">-- This is an inline comment.</span>
+</pre>
+
+
+
+<p><a name="Declaring_Local_Variables"></a></p>
+<h2>Declaring Local Variables</h2>
+
+<p>In any program, you can define new variables. You should generally only do this inside functions registered via triggers, and always set them as a local variable to avoid unintentional conflicts with other code.</p>
+
+
+<pre>
+self:onSpeech(<span class="string">"test"</span>, <span class="keyword">function</span>(self)
+  <span class="comment">-- Correct. The first time you set testVar, it should have
+</span>  <span class="comment">-- "local" in front.
+</span>  <span class="keyword">local</span> testVar = <span class="number">5</span>
+
+  <span class="comment">-- Incorrect. badVar hasn't been set inside this scope, so the
+</span>  <span class="comment">-- program will create a "global" variable which may mess with
+</span>  <span class="comment">-- any other function using a variable with the same name.
+</span>  badVar = <span class="number">5</span>
+
+  <span class="comment">-- This is fine, since testVar was already declared earlier in
+</span>  <span class="comment">-- the same function. This just changes it to a different value.
+</span>  testVar = <span class="number">6</span>
+<span class="keyword">end</span>)
+</pre>
+
+
+
+<p><a name="If_Else_Checks"></a></p>
+<h2>If/Else Checks</h2>
+
+<p>Here are some examples of how to do if/else checks.</p>
+
+<h3>Operators</h3>
+
+<p>For numbers:</p>
+
+<pre>
+<span class="keyword">if</span> someNumber == <span class="number">1</span>  <span class="comment">-- Equals 1
+</span><span class="keyword">if</span> someNumber ~= <span class="number">1</span>  <span class="comment">-- Not equals 1
+</span><span class="keyword">if</span> someNumber &gt; <span class="number">1</span>   <span class="comment">-- Greater than 1
+</span><span class="keyword">if</span> someNumber &gt;= <span class="number">1</span>  <span class="comment">-- Greater than or equal 1
+</span><span class="keyword">if</span> someNumber &lt; <span class="number">1</span>   <span class="comment">-- Less than 1
+</span><span class="keyword">if</span> someNumber &lt;= <span class="number">1</span>  <span class="comment">-- Less than or equal 1</span>
+</pre>
+
+
+<p>For strings:</p>
+
+<pre>
+<span class="keyword">if</span> someString == <span class="string">"Test"</span>     <span class="comment">-- Is Test (case sensitive)
+</span><span class="keyword">if</span> someString ~= <span class="string">"Test"</span>     <span class="comment">-- Is not Test
+</span><span class="keyword">if</span> someString               <span class="comment">-- Is not nil/empty
+</span><span class="keyword">if</span> someString:find(<span class="string">"Test"</span>)  <span class="comment">-- String contains Test</span>
+</pre>
+
+
+<h3>Else / Else If</h3>
+
+<pre>
+<span class="keyword">if</span> testVar == <span class="number">1</span> <span class="keyword">then</span>
+  <span class="comment">-- Do something
+</span><span class="keyword">elseif</span> testVar == <span class="number">2</span> <span class="keyword">then</span>
+  <span class="comment">-- Do something
+</span><span class="keyword">else</span>
+  <span class="comment">-- Do something
+</span><span class="keyword">end</span>
+</pre>
+
+
+<p>Note that you always need a <code>then</code> after any condition. <code>else</code> does not need a <code>then</code>. The last block in the if/else chain must always be ended with an <code>end</code>.</p>
+
+<h3>Check for nil (empty) variables</h3>
+
+
+<pre>
+<span class="keyword">local</span> testShip = Ship.getFromName(<span class="string">"Testing"</span>)
+
+<span class="comment">-- Check to see if testShip is nil rather than a real ship.
+</span><span class="comment">-- "Nil" is Lua-speak for empty/missing. It's important to check
+</span><span class="comment">-- for because calling functions on a nil variable will error.
+</span><span class="keyword">if</span> testShip <span class="keyword">then</span>
+  <span class="comment">-- Do something because it's a real ship
+</span><span class="keyword">else</span>
+  <span class="comment">-- Do something if it's not found
+</span><span class="keyword">end</span>
+</pre>
+
+
+<p>You can also use <code>if &lt;variable&gt; then ...</code> on numbers or string variables. Numbers set to 0 and strings which are empty will all act like a nil variable.</p>
+
+<h3>Not / Not Equals</h3>
+
+<p>To reverse the meaning of an if check, put <code>not</code> before it:</p>
+
+<pre>
+<span class="keyword">if</span> <span class="keyword">not</span> testShip <span class="keyword">then</span>
+  <span class="comment">-- Do something if testShip is nil
+</span><span class="keyword">end</span>
+</pre>
+
+
+<p>To see if something is not equal to something else, use <code>~=</code>:</p>
+
+<pre>
+<span class="keyword">if</span> testShip:getName() ~= <span class="string">"Testing"</span> <span class="keyword">then</span>
+  <span class="comment">-- Do something if testShip's name is not "Testing"
+</span><span class="keyword">end</span>
+</pre>
+
+
+<h3>And / Or</h3>
+
+
+<pre>
+<span class="keyword">if</span> testShip <span class="keyword">and</span> testShip:getName() == <span class="string">"Testing"</span> <span class="keyword">then</span>
+  <span class="comment">-- Do something if the ship is non-empty and its name is "Testing"
+</span><span class="keyword">end</span>
+</pre>
+
+
+<p>Normally, calling <code>testShip:getName()</code> would fail if testShip was nil because you can't call functions on a nil variable. However, checking for it to be non-nil first protects us from that. It won't even bother checking the ship's name if the first condition ends up being false because the ship is nil.</p>
+
+
+<pre>
+<span class="keyword">if</span> testShip:getName() == <span class="string">"Testing"</span> <span class="keyword">or</span> testShip:getName() == <span class="string">"Other"</span> <span class="keyword">then</span>
+  <span class="comment">-- Do something
+</span><span class="keyword">end</span>
+</pre>
+
+
+<p><a name="Calling_functions"></a></p>
+<h2>Calling functions</h2>
+
+<p>There are two main types of functions: Those which you can call globally, and those which you can call from a variable.</p>
+
+<p>Invoking an object is an example of a global function. These usually look like <code>TypeName.functionName(args)</code> - note the period.</p>
+
+<p>If, instead, you already have an object variable and you want to get its name, you could call <code>myObject:getName()</code>. Note the colon. Calling a function on a variable always goes like <code>&lt;var name&gt;:&lt;function&gt;</code>. <code>myObject.getName()</code>, with a period instead, would complain that there is no such function.</p>
+
+<p>To see what functions are available on a given variable, go to the relevant module on the sidebar.</p>
+
+
+<p><a name="Constructing_Strings"></a></p>
+<h2>Constructing Strings</h2>
+
+<p>You can construct strings using other variables by using <code>..</code> to concatenate them (join them together). For example:</p>
+
+
+<pre>
+<span class="keyword">local</span> firstName = <span class="string">"Han"</span>
+<span class="keyword">local</span> lastName = <span class="string">"Solo"</span>
+
+<span class="comment">-- This will result in "Hello, Han Solo"
+</span><span class="keyword">local</span> fullName = <span class="string">"Hello, "</span>..firstName..<span class="string">" "</span>..lastName
+</pre>
+
+
+<p>The variables don't all have to be strings. You can put numbers in the string in the same way.</p>
+
+
+<p><a name="Code_Blocks__Scopes_"></a></p>
+<h2>Code Blocks (Scopes)</h2>
+
+<p>Like most programming languages, Lua is constructed of blocks of code. All the code inside a function is a block. You can nest other blocks inside that, like if/else statements. You must indicate when each block is done, usually with <code>end</code>.</p>
+
+<p>Each block is considered a "scope" for variables. If you declare a variable inside a block, it can be used or updated inside that block or any block inside it.</p>
+
+
+<pre>
+self:onSpeech(<span class="string">"test"</span>, <span class="keyword">function</span>(self, ch, fullText)
+  <span class="comment">-- Available anywhere after this line in the function
+</span>  <span class="keyword">local</span> mainVar = <span class="number">5</span>
+
+  <span class="keyword">if</span> fullText:find(<span class="string">"red"</span>) <span class="keyword">then</span>
+    <span class="keyword">local</span> redVar = <span class="number">6</span>
+    <span class="comment">-- Here, we could use either mainVar or redVar.
+</span>  <span class="keyword">end</span>
+
+<span class="comment">-- We could not use redVar here, since its block has ended
+</span><span class="keyword">end</span>)
+</pre>
+
+
+<h3>Indentation</h3>
+
+<p>For readability, it's also best to indent all of the code inside a block so it's clear when it begins and ends.</p>
+
+<p>Consider this example:</p>
+
+
+<pre>
+self:onSpeech(<span class="string">"test"</span>, <span class="keyword">function</span>(self, ch, fullText)
+<span class="keyword">if</span> ch:getName() == <span class="string">"Tester"</span> <span class="keyword">then</span>
+<span class="keyword">if</span> ch:getTopLevel() &gt; <span class="number">50</span> <span class="keyword">then</span>
+ch:echoAt(<span class="string">"You said test and you're high-level!"</span>)
+<span class="keyword">else</span>
+ch:echoAt(<span class="string">"You should get to level 50 first."</span>)
+<span class="keyword">end</span>
+<span class="keyword">else</span>
+ch:echoAt(<span class="string">"Who are you?"</span>)
+<span class="keyword">end</span>
+<span class="keyword">end</span>)
+</pre>
+
+
+<p>There's a function with a couple levels of if/else blocks inside, but at a glance it's difficult to see how the program flows. Now, with indentation:</p>
+
+
+<pre>
+self:onSpeech(<span class="string">"test"</span>, <span class="keyword">function</span>(self, ch, fullText)
+  <span class="keyword">if</span> ch:getName() == <span class="string">"Tester"</span> <span class="keyword">then</span>
+    <span class="keyword">if</span> ch:getTopLevel() &gt; <span class="number">50</span> <span class="keyword">then</span>
+      ch:echoAt(<span class="string">"You said test and you're high-level!"</span>)
+    <span class="keyword">else</span>
+      ch:echoAt(<span class="string">"You should get to level 50 first."</span>)
+    <span class="keyword">end</span>
+  <span class="keyword">else</span>
+    ch:echoAt(<span class="string">"Who are you?"</span>)
+  <span class="keyword">end</span>
+<span class="keyword">end</span>)
+</pre>
+
+
+<p>Now it's much easier to see what happens if their name is "Tester" and what happens otherwise.</p>
+
+<p>When editing your code, be sure to indent with spaces, since the mud won't recognize tabs. Preferably, use two spaces instead of four, since the game's limited line lengths put space at a premium. These are preferences you can set in any code editor.</p>
+
+<p>To save space, you can also write simple blocks on one line, but you still need to note the end of it.</p>
+
+
+<pre>
+<span class="comment">-- This would exit a function early (return) if the
+</span><span class="keyword">if</span> <span class="keyword">not</span> ch <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+</pre>
+
+
+
+<p><a name="Loops"></a></p>
+<h2>Loops</h2>
+
+<p>You can run a block a number of times by using a <code>for</code> loop. When running it a number of times, it's common to use <code>i</code> as the variable indicating which iteration you're on.</p>
+
+
+<pre>
+<span class="comment">-- This loop will run 10 times and print a message each time
+</span><span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">10</span> <span class="keyword">do</span>
+  LOTJ.log(<span class="string">"In iteration "</span>..i)
+<span class="keyword">end</span>
+</pre>
+
+
+<p>Sometimes you have a list of things you want to loop over rather than a fixed number. For example, you might want to loop over every ship in a starsystem. In that case, the syntax looks like this:</p>
+
+
+<pre>
+<span class="keyword">local</span> system = &lt;some starsystem&gt;
+<span class="keyword">for</span> ship <span class="keyword">in</span> system:ships() <span class="keyword">do</span>
+  <span class="comment">-- "ship" is now a local variable which you can use in this block
+</span>  LOTJ.log(<span class="string">"Ship in system is"</span>..ship:getName())
+<span class="keyword">end</span>
+</pre>
+
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-04-19 12:23:16 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -49,6 +49,13 @@
   <li><a href="../modules/ship_template.html">ship_template</a></li>
   <li><a href="../modules/starsystem.html">starsystem</a></li>
 </ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+</ul>
 
 </div>
 
@@ -63,6 +70,10 @@
 
 <h2><a href="#Class_Character">Class Character </a></h2>
 <table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Character:attack">Character:attack (target)</a></td>
+	<td class="summary">make this character attack another.</td>
+	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:awardCredits">Character:awardCredits (amount)</a></td>
 	<td class="summary">award (or fine) credits.</td>
@@ -80,8 +91,8 @@
 	<td class="summary">damage a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:echoAround">Character:echoAround (text)</a></td>
-	<td class="summary">display some text to everyone in the character's room except for the character.</td>
+	<td class="name" nowrap><a href="#Character:echo">Character:echo (message, args)</a></td>
+	<td class="summary">send a message to everyone in the character's room except for them.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:echoAt">Character:echoAt (text)</a></td>
@@ -90,6 +101,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character:emote">Character:emote (text)</a></td>
 	<td class="summary">perform the given emote.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:focus">Character:focus (target)</a></td>
+	<td class="summary">change the current target of a mob in combat.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:force">Character:force (command)</a></td>
@@ -205,15 +220,19 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:isAFK">Character:isAFK ()</a></td>
-	<td class="summary">whether a player is AFK.</td>
+	<td class="summary">whether this player is AFK.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:isBotting">Character:isBotting ()</a></td>
-	<td class="summary">whether a player is botting.</td>
+	<td class="summary">whether this player is botting.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:isNPC">Character:isNPC ()</a></td>
 	<td class="summary">whether this character is an NPC.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:isPC">Character:isPC ()</a></td>
+	<td class="summary">whether this character is a player.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:say">Character:say (text)</a></td>
@@ -255,6 +274,32 @@
           Functions on character variables
           </div>
     <dl class="function">
+    <dt>
+    <a name = "Character:attack"></a>
+    <strong>Character:attack (target)</strong>
+    </dt>
+    <dd>
+    make this character attack another.
+ Does nothing if the mob is already in combat.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to attack.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:attack(otherPerson)</pre>
+    </ul>
+
+</dd>
     <dt>
     <a name = "Character:awardCredits"></a>
     <strong>Character:awardCredits (amount)</strong>
@@ -374,19 +419,22 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:echoAround"></a>
-    <strong>Character:echoAround (text)</strong>
+    <a name = "Character:echo"></a>
+    <strong>Character:echo (message, args)</strong>
     </dt>
     <dd>
-    display some text to everyone in the character's room except for the character.
- <code>$n</code> can be used to refer to the character.
+    send a message to everyone in the character's room except for them.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">text</span>
+        <li><span class="parameter">message</span>
             <span class="types"><span class="type">string</span></span>
-         the message to show
+         the message to send. Can contain tokens referring to subsequent arguments, substituted appropriately for viewers.
+        </li>
+        <li><span class="parameter">args</span>
+            <span class="types"><span class="type">any</span></span>
+         any number of arguments corresponding to the <code>{#}</code> tokens in the message. <code>{1}</code> will refer to the first arg, etc.
         </li>
     </ul>
 
@@ -395,7 +443,7 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:echoAround(<span class="string">"$n trembles in fear."</span>)</pre>
+        <pre class="example">ch:echo(<span class="string">"{1} lashes out violently with a tentacle, hitting {2} in the face!"</span>, ch, target)</pre>
     </ul>
 
 </dd>
@@ -444,6 +492,32 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 
 
+
+</dd>
+    <dt>
+    <a name = "Character:focus"></a>
+    <strong>Character:focus (target)</strong>
+    </dt>
+    <dd>
+    change the current target of a mob in combat.
+ Does nothing if the mob is not in combat.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to switch focus to.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:focus(otherPerson)</pre>
+    </ul>
 
 </dd>
     <dt>
@@ -1051,7 +1125,7 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <strong>Character:isAFK ()</strong>
     </dt>
     <dd>
-    whether a player is AFK.
+    whether this player is AFK.
 
 
 
@@ -1071,7 +1145,7 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <strong>Character:isBotting ()</strong>
     </dt>
     <dd>
-    whether a player is botting.
+    whether this player is botting.
 
 
 
@@ -1110,6 +1184,26 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
   ch:echoAt(<span class="string">"You're a player!"</span>)
 <span class="keyword">end</span></pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:isPC"></a>
+    <strong>Character:isPC ()</strong>
+    </dt>
+    <dd>
+    whether this character is a player.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is a player, false otherwise
+    </ol>
+
+
+
 
 </dd>
     <dt>
@@ -1299,7 +1393,7 @@ ch:force(<span class="string">"look"</span>)</pre>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-04-18 23:04:29 </i>
+<i style="float:right;">Last updated 2021-04-19 12:23:16 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
