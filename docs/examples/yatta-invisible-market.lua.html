@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><strong>yatta-invisible-market.lua</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>yatta-invisible-market.lua</h2>
+<pre>
+<span class="comment">-- Build up a list of items for sale.
+</span><span class="comment">-- Each is assigned to a keyword which is what a player must say to buy the item.
+</span><span class="comment">-- Each also supports the following properties:
+</span><span class="comment">--   vnum: Object vnum of item
+</span><span class="comment">--   cost: Cost in coins
+</span><span class="comment">--   previewMsg: What Yatta says when you ask about an item
+</span><span class="comment">-- Optional properties:
+</span><span class="comment">--   count: If buying this should give the player multiple of an item, this is that number. Defaults to 1.
+</span><span class="comment">--   buyName: The name of the item shown when Yatta mentions it at purchase time. Defaults to "One &lt;item short name&gt;"
+</span><span class="keyword">local</span> items = {
+  [<span class="string">"scope"</span>] = {vnum = <span class="number">36651</span>, cost = <span class="number">5</span>,
+    previewMsg = <span class="string">"Ah, the scope eh? Perfect for a sniper! That'll be 5 coins."</span>},
+  [<span class="string">"superconductor"</span>] = {vnum = <span class="number">36652</span>, cost = <span class="number">5</span>,
+    previewMsg = <span class="string">"You some sorta engineer? No matter. My contact tells me that Relby makes the best. A bargain at 5 coins."</span>},
+  [<span class="string">"battery"</span>] = {vnum = <span class="number">36653</span>, cost = <span class="number">5</span>,
+    previewMsg = <span class="string">"Yeah, I get it. Everyone needs batteries. This power pack is something else though. But it's all yours for 5 coins."</span>},
+  [<span class="string">"crystal"</span>] = {vnum = <span class="number">36654</span>, cost = <span class="number">5</span>,
+    previewMsg = <span class="string">"Crystal... yeah... I got some. Just uh.. don't ask where it came from. That'll be 10 coins."</span>},
+  [<span class="string">"sweetblossom"</span>] = {vnum = <span class="number">36657</span>, count = <span class="number">10</span>, cost = <span class="number">5</span>, buyName = <span class="string">"Ten vials of sweetblossom"</span>,
+    previewMsg = <span class="string">"Suhweeeeeeet blossom. That's the stuff. Hit a little harder, feel a little stronger? Give ya 10 vials for 5 coins."</span>},
+  [<span class="string">"gunship blueprints"</span>] = {vnum = <span class="number">32018</span>, cost = <span class="number">250</span>, buyName = <span class="string">"One set of gunship blueprints"</span>,
+    previewMsg = <span class="string">"You ain't seen nothing 'til you seen these babies bust out their payload! Gunship blueprint'll be 250 coins."</span>},
+}
+
+self:onGive(<span class="keyword">function</span>(self, obj, ch)
+  <span class="comment">-- If they gave her something other than what she wants, drop it.
+</span>  <span class="comment">-- This sort of thing could be used for any mob taking specific items to drop non-matches.
+</span>  <span class="keyword">if</span> obj:getVNum() ~= <span class="number">36641</span> <span class="keyword">then</span>
+    self:sayTo(ch, <span class="string">"What's this, hmm? I don't want your junk!"</span>)
+    self:drop(obj)
+    <span class="keyword">return</span>
+  <span class="keyword">end</span>
+
+  <span class="comment">-- Whenever someone gives her a coin, increment their im.coinsGiven variable and then destroy the coin.
+</span>  <span class="comment">-- Because this is tracked as a variable, there's no need to do the original behavior where only one player
+</span>  <span class="comment">-- can be making a purchase at a time, and no need to know what they plan to buy ahead of time.
+</span>  ch:setVar(<span class="string">"im.coinsGiven"</span>, ch:getVar(<span class="string">"im.coinsGiven"</span>, <span class="number">0</span>)+<span class="number">1</span>)
+  self:emote(<span class="string">"&amp;cflicks the coin with a long fingernail and listens to it. She says, \"Yeah, that's a real one. "</span>..
+    <span class="string">"I have you down for "</span>..ch:getVar(<span class="string">"im.coinsGiven"</span>)..<span class="string">" of these.\""</span>)
+  obj:toRoom(<span class="number">4</span>)
+<span class="keyword">end</span>)
+
+
+<span class="comment">-- Set up all speech triggers by looping through the items list.
+</span><span class="comment">-- Because we assign each to a keyword in the items variable, we can get that keyword here.
+</span><span class="comment">-- "item" represents the object assigned to that keyword, with the vnum, cost, etc properties.
+</span><span class="keyword">for</span> keyword, item <span class="keyword">in</span> <span class="global">pairs</span>(items) <span class="keyword">do</span>
+
+  <span class="comment">-- Set a trigger for someone saying just &lt;keyword&gt; ("battery", etc)
+</span>  <span class="comment">-- This will give them the item's description and cost, but do nothing else.
+</span>  self:onSpeech(keyword, <span class="keyword">function</span>(self, ch, fullText)
+    <span class="comment">-- We don't want to trigger when someone says "battery" in a longer sentence,
+</span>    <span class="comment">-- so return early if they said more than just the text trigger.
+</span>    <span class="keyword">if</span> fullText ~= keyword <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span> <span class="comment">-- Exact match only
+</span>
+    <span class="comment">-- Say the previewMsg from the item settings
+</span>    self:sayTo(ch, item.previewMsg)
+    ch:echoAt(<span class="string">"&amp;z[&amp;WI&amp;wnvisible Market&amp;z] To purchase this item, give all of the required coins to Yatta then '&amp;ksay confirm "</span>..keyword..<span class="string">"&amp;k'."</span>)
+  <span class="keyword">end</span>)
+
+  <span class="comment">-- Set a trigger for someone saying "confirm &lt;keyword&gt;". This will complete a purchase.
+</span>  self:onSpeech(<span class="string">"confirm "</span>..keyword, <span class="keyword">function</span>(self, ch, fullText)
+    <span class="keyword">if</span> fullText ~= <span class="string">"confirm "</span>..keyword <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span> <span class="comment">-- Exact match only
+</span>
+    <span class="comment">-- See if we've recorded them giving her enough coins by looking up the variable we use to track it
+</span>    <span class="keyword">local</span> coinsGiven = ch:getVar(<span class="string">"im.coinsGiven"</span>, <span class="number">0</span>)
+    <span class="keyword">if</span> coinsGiven &lt; item.cost <span class="keyword">then</span>
+      self:emote(<span class="string">"&amp;ccounts the coins in her palm with a dissatisfied grunt, \"Whatcha tryin' to pull here? That ain't enough coins!\""</span>)
+      <span class="keyword">return</span>
+    <span class="keyword">end</span>
+
+
+    <span class="keyword">local</span> buyName = item.buyName <span class="keyword">or</span> <span class="string">"One "</span>..keyword
+    self:emote(<span class="string">"&amp;cgrins greedily, quickly closing her fingers around the coins, \""</span>..buyName..<span class="string">", comin' right up!\""</span>)
+
+    <span class="comment">-- We declare the "obj" variable so that we can later access one of the purchased items to get its name.
+</span>    <span class="keyword">local</span> obj = <span class="keyword">nil</span>
+    <span class="keyword">local</span> count = item.count <span class="keyword">or</span> <span class="number">1</span>
+    <span class="comment">-- This code generically handles single or multiple items by going through a loop up to &lt;count&gt; times.
+</span>    <span class="keyword">for</span> i=<span class="number">1</span>,count <span class="keyword">do</span>
+      obj = Object.invoke(item.vnum)
+      <span class="comment">-- Put the object directly in the character's inventory. Note that this won't show an action
+</span>      <span class="comment">-- message like "player gets a battery", so it's up to us to echo an appropriate message.
+</span>      obj:toChar(ch)
+    <span class="keyword">end</span>
+
+    <span class="comment">-- Subtract the cost from their coinsGiven tracker
+</span>    ch:setVar(<span class="string">"im.coinsGiven"</span>, coinsGiven - item.cost)
+    <span class="keyword">if</span> count == <span class="number">1</span> <span class="keyword">then</span>
+      self:echo(<span class="string">"{1} &amp;cdisappears into the vault and returns, sans coins but with {2}&amp;c, which she hands over to {3}."</span>, self, obj, ch)
+    <span class="keyword">else</span>
+      self:echo(<span class="string">"{1} &amp;cdisappears into the vault and returns, sans coins but with "</span>..count..<span class="string">" of {2}&amp;c, which she hands over to {3}."</span>, self, obj, ch)
+    <span class="keyword">end</span>
+    self:emote(<span class="string">"&amp;creturns her attention to the room and hollers, \"Next!\""</span>)
+  <span class="keyword">end</span>)
+<span class="keyword">end</span></pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-04-20 08:49:09 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
     <title>LotJ Lua API</title>
-    <link rel="stylesheet" href="../ldoc_fixed.css" type="text/css" />
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
 </head>
 <body>
 
@@ -56,6 +56,10 @@
   <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
   <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
 </ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
 
 </div>
 
@@ -89,6 +93,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character:damage">Character:damage (amount, byCh)</a></td>
 	<td class="summary">damage a character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:drop">Character:drop (object)</a></td>
+	<td class="summary">drop an object from the character's inventory.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:echo">Character:echo (message, args)</a></td>
@@ -219,6 +227,14 @@
 	<td class="summary">get the character's current wisdom attribute.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:heal">Character:heal (amount)</a></td>
+	<td class="summary">heal a character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:interrupt">Character:interrupt ()</a></td>
+	<td class="summary">interrupt any timed action the character is doing.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:isAFK">Character:isAFK ()</a></td>
 	<td class="summary">whether this player is AFK.</td>
 	</tr>
@@ -253,6 +269,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character:setVar">Character:setVar (varName, value, ttl)</a></td>
 	<td class="summary">set a variable on a character</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:slay">Character:slay (byCh)</a></td>
+	<td class="summary">instantly kill a character.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:toRoom">Character:toRoom (room)</a></td>
@@ -415,6 +435,31 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <h3>Usage:</h3>
     <ul>
         <pre class="example">ch:damage(<span class="number">1000</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:drop"></a>
+    <strong>Character:drop (object)</strong>
+    </dt>
+    <dd>
+    drop an object from the character's inventory.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">object</span>
+            <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+         the object to drop
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:drop(something)</pre>
     </ul>
 
 </dd>
@@ -1121,6 +1166,52 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:heal"></a>
+    <strong>Character:heal (amount)</strong>
+    </dt>
+    <dd>
+    heal a character.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amount</span>
+            <span class="types"><span class="type">number</span></span>
+         of hp to restore.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:heal(<span class="number">1000</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:interrupt"></a>
+    <strong>Character:interrupt ()</strong>
+    </dt>
+    <dd>
+    interrupt any timed action the character is doing.
+
+
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onAct(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, ch)
+  self:emote(<span class="string">"hides behind a rock!"</span>)
+  ch:interrupt()
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character:isAFK"></a>
     <strong>Character:isAFK ()</strong>
     </dt>
@@ -1336,6 +1427,32 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:slay"></a>
+    <strong>Character:slay (byCh)</strong>
+    </dt>
+    <dd>
+    instantly kill a character.
+ (Or hospitalize them, if eligible)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">byCh</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character doing the slaying, if applicable. Can be omitted or set to nil.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:slay(dragonMob)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character:toRoom"></a>
     <strong>Character:toRoom (room)</strong>
     </dt>
@@ -1393,7 +1510,7 @@ ch:force(<span class="string">"look"</span>)</pre>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-04-19 12:23:16 </i>
+<i style="float:right;">Last updated 2021-04-20 08:49:09 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
