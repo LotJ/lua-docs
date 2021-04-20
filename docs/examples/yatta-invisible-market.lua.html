@@ -73,8 +73,12 @@
 </span><span class="comment">--   count: If buying this should give the player multiple of an item, this is that number. Defaults to 1.
 </span><span class="comment">--   buyName: The name of the item shown when Yatta mentions it at purchase time. Defaults to "One &lt;item short name&gt;"
 </span><span class="keyword">local</span> items = {
-  [<span class="string">"scope"</span>] = {vnum = <span class="number">36651</span>, cost = <span class="number">5</span>,
-    previewMsg = <span class="string">"Ah, the scope eh? Perfect for a sniper! That'll be 5 coins."</span>},
+  <span class="comment">-- Spreading this one out for readability, but subsequent items are squished onto fewer lines to save space.
+</span>  [<span class="string">"scope"</span>] = {
+    vnum = <span class="number">36651</span>,
+    cost = <span class="number">5</span>,
+    previewMsg = <span class="string">"Ah, the scope eh? Perfect for a sniper! That'll be 5 coins."</span>
+  },
   [<span class="string">"superconductor"</span>] = {vnum = <span class="number">36652</span>, cost = <span class="number">5</span>,
     previewMsg = <span class="string">"You some sorta engineer? No matter. My contact tells me that Relby makes the best. A bargain at 5 coins."</span>},
   [<span class="string">"battery"</span>] = {vnum = <span class="number">36653</span>, cost = <span class="number">5</span>,
@@ -86,6 +90,17 @@
   [<span class="string">"gunship blueprints"</span>] = {vnum = <span class="number">32018</span>, cost = <span class="number">250</span>, buyName = <span class="string">"One set of gunship blueprints"</span>,
     previewMsg = <span class="string">"You ain't seen nothing 'til you seen these babies bust out their payload! Gunship blueprint'll be 250 coins."</span>},
 }
+
+<span class="comment">-- We can define a local function to be used inside this mob's progs so we don't have to copy/paste the code
+</span><span class="keyword">local</span> <span class="keyword">function</span> stockCheck(self, ch, keyword)
+  <span class="comment">-- We set a global variable with a value like "&lt;battery&gt; &lt;gunship blueprints&gt;" to mark what's in stock.
+</span>  <span class="comment">-- Each item is wrapped in &lt;...&gt; so that we could differetiate between "battery" and "fancy battery".
+</span>  <span class="keyword">if</span> <span class="keyword">not</span> LOTJ.getGlobalVar(<span class="string">"im.stock"</span>, <span class="string">""</span>):find(<span class="string">"&lt;"</span>..keyword..<span class="string">"&gt;"</span>) <span class="keyword">then</span>
+    self:sayTo(ch, <span class="string">"Hah! Nice try, but I'm sold outta that fer now. Check back next week."</span>)
+    <span class="keyword">return</span> <span class="keyword">false</span>
+  <span class="keyword">end</span>
+  <span class="keyword">return</span> <span class="keyword">true</span>
+<span class="keyword">end</span>
 
 self:onGive(<span class="keyword">function</span>(self, obj, ch)
   <span class="comment">-- If they gave her something other than what she wants, drop it.
@@ -118,12 +133,8 @@ self:onGive(<span class="keyword">function</span>(self, obj, ch)
 </span>    <span class="comment">-- so return early if they said more than just the text trigger.
 </span>    <span class="keyword">if</span> fullText ~= keyword <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span> <span class="comment">-- Exact match only
 </span>
-    <span class="comment">-- We set a global variable with a value like "&lt;battery&gt; &lt;gunship blueprints&gt;" to mark what's in stock.
-</span>    <span class="comment">-- Each item is wrapped in &lt;...&gt; so that we could differetiate between "battery" and "fancy battery".
-</span>    <span class="keyword">if</span> <span class="keyword">not</span> LOTJ.getGlobalVar(<span class="string">"im.stock"</span>, <span class="string">""</span>):find(<span class="string">"&lt;"</span>..keyword..<span class="string">"&gt;"</span>) <span class="keyword">then</span>
-      self:sayTo(ch, <span class="string">"Hah! Nice try, but I'm sold outta that fer now. Check back next week."</span>)
-      <span class="keyword">return</span>
-    <span class="keyword">end</span>
+    <span class="comment">-- Use our stock check function defined above. If it returned false, it's not in stock and we should return now
+</span>    <span class="keyword">if</span> <span class="keyword">not</span> stockCheck(self, ch, keyword) <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
 
     <span class="comment">-- Say the previewMsg from the item settings
 </span>    self:sayTo(ch, item.previewMsg)
@@ -133,11 +144,7 @@ self:onGive(<span class="keyword">function</span>(self, obj, ch)
   <span class="comment">-- Set a trigger for someone saying "confirm &lt;keyword&gt;". This will complete a purchase.
 </span>  self:onSpeech(<span class="string">"confirm "</span>..keyword, <span class="keyword">function</span>(self, ch, fullText)
     <span class="keyword">if</span> fullText ~= <span class="string">"confirm "</span>..keyword <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span> <span class="comment">-- Exact match only
-</span>
-    <span class="keyword">if</span> <span class="keyword">not</span> LOTJ.getGlobalVar(<span class="string">"im.stock"</span>, <span class="string">""</span>):find(<span class="string">"&lt;"</span>..keyword..<span class="string">"&gt;"</span>) <span class="keyword">then</span>
-      self:sayTo(ch, <span class="string">"Hah! Nice try, but I'm sold outta that fer now. Check back next week."</span>)
-      <span class="keyword">return</span>
-    <span class="keyword">end</span>
+</span>    <span class="keyword">if</span> <span class="keyword">not</span> stockCheck(self, ch, keyword) <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
 
     <span class="comment">-- See if we've recorded them giving her enough coins by looking up the variable we use to track it
 </span>    <span class="keyword">local</span> coinsGiven = ch:getVar(<span class="string">"im.coinsGiven"</span>, <span class="number">0</span>)
@@ -145,7 +152,6 @@ self:onGive(<span class="keyword">function</span>(self, obj, ch)
       self:emote(<span class="string">"&amp;ccounts the coins in her palm with a dissatisfied grunt, \"Whatcha tryin' to pull here? That ain't enough coins!\""</span>)
       <span class="keyword">return</span>
     <span class="keyword">end</span>
-
 
     <span class="keyword">local</span> buyName = item.buyName <span class="keyword">or</span> <span class="string">"One "</span>..keyword
     self:emote(<span class="string">"&amp;cgrins greedily, quickly closing her fingers around the coins, \""</span>..buyName..<span class="string">", comin' right up!\""</span>)
@@ -177,7 +183,7 @@ self:onGive(<span class="keyword">function</span>(self, obj, ch)
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-04-20 09:00:06 </i>
+<i style="float:right;">Last updated 2021-04-20 09:06:48 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
