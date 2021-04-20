@@ -68,6 +68,7 @@
 </span><span class="comment">-- Each also supports the following properties:
 </span><span class="comment">--   vnum: Object vnum of item
 </span><span class="comment">--   cost: Cost in coins
+</span><span class="comment">--   slot: Number 1-4 for picking stock. It'll pick one from slot 1, one from slot 2, etc.
 </span><span class="comment">--   previewMsg: What Yatta says when you ask about an item
 </span><span class="comment">-- Optional properties:
 </span><span class="comment">--   count: If buying this should give the player multiple of an item, this is that number. Defaults to 1.
@@ -77,17 +78,18 @@
 </span>  [<span class="string">"scope"</span>] = {
     vnum = <span class="number">36651</span>,
     cost = <span class="number">5</span>,
+    slot = <span class="number">1</span>,
     previewMsg = <span class="string">"Ah, the scope eh? Perfect for a sniper! That'll be 5 coins."</span>
   },
-  [<span class="string">"superconductor"</span>] = {vnum = <span class="number">36652</span>, cost = <span class="number">5</span>,
+  [<span class="string">"superconductor"</span>] = {vnum = <span class="number">36652</span>, cost = <span class="number">5</span>, slot = <span class="number">1</span>,
     previewMsg = <span class="string">"You some sorta engineer? No matter. My contact tells me that Relby makes the best. A bargain at 5 coins."</span>},
-  [<span class="string">"battery"</span>] = {vnum = <span class="number">36653</span>, cost = <span class="number">5</span>,
+  [<span class="string">"battery"</span>] = {vnum = <span class="number">36653</span>, cost = <span class="number">5</span>, slot = <span class="number">2</span>,
     previewMsg = <span class="string">"Yeah, I get it. Everyone needs batteries. This power pack is something else though. But it's all yours for 5 coins."</span>},
-  [<span class="string">"crystal"</span>] = {vnum = <span class="number">36654</span>, cost = <span class="number">5</span>,
+  [<span class="string">"crystal"</span>] = {vnum = <span class="number">36654</span>, cost = <span class="number">5</span>, slot = <span class="number">2</span>,
     previewMsg = <span class="string">"Crystal... yeah... I got some. Just uh.. don't ask where it came from. That'll be 10 coins."</span>},
-  [<span class="string">"sweetblossom"</span>] = {vnum = <span class="number">36657</span>, count = <span class="number">10</span>, cost = <span class="number">5</span>, buyName = <span class="string">"Ten vials of sweetblossom"</span>,
+  [<span class="string">"sweetblossom"</span>] = {vnum = <span class="number">36657</span>, count = <span class="number">10</span>, cost = <span class="number">5</span>, slot = <span class="number">3</span>, buyName = <span class="string">"Ten vials of sweetblossom"</span>,
     previewMsg = <span class="string">"Suhweeeeeeet blossom. That's the stuff. Hit a little harder, feel a little stronger? Give ya 10 vials for 5 coins."</span>},
-  [<span class="string">"gunship blueprints"</span>] = {vnum = <span class="number">32018</span>, cost = <span class="number">250</span>, buyName = <span class="string">"One set of gunship blueprints"</span>,
+  [<span class="string">"gunship blueprints"</span>] = {vnum = <span class="number">32018</span>, cost = <span class="number">250</span>, slot = <span class="number">4</span>, buyName = <span class="string">"One set of gunship blueprints"</span>,
     previewMsg = <span class="string">"You ain't seen nothing 'til you seen these babies bust out their payload! Gunship blueprint'll be 250 coins."</span>},
 }
 
@@ -199,8 +201,18 @@ self:onGive(<span class="keyword">function</span>(self, obj, ch)
   <span class="comment">-- If our im.stockTimer variable hasn't expired yet, do nothing.
 </span>  <span class="keyword">if</span> LOTJ.getGlobalVar(<span class="string">"im.stockTimer"</span>) <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
 
-  <span class="keyword">local</span> stockString = <span class="string">"&lt;battery&gt;"</span>
-  self:force(<span class="string">"immchat New IM stock is: "</span>..stockString)
+  <span class="comment">-- For each slot 1-4, find all items in that slot and pick one of them to stock.
+</span>  <span class="keyword">local</span> stockString = <span class="string">""</span>
+  <span class="keyword">for</span> slot = <span class="number">1</span>, <span class="number">4</span> <span class="keyword">do</span>
+    <span class="keyword">local</span> slotOptions = {}
+    <span class="keyword">for</span> keyword, item <span class="keyword">in</span> <span class="global">pairs</span>(items) <span class="keyword">do</span>
+      <span class="keyword">if</span> item.slot == slot <span class="keyword">then</span> <span class="global">table</span>.insert(slotOptions, keyword) <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> slot &gt; <span class="number">1</span> <span class="keyword">then</span> stockString = stockString..<span class="string">" "</span> <span class="keyword">end</span>
+    stockString = stockString..<span class="string">"&lt;"</span>..slotOptions[<span class="global">math</span>.random(<span class="global">table</span>.getn(slotOptions))]..<span class="string">"&gt;"</span>
+  <span class="keyword">end</span>
+
+  self:force(<span class="string">"immchat This week's Invisible Market stock is: "</span>..stockString)
   LOTJ.setGlobalVar(<span class="string">"im.stock"</span>, stockString)
 
   <span class="comment">-- Set the timer variable to expire next Sunday at midnight so new stock will be picked then.
@@ -212,7 +224,7 @@ self:onGive(<span class="keyword">function</span>(self, obj, ch)
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-04-20 10:04:10 </i>
+<i style="float:right;">Last updated 2021-04-20 10:33:15 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
