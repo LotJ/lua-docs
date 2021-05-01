@@ -84,12 +84,72 @@
 <h2><a href="#Class_Starsystem">Class Starsystem </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Starsystem:getBlackout">Starsystem:getBlackout ()</a></td>
+	<td class="summary">get whether a system is affected by comms blackout.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Starsystem:getCoords">Starsystem:getCoords ()</a></td>
 	<td class="summary">get the X coordinate of the starsystem</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Starsystem:getHidden">Starsystem:getHidden ()</a></td>
+	<td class="summary">get whether a system is hidden and inaccessible without a navchart.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:getMaxShipClass">Starsystem:getMaxShipClass ()</a></td>
+	<td class="summary">get the maximum ship class allowed in this system.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Starsystem:getName">Starsystem:getName ()</a></td>
 	<td class="summary">get the name of the starsystem</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:getNoCaps">Starsystem:getNoCaps ()</a></td>
+	<td class="summary">get whether a system is inaccessible to frigates or larger.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:getNoHyper">Starsystem:getNoHyper ()</a></td>
+	<td class="summary">get whether a system blocks hyperspace travel.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:getNoPvp">Starsystem:getNoPvp ()</a></td>
+	<td class="summary">get whether a system blocks PVP in its space.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:getNotPublic">Starsystem:getNotPublic ()</a></td>
+	<td class="summary">get whether a system is hidden from public starsystem lists.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:getVirtualSys">Starsystem:getVirtualSys ()</a></td>
+	<td class="summary">get whether a starsystem is a virtual system.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:setBlackout">Starsystem:setBlackout (blackout)</a></td>
+	<td class="summary">set whether a system is affected by comms blackout.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:setHidden">Starsystem:setHidden (hidden)</a></td>
+	<td class="summary">set whether a system is hidden and inaccessible without a navchart.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:setMaxShipClass">Starsystem:setMaxShipClass (maxShipClass)</a></td>
+	<td class="summary">set the maximum ship class allowed in this system.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:setNoCaps">Starsystem:setNoCaps (noCaps)</a></td>
+	<td class="summary">set whether a system is inaccessible to frigates or larger.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:setNoHyper">Starsystem:setNoHyper (noHyper)</a></td>
+	<td class="summary">set whether a system blocks hyperspace travel.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:setNoPvp">Starsystem:setNoPvp (noPvp)</a></td>
+	<td class="summary">set whether a system blocks PVP in its space.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Starsystem:setNotPublic">Starsystem:setNotPublic (noCaps)</a></td>
+	<td class="summary">set whether a system is hidden from public starsystem lists.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Starsystem:ships">Starsystem:ships ()</a></td>
@@ -139,6 +199,27 @@
           </div>
     <dl class="function">
     <dt>
+    <a name = "Starsystem:getBlackout"></a>
+    <strong>Starsystem:getBlackout ()</strong>
+    </dt>
+    <dd>
+    get whether a system is affected by comms blackout.
+ This effectively acts the same as disrupt_network but for the entire system.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if under comms blackout, false otherwise.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Starsystem:getCoords"></a>
     <strong>Starsystem:getCoords ()</strong>
     </dt>
@@ -167,6 +248,51 @@ ch:echoAt(<span class="string">"The system is at "</span>..x..<span class="strin
 
 </dd>
     <dt>
+    <a name = "Starsystem:getHidden"></a>
+    <strong>Starsystem:getHidden ()</strong>
+    </dt>
+    <dd>
+    get whether a system is hidden and inaccessible without a navchart.
+ Systems with this set can't be accessed without a navchart. Attempting to navigate by
+ coordinate will bring you (-1, -1) from the system instead. It'll also not show on
+ starsystem lists to players.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if hidden, false otherwise.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:getMaxShipClass"></a>
+    <strong>Starsystem:getMaxShipClass ()</strong>
+    </dt>
+    <dd>
+    get the maximum ship class allowed in this system.
+ Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
+ All systems default to 10 (satellite) to allow all ships.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the maximum ship class allowed in the system.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Starsystem:getName"></a>
     <strong>Starsystem:getName ()</strong>
     </dt>
@@ -181,6 +307,267 @@ ch:echoAt(<span class="string">"The system is at "</span>..x..<span class="strin
            <span class="types"><span class="type">string</span></span>
         the name of the starsystem. For uncharted space, this will be a random number.
     </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:getNoCaps"></a>
+    <strong>Starsystem:getNoCaps ()</strong>
+    </dt>
+    <dd>
+    get whether a system is inaccessible to frigates or larger.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if inaccessible to frigates or larger, false otherwise.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:getNoHyper"></a>
+    <strong>Starsystem:getNoHyper ()</strong>
+    </dt>
+    <dd>
+    get whether a system blocks hyperspace travel.
+ This blocks hyperspace which passes through any part of the system, effectively turning
+ it into a space wall. Ships within the system can't do any hyperspace jumps at all.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the system blocks hyperspace travel, false otherwise.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:getNoPvp"></a>
+    <strong>Starsystem:getNoPvp ()</strong>
+    </dt>
+    <dd>
+    get whether a system blocks PVP in its space.
+ This affects only ship targeting. For a full no-PVP system, also add the flag to its planets.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if PVP ship combat is disabled here, false otherwise.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:getNotPublic"></a>
+    <strong>Starsystem:getNotPublic ()</strong>
+    </dt>
+    <dd>
+    get whether a system is hidden from public starsystem lists.
+ If true, <code>starsystems</code> will hide this from players. They can still navigate to it if
+ they know the name or coordinates, however.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if hidden from starsystem lists, false otherwise.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:getVirtualSys"></a>
+    <strong>Starsystem:getVirtualSys ()</strong>
+    </dt>
+    <dd>
+    get whether a starsystem is a virtual system.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the system was created by jumping to coordinates, false if it's a manually created system
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:setBlackout"></a>
+    <strong>Starsystem:setBlackout (blackout)</strong>
+    </dt>
+    <dd>
+    set whether a system is affected by comms blackout.
+ This effectively acts the same as disrupt_network but for the entire system.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">blackout</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the system is affected by comms blackout
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:setHidden"></a>
+    <strong>Starsystem:setHidden (hidden)</strong>
+    </dt>
+    <dd>
+    set whether a system is hidden and inaccessible without a navchart.
+ Systems with this set can't be accessed without a navchart. Attempting to navigate by
+ coordinate will bring you (-1, -1) from the system instead. It'll also not show on
+ starsystem lists to players.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">hidden</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether to hide and block access to the system without a navchart
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:setMaxShipClass"></a>
+    <strong>Starsystem:setMaxShipClass (maxShipClass)</strong>
+    </dt>
+    <dd>
+    set the maximum ship class allowed in this system.
+ Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
+ All systems default to 10 (satellite) to allow all ships.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">maxShipClass</span>
+            <span class="types"><span class="type">integer</span></span>
+         the maximum ship class allowed in the system
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:setNoCaps"></a>
+    <strong>Starsystem:setNoCaps (noCaps)</strong>
+    </dt>
+    <dd>
+    set whether a system is inaccessible to frigates or larger.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">noCaps</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the system is inaccessible to frigates or larger
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:setNoHyper"></a>
+    <strong>Starsystem:setNoHyper (noHyper)</strong>
+    </dt>
+    <dd>
+    set whether a system blocks hyperspace travel.
+ This blocks hyperspace which passes through any part of the system, effectively turning
+ it into a space wall. Ships within the system can't do any hyperspace jumps at all.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">noHyper</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the system blocks hyperspace travel
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:setNoPvp"></a>
+    <strong>Starsystem:setNoPvp (noPvp)</strong>
+    </dt>
+    <dd>
+    set whether a system blocks PVP in its space.
+ This affects only ship targeting. For a full no-PVP system, also add the flag to its planets.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">noPvp</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the system blocks PVP in its space
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Starsystem:setNotPublic"></a>
+    <strong>Starsystem:setNotPublic (noCaps)</strong>
+    </dt>
+    <dd>
+    set whether a system is hidden from public starsystem lists.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">noCaps</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the system is hidden from starsystem lists
+        </li>
+    </ul>
+
 
 
 
@@ -218,7 +605,7 @@ ch:echoAt(<span class="string">"The system is at "</span>..x..<span class="strin
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-04-26 07:46:45 </i>
+<i style="float:right;">Last updated 2021-05-01 13:04:23 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
