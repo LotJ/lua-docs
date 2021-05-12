@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Global_functions">Global functions </a></li>
+<li><a href="#Class_Planet">Class Planet </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><strong>planet</strong></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>planet</code></h1>
+<p>Functions for planets</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Planet.getFromName">Planet.getFromName (name)</a></td>
+	<td class="summary">finds any planet by name</td>
+	</tr>
+</table>
+<h2><a href="#Class_Planet">Class Planet </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Planet:areas">Planet:areas ()</a></td>
+	<td class="summary">get an iterator over areas on the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getCrime">Planet:getCrime ()</a></td>
+	<td class="summary">returns the crime level of the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getDescription">Planet:getDescription ()</a></td>
+	<td class="summary">returns the description of the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getName">Planet:getName ()</a></td>
+	<td class="summary">returns the name of the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getPoliceAlert">Planet:getPoliceAlert ()</a></td>
+	<td class="summary">returns the police alert level of the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getPopularSupport">Planet:getPopularSupport ()</a></td>
+	<td class="summary">returns the popular support level of the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getPopulation">Planet:getPopulation ()</a></td>
+	<td class="summary">returns the current population of the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getRandomPublicRoom">Planet:getRandomPublicRoom ()</a></td>
+	<td class="summary">tries to find a random public room on this planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:setCrime">Planet:setCrime (number)</a></td>
+	<td class="summary">set the crime level of the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:setPopularSupport">Planet:setPopularSupport (number)</a></td>
+	<td class="summary">set the popular support level of the planet.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Planet.getFromName"></a>
+    <strong>Planet.getFromName (name)</strong>
+    </dt>
+    <dd>
+    finds any planet by name
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the planet name.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/planet.html#Planet">Planet</a></span>
+        the planet, or nil if not found
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Class_Planet"></a>Class Planet </h2>
+
+          <div class="section-description">
+          Functions on planet variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "Planet:areas"></a>
+    <strong>Planet:areas ()</strong>
+    </dt>
+    <dd>
+    get an iterator over areas on the planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/area.html#Area">Area</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> area <span class="keyword">in</span> planet:areas() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Planet:getCrime"></a>
+    <strong>Planet:getCrime ()</strong>
+    </dt>
+    <dd>
+    returns the crime level of the planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the planet's crime level
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getDescription"></a>
+    <strong>Planet:getDescription ()</strong>
+    </dt>
+    <dd>
+    returns the description of the planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the planet description
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getName"></a>
+    <strong>Planet:getName ()</strong>
+    </dt>
+    <dd>
+    returns the name of the planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the planet name
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getPoliceAlert"></a>
+    <strong>Planet:getPoliceAlert ()</strong>
+    </dt>
+    <dd>
+    returns the police alert level of the planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the planet's police alert level
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getPopularSupport"></a>
+    <strong>Planet:getPopularSupport ()</strong>
+    </dt>
+    <dd>
+    returns the popular support level of the planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the planet's popular support level
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getPopulation"></a>
+    <strong>Planet:getPopulation ()</strong>
+    </dt>
+    <dd>
+    returns the current population of the planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the planet's current population
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getRandomPublicRoom"></a>
+    <strong>Planet:getRandomPublicRoom ()</strong>
+    </dt>
+    <dd>
+    tries to find a random public room on this planet.
+ This can return any room in any area on the planet which is pathable to a public landing pad or hail point.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+        a room if found, or nil if none could be found after 100 attempts
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:setCrime"></a>
+    <strong>Planet:setCrime (number)</strong>
+    </dt>
+    <dd>
+    set the crime level of the planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">number</span>
+         the new crime level
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">planet:setCrime(planet:getCrime()+<span class="number">10</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Planet:setPopularSupport"></a>
+    <strong>Planet:setPopularSupport (number)</strong>
+    </dt>
+    <dd>
+    set the popular support level of the planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">number</span>
+         the new popular support level
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">planet:setPopularSupport(planet:setPopularSupport()+<span class="number">10</span>)</pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-05-12 11:40:52 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

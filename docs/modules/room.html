@@ -39,12 +39,14 @@
 
 <h2>Modules</h2>
 <ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
   <li><a href="../modules/char_proto.html">char_proto</a></li>
   <li><a href="../modules/character.html">character</a></li>
   <li><a href="../modules/clan.html">clan</a></li>
   <li><a href="../modules/core.html">core</a></li>
   <li><a href="../modules/obj_proto.html">obj_proto</a></li>
   <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
   <li><strong>room</strong></li>
   <li><a href="../modules/ship.html">ship</a></li>
   <li><a href="../modules/ship_template.html">ship_template</a></li>
@@ -92,6 +94,10 @@
 	<td class="summary">send a message to the occupants of a room.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Room:getCharByVNum">Room:getCharByVNum ()</a></td>
+	<td class="summary">returns the first character found in this room with the given vnum.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Room:getDescription">Room:getDescription ()</a></td>
 	<td class="summary">return the room's description</td>
 	</tr>
@@ -108,12 +114,20 @@
 	<td class="summary">return the room's name</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Room:getOnPlanet">Room:getOnPlanet ()</a></td>
+	<td class="summary">get the planet for this room.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Room:getVNum">Room:getVNum ()</a></td>
 	<td class="summary">return the room's vnum</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:getVar">Room:getVar (varName, default)</a></td>
 	<td class="summary">get a room's variable by name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:isPublicSpace">Room:isPublicSpace ()</a></td>
+	<td class="summary">returns whether this room is accessible by hail or public landing pad.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:objects">Room:objects ()</a></td>
@@ -133,11 +147,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:onEnter">Room:onEnter (callback)</a></td>
-	<td class="summary">registers a function to run when a character (player or NPC) leaves a room.</td>
+	<td class="summary">registers a function to run when a character (player or NPC) enters a room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:onEnter">Room:onEnter (callback)</a></td>
-	<td class="summary">registers a function to run when a character (player or NPC) enters a room.</td>
+	<td class="summary">registers a function to run when a character (player or NPC) leaves a room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:onLook">Room:onLook (keyword, callback)</a></td>
@@ -265,6 +279,26 @@
 
 </dd>
     <dt>
+    <a name = "Room:getCharByVNum"></a>
+    <strong>Room:getCharByVNum ()</strong>
+    </dt>
+    <dd>
+    returns the first character found in this room with the given vnum.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        the first character in this room with the given vnum, or nil if none are there
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Room:getDescription"></a>
     <strong>Room:getDescription ()</strong>
     </dt>
@@ -296,7 +330,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">Area</span></span>
+           <span class="types"><a class="type" href="../modules/area.html#Area">Area</a></span>
         the area containing the room
     </ol>
 
@@ -338,6 +372,26 @@
 
            <span class="types"><span class="type">string</span></span>
         the room's name, including color codes
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:getOnPlanet"></a>
+    <strong>Room:getOnPlanet ()</strong>
+    </dt>
+    <dd>
+    get the planet for this room.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/planet.html#Planet">Planet</a></span>
+        the planet the room is on, or nil if not on one
     </ol>
 
 
@@ -387,6 +441,26 @@
     <ol>
 
         the value, or the default or nil if it's not set. Can be a bool, number, or string.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:isPublicSpace"></a>
+    <strong>Room:isPublicSpace ()</strong>
+    </dt>
+    <dd>
+    returns whether this room is accessible by hail or public landing pad.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if there's a path to a hail point or public landing pad, false otherwise
     </ol>
 
 
@@ -522,35 +596,6 @@
     <strong>Room:onEnter (callback)</strong>
     </dt>
     <dd>
-    registers a function to run when a character (player or NPC) leaves a room.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">callback</span>
-            <span class="types"><span class="type">func</span></span>
-         the function to run, taking arguments:
- 1. the <a href="../modules/room.html#Room">Room</a>
- 2. the <a href="../modules/character.html#Character">Character</a> entering the room
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">self:onLeave(<span class="keyword">function</span>(self, ch, toRoom)
-  ch:echoAt(<span class="string">"Right before you leave for "</span>..toRoom:getName()..<span class="string">", you hear a loud noise!"</span>)
-<span class="keyword">end</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Room:onEnter"></a>
-    <strong>Room:onEnter (callback)</strong>
-    </dt>
-    <dd>
     registers a function to run when a character (player or NPC) enters a room.
 
 
@@ -571,6 +616,35 @@
     <ul>
         <pre class="example">self:onEnter(<span class="keyword">function</span>(self, ch)
   ch:echoAt(<span class="string">"As you enter, you notice something interesting!"</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:onEnter"></a>
+    <strong>Room:onEnter (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character (player or NPC) leaves a room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/room.html#Room">Room</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> entering the room
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onLeave(<span class="keyword">function</span>(self, ch, toRoom)
+  ch:echoAt(<span class="string">"Right before you leave for "</span>..toRoom:getName()..<span class="string">", you hear a loud noise!"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
@@ -772,7 +846,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-05-01 13:04:23 </i>
+<i style="float:right;">Last updated 2021-05-12 11:40:52 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
