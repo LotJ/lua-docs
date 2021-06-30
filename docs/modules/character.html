@@ -199,7 +199,7 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:getMainAbility">Character:getMainAbility ()</a></td>
-	<td class="summary">get the character's main class name.</td>
+	<td class="summary">get string the character's main class name.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:getMana">Character:getMana ()</a></td>
@@ -224,6 +224,38 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character:getName">Character:getName ()</a></td>
 	<td class="summary">get the name (keywords) for a character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getPermCharisma">Character:getPermCharisma ()</a></td>
+	<td class="summary">get the character's permanent charisma attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getPermConstitution">Character:getPermConstitution ()</a></td>
+	<td class="summary">get the character's permanent constitution attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getPermDexterity">Character:getPermDexterity ()</a></td>
+	<td class="summary">get the character's permanent dexterity attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getPermForce">Character:getPermForce ()</a></td>
+	<td class="summary">get the character's permanent force attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getPermIntelligence">Character:getPermIntelligence ()</a></td>
+	<td class="summary">get the character's permanent intelligence attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getPermLuck">Character:getPermLuck ()</a></td>
+	<td class="summary">get the character's permanent luck attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getPermStrength">Character:getPermStrength ()</a></td>
+	<td class="summary">get the character's permanent strength attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getPermWisdom">Character:getPermWisdom ()</a></td>
+	<td class="summary">get the character's current permanent attribute.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:getSex">Character:getSex ()</a></td>
@@ -280,6 +312,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character:isPC">Character:isPC ()</a></td>
 	<td class="summary">whether this character is a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:restore">Character:restore ()</a></td>
+	<td class="summary">restore a character.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:say">Character:say (text)</a></td>
@@ -1046,15 +1082,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <strong>Character:getMainAbility ()</strong>
     </dt>
     <dd>
-    get the character's main class name.
+    get string the character's main class name.
 
 
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">string</span></span>
-        the character's main class
+           <span class="types"><span class="type">the</span></span>
+        character's main class
     </ol>
 
 
@@ -1181,6 +1217,166 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
            <span class="types"><span class="type">string</span></span>
         the keyword(s) for this character
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getPermCharisma"></a>
+    <strong>Character:getPermCharisma ()</strong>
+    </dt>
+    <dd>
+    get the character's permanent charisma attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's permanent charisma
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getPermConstitution"></a>
+    <strong>Character:getPermConstitution ()</strong>
+    </dt>
+    <dd>
+    get the character's permanent constitution attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's permanent constitution
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getPermDexterity"></a>
+    <strong>Character:getPermDexterity ()</strong>
+    </dt>
+    <dd>
+    get the character's permanent dexterity attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's permanent dexterity
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getPermForce"></a>
+    <strong>Character:getPermForce ()</strong>
+    </dt>
+    <dd>
+    get the character's permanent force attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's permanent force
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getPermIntelligence"></a>
+    <strong>Character:getPermIntelligence ()</strong>
+    </dt>
+    <dd>
+    get the character's permanent intelligence attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's permanent intelligence
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getPermLuck"></a>
+    <strong>Character:getPermLuck ()</strong>
+    </dt>
+    <dd>
+    get the character's permanent luck attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's permanent luck
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getPermStrength"></a>
+    <strong>Character:getPermStrength ()</strong>
+    </dt>
+    <dd>
+    get the character's permanent strength attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's permanent strength
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getPermWisdom"></a>
+    <strong>Character:getPermWisdom ()</strong>
+    </dt>
+    <dd>
+    get the character's current permanent attribute.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's permanent wisdom
     </ol>
 
 
@@ -1502,6 +1698,24 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:restore"></a>
+    <strong>Character:restore ()</strong>
+    </dt>
+    <dd>
+    restore a character.
+
+
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:restore()</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character:say"></a>
     <strong>Character:say (text)</strong>
     </dt>
@@ -1789,7 +2003,7 @@ ch:force(<span class="string">"look"</span>)</pre>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-05-12 11:40:52 </i>
+<i style="float:right;">Last updated 2021-06-25 11:44:37 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
