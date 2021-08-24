@@ -33,6 +33,7 @@
 
 <h2>Contents</h2>
 <ul>
+<li><a href="#Global_functions">Global functions </a></li>
 <li><a href="#Class_Object">Class Object </a></li>
 </ul>
 
@@ -76,6 +77,13 @@
 </p>
 
 
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Object.invoke">Object.invoke (vnum)</a></td>
+	<td class="summary">create an instance of an object.</td>
+	</tr>
+</table>
 <h2><a href="#Class_Object">Class Object </a></h2>
 <table class="function_list">
 	<tr>
@@ -91,6 +99,10 @@
 	<td class="summary">get the room containing this object.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Object:getLongDescription">Object:getLongDescription ()</a></td>
+	<td class="summary">return the object's long description.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Object:getName">Object:getName ()</a></td>
 	<td class="summary">return the object's name (keywords).</td>
 	</tr>
@@ -99,8 +111,8 @@
 	<td class="summary">return the object's short description.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Object:getVNum">Object:getVNum ()</a></td>
-	<td class="summary">return the object's vnum</td>
+	<td class="name" nowrap><a href="#Object:getType">Object:getType ()</a></td>
+	<td class="summary">return the object's type</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Object:getVNum">Object:getVNum ()</a></td>
@@ -111,8 +123,48 @@
 	<td class="summary">get an object's variable by name</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Object:getWeight">Object:getWeight ()</a></td>
+	<td class="summary">get the object's weight.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:hasFlag">Object:hasFlag (flag)</a></td>
+	<td class="summary">get whether a flag is set on this object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:hasWearloc">Object:hasWearloc (wearloc)</a></td>
+	<td class="summary">get whether a wearloc is set on this object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:setFlag">Object:setFlag (flag, value)</a></td>
+	<td class="summary">set a flag on this object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:setLongDescription">Object:setLongDescription (long)</a></td>
+	<td class="summary">set the object's long description.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:setName">Object:setName (name)</a></td>
+	<td class="summary">set the object's name (keywords).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:setShortDescription">Object:setShortDescription (short)</a></td>
+	<td class="summary">set the object's short description.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:setType">Object:setType (type)</a></td>
+	<td class="summary">set the object's type</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Object:setVar">Object:setVar (varName, value, ttl)</a></td>
 	<td class="summary">set a variable on an object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:setWearloc">Object:setWearloc (wearloc, value)</a></td>
+	<td class="summary">set a wearloc on this object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Object:setWeight">Object:setWeight (weight)</a></td>
+	<td class="summary">set the object's weight.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Object:toChar">Object:toChar (ch)</a></td>
@@ -128,6 +180,46 @@
 <br/>
 
 
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Object.invoke"></a>
+    <strong>Object.invoke (vnum)</strong>
+    </dt>
+    <dd>
+    create an instance of an object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vnum</span>
+            <span class="types"><span class="type">number</span></span>
+         the object vnum
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the new object
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="comment">-- invoke object 10000 and give it to a character
+</span>Object.invoke(<span class="number">10000</span>):toChar(self)</pre></li>
+        <li><pre class="example"><span class="comment">-- invoke object 1234 and do a few things with it
+</span><span class="keyword">local</span> newObj = Object.invoke(<span class="number">1234</span>)
+newObj:toChar(self)
+newObj:echo(<span class="string">"{1} appears in your hands out of nowhere!"</span>, newObj)</pre></li>
+    </ul>
+
+</dd>
+</dl>
     <h2 class="section-header has-description"><a name="Class_Object"></a>Class Object </h2>
 
           <div class="section-description">
@@ -214,6 +306,26 @@
 
 </dd>
     <dt>
+    <a name = "Object:getLongDescription"></a>
+    <strong>Object:getLongDescription ()</strong>
+    </dt>
+    <dd>
+    return the object's long description.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the object's long description
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Object:getName"></a>
     <strong>Object:getName ()</strong>
     </dt>
@@ -254,19 +366,19 @@
 
 </dd>
     <dt>
-    <a name = "Object:getVNum"></a>
-    <strong>Object:getVNum ()</strong>
+    <a name = "Object:getType"></a>
+    <strong>Object:getType ()</strong>
     </dt>
     <dd>
-    return the object's vnum
+    return the object's type
 
 
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">integer</span></span>
-        the object's vnum
+           <span class="types"><span class="type">string</span></span>
+        the object's type
     </ol>
 
 
@@ -323,6 +435,205 @@
 
 </dd>
     <dt>
+    <a name = "Object:getWeight"></a>
+    <strong>Object:getWeight ()</strong>
+    </dt>
+    <dd>
+    get the object's weight.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the object's weight
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Object:hasFlag"></a>
+    <strong>Object:hasFlag (flag)</strong>
+    </dt>
+    <dd>
+    get whether a flag is set on this object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flag</span>
+            <span class="types"><span class="type">string</span></span>
+         The flag to check for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if the flag is set, false otherwise
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> obj:hasFlag(<span class="string">"antigood"</span>) <span class="keyword">do</span>
+  ch:echoAt(<span class="string">"The cube glows red and zaps you!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Object:hasWearloc"></a>
+    <strong>Object:hasWearloc (wearloc)</strong>
+    </dt>
+    <dd>
+    get whether a wearloc is set on this object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">wearloc</span>
+            <span class="types"><span class="type">string</span></span>
+         The wearloc name to check for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if the wearloc is set, false otherwise
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> obj:hasWearloc(<span class="string">"finger"</span>) <span class="keyword">do</span>
+  ch:echoAt(<span class="string">"You think this would fit on your finger."</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Object:setFlag"></a>
+    <strong>Object:setFlag (flag, value)</strong>
+    </dt>
+    <dd>
+    set a flag on this object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flag</span>
+            <span class="types"><span class="type">string</span></span>
+         The flag to set
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">boolean</span></span>
+         The new value to set
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">obj:setFlag(<span class="string">"antigood"</span>, <span class="keyword">true</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Object:setLongDescription"></a>
+    <strong>Object:setLongDescription (long)</strong>
+    </dt>
+    <dd>
+    set the object's long description.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">long</span>
+            <span class="types"><span class="type">string</span></span>
+         The new long description
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Object:setName"></a>
+    <strong>Object:setName (name)</strong>
+    </dt>
+    <dd>
+    set the object's name (keywords).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         The new name (keywords)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Object:setShortDescription"></a>
+    <strong>Object:setShortDescription (short)</strong>
+    </dt>
+    <dd>
+    set the object's short description.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">short</span>
+            <span class="types"><span class="type">string</span></span>
+         The new short description
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Object:setType"></a>
+    <strong>Object:setType (type)</strong>
+    </dt>
+    <dd>
+    set the object's type
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">type</span>
+            <span class="types"><span class="type">string</span></span>
+         the new type
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "Object:setVar"></a>
     <strong>Object:setVar (varName, value, ttl)</strong>
     </dt>
@@ -354,6 +665,56 @@
 </span><span class="comment">-- it hasn't been set yet by using 0 as the default
 </span>obj:setVar(<span class="string">"timesDropped"</span>, obj:getVar(<span class="string">"timesDropped"</span>, <span class="number">0</span>)+<span class="number">1</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "Object:setWearloc"></a>
+    <strong>Object:setWearloc (wearloc, value)</strong>
+    </dt>
+    <dd>
+    set a wearloc on this object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">wearloc</span>
+            <span class="types"><span class="type">string</span></span>
+         The wearloc to set
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">boolean</span></span>
+         The new value to set
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">obj:setWearloc(<span class="string">"finger"</span>, <span class="keyword">true</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Object:setWeight"></a>
+    <strong>Object:setWeight (weight)</strong>
+    </dt>
+    <dd>
+    set the object's weight.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">weight</span>
+            <span class="types"><span class="type">integer</span></span>
+         The new weight
+        </li>
+    </ul>
+
+
+
+
 
 </dd>
     <dt>
@@ -418,7 +779,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-08-24 03:17:04 </i>
+<i style="float:right;">Last updated 2021-08-24 05:28:03 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
