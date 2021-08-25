@@ -53,6 +53,7 @@
   <li><a href="../modules/ship_template.html">ship_template</a></li>
   <li><a href="../modules/space_spawn.html">space_spawn</a></li>
   <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><a href="../modules/timer.html">timer</a></li>
 </ul>
 <h2>Topics</h2>
 <ul class="">
@@ -93,6 +94,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#Room:echo">Room:echo (message, args)</a></td>
 	<td class="summary">send a message to the occupants of a room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:findChar">Room:findChar (args, asChar)</a></td>
+	<td class="summary">find a character in this room by name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:findObj">Room:findObj (args, asChar)</a></td>
+	<td class="summary">find a object in this room by name.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:getCharByVNum">Room:getCharByVNum ()</a></td>
@@ -152,11 +161,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:onEnter">Room:onEnter (callback)</a></td>
-	<td class="summary">registers a function to run when a character (player or NPC) enters a room.</td>
+	<td class="summary">registers a function to run when a character (player or NPC) leaves a room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:onEnter">Room:onEnter (callback)</a></td>
-	<td class="summary">registers a function to run when a character (player or NPC) leaves a room.</td>
+	<td class="summary">registers a function to run when a character (player or NPC) enters a room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:onLook">Room:onLook (keyword, callback)</a></td>
@@ -284,6 +293,97 @@
 </span>  <span class="comment">-- For anyone else, it will show their name and correct possessive pronoun.
 </span>  self:echo(<span class="string">"A security camera turns to focus on {1} and a spotlight illuminates {1.s} features."</span>, ch)
 <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:findChar"></a>
+    <strong>Room:findChar (args, asChar)</strong>
+    </dt>
+    <dd>
+    find a character in this room by name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">args</span>
+            <span class="types"><span class="type">string</span></span>
+         the name(s) to search for. Just like targeting characters ingame, can use multiple words to get exact matches against a mob with multiple keywords.
+        </li>
+        <li><span class="parameter">asChar</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         Optional, the character to search as. If specified, matches names as this character would see them and will not return targets they can't see.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        a valid matching target, or nil if no match was found
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example">self:onCommand(<span class="string">"tag"</span>, <span class="keyword">function</span>(self, ch, args)
+  <span class="comment">-- We want to let them do "tag &lt;target&gt;", so look for the target they entered by name
+</span>  <span class="keyword">local</span> target = self:findChar(args, ch)
+  <span class="keyword">if</span> <span class="keyword">not</span> target <span class="keyword">then</span>
+    ch:echoAt(<span class="string">"You don't see '{1}' here."</span>, args)
+  <span class="keyword">else</span>
+    target:echoAt(<span class="string">"TAG! You're it!"</span>)
+    ch:echoAt(<span class="string">"You tagged {1}!"</span>, target)
+  <span class="keyword">end</span>
+<span class="keyword">end</span>)</pre></li>
+        <li><pre class="example"><span class="comment">-- Get the character named "Sherlock" in this room, regardless of restrung armor, invis state, etc.
+</span><span class="keyword">local</span> sherlock = self:findChar(<span class="string">"sherlock"</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:findObj"></a>
+    <strong>Room:findObj (args, asChar)</strong>
+    </dt>
+    <dd>
+    find a object in this room by name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">args</span>
+            <span class="types"><span class="type">string</span></span>
+         the name(s) to search for. Just like targeting objects ingame, can use multiple words to get exact matches against an object with multiple keywords.
+        </li>
+        <li><span class="parameter">asChar</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         Optional, the character to search as. If specified, matches names as this character would see them and will not return objects they can't see.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        a valid matching target, or nil if no match was found
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example">self:onCommand(<span class="string">"enable"</span>, <span class="keyword">function</span>(self, ch, args)
+  <span class="comment">-- We want to let them do "enable &lt;object&gt;", so look for the object they entered by name
+</span>  <span class="keyword">local</span> obj = self:findObj(args, ch)
+  <span class="keyword">if</span> <span class="keyword">not</span> obj <span class="keyword">then</span>
+    ch:echoAt(<span class="string">"You don't see '{1}' here."</span>, args)
+  <span class="keyword">else</span>
+    obj:echo(<span class="string">"{1} has been enabled by {2}."</span>, obj, ch)
+  <span class="keyword">end</span>
+<span class="keyword">end</span>)</pre></li>
+        <li><pre class="example"><span class="comment">-- Get the object named "controlpanel" in this room regardless of hidden/invis state, etc.
+</span><span class="keyword">local</span> panel = self:findObj(<span class="string">"controlpanel"</span>)</pre></li>
     </ul>
 
 </dd>
@@ -638,35 +738,6 @@
     <strong>Room:onEnter (callback)</strong>
     </dt>
     <dd>
-    registers a function to run when a character (player or NPC) enters a room.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">callback</span>
-            <span class="types"><span class="type">func</span></span>
-         the function to run, taking arguments:
- 1. the <a href="../modules/room.html#Room">Room</a>
- 2. the <a href="../modules/character.html#Character">Character</a> entering the room
-        </li>
-    </ul>
-
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">self:onEnter(<span class="keyword">function</span>(self, ch)
-  ch:echoAt(<span class="string">"As you enter, you notice something interesting!"</span>)
-<span class="keyword">end</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Room:onEnter"></a>
-    <strong>Room:onEnter (callback)</strong>
-    </dt>
-    <dd>
     registers a function to run when a character (player or NPC) leaves a room.
 
 
@@ -687,6 +758,35 @@
     <ul>
         <pre class="example">self:onLeave(<span class="keyword">function</span>(self, ch, toRoom)
   ch:echoAt(<span class="string">"Right before you leave for "</span>..toRoom:getName()..<span class="string">", you hear a loud noise!"</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:onEnter"></a>
+    <strong>Room:onEnter (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character (player or NPC) enters a room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/room.html#Room">Room</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> entering the room
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onEnter(<span class="keyword">function</span>(self, ch)
+  ch:echoAt(<span class="string">"As you enter, you notice something interesting!"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
@@ -917,7 +1017,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-08-25 15:26:09 </i>
+<i style="float:right;">Last updated 2021-08-25 17:56:35 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

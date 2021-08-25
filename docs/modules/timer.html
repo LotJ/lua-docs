@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Global_functions">Global functions </a></li>
+<li><a href="#Class_Timer">Class Timer </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><strong>timer</strong></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>timer</code></h1>
+<p>Functions for handling timers (running code after a delay)</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Timer.registerTimer">Timer.registerTimer (delayMs, repeat, fn)</a></td>
+	<td class="summary">register a new timer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Timer.run">Timer.run (delayMs, fn)</a></td>
+	<td class="summary">Runs a function once after some delay.</td>
+	</tr>
+</table>
+<h2><a href="#Class_Timer">Class Timer </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Timer:cancel">Timer:cancel ()</a></td>
+	<td class="summary">cancel a timer object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Timer:start">Timer:start ()</a></td>
+	<td class="summary">start a timer object.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Timer.registerTimer"></a>
+    <strong>Timer.registerTimer (delayMs, repeat, fn)</strong>
+    </dt>
+    <dd>
+    register a new timer.
+ This returns a timer object which must the be started.
+ For most usage in lua progs, Timer.run will be simpler to use.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">delayMs</span>
+            <span class="types"><span class="type">number</span></span>
+         the number of milliseconds to wait
+        </li>
+        <li><span class="parameter">repeat</span>
+            <span class="types"><span class="type">boolean</span></span>
+         if true, the timer will continue firing every delayMs. If false, it will fire only once.
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         the function to run when the timer fires.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/timer.html#Timer">Timer</a></span>
+        the newly registered timer
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Timer.registerTimer(<span class="number">1000</span>, <span class="keyword">false</span>, <span class="keyword">function</span>()
+  self:sayTo(ch, <span class="string">"Hello there, welcome to the room."</span>)
+<span class="keyword">end</span>):start()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Timer.run"></a>
+    <strong>Timer.run (delayMs, fn)</strong>
+    </dt>
+    <dd>
+    Runs a function once after some delay.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">delayMs</span>
+            <span class="types"><span class="type">number</span></span>
+         The number of milliseconds to wait
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         The function to run
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/timer.html#Timer">Timer</a></span>
+        The timer object, in case you need to cancel it
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:onSpeech(<span class="string">"help"</span>, <span class="keyword">function</span>(self, ch)
+  <span class="comment">-- Wait 3 seconds, then respond to the character.
+</span>  Timer.run(<span class="number">3000</span>, <span class="keyword">function</span>()
+    self:sayTo(ch, <span class="string">"Oh, you can help me?"</span>)
+    self:sayTo(ch, <span class="string">"I need ten pieces of nerf meat."</span>)
+  <span class="keyword">end</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Class_Timer"></a>Class Timer </h2>
+
+          <div class="section-description">
+          Functions on character variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "Timer:cancel"></a>
+    <strong>Timer:cancel ()</strong>
+    </dt>
+    <dd>
+    cancel a timer object.
+ This cancels a started timer. You can use this to abort a one-time timer or to end a repeating timer.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Timer:start"></a>
+    <strong>Timer:start ()</strong>
+    </dt>
+    <dd>
+    start a timer object.
+ This begins counting the timer down. It must be called on timers created with registerTimer.
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-08-25 17:56:35 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
