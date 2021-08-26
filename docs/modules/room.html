@@ -45,6 +45,7 @@
   <li><a href="../modules/character.html">character</a></li>
   <li><a href="../modules/clan.html">clan</a></li>
   <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/exit.html">exit</a></li>
   <li><a href="../modules/obj_proto.html">obj_proto</a></li>
   <li><a href="../modules/object.html">object</a></li>
   <li><a href="../modules/planet.html">planet</a></li>
@@ -92,8 +93,20 @@
 	<td class="summary">get an iterator over characters in the room</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Room:countNPC">Room:countNPC ()</a></td>
+	<td class="summary">returns the number of mobs in the room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:countPC">Room:countPC ()</a></td>
+	<td class="summary">returns the number of players in the room.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Room:echo">Room:echo (message, args)</a></td>
 	<td class="summary">send a message to the occupants of a room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:exits">Room:exits ()</a></td>
+	<td class="summary">get an iterator over exits in the room</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:findChar">Room:findChar (args, asChar)</a></td>
@@ -110,6 +123,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Room:getDescription">Room:getDescription ()</a></td>
 	<td class="summary">return the room's description</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:getExit">Room:getExit (name)</a></td>
+	<td class="summary">get an exit by keyword/direction.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:getInArea">Room:getInArea ()</a></td>
@@ -182,6 +199,22 @@
 	<tr>
 	<td class="name" nowrap><a href="#Room:onTime">Room:onTime (hour, callback)</a></td>
 	<td class="summary">registers a function to run every time the hour changes to a certain value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:randomPlayer">Room:randomPlayer ()</a></td>
+	<td class="summary">chooses a random player in the room and returns them.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:setAccessDoor">Room:setAccessDoor (dir, keywords, accessCheck)</a></td>
+	<td class="summary">sets up a voice-activated locked door.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:setClanAccessDoor">Room:setClanAccessDoor (dir, keywords, clanName)</a></td>
+	<td class="summary">sets up a voice-activated locked door which works for members of the given clan.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:setClanLeaderAccessDoor">Room:setClanLeaderAccessDoor (dir, keywords, clanName)</a></td>
+	<td class="summary">sets up a voice-activated locked door which works for leader/first/second of the given clan.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:setFlag">Room:setFlag (flag, value)</a></td>
@@ -264,6 +297,46 @@
 
 </dd>
     <dt>
+    <a name = "Room:countNPC"></a>
+    <strong>Room:countNPC ()</strong>
+    </dt>
+    <dd>
+    returns the number of mobs in the room.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the number of mobs in the room.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:countPC"></a>
+    <strong>Room:countPC ()</strong>
+    </dt>
+    <dd>
+    returns the number of players in the room.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the number of players in the room.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Room:echo"></a>
     <strong>Room:echo (message, args)</strong>
     </dt>
@@ -293,6 +366,31 @@
 </span>  <span class="comment">-- For anyone else, it will show their name and correct possessive pronoun.
 </span>  self:echo(<span class="string">"A security camera turns to focus on {1} and a spotlight illuminates {1.s} features."</span>, ch)
 <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:exits"></a>
+    <strong>Room:exits ()</strong>
+    </dt>
+    <dd>
+    get an iterator over exits in the room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/exit.html#Exit">Exit</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> exit <span class="keyword">in</span> room:exits() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
@@ -421,6 +519,33 @@
 
            <span class="types"><span class="type">string</span></span>
         the room's description, including color codes
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:getExit"></a>
+    <strong>Room:getExit (name)</strong>
+    </dt>
+    <dd>
+    get an exit by keyword/direction.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the direction or exit keyword
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/exit.html#Exit">Exit</a></span>
+        an exit matching the name, or nil if one could not be found.
     </ol>
 
 
@@ -929,6 +1054,181 @@
 
 </dd>
     <dt>
+    <a name = "Room:randomPlayer"></a>
+    <strong>Room:randomPlayer ()</strong>
+    </dt>
+    <dd>
+    chooses a random player in the room and returns them.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        the randomly picked player character, or nil if there were no players
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:setAccessDoor"></a>
+    <strong>Room:setAccessDoor (dir, keywords, accessCheck)</strong>
+    </dt>
+    <dd>
+    sets up a voice-activated locked door.
+ <br>All optional arguments can be omitted or set to nil.<br>
+ After the accessCheck, four additional strings can be given to control:<br>
+ 1. The message to show in the speaker's room when the door opens. (Optional, uses a default message if not set.)<br>
+ 2. The message to show in the speaker's room when the door closes. (Optional, uses a default message if not set.)<br>
+ 3. The message to show in the other room when the door opens. (Optional, uses the doorOpenMessage if not set.)<br>
+ 4. The message to show in the other room when the door closes. (Optional, uses the doorCloseMessage if not set.)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dir</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the exit (n, north, etc)
+        </li>
+        <li><span class="parameter">keywords</span>
+            <span class="types"><span class="type">string</span></span>
+         the list of words to trigger the door. (Optional, uses "<exitName> access enter entry" if not set.)
+        </li>
+        <li><span class="parameter">accessCheck</span>
+            <span class="types"><span class="type">function</span></span>
+         A function which determines whether a character can use the door. (Optional, use <code>nil</code> if not specifying.)
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="comment">-- Set up a basic access door which works for everyone
+</span>self:setAccessDoor(<span class="string">"north"</span>)</pre></li>
+        <li><pre class="example"><span class="comment">-- Set up an access door to the east which uses custom keywords
+</span>self:setAccessDoor(<span class="string">"east"</span>, <span class="string">"east letmein"</span>)</pre></li>
+        <li><pre class="example"><span class="comment">-- Set up an access door to the north which uses default keywords but only allows
+</span><span class="comment">-- characters with the "myArea.hasDoorAccess" variable set to true.
+</span>self:setAccessDoor(<span class="string">"north"</span>, <span class="keyword">nil</span>, <span class="keyword">function</span>(ch)
+  <span class="keyword">if</span> ch:getVar(<span class="string">"myArea.hasDoorAccess"</span>) == <span class="keyword">true</span> <span class="keyword">then</span>
+    <span class="comment">-- You can use this opportunity to add any echoes you want.
+</span>    self:echo(<span class="string">"&amp;cThe door panel blinks green and chimes pleasantly."</span>)
+    <span class="keyword">return</span> <span class="keyword">true</span>
+  <span class="keyword">else</span>
+    <span class="comment">-- This function should handle any 'access denied' output appropriately.
+</span>    self:echo(<span class="string">"&amp;zThe door panel issues a loud warning: &amp;RAccess Denied"</span>)
+    <span class="keyword">return</span> <span class="keyword">false</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>)</pre></li>
+        <li><pre class="example"><span class="comment">-- Set up an access door on the up exit using default keywords, no access check,
+</span><span class="comment">-- but custom open/close messages
+</span>self:setAccessDoor(<span class="string">"up"</span>, <span class="keyword">nil</span>, <span class="keyword">nil</span>,
+  <span class="string">"The manhole cover sides out of the way automatically."</span>,
+  <span class="string">"Grinding loudly, the manhole cover is replaced, blocking the way up."</span>,
+  <span class="string">"The manhole cover in the middle of the street spontaneously slides out of view!"</span>,
+  <span class="string">"Just as quickly as it opened, the manhole cover slides closed again."</span>
+)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:setClanAccessDoor"></a>
+    <strong>Room:setClanAccessDoor (dir, keywords, clanName)</strong>
+    </dt>
+    <dd>
+    sets up a voice-activated locked door which works for members of the given clan.
+ <br>As with setAccessDoor, optional arguments can be sent after the <code>keywords</code> arg to control the messages:<br>
+ 1. The message to show to the speaker's room when access is granted. Empty string can be used to suppress. (Optional, uses a default if not set.)<br>
+ 2. The message to show to the speaker's room when access is denied. Empty string can be used to suppress. (Optional, uses a default if not set.)<br>
+ 3. The message to show in the speaker's room when the door opens. (Optional, uses a default message if not set.)<br>
+ 4. The message to show in the speaker's room when the door closes. (Optional, uses a default message if not set.)<br>
+ 5. The message to show in the other room when the door opens. (Optional, uses the doorOpenMessage if not set.)<br>
+ 6. The message to show in the other room when the door closes. (Optional, uses the doorCloseMessage if not set.)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dir</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the exit (n, north, etc)
+        </li>
+        <li><span class="parameter">keywords</span>
+            <span class="types"><span class="type">string</span></span>
+         the list of words to trigger the door. (Optional, uses "<exitName> access enter entry" if not set.)
+        </li>
+        <li><span class="parameter">clanName</span>
+            <span class="types"><span class="type">string</span></span>
+         the clan which the door works for
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="comment">-- Set up a basic access door which works for everyone in the Galactic Empire
+</span>self:setClanAccessDoor(<span class="string">"north"</span>, <span class="keyword">nil</span>, <span class="string">"The Galactic Empire"</span>)</pre></li>
+        <li><pre class="example"><span class="comment">-- Set up a basic access door which works for everyone in the Galactic Empire, with custom messages
+</span>self:setClanAccessDoor(<span class="string">"north"</span>, <span class="keyword">nil</span>, <span class="string">"The Galactic Empire"</span>,
+  <span class="string">""</span>, <span class="comment">-- No happy message when it works. This is the Empire, after all.
+</span>  <span class="string">"&amp;zA harsh voice barks out, \"&amp;REntry is only permitted to Imperial personnel!&amp;z\""</span>
+)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:setClanLeaderAccessDoor"></a>
+    <strong>Room:setClanLeaderAccessDoor (dir, keywords, clanName)</strong>
+    </dt>
+    <dd>
+    sets up a voice-activated locked door which works for leader/first/second of the given clan.
+ <br>As with setAccessDoor, optional arguments can be sent after the <code>keywords</code> arg to control the messages:<br>
+ 1. The message to show to the speaker's room when access is granted. Empty string can be used to suppress. (Optional, uses a default if not set.)<br>
+ 2. The message to show to the speaker's room when access is denied. Empty string can be used to suppress. (Optional, uses a default if not set.)<br>
+ 3. The message to show in the speaker's room when the door opens. (Optional, uses a default message if not set.)<br>
+ 4. The message to show in the speaker's room when the door closes. (Optional, uses a default message if not set.)<br>
+ 5. The message to show in the other room when the door opens. (Optional, uses the doorOpenMessage if not set.)<br>
+ 6. The message to show in the other room when the door closes. (Optional, uses the doorCloseMessage if not set.)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dir</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the exit (n, north, etc)
+        </li>
+        <li><span class="parameter">keywords</span>
+            <span class="types"><span class="type">string</span></span>
+         the list of words to trigger the door. (Optional, uses "<exitName> access enter entry" if not set.)
+        </li>
+        <li><span class="parameter">clanName</span>
+            <span class="types"><span class="type">string</span></span>
+         the clan which the door works for
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="comment">-- Set up a basic access door which works for leaders in the Galactic Empire
+</span>self:setClanLeaderAccessDoor(<span class="string">"north"</span>, <span class="keyword">nil</span>, <span class="string">"The Galactic Empire"</span>)</pre></li>
+        <li><pre class="example"><span class="comment">-- Set up a basic access door which works for leaders in the Galactic Empire, with custom messages
+</span>self:setClanLeaderAccessDoor(<span class="string">"north"</span>, <span class="keyword">nil</span>, <span class="string">"The Galactic Empire"</span>,
+  <span class="string">"&amp;zA speaker says, \"&amp;GImperial vault access granted.&amp;z\""</span>,
+  <span class="string">"&amp;zA harsh voice barks out, \"&amp;RVault access denied!&amp;z\""</span>
+)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Room:setFlag"></a>
     <strong>Room:setFlag (flag, value)</strong>
     </dt>
@@ -1017,7 +1317,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-08-25 17:56:35 </i>
+<i style="float:right;">Last updated 2021-08-26 19:13:30 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

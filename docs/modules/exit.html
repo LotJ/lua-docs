@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Class_Exit">Class Exit </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><strong>exit</strong></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><a href="../modules/timer.html">timer</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>exit</code></h1>
+<p>Functions for interacting with room exits.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Class_Exit">Class Exit </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Exit:getName">Exit:getName ()</a></td>
+	<td class="summary">get the name for this exit, either a set keyword or the directional name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Exit:getToRoom">Exit:getToRoom ()</a></td>
+	<td class="summary">get the room this exit leads to.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Exit:hasFlag">Exit:hasFlag (flag)</a></td>
+	<td class="summary">get whether a flag is set on this exit.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Exit:setFlag">Exit:setFlag (flag, value, both)</a></td>
+	<td class="summary">set a flag on this exit.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header has-description"><a name="Class_Exit"></a>Class Exit </h2>
+
+          <div class="section-description">
+          Functions on exit variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "Exit:getName"></a>
+    <strong>Exit:getName ()</strong>
+    </dt>
+    <dd>
+    get the name for this exit, either a set keyword or the directional name.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the exit name.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Exit:getToRoom"></a>
+    <strong>Exit:getToRoom ()</strong>
+    </dt>
+    <dd>
+    get the room this exit leads to.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+        the room this exit leads to
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Exit:hasFlag"></a>
+    <strong>Exit:hasFlag (flag)</strong>
+    </dt>
+    <dd>
+    get whether a flag is set on this exit.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flag</span>
+            <span class="types"><span class="type">string</span></span>
+         The flag to check for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if the flag is set, false otherwise
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> exit:hasFlag(<span class="string">"closed"</span>) <span class="keyword">do</span>
+  ch:echoAt(<span class="string">"The door is closed."</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Exit:setFlag"></a>
+    <strong>Exit:setFlag (flag, value, both)</strong>
+    </dt>
+    <dd>
+    set a flag on this exit.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flag</span>
+            <span class="types"><span class="type">string</span></span>
+         The flag to set
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">boolean</span></span>
+         The new value to set
+        </li>
+        <li><span class="parameter">both</span>
+            <span class="types"><span class="type">boolean</span></span>
+         If true, when the exit is two-way, the flag will be set on the other side as well.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Open the door from both sides
+</span>room:setFlag(<span class="string">"closed"</span>, <span class="keyword">false</span>, <span class="keyword">true</span>)</pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-08-26 19:13:30 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
