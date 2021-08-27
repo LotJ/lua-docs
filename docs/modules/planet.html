@@ -89,6 +89,14 @@
 <h2><a href="#Class_Planet">Class Planet </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Planet:addMilitaryPresence">Planet:addMilitaryPresence (the, diff)</a></td>
+	<td class="summary">modifies (up or down) military presence for clan.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:addPublicOpinion">Planet:addPublicOpinion (the, diff)</a></td>
+	<td class="summary">modifies (up or down) public opinion of a clan.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Planet:areas">Planet:areas ()</a></td>
 	<td class="summary">get an iterator over areas on the planet.</td>
 	</tr>
@@ -99,6 +107,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#Planet:getDescription">Planet:getDescription ()</a></td>
 	<td class="summary">returns the description of the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getGovernedBy">Planet:getGovernedBy ()</a></td>
+	<td class="summary">returns the clan currently governing the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getMilitary">Planet:getMilitary ()</a></td>
+	<td class="summary">returns the current military funding level of the planet.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Planet:getName">Planet:getName ()</a></td>
@@ -113,8 +129,20 @@
 	<td class="summary">returns the current population of the planet.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Planet:getPublicOpinion">Planet:getPublicOpinion (the)</a></td>
+	<td class="summary">returns the current military presence of the given clan on this planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getPublicOpinion">Planet:getPublicOpinion (the)</a></td>
+	<td class="summary">returns the current public opinion of the given clan on this planet.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Planet:getRandomPublicRoom">Planet:getRandomPublicRoom ()</a></td>
 	<td class="summary">tries to find a random public room on this planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getResourcePrice">Planet:getResourcePrice (resource)</a></td>
+	<td class="summary">get the minimum, current, and maximum price of a resource on this planet.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Planet:hasFlag">Planet:hasFlag (flag)</a></td>
@@ -127,6 +155,22 @@
 	<tr>
 	<td class="name" nowrap><a href="#Planet:setFlag">Planet:setFlag (flag, value)</a></td>
 	<td class="summary">set a flag on this planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:setMilitary">Planet:setMilitary (level)</a></td>
+	<td class="summary">sets military funding level of the planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:setMilitaryPresence">Planet:setMilitaryPresence (the, diff)</a></td>
+	<td class="summary">sets the military presence for a clan.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:setPublicOpinion">Planet:setPublicOpinion (the, diff)</a></td>
+	<td class="summary">sets the 'special events' public opinion effect for a clan.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:setResourcePrice">Planet:setResourcePrice (resource, minPrice, curPrice, maxPrice)</a></td>
+	<td class="summary">set the minimum, current, and maximum price of a resource on this planet.</td>
 	</tr>
 </table>
 
@@ -171,6 +215,57 @@
           Functions on planet variables
           </div>
     <dl class="function">
+    <dt>
+    <a name = "Planet:addMilitaryPresence"></a>
+    <strong>Planet:addMilitaryPresence (the, diff)</strong>
+    </dt>
+    <dd>
+    modifies (up or down) military presence for clan.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
+         clan to modify military presence for.
+        </li>
+        <li><span class="parameter">diff</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount to add. Use a negative number to lower presence.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:addPublicOpinion"></a>
+    <strong>Planet:addPublicOpinion (the, diff)</strong>
+    </dt>
+    <dd>
+    modifies (up or down) public opinion of a clan.
+ This always shows in smalltalk under the "Special Events" category.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
+         clan to modify opinion of.
+        </li>
+        <li><span class="parameter">diff</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount to add. Use a negative number to lower opinion.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
     <dt>
     <a name = "Planet:areas"></a>
     <strong>Planet:areas ()</strong>
@@ -230,6 +325,46 @@
 
            <span class="types"><span class="type">string</span></span>
         the planet description
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getGovernedBy"></a>
+    <strong>Planet:getGovernedBy ()</strong>
+    </dt>
+    <dd>
+    returns the clan currently governing the planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
+        the clan who owns the planet, or nil if none is set.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getMilitary"></a>
+    <strong>Planet:getMilitary ()</strong>
+    </dt>
+    <dd>
+    returns the current military funding level of the planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the planet's current military funding level.
     </ol>
 
 
@@ -297,6 +432,60 @@
 
 </dd>
     <dt>
+    <a name = "Planet:getPublicOpinion"></a>
+    <strong>Planet:getPublicOpinion (the)</strong>
+    </dt>
+    <dd>
+    returns the current military presence of the given clan on this planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
+         clan to get military presence for.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the clan's current military presence here.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getPublicOpinion"></a>
+    <strong>Planet:getPublicOpinion (the)</strong>
+    </dt>
+    <dd>
+    returns the current public opinion of the given clan on this planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
+         clan to get opinion of.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the clan's current public opinion here.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Planet:getRandomPublicRoom"></a>
     <strong>Planet:getRandomPublicRoom ()</strong>
     </dt>
@@ -315,6 +504,43 @@
 
 
 
+
+</dd>
+    <dt>
+    <a name = "Planet:getResourcePrice"></a>
+    <strong>Planet:getResourcePrice (resource)</strong>
+    </dt>
+    <dd>
+    get the minimum, current, and maximum price of a resource on this planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">resource</span>
+            <span class="types"><span class="type">string</span></span>
+         The name of the resource.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        The minimum price</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        The current price</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        The maximum price</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> min, cur, max = planet:getResourcePrice(<span class="string">"goods"</span>)</pre>
+    </ul>
 
 </dd>
     <dt>
@@ -403,6 +629,118 @@
     </ul>
 
 </dd>
+    <dt>
+    <a name = "Planet:setMilitary"></a>
+    <strong>Planet:setMilitary (level)</strong>
+    </dt>
+    <dd>
+    sets military funding level of the planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">level</span>
+            <span class="types"><span class="type">number</span></span>
+         the new military funding level to set.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:setMilitaryPresence"></a>
+    <strong>Planet:setMilitaryPresence (the, diff)</strong>
+    </dt>
+    <dd>
+    sets the military presence for a clan.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
+         clan to set military presence for.
+        </li>
+        <li><span class="parameter">diff</span>
+            <span class="types"><span class="type">number</span></span>
+         the new military presence.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:setPublicOpinion"></a>
+    <strong>Planet:setPublicOpinion (the, diff)</strong>
+    </dt>
+    <dd>
+    sets the 'special events' public opinion effect for a clan.
+ This always shows in smalltalk under the "Special Events" category.
+ Note that the value set here won't be their final opinion.
+ It will still be modified up or down by other effects on the planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
+         clan to set opinion of.
+        </li>
+        <li><span class="parameter">diff</span>
+            <span class="types"><span class="type">number</span></span>
+         the new special events effect amount.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:setResourcePrice"></a>
+    <strong>Planet:setResourcePrice (resource, minPrice, curPrice, maxPrice)</strong>
+    </dt>
+    <dd>
+    set the minimum, current, and maximum price of a resource on this planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">resource</span>
+            <span class="types"><span class="type">string</span></span>
+         The name of the resource.
+        </li>
+        <li><span class="parameter">minPrice</span>
+            <span class="types"><span class="type">number</span></span>
+         The minimum price
+        </li>
+        <li><span class="parameter">curPrice</span>
+            <span class="types"><span class="type">number</span></span>
+         The minimum price
+        </li>
+        <li><span class="parameter">maxPrice</span>
+            <span class="types"><span class="type">number</span></span>
+         The minimum price
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Set the price of goods to 12.5 and to randomly float around between 10 and 15 over time
+</span>planet:setResource(<span class="string">"goods"</span>, <span class="number">10</span>, <span class="number">12.5</span>, <span class="number">15</span>)</pre>
+    </ul>
+
+</dd>
 </dl>
 
 
@@ -410,7 +748,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-08-26 19:13:30 </i>
+<i style="float:right;">Last updated 2021-08-27 01:39:19 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
