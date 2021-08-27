@@ -89,11 +89,11 @@
 <h2><a href="#Class_Planet">Class Planet </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Planet:addMilitaryPresence">Planet:addMilitaryPresence (the, diff)</a></td>
+	<td class="name" nowrap><a href="#Planet:addMilitaryPresence">Planet:addMilitaryPresence (clan, diff)</a></td>
 	<td class="summary">modifies (up or down) military presence for clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Planet:addPublicOpinion">Planet:addPublicOpinion (the, diff)</a></td>
+	<td class="name" nowrap><a href="#Planet:addPublicOpinion">Planet:addPublicOpinion (clan, diff)</a></td>
 	<td class="summary">modifies (up or down) public opinion of a clan.</td>
 	</tr>
 	<tr>
@@ -129,11 +129,11 @@
 	<td class="summary">returns the current population of the planet.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Planet:getPublicOpinion">Planet:getPublicOpinion (the)</a></td>
+	<td class="name" nowrap><a href="#Planet:getPublicOpinion">Planet:getPublicOpinion (clan)</a></td>
 	<td class="summary">returns the current military presence of the given clan on this planet.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Planet:getPublicOpinion">Planet:getPublicOpinion (the)</a></td>
+	<td class="name" nowrap><a href="#Planet:getPublicOpinion">Planet:getPublicOpinion (clan)</a></td>
 	<td class="summary">returns the current public opinion of the given clan on this planet.</td>
 	</tr>
 	<tr>
@@ -161,11 +161,11 @@
 	<td class="summary">sets military funding level of the planet.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Planet:setMilitaryPresence">Planet:setMilitaryPresence (the, diff)</a></td>
+	<td class="name" nowrap><a href="#Planet:setMilitaryPresence">Planet:setMilitaryPresence (clan, diff)</a></td>
 	<td class="summary">sets the military presence for a clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Planet:setPublicOpinion">Planet:setPublicOpinion (the, diff)</a></td>
+	<td class="name" nowrap><a href="#Planet:setPublicOpinion">Planet:setPublicOpinion (clan, diff)</a></td>
 	<td class="summary">sets the 'special events' public opinion effect for a clan.</td>
 	</tr>
 	<tr>
@@ -217,7 +217,7 @@
     <dl class="function">
     <dt>
     <a name = "Planet:addMilitaryPresence"></a>
-    <strong>Planet:addMilitaryPresence (the, diff)</strong>
+    <strong>Planet:addMilitaryPresence (clan, diff)</strong>
     </dt>
     <dd>
     modifies (up or down) military presence for clan.
@@ -225,9 +225,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">the</span>
+        <li><span class="parameter">clan</span>
             <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
-         clan to modify military presence for.
+         the clan to modify military presence for.
         </li>
         <li><span class="parameter">diff</span>
             <span class="types"><span class="type">number</span></span>
@@ -242,7 +242,7 @@
 </dd>
     <dt>
     <a name = "Planet:addPublicOpinion"></a>
-    <strong>Planet:addPublicOpinion (the, diff)</strong>
+    <strong>Planet:addPublicOpinion (clan, diff)</strong>
     </dt>
     <dd>
     modifies (up or down) public opinion of a clan.
@@ -251,9 +251,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">the</span>
+        <li><span class="parameter">clan</span>
             <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
-         clan to modify opinion of.
+         the clan to modify opinion of.
         </li>
         <li><span class="parameter">diff</span>
             <span class="types"><span class="type">number</span></span>
@@ -433,7 +433,7 @@
 </dd>
     <dt>
     <a name = "Planet:getPublicOpinion"></a>
-    <strong>Planet:getPublicOpinion (the)</strong>
+    <strong>Planet:getPublicOpinion (clan)</strong>
     </dt>
     <dd>
     returns the current military presence of the given clan on this planet.
@@ -441,9 +441,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">the</span>
+        <li><span class="parameter">clan</span>
             <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
-         clan to get military presence for.
+         the clan to get military presence for.
         </li>
     </ul>
 
@@ -460,7 +460,7 @@
 </dd>
     <dt>
     <a name = "Planet:getPublicOpinion"></a>
-    <strong>Planet:getPublicOpinion (the)</strong>
+    <strong>Planet:getPublicOpinion (clan)</strong>
     </dt>
     <dd>
     returns the current public opinion of the given clan on this planet.
@@ -468,9 +468,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">the</span>
+        <li><span class="parameter">clan</span>
             <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
-         clan to get opinion of.
+         the clan to get opinion of.
         </li>
     </ul>
 
@@ -652,7 +652,7 @@
 </dd>
     <dt>
     <a name = "Planet:setMilitaryPresence"></a>
-    <strong>Planet:setMilitaryPresence (the, diff)</strong>
+    <strong>Planet:setMilitaryPresence (clan, diff)</strong>
     </dt>
     <dd>
     sets the military presence for a clan.
@@ -660,9 +660,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">the</span>
+        <li><span class="parameter">clan</span>
             <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
-         clan to set military presence for.
+         the clan to set military presence for.
         </li>
         <li><span class="parameter">diff</span>
             <span class="types"><span class="type">number</span></span>
@@ -677,7 +677,7 @@
 </dd>
     <dt>
     <a name = "Planet:setPublicOpinion"></a>
-    <strong>Planet:setPublicOpinion (the, diff)</strong>
+    <strong>Planet:setPublicOpinion (clan, diff)</strong>
     </dt>
     <dd>
     sets the 'special events' public opinion effect for a clan.
@@ -688,9 +688,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">the</span>
+        <li><span class="parameter">clan</span>
             <span class="types"><a class="type" href="../modules/clan.html#Clan">Clan</a></span>
-         clan to set opinion of.
+         the clan to set opinion of.
         </li>
         <li><span class="parameter">diff</span>
             <span class="types"><span class="type">number</span></span>
@@ -748,7 +748,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-08-27 01:39:19 </i>
+<i style="float:right;">Last updated 2021-08-27 01:48:31 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
