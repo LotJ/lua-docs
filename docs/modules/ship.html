@@ -101,12 +101,28 @@
 	<td class="summary">echo to all ships in the system, visible to any players in cockpits/viewports/turrets/etc</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:getAstroArrays">Ship:getAstroArrays ()</a></td>
+	<td class="summary">return the ship's astro arrays</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getAutopilot">Ship:getAutopilot ()</a></td>
+	<td class="summary">get the ship's current autopilot status.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getBlasters">Ship:getBlasters ()</a></td>
+	<td class="summary">return the ship's blaster count</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:getChaff">Ship:getChaff ()</a></td>
 	<td class="summary">returns current chaff.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getCockpit">Ship:getCockpit ()</a></td>
 	<td class="summary">get the ship's cockpit room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getComms">Ship:getComms ()</a></td>
+	<td class="summary">return the ship's comms</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getDockRoom">Ship:getDockRoom ()</a></td>
@@ -141,44 +157,64 @@
 	<td class="summary">returns current hull.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:getHyperspeed">Ship:getHyperspeed ()</a></td>
+	<td class="summary">return the ship's hyperspeed</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getIon">Ship:getIon ()</a></td>
+	<td class="summary">return the ship's ion count</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getLasers">Ship:getLasers ()</a></td>
+	<td class="summary">return the ship's laser count</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:getLocation">Ship:getLocation ()</a></td>
 	<td class="summary">get room where the ship is located</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:getManeuver">Ship:getManeuver ()</a></td>
+	<td class="summary">return the ship's maneuver value</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:getMaxChaff">Ship:getMaxChaff ()</a></td>
-	<td class="summary">returns the ship's maximum chaff.</td>
+	<td class="summary">return the ship's max chaff</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getMaxEnergy">Ship:getMaxEnergy ()</a></td>
-	<td class="summary">returns the ship's maximum energy.</td>
+	<td class="summary">return the ship's max energy</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getMaxHull">Ship:getMaxHull ()</a></td>
-	<td class="summary">returns the ship's maximum hull.</td>
+	<td class="summary">return the ship's max hull</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getMaxMissiles">Ship:getMaxMissiles ()</a></td>
-	<td class="summary">returns the ship's maximum missiles.</td>
+	<td class="summary">return the ship's max missiles</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getMaxPulses">Ship:getMaxPulses ()</a></td>
-	<td class="summary">returns the ship's maximum pulses.</td>
+	<td class="summary">return the ship's max pulses</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getMaxRockets">Ship:getMaxRockets ()</a></td>
-	<td class="summary">returns the ship's maximum rockets.</td>
+	<td class="summary">return the ship's max rockets</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getMaxShield">Ship:getMaxShield ()</a></td>
-	<td class="summary">returns the ship's maximum shield.</td>
+	<td class="summary">return the ship's max shield</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getMaxSpeed">Ship:getMaxSpeed ()</a></td>
-	<td class="summary">returns the ship's maximum speed.</td>
+	<td class="summary">return the ship's max speed</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getMaxTorpedoes">Ship:getMaxTorpedoes ()</a></td>
-	<td class="summary">returns the ship's maximum torpedoes.</td>
+	<td class="summary">return the ship's max torpedos</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getMissileTubes">Ship:getMissileTubes ()</a></td>
+	<td class="summary">return the ship's missile tubes</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getMissiles">Ship:getMissiles ()</a></td>
@@ -217,6 +253,10 @@
 	<td class="summary">returns current self destruct status</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:getSensors">Ship:getSensors ()</a></td>
+	<td class="summary">return the ship's sensors</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:getShield">Ship:getShield ()</a></td>
 	<td class="summary">returns current shield.</td>
 	</tr>
@@ -233,6 +273,14 @@
 	<td class="summary">returns current torpedoes.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:getTractorbeams">Ship:getTractorbeams ()</a></td>
+	<td class="summary">return the ship's tractorbeam count</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getTurbolasers">Ship:getTurbolasers ()</a></td>
+	<td class="summary">return the ship's turbolasers count</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:hasFlag">Ship:hasFlag (flagName)</a></td>
 	<td class="summary">determine whether a flag is set on a ship</td>
 	</tr>
@@ -241,12 +289,28 @@
 	<td class="summary">radios a message to the system originating from this ship, always in basic</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:setAstroArrays">Ship:setAstroArrays (astro_array)</a></td>
+	<td class="summary">set the ship's astro arrays.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setAutopilot">Ship:setAutopilot (autopilot)</a></td>
+	<td class="summary">set the ship's current autopilot status.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:setBayOpen">Ship:setBayOpen (hangar, state)</a></td>
 	<td class="summary">sets the open/close status of a hangar bay.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:setBlasters">Ship:setBlasters (blasters)</a></td>
+	<td class="summary">set the ship's blaster count.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:setChaff">Ship:setChaff (chaff)</a></td>
 	<td class="summary">set the ship's current chaff</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setComms">Ship:setComms (comm)</a></td>
+	<td class="summary">set the ship's comms.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:setEnergy">Ship:setEnergy (energy)</a></td>
@@ -259,6 +323,62 @@
 	<tr>
 	<td class="name" nowrap><a href="#Ship:setHull">Ship:setHull (hull)</a></td>
 	<td class="summary">set the ship's current hull</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setHyperspeed">Ship:setHyperspeed (hyperspeed)</a></td>
+	<td class="summary">set the ship's hyperspeed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setIon">Ship:setIon (ion)</a></td>
+	<td class="summary">set the ship's ion count.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setLasers">Ship:setLasers (lasers)</a></td>
+	<td class="summary">set the ship's laser count.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setManeuver">Ship:setManeuver (maneuver)</a></td>
+	<td class="summary">set the ship's maneuver value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMaxChaff">Ship:setMaxChaff (max_chaff)</a></td>
+	<td class="summary">set the ship's max chaff.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMaxEnergy">Ship:setMaxEnergy (max_energy)</a></td>
+	<td class="summary">set the ship's max energy.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMaxHull">Ship:setMaxHull (max_hull)</a></td>
+	<td class="summary">set the ship's max hull.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMaxMissiles">Ship:setMaxMissiles (max_missiles)</a></td>
+	<td class="summary">set the ship's max missiles.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMaxPulses">Ship:setMaxPulses (max_pulses)</a></td>
+	<td class="summary">set the ship's max pulses.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMaxRockets">Ship:setMaxRockets (max_rockets)</a></td>
+	<td class="summary">set the ship's max rockets.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMaxShield">Ship:setMaxShield (max_shield)</a></td>
+	<td class="summary">set the ship's max shield.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMaxSpeed">Ship:setMaxSpeed (max_speed)</a></td>
+	<td class="summary">set the ship's max speed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMaxTorpedoes">Ship:setMaxTorpedoes (max_torpedos)</a></td>
+	<td class="summary">set the ship's max torpedos.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setMissileTubes">Ship:setMissileTubes (missile_tubes)</a></td>
+	<td class="summary">set the ship's missile tubes.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:setMissiles">Ship:setMissiles (missiles)</a></td>
@@ -277,6 +397,10 @@
 	<td class="summary">sets or clears self destruct.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:setSensors">Ship:setSensors (sensor)</a></td>
+	<td class="summary">set the ship's sensors.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:setShield">Ship:setShield (shield)</a></td>
 	<td class="summary">set the ship's current shield</td>
 	</tr>
@@ -291,6 +415,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#Ship:setTorpedoes">Ship:setTorpedoes (torpedoes)</a></td>
 	<td class="summary">set the ship's current torpedoes</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setTractorbeams">Ship:setTractorbeams (tractorbeam)</a></td>
+	<td class="summary">set the ship's tractorbeam count.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setTurbolasers">Ship:setTurbolasers (turbolasers)</a></td>
+	<td class="summary">set the ship's turbolaser count.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:toRoom">Ship:toRoom (room)</a></td>
@@ -414,6 +546,66 @@
 
 </dd>
     <dt>
+    <a name = "Ship:getAstroArrays"></a>
+    <strong>Ship:getAstroArrays ()</strong>
+    </dt>
+    <dd>
+    return the ship's astro arrays
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's astro arrays
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getAutopilot"></a>
+    <strong>Ship:getAutopilot ()</strong>
+    </dt>
+    <dd>
+    get the ship's current autopilot status.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if autopilot is on
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getBlasters"></a>
+    <strong>Ship:getBlasters ()</strong>
+    </dt>
+    <dd>
+    return the ship's blaster count
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's blaster count
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:getChaff"></a>
     <strong>Ship:getChaff ()</strong>
     </dt>
@@ -447,6 +639,26 @@
 
            <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the ship's cockpit room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getComms"></a>
+    <strong>Ship:getComms ()</strong>
+    </dt>
+    <dd>
+    return the ship's comms
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's comms
     </ol>
 
 
@@ -614,6 +826,66 @@
 
 </dd>
     <dt>
+    <a name = "Ship:getHyperspeed"></a>
+    <strong>Ship:getHyperspeed ()</strong>
+    </dt>
+    <dd>
+    return the ship's hyperspeed
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's hyperspeed
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getIon"></a>
+    <strong>Ship:getIon ()</strong>
+    </dt>
+    <dd>
+    return the ship's ion count
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's ion count
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getLasers"></a>
+    <strong>Ship:getLasers ()</strong>
+    </dt>
+    <dd>
+    return the ship's laser count
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's laser count
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:getLocation"></a>
     <strong>Ship:getLocation ()</strong>
     </dt>
@@ -634,11 +906,11 @@
 
 </dd>
     <dt>
-    <a name = "Ship:getMaxChaff"></a>
-    <strong>Ship:getMaxChaff ()</strong>
+    <a name = "Ship:getManeuver"></a>
+    <strong>Ship:getManeuver ()</strong>
     </dt>
     <dd>
-    returns the ship's maximum chaff.
+    return the ship's maneuver value
 
 
 
@@ -646,7 +918,27 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        the ship's maximum chaff
+        the ship's maneuver value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getMaxChaff"></a>
+    <strong>Ship:getMaxChaff ()</strong>
+    </dt>
+    <dd>
+    return the ship's max chaff
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's max chaff
     </ol>
 
 
@@ -658,7 +950,7 @@
     <strong>Ship:getMaxEnergy ()</strong>
     </dt>
     <dd>
-    returns the ship's maximum energy.
+    return the ship's max energy
 
 
 
@@ -666,7 +958,7 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        the ship's maximum energy
+        the ship's max energy
     </ol>
 
 
@@ -678,7 +970,7 @@
     <strong>Ship:getMaxHull ()</strong>
     </dt>
     <dd>
-    returns the ship's maximum hull.
+    return the ship's max hull
 
 
 
@@ -686,7 +978,7 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        the ship's maximum hull
+        the ship's max hull
     </ol>
 
 
@@ -698,7 +990,7 @@
     <strong>Ship:getMaxMissiles ()</strong>
     </dt>
     <dd>
-    returns the ship's maximum missiles.
+    return the ship's max missiles
 
 
 
@@ -706,7 +998,7 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        the ship's maximum missiles
+        the ship's max missiles
     </ol>
 
 
@@ -718,7 +1010,7 @@
     <strong>Ship:getMaxPulses ()</strong>
     </dt>
     <dd>
-    returns the ship's maximum pulses.
+    return the ship's max pulses
 
 
 
@@ -726,7 +1018,7 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        the ship's maximum pulses
+        the ship's max pulses
     </ol>
 
 
@@ -738,7 +1030,7 @@
     <strong>Ship:getMaxRockets ()</strong>
     </dt>
     <dd>
-    returns the ship's maximum rockets.
+    return the ship's max rockets
 
 
 
@@ -746,7 +1038,7 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        the ship's maximum rockets
+        the ship's max rockets
     </ol>
 
 
@@ -758,7 +1050,7 @@
     <strong>Ship:getMaxShield ()</strong>
     </dt>
     <dd>
-    returns the ship's maximum shield.
+    return the ship's max shield
 
 
 
@@ -766,7 +1058,7 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        the ship's maximum shield
+        the ship's max shield
     </ol>
 
 
@@ -778,7 +1070,7 @@
     <strong>Ship:getMaxSpeed ()</strong>
     </dt>
     <dd>
-    returns the ship's maximum speed.
+    return the ship's max speed
 
 
 
@@ -786,7 +1078,7 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        the maximum speed
+        the ship's max speed
     </ol>
 
 
@@ -798,7 +1090,7 @@
     <strong>Ship:getMaxTorpedoes ()</strong>
     </dt>
     <dd>
-    returns the ship's maximum torpedoes.
+    return the ship's max torpedos
 
 
 
@@ -806,7 +1098,27 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        the ship's maximum torpedoes
+        the ship's max torpedos
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getMissileTubes"></a>
+    <strong>Ship:getMissileTubes ()</strong>
+    </dt>
+    <dd>
+    return the ship's missile tubes
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's missile tubes
     </ol>
 
 
@@ -1011,6 +1323,26 @@
 
 </dd>
     <dt>
+    <a name = "Ship:getSensors"></a>
+    <strong>Ship:getSensors ()</strong>
+    </dt>
+    <dd>
+    return the ship's sensors
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's sensors
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:getShield"></a>
     <strong>Ship:getShield ()</strong>
     </dt>
@@ -1091,6 +1423,46 @@
 
 </dd>
     <dt>
+    <a name = "Ship:getTractorbeams"></a>
+    <strong>Ship:getTractorbeams ()</strong>
+    </dt>
+    <dd>
+    return the ship's tractorbeam count
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's tractorbeam count
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getTurbolasers"></a>
+    <strong>Ship:getTurbolasers ()</strong>
+    </dt>
+    <dd>
+    return the ship's turbolasers count
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's turbolasers count
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:hasFlag"></a>
     <strong>Ship:hasFlag (flagName)</strong>
     </dt>
@@ -1144,6 +1516,48 @@
 
 </dd>
     <dt>
+    <a name = "Ship:setAstroArrays"></a>
+    <strong>Ship:setAstroArrays (astro_array)</strong>
+    </dt>
+    <dd>
+    set the ship's astro arrays.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">astro_array</span>
+            <span class="types"><span class="type">number</span></span>
+         the new astro_array value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setAutopilot"></a>
+    <strong>Ship:setAutopilot (autopilot)</strong>
+    </dt>
+    <dd>
+    set the ship's current autopilot status.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">autopilot</span>
+            <span class="types"><span class="type">boolean</span></span>
+         the new autopilot value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:setBayOpen"></a>
     <strong>Ship:setBayOpen (hangar, state)</strong>
     </dt>
@@ -1169,6 +1583,27 @@
 
 </dd>
     <dt>
+    <a name = "Ship:setBlasters"></a>
+    <strong>Ship:setBlasters (blasters)</strong>
+    </dt>
+    <dd>
+    set the ship's blaster count.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">blasters</span>
+            <span class="types"><span class="type">number</span></span>
+         the new blasters value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:setChaff"></a>
     <strong>Ship:setChaff (chaff)</strong>
     </dt>
@@ -1181,6 +1616,27 @@
         <li><span class="parameter">chaff</span>
             <span class="types"><span class="type">number</span></span>
          the new chaff
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setComms"></a>
+    <strong>Ship:setComms (comm)</strong>
+    </dt>
+    <dd>
+    set the ship's comms.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">comm</span>
+            <span class="types"><span class="type">number</span></span>
+         the new comm value
         </li>
     </ul>
 
@@ -1252,6 +1708,300 @@
         <li><span class="parameter">hull</span>
             <span class="types"><span class="type">number</span></span>
          the new hull
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setHyperspeed"></a>
+    <strong>Ship:setHyperspeed (hyperspeed)</strong>
+    </dt>
+    <dd>
+    set the ship's hyperspeed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">hyperspeed</span>
+            <span class="types"><span class="type">number</span></span>
+         the new hyperspeed value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setIon"></a>
+    <strong>Ship:setIon (ion)</strong>
+    </dt>
+    <dd>
+    set the ship's ion count.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ion</span>
+            <span class="types"><span class="type">number</span></span>
+         the new ion value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setLasers"></a>
+    <strong>Ship:setLasers (lasers)</strong>
+    </dt>
+    <dd>
+    set the ship's laser count.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">lasers</span>
+            <span class="types"><span class="type">number</span></span>
+         the new lasers value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setManeuver"></a>
+    <strong>Ship:setManeuver (maneuver)</strong>
+    </dt>
+    <dd>
+    set the ship's maneuver value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">maneuver</span>
+            <span class="types"><span class="type">number</span></span>
+         the new maneuver value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMaxChaff"></a>
+    <strong>Ship:setMaxChaff (max_chaff)</strong>
+    </dt>
+    <dd>
+    set the ship's max chaff.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_chaff</span>
+            <span class="types"><span class="type">number</span></span>
+         the new max_chaff value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMaxEnergy"></a>
+    <strong>Ship:setMaxEnergy (max_energy)</strong>
+    </dt>
+    <dd>
+    set the ship's max energy.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_energy</span>
+            <span class="types"><span class="type">number</span></span>
+         the new max_energy value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMaxHull"></a>
+    <strong>Ship:setMaxHull (max_hull)</strong>
+    </dt>
+    <dd>
+    set the ship's max hull.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_hull</span>
+            <span class="types"><span class="type">number</span></span>
+         the new max_hull value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMaxMissiles"></a>
+    <strong>Ship:setMaxMissiles (max_missiles)</strong>
+    </dt>
+    <dd>
+    set the ship's max missiles.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_missiles</span>
+            <span class="types"><span class="type">number</span></span>
+         the new max_missiles value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMaxPulses"></a>
+    <strong>Ship:setMaxPulses (max_pulses)</strong>
+    </dt>
+    <dd>
+    set the ship's max pulses.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_pulses</span>
+            <span class="types"><span class="type">number</span></span>
+         the new max_pulses value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMaxRockets"></a>
+    <strong>Ship:setMaxRockets (max_rockets)</strong>
+    </dt>
+    <dd>
+    set the ship's max rockets.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_rockets</span>
+            <span class="types"><span class="type">number</span></span>
+         the new max_rockets value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMaxShield"></a>
+    <strong>Ship:setMaxShield (max_shield)</strong>
+    </dt>
+    <dd>
+    set the ship's max shield.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_shield</span>
+            <span class="types"><span class="type">number</span></span>
+         the new max_shield value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMaxSpeed"></a>
+    <strong>Ship:setMaxSpeed (max_speed)</strong>
+    </dt>
+    <dd>
+    set the ship's max speed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_speed</span>
+            <span class="types"><span class="type">number</span></span>
+         the new max_speed value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMaxTorpedoes"></a>
+    <strong>Ship:setMaxTorpedoes (max_torpedos)</strong>
+    </dt>
+    <dd>
+    set the ship's max torpedos.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">max_torpedos</span>
+            <span class="types"><span class="type">number</span></span>
+         the new max_torpedos value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setMissileTubes"></a>
+    <strong>Ship:setMissileTubes (missile_tubes)</strong>
+    </dt>
+    <dd>
+    set the ship's missile tubes.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">missile_tubes</span>
+            <span class="types"><span class="type">number</span></span>
+         the new missile_tubes value
         </li>
     </ul>
 
@@ -1336,6 +2086,27 @@
         <li><span class="parameter">delay</span>
             <span class="types"><span class="type">number</span></span>
          the countdown to self destruct, or nil or 0 to disable it
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setSensors"></a>
+    <strong>Ship:setSensors (sensor)</strong>
+    </dt>
+    <dd>
+    set the ship's sensors.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sensor</span>
+            <span class="types"><span class="type">number</span></span>
+         the new sensor value
         </li>
     </ul>
 
@@ -1430,6 +2201,48 @@
 
 </dd>
     <dt>
+    <a name = "Ship:setTractorbeams"></a>
+    <strong>Ship:setTractorbeams (tractorbeam)</strong>
+    </dt>
+    <dd>
+    set the ship's tractorbeam count.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tractorbeam</span>
+            <span class="types"><span class="type">number</span></span>
+         the new tractorbeam value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setTurbolasers"></a>
+    <strong>Ship:setTurbolasers (turbolasers)</strong>
+    </dt>
+    <dd>
+    set the ship's turbolaser count.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">turbolasers</span>
+            <span class="types"><span class="type">number</span></span>
+         the new turbolasers value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:toRoom"></a>
     <strong>Ship:toRoom (room)</strong>
     </dt>
@@ -1490,7 +2303,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-08-27 01:53:39 </i>
+<i style="float:right;">Last updated 2021-08-31 14:59:02 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
