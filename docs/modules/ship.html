@@ -82,8 +82,16 @@
 <h2><a href="#Global_functions">Global functions </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Ship.create">Ship.create (template, baseName)</a></td>
+	<td class="summary">create a ship from a ship template.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship.getFromName">Ship.getFromName (name)</a></td>
 	<td class="summary">finds any ship by name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship.getOrCreate">Ship.getOrCreate (name, templateName, owner)</a></td>
+	<td class="summary">Utility function to find a ship by name, or create one with the given template and owner if it's not found.</td>
 	</tr>
 </table>
 <h2><a href="#Class_Ship">Class Ship </a></h2>
@@ -123,6 +131,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getComms">Ship:getComms ()</a></td>
 	<td class="summary">return the ship's comms</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getCopilot">Ship:getCopilot ()</a></td>
+	<td class="summary">get the ship's copilot name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getCrew">Ship:getCrew ()</a></td>
+	<td class="summary">get the ship's crew list</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getDockRoom">Ship:getDockRoom ()</a></td>
@@ -229,6 +245,14 @@
 	<td class="summary">get the ship's nav seat room</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:getOwner">Ship:getOwner ()</a></td>
+	<td class="summary">get the ship's owner name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getPilot">Ship:getPilot ()</a></td>
+	<td class="summary">get the ship's pilot name</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:getPilotSeat">Ship:getPilotSeat ()</a></td>
 	<td class="summary">get the ship's pilot seat room</td>
 	</tr>
@@ -267,6 +291,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getStarsystem">Ship:getStarsystem ()</a></td>
 	<td class="summary">get current starsystem</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getTarget">Ship:getTarget ()</a></td>
+	<td class="summary">get the ship's primary target</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getTemplate">Ship:getTemplate ()</a></td>
+	<td class="summary">get the ship's template</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getTorpedoes">Ship:getTorpedoes ()</a></td>
@@ -319,6 +351,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#Ship:setComms">Ship:setComms (comm)</a></td>
 	<td class="summary">set the ship's comms.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setCopilot">Ship:setCopilot (copilot)</a></td>
+	<td class="summary">set the ship's current copilot</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setCrew">Ship:setCrew (crew)</a></td>
+	<td class="summary">set the ship's current crew list</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:setEnergy">Ship:setEnergy (energy)</a></td>
@@ -397,6 +437,14 @@
 	<td class="summary">set the ship's current missiles</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:setOwner">Ship:setOwner (owner)</a></td>
+	<td class="summary">set the ship's current owner</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:setPilot">Ship:setPilot (pilot)</a></td>
+	<td class="summary">set the ship's current pilot</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:setPulses">Ship:setPulses (pulses)</a></td>
 	<td class="summary">set the ship's current pulses</td>
 	</tr>
@@ -454,6 +502,38 @@
 
     <dl class="function">
     <dt>
+    <a name = "Ship.create"></a>
+    <strong>Ship.create (template, baseName)</strong>
+    </dt>
+    <dd>
+    create a ship from a ship template.
+ The ship will be spawned in room 45 with no owner set, and should then be moved to the location you want
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">template</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the template to use, as in xwing.img
+        </li>
+        <li><span class="parameter">baseName</span>
+            <span class="types"><span class="type">string</span></span>
+         the base name of the ship ("X-Wing Starfighter"), optional if basename is set on the template.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        the created ship
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship.getFromName"></a>
     <strong>Ship.getFromName (name)</strong>
     </dt>
@@ -474,6 +554,42 @@
 
            <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
         the ship, or nil if not found
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship.getOrCreate"></a>
+    <strong>Ship.getOrCreate (name, templateName, owner)</strong>
+    </dt>
+    <dd>
+    Utility function to find a ship by name, or create one with the given template and owner if it's not found.
+ Templates used in this function must have a basename set.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         The ship name, not including model name
+        </li>
+        <li><span class="parameter">templateName</span>
+            <span class="types"><span class="type">string</span></span>
+         The ship template name to create if the ship isn't found
+        </li>
+        <li><span class="parameter">owner</span>
+            <span class="types"><span class="type">string</span></span>
+         The ship owner to set if the ship needs to be created
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        the ship
     </ol>
 
 
@@ -671,6 +787,46 @@
 
            <span class="types"><span class="type">number</span></span>
         the ship's comms
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getCopilot"></a>
+    <strong>Ship:getCopilot ()</strong>
+    </dt>
+    <dd>
+    get the ship's copilot name
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the ship's current copilot, or nil if none is set
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getCrew"></a>
+    <strong>Ship:getCrew ()</strong>
+    </dt>
+    <dd>
+    get the ship's crew list
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the ship's current crew list, or empty string if none is set
     </ol>
 
 
@@ -1198,6 +1354,46 @@
 
 </dd>
     <dt>
+    <a name = "Ship:getOwner"></a>
+    <strong>Ship:getOwner ()</strong>
+    </dt>
+    <dd>
+    get the ship's owner name
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the ship's current owner, or nil if none is set
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getPilot"></a>
+    <strong>Ship:getPilot ()</strong>
+    </dt>
+    <dd>
+    get the ship's pilot name
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the ship's current pilot, or nil if none is set
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:getPilotSeat"></a>
     <strong>Ship:getPilotSeat ()</strong>
     </dt>
@@ -1408,6 +1604,46 @@
 
            <span class="types"><a class="type" href="../modules/starsystem.html#Starsystem">Starsystem</a></span>
         the ship's current starsystem, or nil if it's landed or in hyperspace
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getTarget"></a>
+    <strong>Ship:getTarget ()</strong>
+    </dt>
+    <dd>
+    get the ship's primary target
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        the ship's current target, or nil if not targeting anything
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getTemplate"></a>
+    <strong>Ship:getTemplate ()</strong>
+    </dt>
+    <dd>
+    get the ship's template
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship_template.html#ShipTemplate">ShipTemplate</a></span>
+        the ship's template or nil if it is not based on a template.
     </ol>
 
 
@@ -1710,6 +1946,48 @@
         <li><span class="parameter">comm</span>
             <span class="types"><span class="type">number</span></span>
          the new comm value
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setCopilot"></a>
+    <strong>Ship:setCopilot (copilot)</strong>
+    </dt>
+    <dd>
+    set the ship's current copilot
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">copilot</span>
+            <span class="types"><span class="type">string</span></span>
+         the ship's new copilot, or nil to clear
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setCrew"></a>
+    <strong>Ship:setCrew (crew)</strong>
+    </dt>
+    <dd>
+    set the ship's current crew list
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">crew</span>
+            <span class="types"><span class="type">string</span></span>
+         the ship's new crew list, a space-separated list of character names, or empty string to clear
         </li>
     </ul>
 
@@ -2126,6 +2404,48 @@
 
 </dd>
     <dt>
+    <a name = "Ship:setOwner"></a>
+    <strong>Ship:setOwner (owner)</strong>
+    </dt>
+    <dd>
+    set the ship's current owner
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">owner</span>
+            <span class="types"><span class="type">string</span></span>
+         the ship's new owner, or nil to clear ownership
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:setPilot"></a>
+    <strong>Ship:setPilot (pilot)</strong>
+    </dt>
+    <dd>
+    set the ship's current pilot
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pilot</span>
+            <span class="types"><span class="type">string</span></span>
+         the ship's new pilot, or nil to clear
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:setPulses"></a>
     <strong>Ship:setPulses (pulses)</strong>
     </dt>
@@ -2397,7 +2717,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-09-04 06:22:46 </i>
+<i style="float:right;">Last updated 2021-09-21 16:23:31 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
