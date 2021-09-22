@@ -86,11 +86,15 @@
 	<td class="summary">create a ship from a ship template.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship.createOrReuseFromList">Ship.createOrReuseFromList (templateName, names, owner)</a></td>
+	<td class="summary">Utility function to find/create an available ship given a template and list of names.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship.getFromName">Ship.getFromName (name)</a></td>
 	<td class="summary">finds any ship by name</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Ship.getOrCreate">Ship.getOrCreate (name, templateName, owner)</a></td>
+	<td class="name" nowrap><a href="#Ship.getOrCreate">Ship.getOrCreate (templateName, name, owner)</a></td>
 	<td class="summary">Utility function to find a ship by name, or create one with the given template and owner if it's not found.</td>
 	</tr>
 </table>
@@ -157,6 +161,10 @@
 	<td class="summary">get the ship's entrance room</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:getFirstVNum">Ship:getFirstVNum ()</a></td>
+	<td class="summary">get the vnum of the ship's first room</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:getFlags">Ship:getFlags ()</a></td>
 	<td class="summary">get the ship's flags</td>
 	</tr>
@@ -183,6 +191,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getLasers">Ship:getLasers ()</a></td>
 	<td class="summary">return the ship's laser count</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:getLastVNum">Ship:getLastVNum ()</a></td>
+	<td class="summary">get the vnum of the ship's last room</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getLocation">Ship:getLocation ()</a></td>
@@ -538,6 +550,51 @@
 
 </dd>
     <dt>
+    <a name = "Ship.createOrReuseFromList"></a>
+    <strong>Ship.createOrReuseFromList (templateName, names, owner)</strong>
+    </dt>
+    <dd>
+    Utility function to find/create an available ship given a template and list of names.
+ This will randomly pick from the list of names. If it finds a ship from the same template matching the
+ name and that ship is in room 45, it'll use it. If it doesn't exist, it'll create it.
+ If all names are taken by instances of the template but none are in vnum 45, this will cause an error.
+ All ships will be set to nodelete on the assumption that they may be reused and we don't want to waste vnums.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">templateName</span>
+            <span class="types"><span class="type">string</span></span>
+         The ship template name to create if the ship isn't found
+        </li>
+        <li><span class="parameter">names</span>
+            <span class="types"><span class="type">stringArray</span></span>
+         The table of ship name options
+        </li>
+        <li><span class="parameter">owner</span>
+            <span class="types"><span class="type">string</span></span>
+         The ship owner to set if the ship needs to be created
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        the resulting ship
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Randomly create or get an available x-wing
+</span><span class="keyword">local</span> shipNameOptions = {<span class="string">"Red1"</span>, <span class="string">"Red2"</span>, <span class="string">"Red3"</span>, <span class="string">"Red4"</span>, <span class="string">"Red5"</span>}
+<span class="keyword">local</span> shipForLuke = Ship.createOrReuseFromList(<span class="string">"xwing.img"</span>, shipNameOptions, <span class="string">"Luke Skywalker"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Ship.getFromName"></a>
     <strong>Ship.getFromName (name)</strong>
     </dt>
@@ -566,22 +623,23 @@
 </dd>
     <dt>
     <a name = "Ship.getOrCreate"></a>
-    <strong>Ship.getOrCreate (name, templateName, owner)</strong>
+    <strong>Ship.getOrCreate (templateName, name, owner)</strong>
     </dt>
     <dd>
     Utility function to find a ship by name, or create one with the given template and owner if it's not found.
- Templates used in this function must have a basename set.
+ Templates used in this function must have a basename set. All ships will be set to nodelete on the assumption
+ that they may be reused and we don't want to waste vnums.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">name</span>
-            <span class="types"><span class="type">string</span></span>
-         The ship name, not including model name
-        </li>
         <li><span class="parameter">templateName</span>
             <span class="types"><span class="type">string</span></span>
          The ship template name to create if the ship isn't found
+        </li>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         The ship name, not including model name
         </li>
         <li><span class="parameter">owner</span>
             <span class="types"><span class="type">string</span></span>
@@ -918,6 +976,26 @@
 
 </dd>
     <dt>
+    <a name = "Ship:getFirstVNum"></a>
+    <strong>Ship:getFirstVNum ()</strong>
+    </dt>
+    <dd>
+    get the vnum of the ship's first room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the vnum of the ship's first room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:getFlags"></a>
     <strong>Ship:getFlags ()</strong>
     </dt>
@@ -1051,6 +1129,26 @@
 
            <span class="types"><span class="type">number</span></span>
         the ship's laser count
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:getLastVNum"></a>
+    <strong>Ship:getLastVNum ()</strong>
+    </dt>
+    <dd>
+    get the vnum of the ship's last room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the vnum of the ship's last room
     </ol>
 
 
@@ -2754,7 +2852,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-09-21 17:10:28 </i>
+<i style="float:right;">Last updated 2021-09-22 05:55:36 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
