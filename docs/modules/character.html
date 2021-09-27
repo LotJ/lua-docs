@@ -134,6 +134,10 @@
 	<td class="summary">award experience to the player.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:getBloodToxicity">Character:getBloodToxicity ()</a></td>
+	<td class="summary">get the character's current blood toxicity, 0 (good) - 100 (bad).</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:getCarryWeight">Character:getCarryWeight ()</a></td>
 	<td class="summary">get the character's current carried weight.</td>
 	</tr>
@@ -220,6 +224,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character:getMaxMove">Character:getMaxMove ()</a></td>
 	<td class="summary">get the character's maximum movement.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:getMentalState">Character:getMentalState ()</a></td>
+	<td class="summary">get the character's current mental state, 0 (good) - 100 (bad).</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:getMove">Character:getMove ()</a></td>
@@ -322,6 +330,10 @@
 	<td class="summary">whether this player is botting.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:isDroid">Character:isDroid ()</a></td>
+	<td class="summary">whether this character is a droid.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:isFighting">Character:isFighting ()</a></td>
 	<td class="summary">whether this character is fighting.</td>
 	</tr>
@@ -354,12 +366,20 @@
 	<td class="summary">set a flag on this character.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:setBloodToxicity">Character:setBloodToxicity (bloodToxicity)</a></td>
+	<td class="summary">set the character's current mental state, 0 (good) - 100 (bad).</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:setDescription">Character:setDescription (desc)</a></td>
 	<td class="summary">set the full description for an NPC (what you see when looking at them).</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:setLongDescription">Character:setLongDescription (desc)</a></td>
 	<td class="summary">set the long description for an NPC (what you see when looking in the room).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:setMentalState">Character:setMentalState (mentalState)</a></td>
+	<td class="summary">set the character's current mental state, 0 (good) - 100 (bad).</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:setName">Character:setName (desc)</a></td>
@@ -380,6 +400,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character:slay">Character:slay (byCh)</a></td>
 	<td class="summary">instantly kill a character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:stun">Character:stun (seconds)</a></td>
+	<td class="summary">stun (lag) a player for a given number of seconds.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:toRoom">Character:toRoom (room)</a></td>
@@ -772,6 +796,26 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <ul>
         <pre class="example">ch:gainExp(<span class="string">"combat"</span>, <span class="number">10000</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:getBloodToxicity"></a>
+    <strong>Character:getBloodToxicity ()</strong>
+    </dt>
+    <dd>
+    get the character's current blood toxicity, 0 (good) - 100 (bad).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's blood toxicity
+    </ol>
+
+
+
 
 </dd>
     <dt>
@@ -1220,6 +1264,26 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
            <span class="types"><span class="type">integer</span></span>
         the character's maximum movemenv
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Character:getMentalState"></a>
+    <strong>Character:getMentalState ()</strong>
+    </dt>
+    <dd>
+    get the character's current mental state, 0 (good) - 100 (bad).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's mental state
     </ol>
 
 
@@ -1788,6 +1852,32 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:isDroid"></a>
+    <strong>Character:isDroid ()</strong>
+    </dt>
+    <dd>
+    whether this character is a droid.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is a droid, false otherwise
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> ch:isDroid() <span class="keyword">then</span>
+  ch:echoAt(<span class="string">"You're a droid, beep boop!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character:isFighting"></a>
     <strong>Character:isFighting ()</strong>
     </dt>
@@ -1969,6 +2059,33 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:setBloodToxicity"></a>
+    <strong>Character:setBloodToxicity (bloodToxicity)</strong>
+    </dt>
+    <dd>
+    set the character's current mental state, 0 (good) - 100 (bad).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bloodToxicity</span>
+            <span class="types"><span class="type">number</span></span>
+         the new blood toxicity
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Character:setDescription"></a>
     <strong>Character:setDescription (desc)</strong>
     </dt>
@@ -2012,6 +2129,33 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <ul>
         <pre class="example">ch:setLongDescription(<span class="string">"An angry pirate captain stands here drinking ale."</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:setMentalState"></a>
+    <strong>Character:setMentalState (mentalState)</strong>
+    </dt>
+    <dd>
+    set the character's current mental state, 0 (good) - 100 (bad).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">mentalState</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new mental state
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
 
 </dd>
     <dt>
@@ -2147,6 +2291,34 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <h3>Usage:</h3>
     <ul>
         <pre class="example">ch:slay(dragonMob)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:stun"></a>
+    <strong>Character:stun (seconds)</strong>
+    </dt>
+    <dd>
+    stun (lag) a player for a given number of seconds.
+ Stuns can overlap, but do not stack, so if you apply a 5-second stun on top of a 10-second
+ stun, they will still only be stunned for 10 seconds.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">seconds</span>
+            <span class="types"><span class="type">integer</span></span>
+         the number of seconds to stun this character for.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Lag for 5 seconds
+</span>ch:stun(<span class="number">5</span>)</pre>
     </ul>
 
 </dd>
@@ -2311,7 +2483,7 @@ newCh:say(<span class="string">"Hello, I'm here!"</span>)</pre></li>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-09-23 17:53:24 </i>
+<i style="float:right;">Last updated 2021-09-27 06:25:28 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
