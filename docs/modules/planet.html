@@ -83,6 +83,10 @@
 <h2><a href="#Global_functions">Global functions </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Planet.all">Planet.all ()</a></td>
+	<td class="summary">returns an iterator over all planets (including stars and moons, so check for flags).</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Planet.getFromName">Planet.getFromName (name)</a></td>
 	<td class="summary">finds any planet by name</td>
 	</tr>
@@ -130,6 +134,10 @@
 	<td class="summary">returns the current population of the planet.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Planet:getPosition">Planet:getPosition ()</a></td>
+	<td class="summary">get the planet's position within system</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Planet:getPublicOpinion">Planet:getPublicOpinion (clan)</a></td>
 	<td class="summary">returns the current military presence of the given clan on this planet.</td>
 	</tr>
@@ -142,8 +150,24 @@
 	<td class="summary">tries to find a random public room on this planet.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Planet:getResourcePrice">Planet:getResourcePrice (resource)</a></td>
-	<td class="summary">get the minimum, current, and maximum price of a resource on this planet.</td>
+	<td class="name" nowrap><a href="#Planet:getResource">Planet:getResource (resource)</a></td>
+	<td class="summary">get the settings for a given resource on this planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getResourceNames">Planet:getResourceNames ()</a></td>
+	<td class="summary">get the list of resource names bought or sold on this planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getResourcePriceHistory">Planet:getResourcePriceHistory (resource)</a></td>
+	<td class="summary">get the price history for a given resource on this planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getStarsystem">Planet:getStarsystem ()</a></td>
+	<td class="summary">get the planet's starsystem</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Planet:getTaxRate">Planet:getTaxRate ()</a></td>
+	<td class="summary">returns the tax rate percentage of the planet (0-100).</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Planet:hasActiveEvent">Planet:hasActiveEvent (eventType)</a></td>
@@ -174,8 +198,8 @@
 	<td class="summary">sets the 'special events' public opinion effect for a clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Planet:setResourcePrice">Planet:setResourcePrice (resource, minPrice, curPrice, maxPrice)</a></td>
-	<td class="summary">set the minimum, current, and maximum price of a resource on this planet.</td>
+	<td class="name" nowrap><a href="#Planet:setResourcePrice">Planet:setResourcePrice (resource, curPrice)</a></td>
+	<td class="summary">set the price of a resource on this planet.</td>
 	</tr>
 </table>
 
@@ -186,6 +210,31 @@
     <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
 
     <dl class="function">
+    <dt>
+    <a name = "Planet.all"></a>
+    <strong>Planet.all ()</strong>
+    </dt>
+    <dd>
+    returns an iterator over all planets (including stars and moons, so check for flags).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/planet.html#Planet">Planet</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> planet <span class="keyword">in</span> Planet:all() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
     <dt>
     <a name = "Planet.getFromName"></a>
     <strong>Planet.getFromName (name)</strong>
@@ -437,6 +486,36 @@
 
 </dd>
     <dt>
+    <a name = "Planet:getPosition"></a>
+    <strong>Planet:getPosition ()</strong>
+    </dt>
+    <dd>
+    get the planet's position within system
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        the planet's x coordinate</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        the planet's y coordinate</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        the planet's z coordinate</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> x, y, z = planet:getPosition()</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Planet:getPublicOpinion"></a>
     <strong>Planet:getPublicOpinion (clan)</strong>
     </dt>
@@ -512,11 +591,11 @@
 
 </dd>
     <dt>
-    <a name = "Planet:getResourcePrice"></a>
-    <strong>Planet:getResourcePrice (resource)</strong>
+    <a name = "Planet:getResource"></a>
+    <strong>Planet:getResource (resource)</strong>
     </dt>
     <dd>
-    get the minimum, current, and maximum price of a resource on this planet.
+    get the settings for a given resource on this planet.
 
 
     <h3>Parameters:</h3>
@@ -531,21 +610,125 @@
     <ol>
         <li>
            <span class="types"><span class="type">number</span></span>
-        The minimum price</li>
+        The mode for the resource: "none", "import", or "export"</li>
         <li>
            <span class="types"><span class="type">number</span></span>
         The current price</li>
         <li>
            <span class="types"><span class="type">number</span></span>
-        The maximum price</li>
+        The minimum natural price</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        The maximum natural price</li>
     </ol>
 
 
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">local</span> min, cur, max = planet:getResourcePrice(<span class="string">"goods"</span>)</pre>
+        <pre class="example"><span class="keyword">local</span> mode, current, min, max = planet:getResource(<span class="string">"goods"</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "Planet:getResourceNames"></a>
+    <strong>Planet:getResourceNames ()</strong>
+    </dt>
+    <dd>
+    get the list of resource names bought or sold on this planet.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">table</span></span>
+        A table of resource name strings
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> _, resName <span class="keyword">in</span> <span class="global">ipairs</span>(planet:getResourceNames()) <span class="keyword">do</span>
+  <span class="comment">-- do stuff
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Planet:getResourcePriceHistory"></a>
+    <strong>Planet:getResourcePriceHistory (resource)</strong>
+    </dt>
+    <dd>
+    get the price history for a given resource on this planet.
+ The output is a table which indicates the price over each recorded price tick, about 30
+ minutes apart on average.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">resource</span>
+            <span class="types"><span class="type">string</span></span>
+         The name of the resource.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">table</span></span>
+        A table of resource prices over each recorded price tick
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> _, price <span class="keyword">in</span> <span class="global">ipairs</span>(planet:getResourcePriceHistory(<span class="string">"goods"</span>)) <span class="keyword">do</span>
+  <span class="comment">-- do stuff
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Planet:getStarsystem"></a>
+    <strong>Planet:getStarsystem ()</strong>
+    </dt>
+    <dd>
+    get the planet's starsystem
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/starsystem.html#Starsystem">Starsystem</a></span>
+        the planet's starsystem
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Planet:getTaxRate"></a>
+    <strong>Planet:getTaxRate ()</strong>
+    </dt>
+    <dd>
+    returns the tax rate percentage of the planet (0-100).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the planet's tax rate
+    </ol>
+
+
+
 
 </dd>
     <dt>
@@ -740,10 +923,10 @@
 </dd>
     <dt>
     <a name = "Planet:setResourcePrice"></a>
-    <strong>Planet:setResourcePrice (resource, minPrice, curPrice, maxPrice)</strong>
+    <strong>Planet:setResourcePrice (resource, curPrice)</strong>
     </dt>
     <dd>
-    set the minimum, current, and maximum price of a resource on this planet.
+    set the price of a resource on this planet.
 
 
     <h3>Parameters:</h3>
@@ -752,15 +935,7 @@
             <span class="types"><span class="type">string</span></span>
          The name of the resource.
         </li>
-        <li><span class="parameter">minPrice</span>
-            <span class="types"><span class="type">number</span></span>
-         The minimum price
-        </li>
         <li><span class="parameter">curPrice</span>
-            <span class="types"><span class="type">number</span></span>
-         The minimum price
-        </li>
-        <li><span class="parameter">maxPrice</span>
             <span class="types"><span class="type">number</span></span>
          The minimum price
         </li>
@@ -783,7 +958,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-11-30 06:28:21 </i>
+<i style="float:right;">Last updated 2022-01-08 16:27:25 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
