@@ -83,6 +83,10 @@
 <h2><a href="#Class_Character">Class Character </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Character:act">Character:act ()</a></td>
+	<td class="summary">Underlying "act" mechanic in the mud core</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:adjustSkill">Character:adjustSkill (skill, adjustment)</a></td>
 	<td class="summary">increase or decrease a player's percentage in a skill.</td>
 	</tr>
@@ -139,7 +143,7 @@
 	<td class="summary">make the character enter the given command.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:gainExp">Character:gainExp (ability, amount, groupGain)</a></td>
+	<td class="name" nowrap><a href="#Character:gainExp">Character:gainExp (amount, ability, groupGain)</a></td>
 	<td class="summary">award experience to the player.</td>
 	</tr>
 	<tr>
@@ -335,6 +339,10 @@
 	<td class="summary">whether this player is AFK.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:isAffected">Character:isAffected (effectName)</a></td>
+	<td class="summary">whether this character is affected by the given effect name.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:isBotting">Character:isBotting ()</a></td>
 	<td class="summary">whether this player is botting.</td>
 	</tr>
@@ -351,12 +359,24 @@
 	<td class="summary">whether this character is an immortal (RPC or higher).</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:isImmune">Character:isImmune (risName)</a></td>
+	<td class="summary">whether this character is immune to the given attack type.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:isNPC">Character:isNPC ()</a></td>
 	<td class="summary">whether this character is an NPC.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:isPC">Character:isPC ()</a></td>
 	<td class="summary">whether this character is a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:isResistant">Character:isResistant (risName)</a></td>
+	<td class="summary">whether this character is resistant to the given attack type.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:isSusceptible">Character:isSusceptible (risName)</a></td>
+	<td class="summary">whether this character is susceptible to the given attack type.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:restore">Character:restore ()</a></td>
@@ -449,6 +469,20 @@
           Functions on character variables
           </div>
     <dl class="function">
+    <dt>
+    <a name = "Character:act"></a>
+    <strong>Character:act ()</strong>
+    </dt>
+    <dd>
+    Underlying "act" mechanic in the mud core
+
+
+
+
+
+
+
+</dd>
     <dt>
     <a name = "Character:adjustSkill"></a>
     <strong>Character:adjustSkill (skill, adjustment)</strong>
@@ -833,7 +867,7 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 </dd>
     <dt>
     <a name = "Character:gainExp"></a>
-    <strong>Character:gainExp (ability, amount, groupGain)</strong>
+    <strong>Character:gainExp (amount, ability, groupGain)</strong>
     </dt>
     <dd>
     award experience to the player.
@@ -841,13 +875,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">ability</span>
-            <span class="types"><span class="type">string</span></span>
-         the class name (bounty hunting, combat, etc)
-        </li>
         <li><span class="parameter">amount</span>
             <span class="types"><span class="type">number</span></span>
          the amount of experience to award
+        </li>
+        <li><span class="parameter">ability</span>
+            <span class="types"><span class="type">string</span></span>
+         the class name (bounty hunting, combat, etc)
         </li>
         <li><span class="parameter">groupGain</span>
             <span class="types"><span class="type">boolean</span></span>
@@ -860,7 +894,7 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:gainExp(<span class="string">"combat"</span>, <span class="number">10000</span>)</pre>
+        <pre class="example">ch:gainExp(<span class="number">10000</span>, <span class="string">"combat"</span>)</pre>
     </ul>
 
 </dd>
@@ -1898,6 +1932,39 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:isAffected"></a>
+    <strong>Character:isAffected (effectName)</strong>
+    </dt>
+    <dd>
+    whether this character is affected by the given effect name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">effectName</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the effect to check for.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is affected by it, false otherwise.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> ch:isAffected(<span class="string">"sneak"</span>) <span class="keyword">then</span>
+  self:force(<span class="string">"say I didn't see you come in!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character:isBotting"></a>
     <strong>Character:isBotting ()</strong>
     </dt>
@@ -1984,6 +2051,39 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:isImmune"></a>
+    <strong>Character:isImmune (risName)</strong>
+    </dt>
+    <dd>
+    whether this character is immune to the given attack type.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">risName</span>
+            <span class="types"><span class="type">string</span></span>
+         the type of attack to check (energy, slash, cold, etc)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is immune, false otherwise.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> ch:isImmune(<span class="string">"fire"</span>) <span class="keyword">then</span>
+  ch:echoAt(<span class="string">"You're protected from the fire."</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character:isNPC"></a>
     <strong>Character:isNPC ()</strong>
     </dt>
@@ -2027,6 +2127,72 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 
 
+
+</dd>
+    <dt>
+    <a name = "Character:isResistant"></a>
+    <strong>Character:isResistant (risName)</strong>
+    </dt>
+    <dd>
+    whether this character is resistant to the given attack type.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">risName</span>
+            <span class="types"><span class="type">string</span></span>
+         the type of attack to check (energy, slash, cold, etc)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is resistant, false otherwise.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> ch:isResistant(<span class="string">"fire"</span>) <span class="keyword">then</span>
+  ch:echoAt(<span class="string">"You're slightly protected from the fire."</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:isSusceptible"></a>
+    <strong>Character:isSusceptible (risName)</strong>
+    </dt>
+    <dd>
+    whether this character is susceptible to the given attack type.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">risName</span>
+            <span class="types"><span class="type">string</span></span>
+         the type of attack to check (energy, slash, cold, etc)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is susceptible, false otherwise.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> ch:isSusceptible(<span class="string">"fire"</span>) <span class="keyword">then</span>
+  ch:echoAt(<span class="string">"You're burning up from the fire!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
 
 </dd>
     <dt>
@@ -2549,7 +2715,7 @@ newCh:say(<span class="string">"Hello, I'm here!"</span>)</pre></li>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-01-08 16:27:25 </i>
+<i style="float:right;">Last updated 2022-03-31 19:01:00 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

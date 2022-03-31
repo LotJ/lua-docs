@@ -102,6 +102,22 @@
 <h2><a href="#Class_Ship">Class Ship </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Ship:damage">Ship:damage (damage, byCharacter, byShip)</a></td>
+	<td class="summary">damage the ship with conventional damage (not ion).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:damageIon">Ship:damageIon (damage, byCharacter)</a></td>
+	<td class="summary">damage the ship with conventional damage (not ion).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:destroy">Ship:destroy (byCharacter, byShip)</a></td>
+	<td class="summary">immediately destroy this ship.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:disableSystem">Ship:disableSystem (system)</a></td>
+	<td class="summary">disable a system on this ship.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:distanceToShip">Ship:distanceToShip (other)</a></td>
 	<td class="summary">Gets distance between this ship and another</td>
 	</tr>
@@ -344,6 +360,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Ship:radio">Ship:radio (text)</a></td>
 	<td class="summary">radios a message to the system originating from this ship, always in basic</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Ship:repairSystem">Ship:repairSystem (system)</a></td>
+	<td class="summary">repair a system on this ship.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:restore">Ship:restore ()</a></td>
@@ -694,6 +714,124 @@
           Functions on ship variables
           </div>
     <dl class="function">
+    <dt>
+    <a name = "Ship:damage"></a>
+    <strong>Ship:damage (damage, byCharacter, byShip)</strong>
+    </dt>
+    <dd>
+    damage the ship with conventional damage (not ion).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">damage</span>
+            <span class="types"><span class="type">integer</span></span>
+         the amount of damage to do
+        </li>
+        <li><span class="parameter">byCharacter</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to attribute the damage to (optional)
+        </li>
+        <li><span class="parameter">byShip</span>
+            <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+         the ship to attribute the damage to (optional)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        this ship, for call chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:damageIon"></a>
+    <strong>Ship:damageIon (damage, byCharacter)</strong>
+    </dt>
+    <dd>
+    damage the ship with conventional damage (not ion).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">damage</span>
+            <span class="types"><span class="type">integer</span></span>
+         the amount of ion damage to do (affects shields 2x this much)
+        </li>
+        <li><span class="parameter">byCharacter</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to attribute the damage to (optional)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        this ship, for call chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:destroy"></a>
+    <strong>Ship:destroy (byCharacter, byShip)</strong>
+    </dt>
+    <dd>
+    immediately destroy this ship.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">byCharacter</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to attribute the destruction to (optional)
+        </li>
+        <li><span class="parameter">byShip</span>
+            <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+         the ship to attribute the destruction to (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:disableSystem"></a>
+    <strong>Ship:disableSystem (system)</strong>
+    </dt>
+    <dd>
+    disable a system on this ship.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">system</span>
+            <span class="types"><span class="type">string</span></span>
+         the system to disable (drive, ion, etc)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        this ship, for call chaining
+    </ol>
+
+
+
+
+</dd>
     <dt>
     <a name = "Ship:distanceToShip"></a>
     <strong>Ship:distanceToShip (other)</strong>
@@ -1961,6 +2099,33 @@
         </li>
     </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Ship:repairSystem"></a>
+    <strong>Ship:repairSystem (system)</strong>
+    </dt>
+    <dd>
+    repair a system on this ship.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">system</span>
+            <span class="types"><span class="type">string</span></span>
+         the system to repair (drive, ion, etc)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        this ship, for call chaining
+    </ol>
 
 
 
@@ -3304,7 +3469,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-01-08 16:27:25 </i>
+<i style="float:right;">Last updated 2022-03-31 19:01:00 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
