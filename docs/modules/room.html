@@ -142,12 +142,32 @@
 	<td class="summary">return the structure this room is part of</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Room:getMaxShipClass">Room:getMaxShipClass ()</a></td>
+	<td class="summary">return the maximum ship class number for this room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:getMinShipClass">Room:getMinShipClass ()</a></td>
+	<td class="summary">return the minimum ship class number for this room</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Room:getName">Room:getName ()</a></td>
 	<td class="summary">return the room's name</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:getOnPlanet">Room:getOnPlanet ()</a></td>
 	<td class="summary">get the planet for this room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:getOpenExits">Room:getOpenExits (forMob)</a></td>
+	<td class="summary">gets a table of the currently accessible exits from a room (no closed door, not window or hidden)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:getShipCapacity">Room:getShipCapacity ()</a></td>
+	<td class="summary">return the ship size capacity for this room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:getShipSizeUsed">Room:getShipSizeUsed ()</a></td>
+	<td class="summary">return the combined size of all ships and frames in the room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:getVNum">Room:getVNum ()</a></td>
@@ -222,8 +242,16 @@
 	<td class="summary">sets up a voice-activated locked door which works for leader/first/second of the given clan.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Room:setDescription">Room:setDescription (description)</a></td>
+	<td class="summary">set the description of a room.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Room:setFlag">Room:setFlag (flag, value)</a></td>
 	<td class="summary">set a flag on this room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Room:setName">Room:setName (name)</a></td>
+	<td class="summary">set the name of a room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Room:setVar">Room:setVar (varName, value, ttl)</a></td>
@@ -618,6 +646,46 @@
 
 </dd>
     <dt>
+    <a name = "Room:getMaxShipClass"></a>
+    <strong>Room:getMaxShipClass ()</strong>
+    </dt>
+    <dd>
+    return the maximum ship class number for this room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the maximum ship class supported by this room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:getMinShipClass"></a>
+    <strong>Room:getMinShipClass ()</strong>
+    </dt>
+    <dd>
+    return the minimum ship class number for this room
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the minimum ship class supported by this room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Room:getName"></a>
     <strong>Room:getName ()</strong>
     </dt>
@@ -651,6 +719,89 @@
 
            <span class="types"><a class="type" href="../modules/planet.html#Planet">Planet</a></span>
         the planet the room is on, or nil if not on one
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:getOpenExits"></a>
+    <strong>Room:getOpenExits (forMob)</strong>
+    </dt>
+    <dd>
+    gets a table of the currently accessible exits from a room (no closed door, not window or hidden)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">forMob</span>
+            <span class="types"><span class="type">bool</span></span>
+         if true, only returns exits which mobs are allowed through (exit and target room aren't flagged nomob)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">table</span></span>
+        the list of exits matching from this room, empty if none were valid
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- For a mob lprog, we want our mob to wander randomly, so pick a random available mob-friendly exit.
+</span>self:onRandom(<span class="number">100</span>, <span class="keyword">function</span>(self)
+  <span class="keyword">local</span> room = self:getInRoom()
+  <span class="keyword">local</span> exits = room:getOpenExits(<span class="keyword">true</span>)
+
+  <span class="comment">-- No available exits? Do nothing.
+</span>  <span class="keyword">if</span> #exits == <span class="number">0</span> <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+
+  <span class="comment">-- Pick a random exit, then force the mob to use the exit direction command.
+</span>  <span class="keyword">local</span> randomExit = exits[<span class="global">math</span>.random(#exits)]
+  self:force(randomExit:getName())
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:getShipCapacity"></a>
+    <strong>Room:getShipCapacity ()</strong>
+    </dt>
+    <dd>
+    return the ship size capacity for this room.
+ Accounts for the redit-based size limit, not any hangar size limit for ships.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the total number of combined ship size supported by this room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Room:getShipSizeUsed"></a>
+    <strong>Room:getShipSizeUsed ()</strong>
+    </dt>
+    <dd>
+    return the combined size of all ships and frames in the room.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the combined size of all ships and frames in the room
     </ol>
 
 
@@ -1254,6 +1405,27 @@
 
 </dd>
     <dt>
+    <a name = "Room:setDescription"></a>
+    <strong>Room:setDescription (description)</strong>
+    </dt>
+    <dd>
+    set the description of a room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">description</span>
+            <span class="types"><span class="type">string</span></span>
+         the new description
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "Room:setFlag"></a>
     <strong>Room:setFlag (flag, value)</strong>
     </dt>
@@ -1280,6 +1452,27 @@
     <ul>
         <pre class="example">room:setFlag(<span class="string">"silence"</span>, <span class="keyword">true</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "Room:setName"></a>
+    <strong>Room:setName (name)</strong>
+    </dt>
+    <dd>
+    set the name of a room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the new name
+        </li>
+    </ul>
+
+
+
+
 
 </dd>
     <dt>
@@ -1342,7 +1535,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-07-27 05:34:46 </i>
+<i style="float:right;">Last updated 2022-08-29 07:42:19 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
