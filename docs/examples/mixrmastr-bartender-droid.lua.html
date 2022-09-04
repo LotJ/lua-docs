@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><strong>mixrmastr-bartender-droid.lua</strong></li>
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/exit.html">exit</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><a href="../modules/structure.html">structure</a></li>
+  <li><a href="../modules/timer.html">timer</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>mixrmastr-bartender-droid.lua</h2>
+<pre>
+self:onSpeech(<span class="string">"mixdrink"</span>, <span class="keyword">function</span>(self, speaker, fullText)
+    <span class="comment">-- respond to droid's owner.
+</span>    <span class="comment">--if speaker:getName() == "Xerakon" then
+</span>    <span class="comment">-- remove the command "mixdrink" from the string
+</span>    <span class="keyword">local</span> input = removeFirstWord(fullText)
+    <span class="comment">-- save the strength value from the string, then remove it
+</span>    <span class="keyword">local</span> strength = trim(input:gmatch(<span class="string">"%w+"</span>)())
+    strength = strength:lower()
+    drink = removeFirstWord(input)
+    <span class="comment">-- assign the correct strength table
+</span>    strengthTable = {}
+    drinkBP = <span class="string">""</span>
+    <span class="keyword">if</span> <span class="global">string</span>.find(strength, <span class="string">"triple"</span>) <span class="keyword">then</span>
+        strengthTable = { <span class="number">20</span> }
+        drinkBP = <span class="string">"a mind-blasting alcoholic beverage"</span>
+    <span class="keyword">elseif</span> <span class="global">string</span>.find(strength, <span class="string">"double"</span>) <span class="keyword">then</span>
+        strengthTable = { <span class="number">16</span>, <span class="number">17</span> }
+        drinkBP = <span class="string">"a double-shot strength alcoholic beverage"</span>
+    <span class="keyword">elseif</span> <span class="global">string</span>.find(strength, <span class="string">"stiff"</span>) <span class="keyword">then</span>
+        strengthTable = { <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">19</span> }
+        drinkBP = <span class="string">"a strong alcoholic beverage"</span>
+    <span class="keyword">elseif</span> <span class="global">string</span>.find(strength, <span class="string">"weak"</span>) <span class="keyword">then</span>
+        strengthTable = { <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">13</span>, <span class="number">14</span> }
+        drinkBP = <span class="string">"a weak alcoholic beverage"</span>
+    <span class="keyword">elseif</span> <span class="global">string</span>.find(strength, <span class="string">"virgin"</span>) <span class="keyword">then</span>
+        strengthTable = { <span class="number">0</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">15</span>, <span class="number">18</span> }
+        drinkBP = <span class="string">"a non-alcoholic beverage"</span>
+    <span class="keyword">end</span>
+    <span class="comment">-- generate variables for insertion into custom drink template
+</span>    <span class="keyword">local</span> drinkName = <span class="string">"((xcd "</span> .. LOTJ.stripColor(drink)
+    <span class="keyword">local</span> drinkBlueprint = drinkBP
+    <span class="keyword">local</span> drinkShort = drink
+    <span class="keyword">local</span> drinkLong = drink .. <span class="string">" &amp;Dhas been abandoned here."</span>
+    <span class="keyword">local</span> randStrength = strengthTable[<span class="global">math</span>.random(#strengthTable)]
+    <span class="comment">-- invoke the custom drink template ((xcd and insert new data
+</span>    <span class="keyword">local</span> newDrink = Object.invoke(<span class="number">36691</span>)
+    newDrink:toChar(self)
+    newDrink:setName(drinkName)
+    newDrink:setBlueprint(drinkBlueprint)
+    newDrink:setShortDescription(drinkShort)
+    newDrink:setLongDescription(drinkLong)
+    newDrink:setValue2(randStrength)
+    <span class="comment">-- pop out a cold one
+</span>    self:echo(<span class="string">"&amp;rThe sounds of sloshing and mixing emanate from {1} for a moment before it "</span>..
+        <span class="string">"dings and produces {2} upon its tray.&amp;G"</span>, self, newDrink)
+    newDrink:toChar(speaker)
+    <span class="comment">--else
+</span>    <span class="comment">--    self:echo("&amp;r{1} produces a single negatory beep.&amp;G", self)
+</span>    <span class="comment">--end
+</span><span class="keyword">end</span>)
+
+<span class="comment">-- trim whitespaces around a string
+</span><span class="keyword">function</span> trim(str)
+    str = str:gsub(<span class="string">"%s+"</span>, <span class="string">""</span>)
+    str = <span class="global">string</span>.gsub(str, <span class="string">"%s+"</span>, <span class="string">""</span>)
+    <span class="keyword">return</span> str
+<span class="keyword">end</span>
+
+<span class="comment">-- remove the first word from a given string
+</span><span class="keyword">function</span> removeFirstWord(str)
+    str, i = str:gsub(<span class="string">"1"</span>, <span class="string">""</span>, <span class="number">1</span>)
+    str = ( i &gt; <span class="number">0</span> ) <span class="keyword">and</span> str <span class="keyword">or</span> str:gsub(<span class="string">"^.-%s"</span>, <span class="string">""</span>, <span class="number">1</span>)
+    <span class="keyword">return</span> str
+<span class="keyword">end</span></pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-09-04 02:55:55 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

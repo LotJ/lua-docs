@@ -66,6 +66,7 @@
 </ul>
 <h2>Examples</h2>
 <ul class="nowrap">
+  <li><a href="../examples/mixrmastr-bartender-droid.lua.html">mixrmastr-bartender-droid.lua</a></li>
   <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
 </ul>
 
@@ -211,6 +212,10 @@
 	<td class="summary">get the character's current room.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:getInstalledCyber">Character:getInstalledCyber (cyberType)</a></td>
+	<td class="summary">get whether a character has a given cyber type installed, and if so what rating it is.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:getIntelligence">Character:getIntelligence ()</a></td>
 	<td class="summary">get the character's current intelligence attribute.</td>
 	</tr>
@@ -319,6 +324,10 @@
 	<td class="summary">get a character's variable by name</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character:getVisibleRace">Character:getVisibleRace ()</a></td>
+	<td class="summary">get the character's race, or what they're disguised as.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character:getWasInRoom">Character:getWasInRoom ()</a></td>
 	<td class="summary">get the character's previous room.</td>
 	</tr>
@@ -413,6 +422,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character:setDescription">Character:setDescription (desc)</a></td>
 	<td class="summary">set the full description for an NPC (what you see when looking at them).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character:setInstalledCyber">Character:setInstalledCyber (cyberType, installed, the)</a></td>
+	<td class="summary">set whether a character has a given cyber type installed.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Character:setLongDescription">Character:setLongDescription (desc)</a></td>
@@ -1245,6 +1258,36 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:getInstalledCyber"></a>
+    <strong>Character:getInstalledCyber (cyberType)</strong>
+    </dt>
+    <dd>
+    get whether a character has a given cyber type installed, and if so what rating it is.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">cyberType</span>
+            <span class="types"><span class="type">number</span></span>
+         the type of cybernetic to check for (see builder guide for cybernetic values)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        true if cyber is installed, false otherwise</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        rating the class/rating of the installed cybernetic, if applicable (like the amount of strength bonus, etc)</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Character:getIntelligence"></a>
     <strong>Character:getIntelligence ()</strong>
     </dt>
@@ -1662,7 +1705,7 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     </dt>
     <dd>
     get the character's race.
- Note that return values will be uppercased as shown in showrace.
+ Note that return values will be uppercased as shown in showrace. Sees through disguises.
 
 
 
@@ -1822,6 +1865,33 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
   <span class="comment">-- do stuff
 </span><span class="keyword">end</span></pre></li>
         <li><pre class="example">ch:echoAt(<span class="string">"I have met you "</span>..ch:getVar(<span class="string">"wroona.timesMetMob"</span>, <span class="number">1</span>)..<span class="string">" times."</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character:getVisibleRace"></a>
+    <strong>Character:getVisibleRace ()</strong>
+    </dt>
+    <dd>
+    get the character's race, or what they're disguised as.
+ Note that return values will be uppercased as shown in showrace.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">the</span></span>
+        race which the character currently appears as
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> ch:getVisibleRace() == <span class="string">"Corellian"</span> <span class="keyword">then</span>
+  <span class="comment">-- do stuff
+</span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
@@ -2432,6 +2502,35 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
+    <a name = "Character:setInstalledCyber"></a>
+    <strong>Character:setInstalledCyber (cyberType, installed, the)</strong>
+    </dt>
+    <dd>
+    set whether a character has a given cyber type installed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">cyberType</span>
+            <span class="types"><span class="type">number</span></span>
+         the type of cybernetic to check for (see builder guide for cybernetic values)
+        </li>
+        <li><span class="parameter">installed</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether they should have the cybernetic installed. true = install, false = uninstall
+        </li>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">number</span></span>
+         class/rating of the cybernetic, if installing and applicable (for cybernetics with a variable effect like str, hp)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "Character:setLongDescription"></a>
     <strong>Character:setLongDescription (desc)</strong>
     </dt>
@@ -2808,7 +2907,7 @@ newCh:say(<span class="string">"Hello, I'm here!"</span>)</pre></li>
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-09-01 02:33:59 </i>
+<i style="float:right;">Last updated 2022-09-04 02:55:55 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
