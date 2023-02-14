@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Global_functions">Global functions </a></li>
+<li><a href="#Class_Furniture">Class Furniture </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/exit.html">exit</a></li>
+  <li><strong>furniture</strong></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><a href="../modules/structure.html">structure</a></li>
+  <li><a href="../modules/timer.html">timer</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/mixrmastr-bartender-droid.lua.html">mixrmastr-bartender-droid.lua</a></li>
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>furniture</code></h1>
+<p>Functions for handling furniture.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Furniture.create">Furniture.create (short, long)</a></td>
+	<td class="summary">create a new piece of furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture.getFromID">Furniture.getFromID (id)</a></td>
+	<td class="summary">finds a furniture by ID</td>
+	</tr>
+</table>
+<h2><a href="#Class_Furniture">Class Furniture </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:getComfort">Furniture:getComfort ()</a></td>
+	<td class="summary">gets the comfort value of this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:getId">Furniture:getId ()</a></td>
+	<td class="summary">gets the ID of this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:getInRoom">Furniture:getInRoom ()</a></td>
+	<td class="summary">gets the room this furniture is in, or nil if not set.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:getLongDescription">Furniture:getLongDescription ()</a></td>
+	<td class="summary">gets the long description of this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:getShortDescription">Furniture:getShortDescription ()</a></td>
+	<td class="summary">gets the short description of this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:hasPosition">Furniture:hasPosition (position)</a></td>
+	<td class="summary">gets whether a given position is enabled on this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:setComfort">Furniture:setComfort (the)</a></td>
+	<td class="summary">sets the comfort value of this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:setLongDescription">Furniture:setLongDescription (the)</a></td>
+	<td class="summary">sets the long description of this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:setPosition">Furniture:setPosition (position, boolean)</a></td>
+	<td class="summary">sets whether a position is enabled on this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:setShortDescription">Furniture:setShortDescription (the)</a></td>
+	<td class="summary">sets the short description of this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Furniture:toRoom">Furniture:toRoom (the)</a></td>
+	<td class="summary">moves this furniture to a new room</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Furniture.create"></a>
+    <strong>Furniture.create (short, long)</strong>
+    </dt>
+    <dd>
+    create a new piece of furniture.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">short</span>
+            <span class="types"><span class="type">string</span></span>
+         the short description (required)
+        </li>
+        <li><span class="parameter">long</span>
+            <span class="types"><span class="type">string</span></span>
+         the long description (optional, defaults to short description)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        the new furniture object.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture.getFromID"></a>
+    <strong>Furniture.getFromID (id)</strong>
+    </dt>
+    <dd>
+    finds a furniture by ID
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+            <span class="types"><span class="type">number</span></span>
+         the furniture ID
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        the furniture, or nil if not found
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Class_Furniture"></a>Class Furniture </h2>
+
+          <div class="section-description">
+          Functions on furniture variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "Furniture:getComfort"></a>
+    <strong>Furniture:getComfort ()</strong>
+    </dt>
+    <dd>
+    gets the comfort value of this furniture.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the furniture's current comfort value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:getId"></a>
+    <strong>Furniture:getId ()</strong>
+    </dt>
+    <dd>
+    gets the ID of this furniture.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ID of this furniture.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:getInRoom"></a>
+    <strong>Furniture:getInRoom ()</strong>
+    </dt>
+    <dd>
+    gets the room this furniture is in, or nil if not set.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+        the room where the furniture is located, or nil if not set.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:getLongDescription"></a>
+    <strong>Furniture:getLongDescription ()</strong>
+    </dt>
+    <dd>
+    gets the long description of this furniture.
+ Can return nil if it's not set, in which case the short description is used in the room.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the furniture's current long description, or nil if unset.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:getShortDescription"></a>
+    <strong>Furniture:getShortDescription ()</strong>
+    </dt>
+    <dd>
+    gets the short description of this furniture.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the furniture's current short description.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:hasPosition"></a>
+    <strong>Furniture:hasPosition (position)</strong>
+    </dt>
+    <dd>
+    gets whether a given position is enabled on this furniture.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+            <span class="types"><span class="type">string</span></span>
+         (sitat, sit, rest, or lie)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true whether the given position is enabled on this furniture.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:setComfort"></a>
+    <strong>Furniture:setComfort (the)</strong>
+    </dt>
+    <dd>
+    sets the comfort value of this furniture.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">number</span></span>
+         new comfort value for the furniture (currently does nothing).
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        this furniture, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:setLongDescription"></a>
+    <strong>Furniture:setLongDescription (the)</strong>
+    </dt>
+    <dd>
+    sets the long description of this furniture.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         new long description of the furniture. Can pass empty string to clear it and use the short desc instead.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        this furniture, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:setPosition"></a>
+    <strong>Furniture:setPosition (position, boolean)</strong>
+    </dt>
+    <dd>
+    sets whether a position is enabled on this furniture.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+            <span class="types"><span class="type">string</span></span>
+         (sitat, sit, rest, or lie)
+        </li>
+        <li><span class="parameter">boolean</span>
+         enabled whether the position should be enabled or disabled
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        this furniture, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:setShortDescription"></a>
+    <strong>Furniture:setShortDescription (the)</strong>
+    </dt>
+    <dd>
+    sets the short description of this furniture.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         new short description of the furniture.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        this furniture, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Furniture:toRoom"></a>
+    <strong>Furniture:toRoom (the)</strong>
+    </dt>
+    <dd>
+    moves this furniture to a new room
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+         room (or vnum) to move the furniture to. Nil will remove it from any room.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        this furniture, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

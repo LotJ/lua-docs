@@ -46,6 +46,7 @@
   <li><a href="../modules/clan.html">clan</a></li>
   <li><a href="../modules/core.html">core</a></li>
   <li><a href="../modules/exit.html">exit</a></li>
+  <li><a href="../modules/furniture.html">furniture</a></li>
   <li><a href="../modules/obj_proto.html">obj_proto</a></li>
   <li><a href="../modules/object.html">object</a></li>
   <li><a href="../modules/planet.html">planet</a></li>
@@ -129,10 +130,6 @@
 	<tr>
 	<td class="name" nowrap><a href="#Ship:echoToSystem">Ship:echoToSystem (text)</a></td>
 	<td class="summary">echo to all ships in the system, visible to any players in cockpits/viewports/turrets/etc</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Ship:getAstroArrays">Ship:getAstroArrays ()</a></td>
-	<td class="summary">return the ship's astro arrays</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:getAutopilot">Ship:getAutopilot ()</a></td>
@@ -323,6 +320,10 @@
 	<td class="summary">returns current shield.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:getShieldBoosters">Ship:getShieldBoosters ()</a></td>
+	<td class="summary">return the ship's shield boosters</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:getSpeed">Ship:getSpeed ()</a></td>
 	<td class="summary">returns current speed.</td>
 	</tr>
@@ -369,10 +370,6 @@
 	<tr>
 	<td class="name" nowrap><a href="#Ship:restore">Ship:restore ()</a></td>
 	<td class="summary">Restores this ship, raising all consumables to max</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Ship:setAstroArrays">Ship:setAstroArrays (astro_array)</a></td>
-	<td class="summary">set the ship's astro arrays.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Ship:setAutoFlag">Ship:setAutoFlag (flag, value)</a></td>
@@ -527,11 +524,15 @@
 	<td class="summary">set the ship's current shield</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Ship:setShieldBoosters">Ship:setShieldBoosters (shield_boosters)</a></td>
+	<td class="summary">set the ship's shield boosters.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Ship:setSpeed">Ship:setSpeed (speed)</a></td>
 	<td class="summary">set the ship's current speed</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Ship:setSquadronLeader">Ship:setSquadronLeader (leader, squadnum)</a></td>
+	<td class="name" nowrap><a href="#Ship:setSquadronLeader">Ship:setSquadronLeader (leader)</a></td>
 	<td class="summary">set the ship's squadron leader to add or remove it from squadrons.</td>
 	</tr>
 	<tr>
@@ -898,26 +899,6 @@
         </li>
     </ul>
 
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Ship:getAstroArrays"></a>
-    <strong>Ship:getAstroArrays ()</strong>
-    </dt>
-    <dd>
-    return the ship's astro arrays
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the ship's astro arrays
-    </ol>
 
 
 
@@ -1881,6 +1862,26 @@
 
 </dd>
     <dt>
+    <a name = "Ship:getShieldBoosters"></a>
+    <strong>Ship:getShieldBoosters ()</strong>
+    </dt>
+    <dd>
+    return the ship's shield boosters
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the ship's shield boosters
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:getSpeed"></a>
     <strong>Ship:getSpeed ()</strong>
     </dt>
@@ -2140,33 +2141,6 @@
     Restores this ship, raising all consumables to max
 
 
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
-        this ship, for call chaining
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Ship:setAstroArrays"></a>
-    <strong>Ship:setAstroArrays (astro_array)</strong>
-    </dt>
-    <dd>
-    set the ship's astro arrays.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">astro_array</span>
-            <span class="types"><span class="type">number</span></span>
-         the new astro_array value
-        </li>
-    </ul>
 
     <h3>Returns:</h3>
     <ol>
@@ -3227,6 +3201,33 @@
 
 </dd>
     <dt>
+    <a name = "Ship:setShieldBoosters"></a>
+    <strong>Ship:setShieldBoosters (shield_boosters)</strong>
+    </dt>
+    <dd>
+    set the ship's shield boosters.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">shield_boosters</span>
+            <span class="types"><span class="type">number</span></span>
+         the new shield boosters count
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
+        this ship, for call chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Ship:setSpeed"></a>
     <strong>Ship:setSpeed (speed)</strong>
     </dt>
@@ -3255,7 +3256,7 @@
 </dd>
     <dt>
     <a name = "Ship:setSquadronLeader"></a>
-    <strong>Ship:setSquadronLeader (leader, squadnum)</strong>
+    <strong>Ship:setSquadronLeader (leader)</strong>
     </dt>
     <dd>
     set the ship's squadron leader to add or remove it from squadrons.
@@ -3266,10 +3267,6 @@
         <li><span class="parameter">leader</span>
             <span class="types"><a class="type" href="../modules/ship.html#Ship">Ship</a></span>
          the ship to add this one to a squadron on, or nil to remove it from any squadrons.
-        </li>
-        <li><span class="parameter">squadnum</span>
-            <span class="types"><span class="type">integer</span></span>
-         if adding to a squadron, the squadron number to use, from 1 to 3.
         </li>
     </ul>
 
@@ -3284,7 +3281,7 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">xwing:setSquadronLeader(homeOne, <span class="number">1</span>)</pre>
+        <pre class="example">xwing:setSquadronLeader(redLeader)</pre>
     </ul>
 
 </dd>
@@ -3470,7 +3467,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-11-06 18:50:16 </i>
+<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
