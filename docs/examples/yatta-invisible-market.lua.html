@@ -103,32 +103,32 @@
 }
 
 <span class="comment">-- We can define a local function to be used inside this mob's progs so we don't have to copy/paste the code
-</span><span class="keyword">local</span> <span class="keyword">function</span> stockCheck(self, ch, keyword)
+</span><span class="keyword">local</span> <span class="keyword">function</span> <span class="function-name">stockCheck</span>(self, ch, keyword)
   <span class="comment">-- We set a global variable with a value like "&lt;battery&gt; &lt;gunship blueprints&gt;" to mark what's in stock.
 </span>  <span class="comment">-- Each item is wrapped in &lt;...&gt; so that we could differetiate between "battery" and "fancy battery".
-</span>  <span class="keyword">if</span> <span class="keyword">not</span> LOTJ.getGlobalVar(<span class="string">"im.stock"</span>, <span class="string">""</span>):find(<span class="string">"&lt;"</span>..keyword..<span class="string">"&gt;"</span>) <span class="keyword">then</span>
-    self:sayTo(ch, <span class="string">"Hah! Nice try, but I'm sold outta that fer now. Check back next week."</span>)
+</span>  <span class="keyword">if</span> <span class="keyword">not</span> LOTJ.<span class="function-name">getGlobalVar</span>(<span class="string">"im.stock"</span>, <span class="string">""</span>):<span class="function-name">find</span>(<span class="string">"&lt;"</span>..keyword..<span class="string">"&gt;"</span>) <span class="keyword">then</span>
+    self:<span class="function-name">sayTo</span>(ch, <span class="string">"Hah! Nice try, but I'm sold outta that fer now. Check back next week."</span>)
     <span class="keyword">return</span> <span class="keyword">false</span>
   <span class="keyword">end</span>
   <span class="keyword">return</span> <span class="keyword">true</span>
 <span class="keyword">end</span>
 
-self:onGive(<span class="keyword">function</span>(self, obj, ch)
+self:<span class="function-name">onGive</span>(<span class="keyword">function</span>(self, obj, ch)
   <span class="comment">-- If they gave her something other than what she wants, drop it.
 </span>  <span class="comment">-- This sort of thing could be used for any mob taking specific items to drop non-matches.
-</span>  <span class="keyword">if</span> obj:getVNum() ~= <span class="number">36641</span> <span class="keyword">then</span>
-    self:sayTo(ch, <span class="string">"What's this, hmm? I don't want your junk!"</span>)
-    self:drop(obj)
+</span>  <span class="keyword">if</span> obj:<span class="function-name">getVNum</span>() ~= <span class="number">36641</span> <span class="keyword">then</span>
+    self:<span class="function-name">sayTo</span>(ch, <span class="string">"What's this, hmm? I don't want your junk!"</span>)
+    self:<span class="function-name">drop</span>(obj)
     <span class="keyword">return</span>
   <span class="keyword">end</span>
 
   <span class="comment">-- Whenever someone gives her a coin, increment their im.coinBalance variable and then destroy the coin.
 </span>  <span class="comment">-- Because this is tracked as a variable, there's no need to do the original behavior where only one player
 </span>  <span class="comment">-- can be making a purchase at a time, and no need to know what they plan to buy ahead of time.
-</span>  ch:setVar(<span class="string">"im.coinBalance"</span>, ch:getVar(<span class="string">"im.coinBalance"</span>, <span class="number">0</span>)+<span class="number">1</span>)
-  self:emote(<span class="string">"&amp;cflicks the coin with a long fingernail and listens to it. She says, \"Yeah, that's a real one. "</span>..
-    <span class="string">"I have you down for "</span>..ch:getVar(<span class="string">"im.coinBalance"</span>)..<span class="string">" of these.\""</span>)
-  obj:toRoom(<span class="number">4</span>)
+</span>  ch:<span class="function-name">setVar</span>(<span class="string">"im.coinBalance"</span>, ch:<span class="function-name">getVar</span>(<span class="string">"im.coinBalance"</span>, <span class="number">0</span>)+<span class="number">1</span>)
+  self:<span class="function-name">emote</span>(<span class="string">"&amp;cflicks the coin with a long fingernail and listens to it. She says, \"Yeah, that's a real one. "</span>..
+    <span class="string">"I have you down for "</span>..ch:<span class="function-name">getVar</span>(<span class="string">"im.coinBalance"</span>)..<span class="string">" of these.\""</span>)
+  obj:<span class="function-name">toRoom</span>(<span class="number">4</span>)
 <span class="keyword">end</span>)
 
 
@@ -139,101 +139,101 @@ self:onGive(<span class="keyword">function</span>(self, obj, ch)
 
   <span class="comment">-- Set a trigger for someone saying just &lt;keyword&gt; ("battery", etc)
 </span>  <span class="comment">-- This will give them the item's description and cost, but do nothing else.
-</span>  self:onSpeech(keyword, <span class="keyword">function</span>(self, ch, fullText)
+</span>  self:<span class="function-name">onSpeech</span>(keyword, <span class="keyword">function</span>(self, ch, fullText)
     <span class="comment">-- We don't want to trigger when someone says "battery" in a longer sentence,
 </span>    <span class="comment">-- so return early if they said more than just the text trigger.
 </span>    <span class="keyword">if</span> fullText ~= keyword <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span> <span class="comment">-- Exact match only
 </span>
     <span class="comment">-- Use our stock check function defined above. If it returned false, it's not in stock and we should return now
-</span>    <span class="keyword">if</span> <span class="keyword">not</span> stockCheck(self, ch, keyword) <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+</span>    <span class="keyword">if</span> <span class="keyword">not</span> <span class="function-name">stockCheck</span>(self, ch, keyword) <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
 
     <span class="comment">-- Say the previewMsg from the item settings
-</span>    self:sayTo(ch, item.previewMsg)
-    ch:echoAt(<span class="string">"&amp;z[&amp;WI&amp;wnvisible Market&amp;z] To purchase this item, give all of the required coins to Yatta then '&amp;ksay confirm "</span>..keyword..<span class="string">"&amp;k'."</span>)
+</span>    self:<span class="function-name">sayTo</span>(ch, item.previewMsg)
+    ch:<span class="function-name">echoAt</span>(<span class="string">"&amp;z[&amp;WI&amp;wnvisible Market&amp;z] To purchase this item, give all of the required coins to Yatta then '&amp;ksay confirm "</span>..keyword..<span class="string">"&amp;k'."</span>)
   <span class="keyword">end</span>)
 
   <span class="comment">-- Set a trigger for someone saying "confirm &lt;keyword&gt;". This will complete a purchase.
-</span>  self:onSpeech(<span class="string">"confirm "</span>..keyword, <span class="keyword">function</span>(self, ch, fullText)
+</span>  self:<span class="function-name">onSpeech</span>(<span class="string">"confirm "</span>..keyword, <span class="keyword">function</span>(self, ch, fullText)
     <span class="keyword">if</span> fullText ~= <span class="string">"confirm "</span>..keyword <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span> <span class="comment">-- Exact match only
-</span>    <span class="keyword">if</span> <span class="keyword">not</span> stockCheck(self, ch, keyword) <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+</span>    <span class="keyword">if</span> <span class="keyword">not</span> <span class="function-name">stockCheck</span>(self, ch, keyword) <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
 
     <span class="comment">-- See if we've recorded them giving her enough coins by looking up the variable we use to track it
-</span>    <span class="keyword">local</span> coinBalance = ch:getVar(<span class="string">"im.coinBalance"</span>, <span class="number">0</span>)
+</span>    <span class="keyword">local</span> coinBalance = ch:<span class="function-name">getVar</span>(<span class="string">"im.coinBalance"</span>, <span class="number">0</span>)
     <span class="keyword">if</span> coinBalance &lt; item.cost <span class="keyword">then</span>
-      self:emote(<span class="string">"&amp;ccounts the coins in her palm with a dissatisfied grunt, \"Whatcha tryin' to pull here? That ain't enough coins!\""</span>)
+      self:<span class="function-name">emote</span>(<span class="string">"&amp;ccounts the coins in her palm with a dissatisfied grunt, \"Whatcha tryin' to pull here? That ain't enough coins!\""</span>)
       <span class="keyword">return</span>
     <span class="keyword">end</span>
 
     <span class="keyword">local</span> buyName = item.buyName <span class="keyword">or</span> <span class="string">"One "</span>..keyword
-    self:emote(<span class="string">"&amp;cgrins greedily, quickly closing her fingers around the coins, \""</span>..buyName..<span class="string">", comin' right up!\""</span>)
+    self:<span class="function-name">emote</span>(<span class="string">"&amp;cgrins greedily, quickly closing her fingers around the coins, \""</span>..buyName..<span class="string">", comin' right up!\""</span>)
 
     <span class="comment">-- We declare the "obj" variable so that we can later access one of the purchased items to get its name.
 </span>    <span class="keyword">local</span> obj = <span class="keyword">nil</span>
     <span class="keyword">local</span> count = item.count <span class="keyword">or</span> <span class="number">1</span>
     <span class="comment">-- This code generically handles single or multiple items by going through a loop up to &lt;count&gt; times.
 </span>    <span class="keyword">for</span> i=<span class="number">1</span>,count <span class="keyword">do</span>
-      obj = Object.invoke(item.vnum)
+      obj = Object.<span class="function-name">invoke</span>(item.vnum)
       <span class="comment">-- Put the object directly in the character's inventory. Note that this won't show an action
 </span>      <span class="comment">-- message like "player gets a battery", so it's up to us to echo an appropriate message.
-</span>      obj:toChar(ch)
+</span>      obj:<span class="function-name">toChar</span>(ch)
     <span class="keyword">end</span>
 
     <span class="comment">-- Subtract the cost from their coinBalance tracker
-</span>    ch:setVar(<span class="string">"im.coinBalance"</span>, coinBalance - item.cost)
+</span>    ch:<span class="function-name">setVar</span>(<span class="string">"im.coinBalance"</span>, coinBalance - item.cost)
     <span class="keyword">if</span> count == <span class="number">1</span> <span class="keyword">then</span>
-      self:echo(<span class="string">"{1} &amp;cdisappears into the vault and returns, sans coins but with {2}&amp;c, which she hands over to {3}."</span>, self, obj, ch)
+      self:<span class="function-name">echo</span>(<span class="string">"{1} &amp;cdisappears into the vault and returns, sans coins but with {2}&amp;c, which she hands over to {3}."</span>, self, obj, ch)
     <span class="keyword">else</span>
-      self:echo(<span class="string">"{1} &amp;cdisappears into the vault and returns, sans coins but with "</span>..count..<span class="string">" of {2}&amp;c, which she hands over to {3}."</span>, self, obj, ch)
+      self:<span class="function-name">echo</span>(<span class="string">"{1} &amp;cdisappears into the vault and returns, sans coins but with "</span>..count..<span class="string">" of {2}&amp;c, which she hands over to {3}."</span>, self, obj, ch)
     <span class="keyword">end</span>
-    self:emote(<span class="string">"&amp;creturns her attention to the room and hollers, \"Next!\""</span>)
+    self:<span class="function-name">emote</span>(<span class="string">"&amp;creturns her attention to the room and hollers, \"Next!\""</span>)
   <span class="keyword">end</span>)
 <span class="keyword">end</span>
 
 <span class="comment">-- This is some funky date math to find the beginning of the next week.
-</span><span class="keyword">local</span> <span class="keyword">function</span> secondsUntilNextSundayMidnight()
-  <span class="keyword">local</span> expTime = LOTJ.time()
+</span><span class="keyword">local</span> <span class="keyword">function</span> <span class="function-name">secondsUntilNextSundayMidnight</span>()
+  <span class="keyword">local</span> expTime = LOTJ.<span class="function-name">time</span>()
   <span class="comment">-- Keep adding a day to the time until it lands on a Sunday
-</span>  <span class="keyword">while</span> LOTJ.date(<span class="string">"*t"</span>, expTime).wday &gt; <span class="number">1</span> <span class="keyword">do</span>
+</span>  <span class="keyword">while</span> LOTJ.<span class="function-name">date</span>(<span class="string">"*t"</span>, expTime).wday &gt; <span class="number">1</span> <span class="keyword">do</span>
     expTime = expTime + (<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>) <span class="comment">-- Add number of seconds in a day
 </span>  <span class="keyword">end</span>
 
   <span class="comment">-- Reconstruct the expiration time using the year/month/day of the Sunday we found, but hour 0 so we get midnight.
-</span>  <span class="keyword">local</span> expDate = LOTJ.date(<span class="string">"*t"</span>, expTime)
-  expTime = LOTJ.time({year=expDate.year, month=expDate.month, day=expDate.day, hour = <span class="number">0</span>})
+</span>  <span class="keyword">local</span> expDate = LOTJ.<span class="function-name">date</span>(<span class="string">"*t"</span>, expTime)
+  expTime = LOTJ.<span class="function-name">time</span>({year=expDate.year, month=expDate.month, day=expDate.day, hour = <span class="number">0</span>})
 
   <span class="comment">-- The difference between that Sunday at midnight and the current time will be the number of seconds to wait.
-</span>  <span class="keyword">return</span> expTime - LOTJ.time()
+</span>  <span class="keyword">return</span> expTime - LOTJ.<span class="function-name">time</span>()
 <span class="keyword">end</span>
 
 <span class="comment">-- If necessary, update the stock. This uses an expiring variable to ensure it happens once per week.
-</span>self:onRandom(<span class="number">100</span>, <span class="keyword">function</span>(self)
+</span>self:<span class="function-name">onRandom</span>(<span class="number">100</span>, <span class="keyword">function</span>(self)
   <span class="comment">-- If our im.stockTimer variable hasn't expired yet, do nothing.
-</span>  <span class="keyword">if</span> LOTJ.getGlobalVar(<span class="string">"im.stockTimer"</span>) <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+</span>  <span class="keyword">if</span> LOTJ.<span class="function-name">getGlobalVar</span>(<span class="string">"im.stockTimer"</span>) <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
 
   <span class="comment">-- For each slot 1-4, find all items in that slot and pick one of them to stock.
 </span>  <span class="keyword">local</span> stockString = <span class="string">""</span>
   <span class="keyword">for</span> slot = <span class="number">1</span>, <span class="number">4</span> <span class="keyword">do</span>
     <span class="keyword">local</span> slotOptions = {}
     <span class="keyword">for</span> keyword, item <span class="keyword">in</span> <span class="global">pairs</span>(items) <span class="keyword">do</span>
-      <span class="keyword">if</span> item.slot == slot <span class="keyword">then</span> <span class="global">table</span>.insert(slotOptions, keyword) <span class="keyword">end</span>
+      <span class="keyword">if</span> item.slot == slot <span class="keyword">then</span> <span class="global">table</span>.<span class="function-name">insert</span>(slotOptions, keyword) <span class="keyword">end</span>
     <span class="keyword">end</span>
     <span class="keyword">if</span> slot &gt; <span class="number">1</span> <span class="keyword">then</span> stockString = stockString..<span class="string">" "</span> <span class="keyword">end</span>
-    stockString = stockString..<span class="string">"&lt;"</span>..slotOptions[<span class="global">math</span>.random(#slotOptions)]..<span class="string">"&gt;"</span>
+    stockString = stockString..<span class="string">"&lt;"</span>..slotOptions[<span class="global">math</span>.<span class="function-name">random</span>(#slotOptions)]..<span class="string">"&gt;"</span>
   <span class="keyword">end</span>
 
-  self:force(<span class="string">"immchat This week's Invisible Market stock is: "</span>..stockString)
-  LOTJ.setGlobalVar(<span class="string">"im.stock"</span>, stockString)
+  self:<span class="function-name">force</span>(<span class="string">"immchat This week's Invisible Market stock is: "</span>..stockString)
+  LOTJ.<span class="function-name">setGlobalVar</span>(<span class="string">"im.stock"</span>, stockString)
 
   <span class="comment">-- Set the timer variable to expire next Sunday at midnight so new stock will be picked then.
-</span>  LOTJ.setGlobalVar(<span class="string">"im.stockTimer"</span>, <span class="keyword">true</span>, secondsUntilNextSundayMidnight())
+</span>  LOTJ.<span class="function-name">setGlobalVar</span>(<span class="string">"im.stockTimer"</span>, <span class="keyword">true</span>, <span class="function-name">secondsUntilNextSundayMidnight</span>())
 <span class="keyword">end</span>)</pre>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

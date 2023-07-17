@@ -85,6 +85,14 @@
 <h2><a href="#Global_functions">Global functions </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Structure.all">Structure.all ()</a></td>
+	<td class="summary">returns an iterator over all structures.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Structure.getFromID">Structure.getFromID (id)</a></td>
+	<td class="summary">finds a structure by ID</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Structure.getFromName">Structure.getFromName (name)</a></td>
 	<td class="summary">finds a structure by name</td>
 	</tr>
@@ -92,8 +100,44 @@
 <h2><a href="#Class_Structure">Class Structure </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Structure:getPlanet">Structure:getPlanet ()</a></td>
+	<td class="name" nowrap><a href="#structure:getBlueprint">structure:getBlueprint ()</a></td>
+	<td class="summary">get the structure's blueprint name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#structure:getEntrance">structure:getEntrance ()</a></td>
+	<td class="summary">gets the interior entrance room for the structure</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#structure:getFirstVNum">structure:getFirstVNum ()</a></td>
+	<td class="summary">get the first vnum in the range assigned to the structure</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#structure:getID">structure:getID ()</a></td>
+	<td class="summary">get the structure's ID</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#structure:getInRoom">structure:getInRoom ()</a></td>
+	<td class="summary">gets the room the structure is located in</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#structure:getLastVNum">structure:getLastVNum ()</a></td>
+	<td class="summary">get the last vnum in the range assigned to the structure</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#structure:getName">structure:getName ()</a></td>
+	<td class="summary">get the structure's name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#structure:getOwner">structure:getOwner ()</a></td>
+	<td class="summary">get the structure's owner's name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#structure:getPlanet">structure:getPlanet ()</a></td>
 	<td class="summary">gets the planet this structure is on, or nil if not set.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#structure:rooms">structure:rooms ()</a></td>
+	<td class="summary">get an iterator over rooms in the structure.</td>
 	</tr>
 </table>
 
@@ -104,6 +148,58 @@
     <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
 
     <dl class="function">
+    <dt>
+    <a name = "Structure.all"></a>
+    <strong>Structure.all ()</strong>
+    </dt>
+    <dd>
+    returns an iterator over all structures.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/structure.html#Structure">Structure</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> structure <span class="keyword">in</span> Structure.<span class="function-name">all</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Structure.getFromID"></a>
+    <strong>Structure.getFromID (id)</strong>
+    </dt>
+    <dd>
+    finds a structure by ID
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+            <span class="types"><span class="type">int</span></span>
+         the structure ID
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/structure.html#Structure">Structure</a></span>
+        the structure, or nil if not found
+    </ol>
+
+
+
+
+</dd>
     <dt>
     <a name = "Structure.getFromName"></a>
     <strong>Structure.getFromName (name)</strong>
@@ -139,8 +235,168 @@
           </div>
     <dl class="function">
     <dt>
-    <a name = "Structure:getPlanet"></a>
-    <strong>Structure:getPlanet ()</strong>
+    <a name = "structure:getBlueprint"></a>
+    <strong>structure:getBlueprint ()</strong>
+    </dt>
+    <dd>
+    get the structure's blueprint name
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the structure's blueprint name, or nil if not set.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "structure:getEntrance"></a>
+    <strong>structure:getEntrance ()</strong>
+    </dt>
+    <dd>
+    gets the interior entrance room for the structure
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+        the structure's entrance room, or nil if not set.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "structure:getFirstVNum"></a>
+    <strong>structure:getFirstVNum ()</strong>
+    </dt>
+    <dd>
+    get the first vnum in the range assigned to the structure
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        the structure's first vnum
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "structure:getID"></a>
+    <strong>structure:getID ()</strong>
+    </dt>
+    <dd>
+    get the structure's ID
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        the structure's id.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "structure:getInRoom"></a>
+    <strong>structure:getInRoom ()</strong>
+    </dt>
+    <dd>
+    gets the room the structure is located in
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+        the room the structure is in, or nil if not set.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "structure:getLastVNum"></a>
+    <strong>structure:getLastVNum ()</strong>
+    </dt>
+    <dd>
+    get the last vnum in the range assigned to the structure
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        the structure's last vnum
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "structure:getName"></a>
+    <strong>structure:getName ()</strong>
+    </dt>
+    <dd>
+    get the structure's name
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the structure's name, or nil if not set.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "structure:getOwner"></a>
+    <strong>structure:getOwner ()</strong>
+    </dt>
+    <dd>
+    get the structure's owner's name
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the structure's owner's name, or nil if not set.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "structure:getPlanet"></a>
+    <strong>structure:getPlanet ()</strong>
     </dt>
     <dd>
     gets the planet this structure is on, or nil if not set.
@@ -158,14 +414,39 @@
 
 
 </dd>
+    <dt>
+    <a name = "structure:rooms"></a>
+    <strong>structure:rooms ()</strong>
+    </dt>
+    <dd>
+    get an iterator over rooms in the structure.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/room.html#Room">Room</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> room <span class="keyword">in</span> structure:<span class="function-name">rooms</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
 </dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

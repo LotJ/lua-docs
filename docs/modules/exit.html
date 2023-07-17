@@ -92,39 +92,39 @@
 <h2><a href="#Class_Exit">Class Exit </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Exit:delete">Exit:delete ()</a></td>
+	<td class="name" nowrap><a href="#exit:delete">exit:delete ()</a></td>
 	<td class="summary">delete this exit.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Exit:getDescription">Exit:getDescription ()</a></td>
+	<td class="name" nowrap><a href="#exit:getDescription">exit:getDescription ()</a></td>
 	<td class="summary">get the description for this exit.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Exit:getKey">Exit:getKey ()</a></td>
+	<td class="name" nowrap><a href="#exit:getKey">exit:getKey ()</a></td>
 	<td class="summary">get the key code or object vnum for this exit.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Exit:getName">Exit:getName ()</a></td>
+	<td class="name" nowrap><a href="#exit:getName">exit:getName ()</a></td>
 	<td class="summary">get the name for this exit, either a set keyword or the directional name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Exit:getToRoom">Exit:getToRoom ()</a></td>
+	<td class="name" nowrap><a href="#exit:getToRoom">exit:getToRoom ()</a></td>
 	<td class="summary">get the room this exit leads to.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Exit:hasFlag">Exit:hasFlag (flag)</a></td>
+	<td class="name" nowrap><a href="#exit:hasFlag">exit:hasFlag (flag)</a></td>
 	<td class="summary">get whether a flag is set on this exit.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Exit:setDescription">Exit:setDescription (the)</a></td>
+	<td class="name" nowrap><a href="#exit:setDescription">exit:setDescription (the)</a></td>
 	<td class="summary">set the description for this exit.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Exit:setFlag">Exit:setFlag (flag, value, both)</a></td>
+	<td class="name" nowrap><a href="#exit:setFlag">exit:setFlag (flag, value, both)</a></td>
 	<td class="summary">set a flag on this exit.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Exit:setKey">Exit:setKey (key)</a></td>
+	<td class="name" nowrap><a href="#exit:setKey">exit:setKey (key)</a></td>
 	<td class="summary">set the key code or object vnum for this exit.</td>
 	</tr>
 </table>
@@ -176,14 +176,14 @@
 
     <h3>Usage:</h3>
     <ul>
-        <li><pre class="example">self:onCommand(<span class="string">"lever"</span>, <span class="keyword">function</span>(self, ch)
-  ch:echoAt(<span class="string">"You push the lever..."</span>)
-  ch:echoAround(<span class="string">"{1} pushes the lever..."</span>, ch)
-  Exit.create(self, north, <span class="number">12345</span>, <span class="keyword">true</span>)
-  self:echo(<span class="string">"A hidden passage reveals itself to the north, leading to a snowy expanse!"</span>)
-  self:getInArea():fold() <span class="comment">-- save the area now
+        <li><pre class="example">self:<span class="function-name">onCommand</span>(<span class="string">"lever"</span>, <span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You push the lever..."</span>)
+  ch:<span class="function-name">echoAround</span>(<span class="string">"{1} pushes the lever..."</span>, ch)
+  Exit.<span class="function-name">create</span>(self, north, <span class="number">12345</span>, <span class="keyword">true</span>)
+  self:<span class="function-name">echo</span>(<span class="string">"A hidden passage reveals itself to the north, leading to a snowy expanse!"</span>)
+  self:<span class="function-name">getInArea</span>():<span class="function-name">fold</span>() <span class="comment">-- save the area now
 </span><span class="keyword">end</span>)</pre></li>
-        <li><pre class="example">Exit.create(self, <span class="string">"trapdoor"</span>, <span class="number">12345</span>) <span class="comment">-- Create a custom exit named 'trapdoor'</span></pre></li>
+        <li><pre class="example">Exit.<span class="function-name">create</span>(self, <span class="string">"trapdoor"</span>, <span class="number">12345</span>) <span class="comment">-- Create a custom exit named 'trapdoor'</span></pre></li>
     </ul>
 
 </dd>
@@ -195,8 +195,8 @@
           </div>
     <dl class="function">
     <dt>
-    <a name = "Exit:delete"></a>
-    <strong>Exit:delete ()</strong>
+    <a name = "exit:delete"></a>
+    <strong>exit:delete ()</strong>
     </dt>
     <dd>
     delete this exit.
@@ -209,8 +209,8 @@
 
 </dd>
     <dt>
-    <a name = "Exit:getDescription"></a>
-    <strong>Exit:getDescription ()</strong>
+    <a name = "exit:getDescription"></a>
+    <strong>exit:getDescription ()</strong>
     </dt>
     <dd>
     get the description for this exit.
@@ -229,8 +229,8 @@
 
 </dd>
     <dt>
-    <a name = "Exit:getKey"></a>
-    <strong>Exit:getKey ()</strong>
+    <a name = "exit:getKey"></a>
+    <strong>exit:getKey ()</strong>
     </dt>
     <dd>
     get the key code or object vnum for this exit.
@@ -249,8 +249,8 @@
 
 </dd>
     <dt>
-    <a name = "Exit:getName"></a>
-    <strong>Exit:getName ()</strong>
+    <a name = "exit:getName"></a>
+    <strong>exit:getName ()</strong>
     </dt>
     <dd>
     get the name for this exit, either a set keyword or the directional name.
@@ -269,8 +269,8 @@
 
 </dd>
     <dt>
-    <a name = "Exit:getToRoom"></a>
-    <strong>Exit:getToRoom ()</strong>
+    <a name = "exit:getToRoom"></a>
+    <strong>exit:getToRoom ()</strong>
     </dt>
     <dd>
     get the room this exit leads to.
@@ -289,8 +289,8 @@
 
 </dd>
     <dt>
-    <a name = "Exit:hasFlag"></a>
-    <strong>Exit:hasFlag (flag)</strong>
+    <a name = "exit:hasFlag"></a>
+    <strong>exit:hasFlag (flag)</strong>
     </dt>
     <dd>
     get whether a flag is set on this exit.
@@ -315,15 +315,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> exit:hasFlag(<span class="string">"closed"</span>) <span class="keyword">do</span>
-  ch:echoAt(<span class="string">"The door is closed."</span>)
+        <pre class="example"><span class="keyword">if</span> exit:<span class="function-name">hasFlag</span>(<span class="string">"closed"</span>) <span class="keyword">do</span>
+  ch:<span class="function-name">echoAt</span>(<span class="string">"The door is closed."</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Exit:setDescription"></a>
-    <strong>Exit:setDescription (the)</strong>
+    <a name = "exit:setDescription"></a>
+    <strong>exit:setDescription (the)</strong>
     </dt>
     <dd>
     set the description for this exit.
@@ -349,8 +349,8 @@
 
 </dd>
     <dt>
-    <a name = "Exit:setFlag"></a>
-    <strong>Exit:setFlag (flag, value, both)</strong>
+    <a name = "exit:setFlag"></a>
+    <strong>exit:setFlag (flag, value, both)</strong>
     </dt>
     <dd>
     set a flag on this exit.
@@ -384,13 +384,13 @@
     <h3>Usage:</h3>
     <ul>
         <pre class="example"><span class="comment">-- Open the door from both sides
-</span>room:setFlag(<span class="string">"closed"</span>, <span class="keyword">false</span>, <span class="keyword">true</span>)</pre>
+</span>room:<span class="function-name">setFlag</span>(<span class="string">"closed"</span>, <span class="keyword">false</span>, <span class="keyword">true</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Exit:setKey"></a>
-    <strong>Exit:setKey (key)</strong>
+    <a name = "exit:setKey"></a>
+    <strong>exit:setKey (key)</strong>
     </dt>
     <dd>
     set the key code or object vnum for this exit.
@@ -421,8 +421,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

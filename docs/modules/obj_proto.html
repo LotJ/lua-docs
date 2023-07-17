@@ -84,63 +84,63 @@
 <h2><a href="#Class_ObjProto">Class ObjProto </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onAct">ObjProto:onAct (message, callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onAct">objproto:onAct (message, callback)</a></td>
 	<td class="summary">registers a function to run when the given action message is shown in the object's room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onCommand">ObjProto:onCommand (command, callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onCommand">objproto:onCommand (command, callback)</a></td>
 	<td class="summary">registers a function to run when a character (player or NPC) enters a custom command.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onDamage">ObjProto:onDamage (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onDamage">objproto:onDamage (callback)</a></td>
 	<td class="summary">registers a function to run after an object gets damaged.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onDrop">ObjProto:onDrop (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onDrop">objproto:onDrop (callback)</a></td>
 	<td class="summary">registers a function to run after a character drops this object.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onExamine">ObjProto:onExamine (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onExamine">objproto:onExamine (callback)</a></td>
 	<td class="summary">registers a function to run after a character examines this object.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onGet">ObjProto:onGet (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onGet">objproto:onGet (callback)</a></td>
 	<td class="summary">registers a function to run after a character gets this object from the room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onGreet">ObjProto:onGreet (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onGreet">objproto:onGreet (callback)</a></td>
 	<td class="summary">registers a function to run when a character enters the room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onPull">ObjProto:onPull (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onPull">objproto:onPull (callback)</a></td>
 	<td class="summary">registers a function to run after a button object is pulled.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onPush">ObjProto:onPush (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onPush">objproto:onPush (callback)</a></td>
 	<td class="summary">registers a function to run after a button object is pushed.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onRandom">ObjProto:onRandom (chance, callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onRandom">objproto:onRandom (chance, callback)</a></td>
 	<td class="summary">registers a function with a chance to run every main tick (52-87 seconds, random).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onRemove">ObjProto:onRemove (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onRemove">objproto:onRemove (callback)</a></td>
 	<td class="summary">registers a function to run after a character unequips this object.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onSpeech">ObjProto:onSpeech (message, callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onSpeech">objproto:onSpeech (message, callback)</a></td>
 	<td class="summary">registers a function to run when the given text is spoken in the room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onTime">ObjProto:onTime (hour, callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onTime">objproto:onTime (hour, callback)</a></td>
 	<td class="summary">registers a function to run every time the hour changes to a certain value.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onUse">ObjProto:onUse (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onUse">objproto:onUse (callback)</a></td>
 	<td class="summary">registers a function to run after an object is used.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ObjProto:onWear">ObjProto:onWear (callback)</a></td>
+	<td class="name" nowrap><a href="#objproto:onWear">objproto:onWear (callback)</a></td>
 	<td class="summary">registers a function to run after a character equips this object.</td>
 	</tr>
 </table>
@@ -156,8 +156,8 @@
           </div>
     <dl class="function">
     <dt>
-    <a name = "ObjProto:onAct"></a>
-    <strong>ObjProto:onAct (message, callback)</strong>
+    <a name = "objproto:onAct"></a>
+    <strong>objproto:onAct (message, callback)</strong>
     </dt>
     <dd>
     registers a function to run when the given action message is shown in the object's room.
@@ -184,16 +184,16 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onAct(<span class="string">"grips the piloting controls"</span>, <span class="keyword">function</span>(self, actor, fullText)
-  actor:echoAt(<span class="string">"The console beeps loudly and the controls are disabled."</span>)
-  actor:force(<span class="string">"pilot"</span>)
+        <pre class="example">self:<span class="function-name">onAct</span>(<span class="string">"grips the piloting controls"</span>, <span class="keyword">function</span>(self, actor, fullText)
+  actor:<span class="function-name">echoAt</span>(<span class="string">"The console beeps loudly and the controls are disabled."</span>)
+  actor:<span class="function-name">force</span>(<span class="string">"pilot"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onCommand"></a>
-    <strong>ObjProto:onCommand (command, callback)</strong>
+    <a name = "objproto:onCommand"></a>
+    <strong>objproto:onCommand (command, callback)</strong>
     </dt>
     <dd>
     registers a function to run when a character (player or NPC) enters a custom command.
@@ -221,15 +221,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onCommand(<span class="string">"repair"</span>, <span class="keyword">function</span>(self, ch, argument)
-  ch:echoAt(<span class="string">"You repaired "</span>..self:getShortDescription()..<span class="string">"."</span>)
+        <pre class="example">self:<span class="function-name">onCommand</span>(<span class="string">"repair"</span>, <span class="keyword">function</span>(self, ch, argument)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You repaired "</span>..self:<span class="function-name">getShortDescription</span>()..<span class="string">"."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onDamage"></a>
-    <strong>ObjProto:onDamage (callback)</strong>
+    <a name = "objproto:onDamage"></a>
+    <strong>objproto:onDamage (callback)</strong>
     </dt>
     <dd>
     registers a function to run after an object gets damaged.
@@ -254,15 +254,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onDamage(<span class="keyword">function</span>(self, ch)
-  ch:echoAt(self:getShortDescription()..<span class="string">" emits a sad noise."</span>)
+        <pre class="example">self:<span class="function-name">onDamage</span>(<span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">echoAt</span>(self:<span class="function-name">getShortDescription</span>()..<span class="string">" emits a sad noise."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onDrop"></a>
-    <strong>ObjProto:onDrop (callback)</strong>
+    <a name = "objproto:onDrop"></a>
+    <strong>objproto:onDrop (callback)</strong>
     </dt>
     <dd>
     registers a function to run after a character drops this object.
@@ -283,15 +283,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onDrop(<span class="keyword">function</span>(self, ch)
-  ch:echoAt(self:getShortDescription()..<span class="string">" falls to the ground with a loud clunk."</span>)
+        <pre class="example">self:<span class="function-name">onDrop</span>(<span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">echoAt</span>(self:<span class="function-name">getShortDescription</span>()..<span class="string">" falls to the ground with a loud clunk."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onExamine"></a>
-    <strong>ObjProto:onExamine (callback)</strong>
+    <a name = "objproto:onExamine"></a>
+    <strong>objproto:onExamine (callback)</strong>
     </dt>
     <dd>
     registers a function to run after a character examines this object.
@@ -313,15 +313,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onExamine(<span class="keyword">function</span>(self, ch)
-  ch:echoAt(<span class="string">"You notice bright red button on the underside of the device."</span>)
+        <pre class="example">self:<span class="function-name">onExamine</span>(<span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You notice bright red button on the underside of the device."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onGet"></a>
-    <strong>ObjProto:onGet (callback)</strong>
+    <a name = "objproto:onGet"></a>
+    <strong>objproto:onGet (callback)</strong>
     </dt>
     <dd>
     registers a function to run after a character gets this object from the room.
@@ -342,15 +342,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onGet(<span class="keyword">function</span>(self, ch)
-  ch:echoAt(<span class="string">"You carefully scoop up the pile of powder."</span>)
+        <pre class="example">self:<span class="function-name">onGet</span>(<span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You carefully scoop up the pile of powder."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onGreet"></a>
-    <strong>ObjProto:onGreet (callback)</strong>
+    <a name = "objproto:onGreet"></a>
+    <strong>objproto:onGreet (callback)</strong>
     </dt>
     <dd>
     registers a function to run when a character enters the room.
@@ -372,15 +372,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onGreet(<span class="keyword">function</span>(self, target)
-  target:echoAt(<span class="string">"You notice "</span>..self:getShortDescription()..<span class="string">" blinking red."</span>)
+        <pre class="example">self:<span class="function-name">onGreet</span>(<span class="keyword">function</span>(self, target)
+  target:<span class="function-name">echoAt</span>(<span class="string">"You notice "</span>..self:<span class="function-name">getShortDescription</span>()..<span class="string">" blinking red."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onPull"></a>
-    <strong>ObjProto:onPull (callback)</strong>
+    <a name = "objproto:onPull"></a>
+    <strong>objproto:onPull (callback)</strong>
     </dt>
     <dd>
     registers a function to run after a button object is pulled.
@@ -401,15 +401,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onPull(<span class="keyword">function</span>(self, ch)
-  ch:echoAt(self:getShortDescription()..<span class="string">" does something because you pulled it."</span>)
+        <pre class="example">self:<span class="function-name">onPull</span>(<span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">echoAt</span>(self:<span class="function-name">getShortDescription</span>()..<span class="string">" does something because you pulled it."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onPush"></a>
-    <strong>ObjProto:onPush (callback)</strong>
+    <a name = "objproto:onPush"></a>
+    <strong>objproto:onPush (callback)</strong>
     </dt>
     <dd>
     registers a function to run after a button object is pushed.
@@ -430,15 +430,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onPush(<span class="keyword">function</span>(self, ch)
-  ch:echoAt(self:getShortDescription()..<span class="string">" does something because you pushed it."</span>)
+        <pre class="example">self:<span class="function-name">onPush</span>(<span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">echoAt</span>(self:<span class="function-name">getShortDescription</span>()..<span class="string">" does something because you pushed it."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onRandom"></a>
-    <strong>ObjProto:onRandom (chance, callback)</strong>
+    <a name = "objproto:onRandom"></a>
+    <strong>objproto:onRandom (chance, callback)</strong>
     </dt>
     <dd>
     registers a function with a chance to run every main tick (52-87 seconds, random).
@@ -462,15 +462,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onRandom(<span class="number">25</span>, <span class="keyword">function</span>(self)
+        <pre class="example">self:<span class="function-name">onRandom</span>(<span class="number">25</span>, <span class="keyword">function</span>(self)
   <span class="comment">-- Do stuff
 </span><span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onRemove"></a>
-    <strong>ObjProto:onRemove (callback)</strong>
+    <a name = "objproto:onRemove"></a>
+    <strong>objproto:onRemove (callback)</strong>
     </dt>
     <dd>
     registers a function to run after a character unequips this object.
@@ -491,15 +491,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onRemove(<span class="keyword">function</span>(self, ch)
-  ch:emote(<span class="string">"makes a controlled descent and removes their jetpack."</span>)
+        <pre class="example">self:<span class="function-name">onRemove</span>(<span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">emote</span>(<span class="string">"makes a controlled descent and removes their jetpack."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onSpeech"></a>
-    <strong>ObjProto:onSpeech (message, callback)</strong>
+    <a name = "objproto:onSpeech"></a>
+    <strong>objproto:onSpeech (message, callback)</strong>
     </dt>
     <dd>
     registers a function to run when the given text is spoken in the room.
@@ -526,15 +526,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onSpeech(<span class="string">"activate"</span>, <span class="keyword">function</span>(self, speaker, fullText)
-  speaker:echoAt(<span class="string">"The trash compactor whirs as it activates."</span>)
+        <pre class="example">self:<span class="function-name">onSpeech</span>(<span class="string">"activate"</span>, <span class="keyword">function</span>(self, speaker, fullText)
+  speaker:<span class="function-name">echoAt</span>(<span class="string">"The trash compactor whirs as it activates."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onTime"></a>
-    <strong>ObjProto:onTime (hour, callback)</strong>
+    <a name = "objproto:onTime"></a>
+    <strong>objproto:onTime (hour, callback)</strong>
     </dt>
     <dd>
     registers a function to run every time the hour changes to a certain value.
@@ -558,15 +558,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onTime(<span class="number">6</span>, <span class="keyword">function</span>(self)
+        <pre class="example">self:<span class="function-name">onTime</span>(<span class="number">6</span>, <span class="keyword">function</span>(self)
   <span class="comment">-- Do something at 6am every day
 </span><span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onUse"></a>
-    <strong>ObjProto:onUse (callback)</strong>
+    <a name = "objproto:onUse"></a>
+    <strong>objproto:onUse (callback)</strong>
     </dt>
     <dd>
     registers a function to run after an object is used.
@@ -597,23 +597,23 @@
 
     <h3>Usage:</h3>
     <ul>
-        <li><pre class="example">self:onUse(<span class="keyword">function</span>(self, ch)
-  ch:echoAt(self:getShortDescription()..<span class="string">" does something because you used it."</span>)
+        <li><pre class="example">self:<span class="function-name">onUse</span>(<span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">echoAt</span>(self:<span class="function-name">getShortDescription</span>()..<span class="string">" does something because you used it."</span>)
 <span class="keyword">end</span>)</pre></li>
-        <li><pre class="example">self:onUse(<span class="keyword">function</span>(self, ch, targetCh, targetObj)
+        <li><pre class="example">self:<span class="function-name">onUse</span>(<span class="keyword">function</span>(self, ch, targetCh, targetObj)
   <span class="keyword">if</span> <span class="keyword">not</span> targetCh <span class="keyword">then</span>
-    ch:echoAt(<span class="string">"This can only be used on a character."</span>)
+    ch:<span class="function-name">echoAt</span>(<span class="string">"This can only be used on a character."</span>)
     <span class="keyword">return</span>
   <span class="keyword">end</span>
-  targetCh:echoAt(<span class="string">"You feel a surge of static electricity."</span>)
-  targetCh:echoAround(<span class="string">"$n's hair sticks out in every direction."</span>)
+  targetCh:<span class="function-name">echoAt</span>(<span class="string">"You feel a surge of static electricity."</span>)
+  targetCh:<span class="function-name">echoAround</span>(<span class="string">"$n's hair sticks out in every direction."</span>)
 <span class="keyword">end</span>)</pre></li>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ObjProto:onWear"></a>
-    <strong>ObjProto:onWear (callback)</strong>
+    <a name = "objproto:onWear"></a>
+    <strong>objproto:onWear (callback)</strong>
     </dt>
     <dd>
     registers a function to run after a character equips this object.
@@ -634,8 +634,8 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onWear(<span class="keyword">function</span>(self, ch)
-  ch:emote(<span class="string">"loosely straps "</span>..self:getShortDescription()..<span class="string">" over their shoulder."</span>)
+        <pre class="example">self:<span class="function-name">onWear</span>(<span class="keyword">function</span>(self, ch)
+  ch:<span class="function-name">emote</span>(<span class="string">"loosely straps "</span>..self:<span class="function-name">getShortDescription</span>()..<span class="string">" over their shoulder."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
@@ -646,8 +646,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

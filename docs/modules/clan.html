@@ -92,47 +92,51 @@
 <h2><a href="#Class_Clan">Class Clan </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Clan:addFunds">Clan:addFunds (amount, who, reason)</a></td>
+	<td class="name" nowrap><a href="#clan:addFunds">clan:addFunds (amount, who, reason)</a></td>
 	<td class="summary">add or substract from clan funds.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:echoToMembers">Clan:echoToMembers (message)</a></td>
+	<td class="name" nowrap><a href="#clan:echoToMembers">clan:echoToMembers (message)</a></td>
 	<td class="summary">send a message to all members of the clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:getColorname">Clan:getColorname ()</a></td>
+	<td class="name" nowrap><a href="#clan:getAtWar">clan:getAtWar ()</a></td>
+	<td class="summary">get the list of clans this clan is at war with</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#clan:getColorname">clan:getColorname ()</a></td>
 	<td class="summary">get the colored name of the clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:getFirst">Clan:getFirst ()</a></td>
+	<td class="name" nowrap><a href="#clan:getFirst">clan:getFirst ()</a></td>
 	<td class="summary">get the name of the clan's first.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:getFunds">Clan:getFunds ()</a></td>
+	<td class="name" nowrap><a href="#clan:getFunds">clan:getFunds ()</a></td>
 	<td class="summary">get current clan funds.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:getLeader">Clan:getLeader ()</a></td>
+	<td class="name" nowrap><a href="#clan:getLeader">clan:getLeader ()</a></td>
 	<td class="summary">get the name of the clan's leader.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:getName">Clan:getName ()</a></td>
+	<td class="name" nowrap><a href="#clan:getName">clan:getName ()</a></td>
 	<td class="summary">get the name of the clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:getSecond">Clan:getSecond ()</a></td>
+	<td class="name" nowrap><a href="#clan:getSecond">clan:getSecond ()</a></td>
 	<td class="summary">get the name of the clan's second.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:getShortname">Clan:getShortname ()</a></td>
+	<td class="name" nowrap><a href="#clan:getShortname">clan:getShortname ()</a></td>
 	<td class="summary">get the shortname of the clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:hasFlag">Clan:hasFlag (flag)</a></td>
+	<td class="name" nowrap><a href="#clan:hasFlag">clan:hasFlag (flag)</a></td>
 	<td class="summary">get whether a flag is set on this clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Clan:setFlag">Clan:setFlag (flag, value)</a></td>
+	<td class="name" nowrap><a href="#clan:setFlag">clan:setFlag (flag, value)</a></td>
 	<td class="summary">set a flag on this clan.</td>
 	</tr>
 </table>
@@ -179,8 +183,8 @@
           </div>
     <dl class="function">
     <dt>
-    <a name = "Clan:addFunds"></a>
-    <strong>Clan:addFunds (amount, who, reason)</strong>
+    <a name = "clan:addFunds"></a>
+    <strong>clan:addFunds (amount, who, reason)</strong>
     </dt>
     <dd>
     add or substract from clan funds.
@@ -208,8 +212,8 @@
 
 </dd>
     <dt>
-    <a name = "Clan:echoToMembers"></a>
-    <strong>Clan:echoToMembers (message)</strong>
+    <a name = "clan:echoToMembers"></a>
+    <strong>clan:echoToMembers (message)</strong>
     </dt>
     <dd>
     send a message to all members of the clan.
@@ -228,13 +232,33 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">clan:echoToMembers(<span class="string">"Attention: {1} has joined your clan."</span>, newCh)</pre>
+        <pre class="example">clan:<span class="function-name">echoToMembers</span>(<span class="string">"Attention: {1} has joined your clan."</span>, newCh)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Clan:getColorname"></a>
-    <strong>Clan:getColorname ()</strong>
+    <a name = "clan:getAtWar"></a>
+    <strong>clan:getAtWar ()</strong>
+    </dt>
+    <dd>
+    get the list of clans this clan is at war with
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the list of clans this clan is at war with
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "clan:getColorname"></a>
+    <strong>clan:getColorname ()</strong>
     </dt>
     <dd>
     get the colored name of the clan.
@@ -253,8 +277,8 @@
 
 </dd>
     <dt>
-    <a name = "Clan:getFirst"></a>
-    <strong>Clan:getFirst ()</strong>
+    <a name = "clan:getFirst"></a>
+    <strong>clan:getFirst ()</strong>
     </dt>
     <dd>
     get the name of the clan's first.
@@ -273,8 +297,8 @@
 
 </dd>
     <dt>
-    <a name = "Clan:getFunds"></a>
-    <strong>Clan:getFunds ()</strong>
+    <a name = "clan:getFunds"></a>
+    <strong>clan:getFunds ()</strong>
     </dt>
     <dd>
     get current clan funds.
@@ -293,8 +317,8 @@
 
 </dd>
     <dt>
-    <a name = "Clan:getLeader"></a>
-    <strong>Clan:getLeader ()</strong>
+    <a name = "clan:getLeader"></a>
+    <strong>clan:getLeader ()</strong>
     </dt>
     <dd>
     get the name of the clan's leader.
@@ -313,8 +337,8 @@
 
 </dd>
     <dt>
-    <a name = "Clan:getName"></a>
-    <strong>Clan:getName ()</strong>
+    <a name = "clan:getName"></a>
+    <strong>clan:getName ()</strong>
     </dt>
     <dd>
     get the name of the clan.
@@ -333,8 +357,8 @@
 
 </dd>
     <dt>
-    <a name = "Clan:getSecond"></a>
-    <strong>Clan:getSecond ()</strong>
+    <a name = "clan:getSecond"></a>
+    <strong>clan:getSecond ()</strong>
     </dt>
     <dd>
     get the name of the clan's second.
@@ -353,8 +377,8 @@
 
 </dd>
     <dt>
-    <a name = "Clan:getShortname"></a>
-    <strong>Clan:getShortname ()</strong>
+    <a name = "clan:getShortname"></a>
+    <strong>clan:getShortname ()</strong>
     </dt>
     <dd>
     get the shortname of the clan.
@@ -373,8 +397,8 @@
 
 </dd>
     <dt>
-    <a name = "Clan:hasFlag"></a>
-    <strong>Clan:hasFlag (flag)</strong>
+    <a name = "clan:hasFlag"></a>
+    <strong>clan:hasFlag (flag)</strong>
     </dt>
     <dd>
     get whether a flag is set on this clan.
@@ -400,8 +424,8 @@
 
 </dd>
     <dt>
-    <a name = "Clan:setFlag"></a>
-    <strong>Clan:setFlag (flag, value)</strong>
+    <a name = "clan:setFlag"></a>
+    <strong>clan:setFlag (flag, value)</strong>
     </dt>
     <dd>
     set a flag on this clan.
@@ -424,7 +448,7 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">obj:setWearloc(<span class="string">"finger"</span>, <span class="keyword">true</span>)</pre>
+        <pre class="example">obj:<span class="function-name">setWearloc</span>(<span class="string">"finger"</span>, <span class="keyword">true</span>)</pre>
     </ul>
 
 </dd>
@@ -434,8 +458,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

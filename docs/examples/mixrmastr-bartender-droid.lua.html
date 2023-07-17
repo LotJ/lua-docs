@@ -72,68 +72,68 @@
 
     <h2>mixrmastr-bartender-droid.lua</h2>
 <pre>
-self:onSpeech(<span class="string">"mixdrink"</span>, <span class="keyword">function</span>(self, speaker, fullText)
+self:<span class="function-name">onSpeech</span>(<span class="string">"mixdrink"</span>, <span class="keyword">function</span>(self, speaker, fullText)
     <span class="comment">-- respond to droid's owner.
 </span>    <span class="comment">--if speaker:getName() == "Xerakon" then
 </span>    <span class="comment">-- remove the command "mixdrink" from the string
-</span>    <span class="keyword">local</span> input = removeFirstWord(fullText)
+</span>    <span class="keyword">local</span> input = <span class="function-name">removeFirstWord</span>(fullText)
     <span class="comment">-- save the strength value from the string, then remove it
-</span>    <span class="keyword">local</span> strength = trim(input:gmatch(<span class="string">"%w+"</span>)())
-    strength = strength:lower()
-    drink = removeFirstWord(input)
+</span>    <span class="keyword">local</span> strength = <span class="function-name">trim</span>(input:<span class="function-name">gmatch</span>(<span class="string">"%w+"</span>)())
+    strength = strength:<span class="function-name">lower</span>()
+    drink = <span class="function-name">removeFirstWord</span>(input)
     <span class="comment">-- assign the correct strength table
 </span>    strengthTable = {}
     drinkBP = <span class="string">""</span>
-    <span class="keyword">if</span> <span class="global">string</span>.find(strength, <span class="string">"triple"</span>) <span class="keyword">then</span>
+    <span class="keyword">if</span> <span class="global">string</span>.<span class="function-name">find</span>(strength, <span class="string">"triple"</span>) <span class="keyword">then</span>
         strengthTable = { <span class="number">20</span> }
         drinkBP = <span class="string">"a mind-blasting alcoholic beverage"</span>
-    <span class="keyword">elseif</span> <span class="global">string</span>.find(strength, <span class="string">"double"</span>) <span class="keyword">then</span>
+    <span class="keyword">elseif</span> <span class="global">string</span>.<span class="function-name">find</span>(strength, <span class="string">"double"</span>) <span class="keyword">then</span>
         strengthTable = { <span class="number">16</span>, <span class="number">17</span> }
         drinkBP = <span class="string">"a double-shot strength alcoholic beverage"</span>
-    <span class="keyword">elseif</span> <span class="global">string</span>.find(strength, <span class="string">"stiff"</span>) <span class="keyword">then</span>
+    <span class="keyword">elseif</span> <span class="global">string</span>.<span class="function-name">find</span>(strength, <span class="string">"stiff"</span>) <span class="keyword">then</span>
         strengthTable = { <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">19</span> }
         drinkBP = <span class="string">"a strong alcoholic beverage"</span>
-    <span class="keyword">elseif</span> <span class="global">string</span>.find(strength, <span class="string">"weak"</span>) <span class="keyword">then</span>
+    <span class="keyword">elseif</span> <span class="global">string</span>.<span class="function-name">find</span>(strength, <span class="string">"weak"</span>) <span class="keyword">then</span>
         strengthTable = { <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">13</span>, <span class="number">14</span> }
         drinkBP = <span class="string">"a weak alcoholic beverage"</span>
-    <span class="keyword">elseif</span> <span class="global">string</span>.find(strength, <span class="string">"virgin"</span>) <span class="keyword">then</span>
+    <span class="keyword">elseif</span> <span class="global">string</span>.<span class="function-name">find</span>(strength, <span class="string">"virgin"</span>) <span class="keyword">then</span>
         strengthTable = { <span class="number">0</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">15</span>, <span class="number">18</span> }
         drinkBP = <span class="string">"a non-alcoholic beverage"</span>
     <span class="keyword">end</span>
     <span class="comment">-- generate variables for insertion into custom drink template
-</span>    <span class="keyword">local</span> drinkName = <span class="string">"((xcd "</span> .. LOTJ.stripColor(drink)
+</span>    <span class="keyword">local</span> drinkName = <span class="string">"((xcd "</span> .. LOTJ.<span class="function-name">stripColor</span>(drink)
     <span class="keyword">local</span> drinkBlueprint = drinkBP
     <span class="keyword">local</span> drinkShort = drink
     <span class="keyword">local</span> drinkLong = drink .. <span class="string">" &amp;Dhas been abandoned here."</span>
-    <span class="keyword">local</span> randStrength = strengthTable[<span class="global">math</span>.random(#strengthTable)]
+    <span class="keyword">local</span> randStrength = strengthTable[<span class="global">math</span>.<span class="function-name">random</span>(#strengthTable)]
     <span class="comment">-- invoke the custom drink template ((xcd and insert new data
-</span>    <span class="keyword">local</span> newDrink = Object.invoke(<span class="number">36691</span>)
-    newDrink:toChar(self)
-    newDrink:setName(drinkName)
-    newDrink:setBlueprint(drinkBlueprint)
-    newDrink:setShortDescription(drinkShort)
-    newDrink:setLongDescription(drinkLong)
-    newDrink:setValue2(randStrength)
+</span>    <span class="keyword">local</span> newDrink = Object.<span class="function-name">invoke</span>(<span class="number">36691</span>)
+    newDrink:<span class="function-name">toChar</span>(self)
+    newDrink:<span class="function-name">setName</span>(drinkName)
+    newDrink:<span class="function-name">setBlueprint</span>(drinkBlueprint)
+    newDrink:<span class="function-name">setShortDescription</span>(drinkShort)
+    newDrink:<span class="function-name">setLongDescription</span>(drinkLong)
+    newDrink:<span class="function-name">setValue2</span>(randStrength)
     <span class="comment">-- pop out a cold one
-</span>    self:echo(<span class="string">"&amp;rThe sounds of sloshing and mixing emanate from {1} for a moment before it "</span>..
+</span>    self:<span class="function-name">echo</span>(<span class="string">"&amp;rThe sounds of sloshing and mixing emanate from {1} for a moment before it "</span>..
         <span class="string">"dings and produces {2} upon its tray.&amp;G"</span>, self, newDrink)
-    newDrink:toChar(speaker)
+    newDrink:<span class="function-name">toChar</span>(speaker)
     <span class="comment">--else
 </span>    <span class="comment">--    self:echo("&amp;r{1} produces a single negatory beep.&amp;G", self)
 </span>    <span class="comment">--end
 </span><span class="keyword">end</span>)
 
 <span class="comment">-- trim whitespaces around a string
-</span><span class="keyword">function</span> trim(str)
-    str = str:gsub(<span class="string">"%s+"</span>, <span class="string">""</span>)
-    str = <span class="global">string</span>.gsub(str, <span class="string">"%s+"</span>, <span class="string">""</span>)
+</span><span class="keyword">function</span> <span class="function-name">trim</span>(str)
+    str = str:<span class="function-name">gsub</span>(<span class="string">"%s+"</span>, <span class="string">""</span>)
+    str = <span class="global">string</span>.<span class="function-name">gsub</span>(str, <span class="string">"%s+"</span>, <span class="string">""</span>)
     <span class="keyword">return</span> str
 <span class="keyword">end</span>
 
 <span class="comment">-- remove the first word from a given string
-</span><span class="keyword">function</span> removeFirstWord(str)
-    str, i = str:gsub(<span class="string">"1"</span>, <span class="string">""</span>, <span class="number">1</span>)
-    str = ( i &gt; <span class="number">0</span> ) <span class="keyword">and</span> str <span class="keyword">or</span> str:gsub(<span class="string">"^.-%s"</span>, <span class="string">""</span>, <span class="number">1</span>)
+</span><span class="keyword">function</span> <span class="function-name">removeFirstWord</span>(str)
+    str, i = str:<span class="function-name">gsub</span>(<span class="string">"1"</span>, <span class="string">""</span>, <span class="number">1</span>)
+    str = ( i &gt; <span class="number">0</span> ) <span class="keyword">and</span> str <span class="keyword">or</span> str:<span class="function-name">gsub</span>(<span class="string">"^.-%s"</span>, <span class="string">""</span>, <span class="number">1</span>)
     <span class="keyword">return</span> str
 <span class="keyword">end</span></pre>
 
@@ -141,8 +141,8 @@ self:onSpeech(<span class="string">"mixdrink"</span>, <span class="keyword">func
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

@@ -85,395 +85,403 @@
 <h2><a href="#Class_Character">Class Character </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Character:act">Character:act ()</a></td>
+	<td class="name" nowrap><a href="#character:act">character:act ()</a></td>
 	<td class="summary">Underlying "act" mechanic in the mud core</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:adjustForce">Character:adjustForce (amount)</a></td>
+	<td class="name" nowrap><a href="#character:adjustForce">character:adjustForce (amount)</a></td>
 	<td class="summary">adjust a character's current force/mana.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:adjustMove">Character:adjustMove (amount)</a></td>
+	<td class="name" nowrap><a href="#character:adjustMove">character:adjustMove (amount)</a></td>
 	<td class="summary">adjust a character's current movement.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:adjustSkill">Character:adjustSkill (skill, adjustment)</a></td>
+	<td class="name" nowrap><a href="#character:adjustSkill">character:adjustSkill (skill, adjustment)</a></td>
 	<td class="summary">increase or decrease a player's percentage in a skill.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:attack">Character:attack (target)</a></td>
+	<td class="name" nowrap><a href="#character:attack">character:attack (target)</a></td>
 	<td class="summary">make this character attack another.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:awardCredits">Character:awardCredits (amount)</a></td>
+	<td class="name" nowrap><a href="#character:awardCredits">character:awardCredits (amount)</a></td>
 	<td class="summary">award (or fine) credits.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:callMob">Character:callMob (vnum, rounds)</a></td>
+	<td class="name" nowrap><a href="#character:callMob">character:callMob (vnum, rounds)</a></td>
 	<td class="summary">begin a countdown for calling a mob vnum as a follower.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:canSee">Character:canSee (target)</a></td>
+	<td class="name" nowrap><a href="#character:canSee">character:canSee (target)</a></td>
 	<td class="summary">whether this character can see the given object or character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:carrying">Character:carrying ()</a></td>
+	<td class="name" nowrap><a href="#character:carrying">character:carrying ()</a></td>
 	<td class="summary">get an iterator over objects in the character's inventory.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:damage">Character:damage (amount, byCh)</a></td>
+	<td class="name" nowrap><a href="#character:damage">character:damage (amount, byCh)</a></td>
 	<td class="summary">damage a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:drop">Character:drop (object)</a></td>
+	<td class="name" nowrap><a href="#character:drop">character:drop (object)</a></td>
 	<td class="summary">drop an object from the character's inventory.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:echo">Character:echo (message, args)</a></td>
+	<td class="name" nowrap><a href="#character:echo">character:echo (message, args)</a></td>
 	<td class="summary">send a message to everyone in the character's room except for them.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:echoAt">Character:echoAt (text)</a></td>
+	<td class="name" nowrap><a href="#character:echoAt">character:echoAt (text)</a></td>
 	<td class="summary">display some text to the character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:emote">Character:emote (text)</a></td>
+	<td class="name" nowrap><a href="#character:emote">character:emote (text)</a></td>
 	<td class="summary">perform the given emote.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:focus">Character:focus (target)</a></td>
+	<td class="name" nowrap><a href="#character:focus">character:focus (target)</a></td>
 	<td class="summary">change the current target of a mob in combat.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:followers">Character:followers ()</a></td>
+	<td class="name" nowrap><a href="#character:followers">character:followers ()</a></td>
 	<td class="summary">get an iterator for the character's current followers.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:force">Character:force (command)</a></td>
+	<td class="name" nowrap><a href="#character:force">character:force (command, account, totp)</a></td>
 	<td class="summary">make the character enter the given command.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:gainExp">Character:gainExp (amount, ability, groupGain)</a></td>
+	<td class="name" nowrap><a href="#character:gainExp">character:gainExp (amount, ability, groupGain)</a></td>
 	<td class="summary">award experience to the player.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getBloodToxicity">Character:getBloodToxicity ()</a></td>
+	<td class="name" nowrap><a href="#character:getBio">character:getBio ()</a></td>
+	<td class="summary">get the full bio for a player character (what you see when looking at them).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:getBloodToxicity">character:getBloodToxicity ()</a></td>
 	<td class="summary">get the character's current blood toxicity, 0 (good) - 100 (bad).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getCarryWeight">Character:getCarryWeight ()</a></td>
+	<td class="name" nowrap><a href="#character:getCarryWeight">character:getCarryWeight ()</a></td>
 	<td class="summary">get the character's current carried weight.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getCharisma">Character:getCharisma ()</a></td>
+	<td class="name" nowrap><a href="#character:getCharisma">character:getCharisma ()</a></td>
 	<td class="summary">get the character's current charisma attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getClan">Character:getClan ()</a></td>
+	<td class="name" nowrap><a href="#character:getClan">character:getClan ()</a></td>
 	<td class="summary">get the character's current clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getClanDivision">Character:getClanDivision ()</a></td>
+	<td class="name" nowrap><a href="#character:getClanDivision">character:getClanDivision ()</a></td>
 	<td class="summary">get the character's clan division ID and name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getClanRank">Character:getClanRank ()</a></td>
+	<td class="name" nowrap><a href="#character:getClanRank">character:getClanRank ()</a></td>
 	<td class="summary">get the character's clan rank ID and name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getConstitution">Character:getConstitution ()</a></td>
+	<td class="name" nowrap><a href="#character:getConstitution">character:getConstitution ()</a></td>
 	<td class="summary">get the character's current constitution attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getCredits">Character:getCredits ()</a></td>
+	<td class="name" nowrap><a href="#character:getCredits">character:getCredits ()</a></td>
 	<td class="summary">get the character's current carried credits.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getDescription">Character:getDescription ()</a></td>
+	<td class="name" nowrap><a href="#character:getDescription">character:getDescription ()</a></td>
 	<td class="summary">get the full description for a character (what you see when looking at them).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getDexterity">Character:getDexterity ()</a></td>
+	<td class="name" nowrap><a href="#character:getDexterity">character:getDexterity ()</a></td>
 	<td class="summary">get the character's current dexterity attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getFighting">Character:getFighting ()</a></td>
+	<td class="name" nowrap><a href="#character:getFighting">character:getFighting ()</a></td>
 	<td class="summary">get the character this one is currently fighting.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getFollowing">Character:getFollowing ()</a></td>
+	<td class="name" nowrap><a href="#character:getFollowing">character:getFollowing ()</a></td>
 	<td class="summary">get the character this one is currently following.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getForce">Character:getForce ()</a></td>
+	<td class="name" nowrap><a href="#character:getForce">character:getForce ()</a></td>
 	<td class="summary">get the character's current force attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getHp">Character:getHp ()</a></td>
+	<td class="name" nowrap><a href="#character:getHp">character:getHp ()</a></td>
 	<td class="summary">get the character's current hp.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getInArea">Character:getInArea ()</a></td>
+	<td class="name" nowrap><a href="#character:getInArea">character:getInArea ()</a></td>
 	<td class="summary">get the character's current area.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getInRoom">Character:getInRoom ()</a></td>
+	<td class="name" nowrap><a href="#character:getInRoom">character:getInRoom ()</a></td>
 	<td class="summary">get the character's current room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getInstalledCyber">Character:getInstalledCyber (cyberType)</a></td>
+	<td class="name" nowrap><a href="#character:getInstalledCyber">character:getInstalledCyber (cyberType)</a></td>
 	<td class="summary">get whether a character has a given cyber type installed, and if so what rating it is.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getIntelligence">Character:getIntelligence ()</a></td>
+	<td class="name" nowrap><a href="#character:getIntelligence">character:getIntelligence ()</a></td>
 	<td class="summary">get the character's current intelligence attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getLevel">Character:getLevel ()</a></td>
+	<td class="name" nowrap><a href="#character:getLevel">character:getLevel ()</a></td>
 	<td class="summary">get the character's level in the given class name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getLongDescription">Character:getLongDescription ()</a></td>
+	<td class="name" nowrap><a href="#character:getLongDescription">character:getLongDescription ()</a></td>
 	<td class="summary">get the long description for a character (what you see when looking in the room).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getLuck">Character:getLuck ()</a></td>
+	<td class="name" nowrap><a href="#character:getLuck">character:getLuck ()</a></td>
 	<td class="summary">get the character's current luck attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getMainAbility">Character:getMainAbility ()</a></td>
+	<td class="name" nowrap><a href="#character:getMainAbility">character:getMainAbility ()</a></td>
 	<td class="summary">get the character's main class name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getMana">Character:getMana ()</a></td>
+	<td class="name" nowrap><a href="#character:getMana">character:getMana ()</a></td>
 	<td class="summary">get the character's current mana.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getMaxHp">Character:getMaxHp ()</a></td>
+	<td class="name" nowrap><a href="#character:getMaxHp">character:getMaxHp ()</a></td>
 	<td class="summary">get the character's maximum hp.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getMaxMana">Character:getMaxMana ()</a></td>
+	<td class="name" nowrap><a href="#character:getMaxMana">character:getMaxMana ()</a></td>
 	<td class="summary">get the character's maximum mana.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getMaxMove">Character:getMaxMove ()</a></td>
+	<td class="name" nowrap><a href="#character:getMaxMove">character:getMaxMove ()</a></td>
 	<td class="summary">get the character's maximum movement.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getMentalState">Character:getMentalState ()</a></td>
+	<td class="name" nowrap><a href="#character:getMentalState">character:getMentalState ()</a></td>
 	<td class="summary">get the character's current mental state, 0 (good) - 100 (bad).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getMove">Character:getMove ()</a></td>
+	<td class="name" nowrap><a href="#character:getMove">character:getMove ()</a></td>
 	<td class="summary">get the character's current movement.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getName">Character:getName ()</a></td>
+	<td class="name" nowrap><a href="#character:getName">character:getName ()</a></td>
 	<td class="summary">get the name (keywords) for a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getPermCharisma">Character:getPermCharisma ()</a></td>
+	<td class="name" nowrap><a href="#character:getPermCharisma">character:getPermCharisma ()</a></td>
 	<td class="summary">get the character's permanent charisma attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getPermConstitution">Character:getPermConstitution ()</a></td>
+	<td class="name" nowrap><a href="#character:getPermConstitution">character:getPermConstitution ()</a></td>
 	<td class="summary">get the character's permanent constitution attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getPermDexterity">Character:getPermDexterity ()</a></td>
+	<td class="name" nowrap><a href="#character:getPermDexterity">character:getPermDexterity ()</a></td>
 	<td class="summary">get the character's permanent dexterity attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getPermForce">Character:getPermForce ()</a></td>
+	<td class="name" nowrap><a href="#character:getPermForce">character:getPermForce ()</a></td>
 	<td class="summary">get the character's permanent force attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getPermIntelligence">Character:getPermIntelligence ()</a></td>
+	<td class="name" nowrap><a href="#character:getPermIntelligence">character:getPermIntelligence ()</a></td>
 	<td class="summary">get the character's permanent intelligence attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getPermLuck">Character:getPermLuck ()</a></td>
+	<td class="name" nowrap><a href="#character:getPermLuck">character:getPermLuck ()</a></td>
 	<td class="summary">get the character's permanent luck attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getPermStrength">Character:getPermStrength ()</a></td>
+	<td class="name" nowrap><a href="#character:getPermStrength">character:getPermStrength ()</a></td>
 	<td class="summary">get the character's permanent strength attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getPermWisdom">Character:getPermWisdom ()</a></td>
+	<td class="name" nowrap><a href="#character:getPermWisdom">character:getPermWisdom ()</a></td>
 	<td class="summary">get the character's current permanent attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getRace">Character:getRace ()</a></td>
+	<td class="name" nowrap><a href="#character:getRace">character:getRace ()</a></td>
 	<td class="summary">get the character's race.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getSex">Character:getSex ()</a></td>
+	<td class="name" nowrap><a href="#character:getSex">character:getSex ()</a></td>
 	<td class="summary">get the sex of a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getShortDescription">Character:getShortDescription ()</a></td>
+	<td class="name" nowrap><a href="#character:getShortDescription">character:getShortDescription ()</a></td>
 	<td class="summary">get the short description for a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getSkill">Character:getSkill ()</a></td>
+	<td class="name" nowrap><a href="#character:getSkill">character:getSkill ()</a></td>
 	<td class="summary">get the character's percentage in a given skill.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getStrength">Character:getStrength ()</a></td>
+	<td class="name" nowrap><a href="#character:getStrength">character:getStrength ()</a></td>
 	<td class="summary">get the character's current strength attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getVNum">Character:getVNum ()</a></td>
+	<td class="name" nowrap><a href="#character:getVNum">character:getVNum ()</a></td>
 	<td class="summary">return the mob's vnum</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getVar">Character:getVar (varName, default)</a></td>
+	<td class="name" nowrap><a href="#character:getVar">character:getVar (varName, default)</a></td>
 	<td class="summary">get a character's variable by name</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getVisibleRace">Character:getVisibleRace ()</a></td>
+	<td class="name" nowrap><a href="#character:getVisibleRace">character:getVisibleRace ()</a></td>
 	<td class="summary">get the character's race, or what they're disguised as.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getWasInRoom">Character:getWasInRoom ()</a></td>
+	<td class="name" nowrap><a href="#character:getWasInRoom">character:getWasInRoom ()</a></td>
 	<td class="summary">get the character's previous room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:getWisdom">Character:getWisdom ()</a></td>
+	<td class="name" nowrap><a href="#character:getWisdom">character:getWisdom ()</a></td>
 	<td class="summary">get the character's current wisdom attribute.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:hasActFlag">Character:hasActFlag (flag)</a></td>
+	<td class="name" nowrap><a href="#character:hasActFlag">character:hasActFlag (flag)</a></td>
 	<td class="summary">get whether an act flag is set on this character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:hasBestowment">Character:hasBestowment (bestowment)</a></td>
+	<td class="name" nowrap><a href="#character:hasBestowment">character:hasBestowment (bestowment)</a></td>
 	<td class="summary">get whether a player has a given bestowment/empowerment</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:hasPlrFlag">Character:hasPlrFlag (flag)</a></td>
+	<td class="name" nowrap><a href="#character:hasPlrFlag">character:hasPlrFlag (flag)</a></td>
 	<td class="summary">get whether a player flag is set on this character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:heal">Character:heal (amount)</a></td>
+	<td class="name" nowrap><a href="#character:heal">character:heal (amount)</a></td>
 	<td class="summary">heal a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:interrupt">Character:interrupt ()</a></td>
+	<td class="name" nowrap><a href="#character:interrupt">character:interrupt ()</a></td>
 	<td class="summary">interrupt any timed action the character is doing.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isAFK">Character:isAFK ()</a></td>
+	<td class="name" nowrap><a href="#character:isAFK">character:isAFK ()</a></td>
 	<td class="summary">whether this player is AFK.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isAffected">Character:isAffected (effectName)</a></td>
+	<td class="name" nowrap><a href="#character:isAffected">character:isAffected (effectName)</a></td>
 	<td class="summary">whether this character is affected by the given effect name.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isBotting">Character:isBotting ()</a></td>
+	<td class="name" nowrap><a href="#character:isBotting">character:isBotting ()</a></td>
 	<td class="summary">whether this player is botting.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isDroid">Character:isDroid ()</a></td>
+	<td class="name" nowrap><a href="#character:isDroid">character:isDroid ()</a></td>
 	<td class="summary">whether this character is a droid.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isFighting">Character:isFighting ()</a></td>
+	<td class="name" nowrap><a href="#character:isFighting">character:isFighting ()</a></td>
 	<td class="summary">whether this character is fighting.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isImmortal">Character:isImmortal ()</a></td>
+	<td class="name" nowrap><a href="#character:isImmortal">character:isImmortal ()</a></td>
 	<td class="summary">whether this character is an immortal (RPC or higher).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isImmune">Character:isImmune (risName)</a></td>
+	<td class="name" nowrap><a href="#character:isImmune">character:isImmune (risName)</a></td>
 	<td class="summary">whether this character is immune to the given attack type.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isNPC">Character:isNPC ()</a></td>
+	<td class="name" nowrap><a href="#character:isNPC">character:isNPC ()</a></td>
 	<td class="summary">whether this character is an NPC.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isPC">Character:isPC ()</a></td>
+	<td class="name" nowrap><a href="#character:isPC">character:isPC ()</a></td>
 	<td class="summary">whether this character is a player.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isResistant">Character:isResistant (risName)</a></td>
+	<td class="name" nowrap><a href="#character:isResistant">character:isResistant (risName)</a></td>
 	<td class="summary">whether this character is resistant to the given attack type.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:isSusceptible">Character:isSusceptible (risName)</a></td>
+	<td class="name" nowrap><a href="#character:isSusceptible">character:isSusceptible (risName)</a></td>
 	<td class="summary">whether this character is susceptible to the given attack type.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:restore">Character:restore ()</a></td>
+	<td class="name" nowrap><a href="#character:restore">character:restore ()</a></td>
 	<td class="summary">restore a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:say">Character:say (text)</a></td>
+	<td class="name" nowrap><a href="#character:say">character:say (text)</a></td>
 	<td class="summary">say some text.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:sayTo">Character:sayTo (target, text)</a></td>
+	<td class="name" nowrap><a href="#character:sayTo">character:sayTo (target, text)</a></td>
 	<td class="summary">say some text to a target.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setActFlag">Character:setActFlag (flag, value)</a></td>
+	<td class="name" nowrap><a href="#character:setActFlag">character:setActFlag (flag, value)</a></td>
 	<td class="summary">set a flag on this character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setBloodToxicity">Character:setBloodToxicity (bloodToxicity)</a></td>
+	<td class="name" nowrap><a href="#character:setBio">character:setBio (bio)</a></td>
+	<td class="summary">set the full bio for a PC.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setBloodToxicity">character:setBloodToxicity (bloodToxicity)</a></td>
 	<td class="summary">set the character's current mental state, 0 (good) - 100 (bad).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setDescription">Character:setDescription (desc)</a></td>
+	<td class="name" nowrap><a href="#character:setDescription">character:setDescription (desc)</a></td>
 	<td class="summary">set the full description for an NPC (what you see when looking at them).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setInstalledCyber">Character:setInstalledCyber (cyberType, installed, the)</a></td>
+	<td class="name" nowrap><a href="#character:setInstalledCyber">character:setInstalledCyber (cyberType, installed, the)</a></td>
 	<td class="summary">set whether a character has a given cyber type installed.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setLongDescription">Character:setLongDescription (desc)</a></td>
+	<td class="name" nowrap><a href="#character:setLongDescription">character:setLongDescription (desc)</a></td>
 	<td class="summary">set the long description for an NPC (what you see when looking in the room).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setMentalState">Character:setMentalState (mentalState)</a></td>
+	<td class="name" nowrap><a href="#character:setMentalState">character:setMentalState (mentalState)</a></td>
 	<td class="summary">set the character's current mental state, 0 (good) - 100 (bad).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setName">Character:setName (desc)</a></td>
+	<td class="name" nowrap><a href="#character:setName">character:setName (desc)</a></td>
 	<td class="summary">set the name (keywords) for a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setSex">Character:setSex (sex)</a></td>
+	<td class="name" nowrap><a href="#character:setSex">character:setSex (sex)</a></td>
 	<td class="summary">set the sex for an NPC.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setShortDescription">Character:setShortDescription (desc)</a></td>
+	<td class="name" nowrap><a href="#character:setShortDescription">character:setShortDescription (desc)</a></td>
 	<td class="summary">set the short description for an NPC.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:setVar">Character:setVar (varName, value, ttl)</a></td>
+	<td class="name" nowrap><a href="#character:setVar">character:setVar (varName, value, ttl)</a></td>
 	<td class="summary">set a variable on a character</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:slay">Character:slay (byCh)</a></td>
+	<td class="name" nowrap><a href="#character:slay">character:slay (byCh)</a></td>
 	<td class="summary">instantly kill a character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:stun">Character:stun (seconds)</a></td>
+	<td class="name" nowrap><a href="#character:stun">character:stun (seconds)</a></td>
 	<td class="summary">stun (lag) a player for a given number of seconds.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:toRoom">Character:toRoom (room)</a></td>
+	<td class="name" nowrap><a href="#character:toRoom">character:toRoom (room)</a></td>
 	<td class="summary">transfer the character to the given room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Character:wearing">Character:wearing ()</a></td>
+	<td class="name" nowrap><a href="#character:wearing">character:wearing ()</a></td>
 	<td class="summary">get an iterator over objects the character is wearing.</td>
 	</tr>
 </table>
@@ -504,8 +512,8 @@
           </div>
     <dl class="function">
     <dt>
-    <a name = "Character:act"></a>
-    <strong>Character:act ()</strong>
+    <a name = "character:act"></a>
+    <strong>character:act ()</strong>
     </dt>
     <dd>
     Underlying "act" mechanic in the mud core
@@ -518,8 +526,8 @@
 
 </dd>
     <dt>
-    <a name = "Character:adjustForce"></a>
-    <strong>Character:adjustForce (amount)</strong>
+    <a name = "character:adjustForce"></a>
+    <strong>character:adjustForce (amount)</strong>
     </dt>
     <dd>
     adjust a character's current force/mana.
@@ -538,14 +546,14 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:echoAt(<span class="string">"You feel a sudden burst of the force!"</span>)
-ch:adjustForce(<span class="number">500</span>)</pre>
+        <pre class="example">ch:<span class="function-name">echoAt</span>(<span class="string">"You feel a sudden burst of the force!"</span>)
+ch:<span class="function-name">adjustForce</span>(<span class="number">500</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:adjustMove"></a>
-    <strong>Character:adjustMove (amount)</strong>
+    <a name = "character:adjustMove"></a>
+    <strong>character:adjustMove (amount)</strong>
     </dt>
     <dd>
     adjust a character's current movement.
@@ -564,14 +572,14 @@ ch:adjustForce(<span class="number">500</span>)</pre>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:echoAt(<span class="string">"You get tired!"</span>)
-ch:adjustMove(-<span class="number">100</span>)</pre>
+        <pre class="example">ch:<span class="function-name">echoAt</span>(<span class="string">"You get tired!"</span>)
+ch:<span class="function-name">adjustMove</span>(-<span class="number">100</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:adjustSkill"></a>
-    <strong>Character:adjustSkill (skill, adjustment)</strong>
+    <a name = "character:adjustSkill"></a>
+    <strong>character:adjustSkill (skill, adjustment)</strong>
     </dt>
     <dd>
     increase or decrease a player's percentage in a skill.
@@ -594,13 +602,13 @@ ch:adjustMove(-<span class="number">100</span>)</pre>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:adjustSkill(<span class="string">"kick"</span>, <span class="number">2</span>)</pre>
+        <pre class="example">ch:<span class="function-name">adjustSkill</span>(<span class="string">"kick"</span>, <span class="number">2</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:attack"></a>
-    <strong>Character:attack (target)</strong>
+    <a name = "character:attack"></a>
+    <strong>character:attack (target)</strong>
     </dt>
     <dd>
     make this character attack another.
@@ -620,13 +628,13 @@ ch:adjustMove(-<span class="number">100</span>)</pre>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:attack(otherPerson)</pre>
+        <pre class="example">ch:<span class="function-name">attack</span>(otherPerson)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:awardCredits"></a>
-    <strong>Character:awardCredits (amount)</strong>
+    <a name = "character:awardCredits"></a>
+    <strong>character:awardCredits (amount)</strong>
     </dt>
     <dd>
     award (or fine) credits.
@@ -648,16 +656,16 @@ ch:adjustMove(-<span class="number">100</span>)</pre>
 
     <h3>Usage:</h3>
     <ul>
-        <li><pre class="example">ch:echoAt(<span class="string">"Good job! Here are 5000 credits."</span>)
-ch:awardCredits(<span class="number">5000</span>)</pre></li>
-        <li><pre class="example">ch:echoAt(<span class="string">"Uh oh! The pirate takes a lot of your credits."</span>)
-ch:awardCredits(-<span class="number">50000</span>)</pre></li>
+        <li><pre class="example">ch:<span class="function-name">echoAt</span>(<span class="string">"Good job! Here are 5000 credits."</span>)
+ch:<span class="function-name">awardCredits</span>(<span class="number">5000</span>)</pre></li>
+        <li><pre class="example">ch:<span class="function-name">echoAt</span>(<span class="string">"Uh oh! The pirate takes a lot of your credits."</span>)
+ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</span>)</pre></li>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:callMob"></a>
-    <strong>Character:callMob (vnum, rounds)</strong>
+    <a name = "character:callMob"></a>
+    <strong>character:callMob (vnum, rounds)</strong>
     </dt>
     <dd>
     begin a countdown for calling a mob vnum as a follower.
@@ -688,13 +696,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <h3>Usage:</h3>
     <ul>
         <pre class="example"><span class="comment">-- Load mob #40051 as a follower after waiting for 10 rounds
-</span>ch:callMob(<span class="number">40051</span>, <span class="number">10</span>)</pre>
+</span>ch:<span class="function-name">callMob</span>(<span class="number">40051</span>, <span class="number">10</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:canSee"></a>
-    <strong>Character:canSee (target)</strong>
+    <a name = "character:canSee"></a>
+    <strong>character:canSee (target)</strong>
     </dt>
     <dd>
     whether this character can see the given object or character.
@@ -718,15 +726,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> self:canSee(ch) <span class="keyword">then</span>
-  self:force(<span class="string">"say I can't see you!"</span>)
+        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> self:<span class="function-name">canSee</span>(ch) <span class="keyword">then</span>
+  self:<span class="function-name">force</span>(<span class="string">"say I can't see you!"</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:carrying"></a>
-    <strong>Character:carrying ()</strong>
+    <a name = "character:carrying"></a>
+    <strong>character:carrying ()</strong>
     </dt>
     <dd>
     get an iterator over objects in the character's inventory.
@@ -744,15 +752,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:carrying() <span class="keyword">do</span>
+        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:<span class="function-name">carrying</span>() <span class="keyword">do</span>
   <span class="comment">-- do something
 </span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:damage"></a>
-    <strong>Character:damage (amount, byCh)</strong>
+    <a name = "character:damage"></a>
+    <strong>character:damage (amount, byCh)</strong>
     </dt>
     <dd>
     damage a character.
@@ -775,13 +783,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:damage(<span class="number">1000</span>)</pre>
+        <pre class="example">ch:<span class="function-name">damage</span>(<span class="number">1000</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:drop"></a>
-    <strong>Character:drop (object)</strong>
+    <a name = "character:drop"></a>
+    <strong>character:drop (object)</strong>
     </dt>
     <dd>
     drop an object from the character's inventory.
@@ -800,13 +808,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:drop(something)</pre>
+        <pre class="example">ch:<span class="function-name">drop</span>(something)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:echo"></a>
-    <strong>Character:echo (message, args)</strong>
+    <a name = "character:echo"></a>
+    <strong>character:echo (message, args)</strong>
     </dt>
     <dd>
     send a message to everyone in the character's room except for them.
@@ -829,13 +837,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:echo(<span class="string">"{1} lashes out violently with a tentacle, hitting {2} in the face!"</span>, ch, target)</pre>
+        <pre class="example">ch:<span class="function-name">echo</span>(<span class="string">"{1} lashes out violently with a tentacle, hitting {2} in the face!"</span>, ch, target)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:echoAt"></a>
-    <strong>Character:echoAt (text)</strong>
+    <a name = "character:echoAt"></a>
+    <strong>character:echoAt (text)</strong>
     </dt>
     <dd>
     display some text to the character.
@@ -854,13 +862,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:echoAt(<span class="string">"You hear a strange sound in the distance..."</span>)</pre>
+        <pre class="example">ch:<span class="function-name">echoAt</span>(<span class="string">"You hear a strange sound in the distance..."</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:emote"></a>
-    <strong>Character:emote (text)</strong>
+    <a name = "character:emote"></a>
+    <strong>character:emote (text)</strong>
     </dt>
     <dd>
     perform the given emote.
@@ -881,8 +889,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:focus"></a>
-    <strong>Character:focus (target)</strong>
+    <a name = "character:focus"></a>
+    <strong>character:focus (target)</strong>
     </dt>
     <dd>
     change the current target of a mob in combat.
@@ -902,13 +910,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:focus(otherPerson)</pre>
+        <pre class="example">ch:<span class="function-name">focus</span>(otherPerson)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:followers"></a>
-    <strong>Character:followers ()</strong>
+    <a name = "character:followers"></a>
+    <strong>character:followers ()</strong>
     </dt>
     <dd>
     get an iterator for the character's current followers.
@@ -920,15 +928,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">for</span> follower <span class="keyword">in</span> ch:followers() <span class="keyword">do</span>
-  follower:toRoom(somewhere)
+        <pre class="example"><span class="keyword">for</span> follower <span class="keyword">in</span> ch:<span class="function-name">followers</span>() <span class="keyword">do</span>
+  follower:<span class="function-name">toRoom</span>(somewhere)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:force"></a>
-    <strong>Character:force (command)</strong>
+    <a name = "character:force"></a>
+    <strong>character:force (command, account, totp)</strong>
     </dt>
     <dd>
     make the character enter the given command.
@@ -940,6 +948,14 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
             <span class="types"><span class="type">string</span></span>
          the command to run
         </li>
+        <li><span class="parameter">account</span>
+            <span class="types"><span class="type">account</span></span>
+         (optional) The account to use to elevate privileges of the force (to 103, or the top level of the account, whichever is less).
+        </li>
+        <li><span class="parameter">totp</span>
+            <span class="types"><span class="type">string</span></span>
+         (optional, required with account) the totp code for the specified account. If not valid, the force will still happen just without elevated privileges.
+        </li>
     </ul>
 
 
@@ -947,13 +963,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:force(<span class="string">"say Hello there!"</span>)</pre>
+        <pre class="example">ch:<span class="function-name">force</span>(<span class="string">"say Hello there!"</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:gainExp"></a>
-    <strong>Character:gainExp (amount, ability, groupGain)</strong>
+    <a name = "character:gainExp"></a>
+    <strong>character:gainExp (amount, ability, groupGain)</strong>
     </dt>
     <dd>
     award experience to the player.
@@ -980,13 +996,33 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:gainExp(<span class="number">10000</span>, <span class="string">"combat"</span>)</pre>
+        <pre class="example">ch:<span class="function-name">gainExp</span>(<span class="number">10000</span>, <span class="string">"combat"</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:getBloodToxicity"></a>
-    <strong>Character:getBloodToxicity ()</strong>
+    <a name = "character:getBio"></a>
+    <strong>character:getBio ()</strong>
+    </dt>
+    <dd>
+    get the full bio for a player character (what you see when looking at them).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the bio for this character
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:getBloodToxicity"></a>
+    <strong>character:getBloodToxicity ()</strong>
     </dt>
     <dd>
     get the character's current blood toxicity, 0 (good) - 100 (bad).
@@ -1005,8 +1041,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getCarryWeight"></a>
-    <strong>Character:getCarryWeight ()</strong>
+    <a name = "character:getCarryWeight"></a>
+    <strong>character:getCarryWeight ()</strong>
     </dt>
     <dd>
     get the character's current carried weight.
@@ -1025,8 +1061,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getCharisma"></a>
-    <strong>Character:getCharisma ()</strong>
+    <a name = "character:getCharisma"></a>
+    <strong>character:getCharisma ()</strong>
     </dt>
     <dd>
     get the character's current charisma attribute.
@@ -1045,8 +1081,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getClan"></a>
-    <strong>Character:getClan ()</strong>
+    <a name = "character:getClan"></a>
+    <strong>character:getClan ()</strong>
     </dt>
     <dd>
     get the character's current clan.
@@ -1065,8 +1101,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getClanDivision"></a>
-    <strong>Character:getClanDivision ()</strong>
+    <a name = "character:getClanDivision"></a>
+    <strong>character:getClanDivision ()</strong>
     </dt>
     <dd>
     get the character's clan division ID and name.
@@ -1087,13 +1123,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">local</span> divNum, divName = ch:getClanDivision()</pre>
+        <pre class="example"><span class="keyword">local</span> divNum, divName = ch:<span class="function-name">getClanDivision</span>()</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:getClanRank"></a>
-    <strong>Character:getClanRank ()</strong>
+    <a name = "character:getClanRank"></a>
+    <strong>character:getClanRank ()</strong>
     </dt>
     <dd>
     get the character's clan rank ID and name.
@@ -1114,13 +1150,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">local</span> divNum, divName = ch:getClanDivision()</pre>
+        <pre class="example"><span class="keyword">local</span> divNum, divName = ch:<span class="function-name">getClanDivision</span>()</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:getConstitution"></a>
-    <strong>Character:getConstitution ()</strong>
+    <a name = "character:getConstitution"></a>
+    <strong>character:getConstitution ()</strong>
     </dt>
     <dd>
     get the character's current constitution attribute.
@@ -1139,8 +1175,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getCredits"></a>
-    <strong>Character:getCredits ()</strong>
+    <a name = "character:getCredits"></a>
+    <strong>character:getCredits ()</strong>
     </dt>
     <dd>
     get the character's current carried credits.
@@ -1159,8 +1195,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getDescription"></a>
-    <strong>Character:getDescription ()</strong>
+    <a name = "character:getDescription"></a>
+    <strong>character:getDescription ()</strong>
     </dt>
     <dd>
     get the full description for a character (what you see when looking at them).
@@ -1179,8 +1215,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getDexterity"></a>
-    <strong>Character:getDexterity ()</strong>
+    <a name = "character:getDexterity"></a>
+    <strong>character:getDexterity ()</strong>
     </dt>
     <dd>
     get the character's current dexterity attribute.
@@ -1199,8 +1235,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getFighting"></a>
-    <strong>Character:getFighting ()</strong>
+    <a name = "character:getFighting"></a>
+    <strong>character:getFighting ()</strong>
     </dt>
     <dd>
     get the character this one is currently fighting.
@@ -1219,8 +1255,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getFollowing"></a>
-    <strong>Character:getFollowing ()</strong>
+    <a name = "character:getFollowing"></a>
+    <strong>character:getFollowing ()</strong>
     </dt>
     <dd>
     get the character this one is currently following.
@@ -1239,8 +1275,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getForce"></a>
-    <strong>Character:getForce ()</strong>
+    <a name = "character:getForce"></a>
+    <strong>character:getForce ()</strong>
     </dt>
     <dd>
     get the character's current force attribute.
@@ -1259,8 +1295,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getHp"></a>
-    <strong>Character:getHp ()</strong>
+    <a name = "character:getHp"></a>
+    <strong>character:getHp ()</strong>
     </dt>
     <dd>
     get the character's current hp.
@@ -1279,8 +1315,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getInArea"></a>
-    <strong>Character:getInArea ()</strong>
+    <a name = "character:getInArea"></a>
+    <strong>character:getInArea ()</strong>
     </dt>
     <dd>
     get the character's current area.
@@ -1299,8 +1335,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getInRoom"></a>
-    <strong>Character:getInRoom ()</strong>
+    <a name = "character:getInRoom"></a>
+    <strong>character:getInRoom ()</strong>
     </dt>
     <dd>
     get the character's current room.
@@ -1319,8 +1355,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getInstalledCyber"></a>
-    <strong>Character:getInstalledCyber (cyberType)</strong>
+    <a name = "character:getInstalledCyber"></a>
+    <strong>character:getInstalledCyber (cyberType)</strong>
     </dt>
     <dd>
     get whether a character has a given cyber type installed, and if so what rating it is.
@@ -1350,8 +1386,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getIntelligence"></a>
-    <strong>Character:getIntelligence ()</strong>
+    <a name = "character:getIntelligence"></a>
+    <strong>character:getIntelligence ()</strong>
     </dt>
     <dd>
     get the character's current intelligence attribute.
@@ -1370,8 +1406,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getLevel"></a>
-    <strong>Character:getLevel ()</strong>
+    <a name = "character:getLevel"></a>
+    <strong>character:getLevel ()</strong>
     </dt>
     <dd>
     get the character's level in the given class name.
@@ -1389,15 +1425,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:getLevel(<span class="string">"combat"</span>) &gt;= <span class="number">100</span> <span class="keyword">then</span>
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">getLevel</span>(<span class="string">"combat"</span>) &gt;= <span class="number">100</span> <span class="keyword">then</span>
   <span class="comment">-- do stuff
 </span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:getLongDescription"></a>
-    <strong>Character:getLongDescription ()</strong>
+    <a name = "character:getLongDescription"></a>
+    <strong>character:getLongDescription ()</strong>
     </dt>
     <dd>
     get the long description for a character (what you see when looking in the room).
@@ -1416,8 +1452,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getLuck"></a>
-    <strong>Character:getLuck ()</strong>
+    <a name = "character:getLuck"></a>
+    <strong>character:getLuck ()</strong>
     </dt>
     <dd>
     get the character's current luck attribute.
@@ -1436,8 +1472,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getMainAbility"></a>
-    <strong>Character:getMainAbility ()</strong>
+    <a name = "character:getMainAbility"></a>
+    <strong>character:getMainAbility ()</strong>
     </dt>
     <dd>
     get the character's main class name.
@@ -1455,15 +1491,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:getMainAbility() == <span class="string">"bounty hunting"</span> <span class="keyword">then</span>
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">getMainAbility</span>() == <span class="string">"bounty hunting"</span> <span class="keyword">then</span>
   <span class="comment">-- do stuff
 </span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:getMana"></a>
-    <strong>Character:getMana ()</strong>
+    <a name = "character:getMana"></a>
+    <strong>character:getMana ()</strong>
     </dt>
     <dd>
     get the character's current mana.
@@ -1482,8 +1518,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getMaxHp"></a>
-    <strong>Character:getMaxHp ()</strong>
+    <a name = "character:getMaxHp"></a>
+    <strong>character:getMaxHp ()</strong>
     </dt>
     <dd>
     get the character's maximum hp.
@@ -1502,8 +1538,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getMaxMana"></a>
-    <strong>Character:getMaxMana ()</strong>
+    <a name = "character:getMaxMana"></a>
+    <strong>character:getMaxMana ()</strong>
     </dt>
     <dd>
     get the character's maximum mana.
@@ -1522,8 +1558,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getMaxMove"></a>
-    <strong>Character:getMaxMove ()</strong>
+    <a name = "character:getMaxMove"></a>
+    <strong>character:getMaxMove ()</strong>
     </dt>
     <dd>
     get the character's maximum movement.
@@ -1542,8 +1578,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getMentalState"></a>
-    <strong>Character:getMentalState ()</strong>
+    <a name = "character:getMentalState"></a>
+    <strong>character:getMentalState ()</strong>
     </dt>
     <dd>
     get the character's current mental state, 0 (good) - 100 (bad).
@@ -1562,8 +1598,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getMove"></a>
-    <strong>Character:getMove ()</strong>
+    <a name = "character:getMove"></a>
+    <strong>character:getMove ()</strong>
     </dt>
     <dd>
     get the character's current movement.
@@ -1582,8 +1618,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getName"></a>
-    <strong>Character:getName ()</strong>
+    <a name = "character:getName"></a>
+    <strong>character:getName ()</strong>
     </dt>
     <dd>
     get the name (keywords) for a character.
@@ -1602,8 +1638,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getPermCharisma"></a>
-    <strong>Character:getPermCharisma ()</strong>
+    <a name = "character:getPermCharisma"></a>
+    <strong>character:getPermCharisma ()</strong>
     </dt>
     <dd>
     get the character's permanent charisma attribute.
@@ -1622,8 +1658,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getPermConstitution"></a>
-    <strong>Character:getPermConstitution ()</strong>
+    <a name = "character:getPermConstitution"></a>
+    <strong>character:getPermConstitution ()</strong>
     </dt>
     <dd>
     get the character's permanent constitution attribute.
@@ -1642,8 +1678,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getPermDexterity"></a>
-    <strong>Character:getPermDexterity ()</strong>
+    <a name = "character:getPermDexterity"></a>
+    <strong>character:getPermDexterity ()</strong>
     </dt>
     <dd>
     get the character's permanent dexterity attribute.
@@ -1662,8 +1698,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getPermForce"></a>
-    <strong>Character:getPermForce ()</strong>
+    <a name = "character:getPermForce"></a>
+    <strong>character:getPermForce ()</strong>
     </dt>
     <dd>
     get the character's permanent force attribute.
@@ -1682,8 +1718,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getPermIntelligence"></a>
-    <strong>Character:getPermIntelligence ()</strong>
+    <a name = "character:getPermIntelligence"></a>
+    <strong>character:getPermIntelligence ()</strong>
     </dt>
     <dd>
     get the character's permanent intelligence attribute.
@@ -1702,8 +1738,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getPermLuck"></a>
-    <strong>Character:getPermLuck ()</strong>
+    <a name = "character:getPermLuck"></a>
+    <strong>character:getPermLuck ()</strong>
     </dt>
     <dd>
     get the character's permanent luck attribute.
@@ -1722,8 +1758,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getPermStrength"></a>
-    <strong>Character:getPermStrength ()</strong>
+    <a name = "character:getPermStrength"></a>
+    <strong>character:getPermStrength ()</strong>
     </dt>
     <dd>
     get the character's permanent strength attribute.
@@ -1742,8 +1778,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getPermWisdom"></a>
-    <strong>Character:getPermWisdom ()</strong>
+    <a name = "character:getPermWisdom"></a>
+    <strong>character:getPermWisdom ()</strong>
     </dt>
     <dd>
     get the character's current permanent attribute.
@@ -1762,8 +1798,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getRace"></a>
-    <strong>Character:getRace ()</strong>
+    <a name = "character:getRace"></a>
+    <strong>character:getRace ()</strong>
     </dt>
     <dd>
     get the character's race.
@@ -1782,15 +1818,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:getRace() == <span class="string">"Corellian"</span> <span class="keyword">then</span>
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">getRace</span>() == <span class="string">"Corellian"</span> <span class="keyword">then</span>
   <span class="comment">-- do stuff
 </span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:getSex"></a>
-    <strong>Character:getSex ()</strong>
+    <a name = "character:getSex"></a>
+    <strong>character:getSex ()</strong>
     </dt>
     <dd>
     get the sex of a character.
@@ -1809,8 +1845,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getShortDescription"></a>
-    <strong>Character:getShortDescription ()</strong>
+    <a name = "character:getShortDescription"></a>
+    <strong>character:getShortDescription ()</strong>
     </dt>
     <dd>
     get the short description for a character.
@@ -1829,8 +1865,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getSkill"></a>
-    <strong>Character:getSkill ()</strong>
+    <a name = "character:getSkill"></a>
+    <strong>character:getSkill ()</strong>
     </dt>
     <dd>
     get the character's percentage in a given skill.
@@ -1848,15 +1884,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:getSkill(<span class="string">"dodge"</span>) &gt;= <span class="number">50</span> <span class="keyword">then</span>
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">getSkill</span>(<span class="string">"dodge"</span>) &gt;= <span class="number">50</span> <span class="keyword">then</span>
   <span class="comment">-- do stuff
 </span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:getStrength"></a>
-    <strong>Character:getStrength ()</strong>
+    <a name = "character:getStrength"></a>
+    <strong>character:getStrength ()</strong>
     </dt>
     <dd>
     get the character's current strength attribute.
@@ -1875,8 +1911,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getVNum"></a>
-    <strong>Character:getVNum ()</strong>
+    <a name = "character:getVNum"></a>
+    <strong>character:getVNum ()</strong>
     </dt>
     <dd>
     return the mob's vnum
@@ -1895,8 +1931,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getVar"></a>
-    <strong>Character:getVar (varName, default)</strong>
+    <a name = "character:getVar"></a>
+    <strong>character:getVar (varName, default)</strong>
     </dt>
     <dd>
     get a character's variable by name
@@ -1923,16 +1959,16 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <li><pre class="example"><span class="keyword">if</span> ch:getVar(<span class="string">"wroona.onQuest"</span>) <span class="keyword">then</span>
+        <li><pre class="example"><span class="keyword">if</span> ch:<span class="function-name">getVar</span>(<span class="string">"wroona.onQuest"</span>) <span class="keyword">then</span>
   <span class="comment">-- do stuff
 </span><span class="keyword">end</span></pre></li>
-        <li><pre class="example">ch:echoAt(<span class="string">"I have met you "</span>..ch:getVar(<span class="string">"wroona.timesMetMob"</span>, <span class="number">1</span>)..<span class="string">" times."</span>)</pre></li>
+        <li><pre class="example">ch:<span class="function-name">echoAt</span>(<span class="string">"I have met you "</span>..ch:<span class="function-name">getVar</span>(<span class="string">"wroona.timesMetMob"</span>, <span class="number">1</span>)..<span class="string">" times."</span>)</pre></li>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:getVisibleRace"></a>
-    <strong>Character:getVisibleRace ()</strong>
+    <a name = "character:getVisibleRace"></a>
+    <strong>character:getVisibleRace ()</strong>
     </dt>
     <dd>
     get the character's race, or what they're disguised as.
@@ -1951,15 +1987,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:getVisibleRace() == <span class="string">"Corellian"</span> <span class="keyword">then</span>
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">getVisibleRace</span>() == <span class="string">"Corellian"</span> <span class="keyword">then</span>
   <span class="comment">-- do stuff
 </span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:getWasInRoom"></a>
-    <strong>Character:getWasInRoom ()</strong>
+    <a name = "character:getWasInRoom"></a>
+    <strong>character:getWasInRoom ()</strong>
     </dt>
     <dd>
     get the character's previous room.
@@ -1978,8 +2014,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:getWisdom"></a>
-    <strong>Character:getWisdom ()</strong>
+    <a name = "character:getWisdom"></a>
+    <strong>character:getWisdom ()</strong>
     </dt>
     <dd>
     get the character's current wisdom attribute.
@@ -1998,8 +2034,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:hasActFlag"></a>
-    <strong>Character:hasActFlag (flag)</strong>
+    <a name = "character:hasActFlag"></a>
+    <strong>character:hasActFlag (flag)</strong>
     </dt>
     <dd>
     get whether an act flag is set on this character.
@@ -2024,15 +2060,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:hasActFlag(<span class="string">"sentinel"</span>) <span class="keyword">do</span>
-  ch:echoAt(<span class="string">"You don't feel like walking."</span>)
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">hasActFlag</span>(<span class="string">"sentinel"</span>) <span class="keyword">do</span>
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You don't feel like walking."</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:hasBestowment"></a>
-    <strong>Character:hasBestowment (bestowment)</strong>
+    <a name = "character:hasBestowment"></a>
+    <strong>character:hasBestowment (bestowment)</strong>
     </dt>
     <dd>
     get whether a player has a given bestowment/empowerment
@@ -2058,8 +2094,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:hasPlrFlag"></a>
-    <strong>Character:hasPlrFlag (flag)</strong>
+    <a name = "character:hasPlrFlag"></a>
+    <strong>character:hasPlrFlag (flag)</strong>
     </dt>
     <dd>
     get whether a player flag is set on this character.
@@ -2084,15 +2120,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:hasActFlag(<span class="string">"autoexits"</span>) <span class="keyword">do</span>
-  ch:echoAt(<span class="string">"You just saw the exits."</span>)
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">hasActFlag</span>(<span class="string">"autoexits"</span>) <span class="keyword">do</span>
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You just saw the exits."</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:heal"></a>
-    <strong>Character:heal (amount)</strong>
+    <a name = "character:heal"></a>
+    <strong>character:heal (amount)</strong>
     </dt>
     <dd>
     heal a character.
@@ -2111,13 +2147,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:heal(<span class="number">1000</span>)</pre>
+        <pre class="example">ch:<span class="function-name">heal</span>(<span class="number">1000</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:interrupt"></a>
-    <strong>Character:interrupt ()</strong>
+    <a name = "character:interrupt"></a>
+    <strong>character:interrupt ()</strong>
     </dt>
     <dd>
     interrupt any timed action the character is doing.
@@ -2129,16 +2165,16 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onAct(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, ch)
-  self:emote(<span class="string">"hides behind a rock!"</span>)
-  ch:interrupt()
+        <pre class="example">self:<span class="function-name">onAct</span>(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, ch)
+  self:<span class="function-name">emote</span>(<span class="string">"hides behind a rock!"</span>)
+  ch:<span class="function-name">interrupt</span>()
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:isAFK"></a>
-    <strong>Character:isAFK ()</strong>
+    <a name = "character:isAFK"></a>
+    <strong>character:isAFK ()</strong>
     </dt>
     <dd>
     whether this player is AFK.
@@ -2157,8 +2193,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:isAffected"></a>
-    <strong>Character:isAffected (effectName)</strong>
+    <a name = "character:isAffected"></a>
+    <strong>character:isAffected (effectName)</strong>
     </dt>
     <dd>
     whether this character is affected by the given effect name.
@@ -2183,15 +2219,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:isAffected(<span class="string">"sneak"</span>) <span class="keyword">then</span>
-  self:force(<span class="string">"say I didn't see you come in!"</span>)
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">isAffected</span>(<span class="string">"sneak"</span>) <span class="keyword">then</span>
+  self:<span class="function-name">force</span>(<span class="string">"say I didn't see you come in!"</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:isBotting"></a>
-    <strong>Character:isBotting ()</strong>
+    <a name = "character:isBotting"></a>
+    <strong>character:isBotting ()</strong>
     </dt>
     <dd>
     whether this player is botting.
@@ -2210,8 +2246,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:isDroid"></a>
-    <strong>Character:isDroid ()</strong>
+    <a name = "character:isDroid"></a>
+    <strong>character:isDroid ()</strong>
     </dt>
     <dd>
     whether this character is a droid.
@@ -2229,15 +2265,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> ch:isDroid() <span class="keyword">then</span>
-  ch:echoAt(<span class="string">"You're a droid, beep boop!"</span>)
+        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> ch:<span class="function-name">isDroid</span>() <span class="keyword">then</span>
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You're a droid, beep boop!"</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:isFighting"></a>
-    <strong>Character:isFighting ()</strong>
+    <a name = "character:isFighting"></a>
+    <strong>character:isFighting ()</strong>
     </dt>
     <dd>
     whether this character is fighting.
@@ -2256,8 +2292,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:isImmortal"></a>
-    <strong>Character:isImmortal ()</strong>
+    <a name = "character:isImmortal"></a>
+    <strong>character:isImmortal ()</strong>
     </dt>
     <dd>
     whether this character is an immortal (RPC or higher).
@@ -2276,8 +2312,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:isImmune"></a>
-    <strong>Character:isImmune (risName)</strong>
+    <a name = "character:isImmune"></a>
+    <strong>character:isImmune (risName)</strong>
     </dt>
     <dd>
     whether this character is immune to the given attack type.
@@ -2302,15 +2338,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:isImmune(<span class="string">"fire"</span>) <span class="keyword">then</span>
-  ch:echoAt(<span class="string">"You're protected from the fire."</span>)
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">isImmune</span>(<span class="string">"fire"</span>) <span class="keyword">then</span>
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You're protected from the fire."</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:isNPC"></a>
-    <strong>Character:isNPC ()</strong>
+    <a name = "character:isNPC"></a>
+    <strong>character:isNPC ()</strong>
     </dt>
     <dd>
     whether this character is an NPC.
@@ -2328,15 +2364,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> ch:isNPC() <span class="keyword">then</span>
-  ch:echoAt(<span class="string">"You're a player!"</span>)
+        <pre class="example"><span class="keyword">if</span> <span class="keyword">not</span> ch:<span class="function-name">isNPC</span>() <span class="keyword">then</span>
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You're a player!"</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:isPC"></a>
-    <strong>Character:isPC ()</strong>
+    <a name = "character:isPC"></a>
+    <strong>character:isPC ()</strong>
     </dt>
     <dd>
     whether this character is a player.
@@ -2355,8 +2391,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:isResistant"></a>
-    <strong>Character:isResistant (risName)</strong>
+    <a name = "character:isResistant"></a>
+    <strong>character:isResistant (risName)</strong>
     </dt>
     <dd>
     whether this character is resistant to the given attack type.
@@ -2381,15 +2417,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:isResistant(<span class="string">"fire"</span>) <span class="keyword">then</span>
-  ch:echoAt(<span class="string">"You're slightly protected from the fire."</span>)
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">isResistant</span>(<span class="string">"fire"</span>) <span class="keyword">then</span>
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You're slightly protected from the fire."</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:isSusceptible"></a>
-    <strong>Character:isSusceptible (risName)</strong>
+    <a name = "character:isSusceptible"></a>
+    <strong>character:isSusceptible (risName)</strong>
     </dt>
     <dd>
     whether this character is susceptible to the given attack type.
@@ -2414,15 +2450,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:isSusceptible(<span class="string">"fire"</span>) <span class="keyword">then</span>
-  ch:echoAt(<span class="string">"You're burning up from the fire!"</span>)
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">isSusceptible</span>(<span class="string">"fire"</span>) <span class="keyword">then</span>
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You're burning up from the fire!"</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:restore"></a>
-    <strong>Character:restore ()</strong>
+    <a name = "character:restore"></a>
+    <strong>character:restore ()</strong>
     </dt>
     <dd>
     restore a character.
@@ -2434,13 +2470,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:restore()</pre>
+        <pre class="example">ch:<span class="function-name">restore</span>()</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:say"></a>
-    <strong>Character:say (text)</strong>
+    <a name = "character:say"></a>
+    <strong>character:say (text)</strong>
     </dt>
     <dd>
     say some text.
@@ -2461,8 +2497,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:sayTo"></a>
-    <strong>Character:sayTo (target, text)</strong>
+    <a name = "character:sayTo"></a>
+    <strong>character:sayTo (target, text)</strong>
     </dt>
     <dd>
     say some text to a target.
@@ -2487,8 +2523,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:setActFlag"></a>
-    <strong>Character:setActFlag (flag, value)</strong>
+    <a name = "character:setActFlag"></a>
+    <strong>character:setActFlag (flag, value)</strong>
     </dt>
     <dd>
     set a flag on this character.
@@ -2511,13 +2547,34 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:setActFlag(<span class="string">"deadly"</span>, <span class="keyword">true</span>)</pre>
+        <pre class="example">ch:<span class="function-name">setActFlag</span>(<span class="string">"deadly"</span>, <span class="keyword">true</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:setBloodToxicity"></a>
-    <strong>Character:setBloodToxicity (bloodToxicity)</strong>
+    <a name = "character:setBio"></a>
+    <strong>character:setBio (bio)</strong>
+    </dt>
+    <dd>
+    set the full bio for a PC.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bio</span>
+            <span class="types"><span class="type">string</span></span>
+         the new bio
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setBloodToxicity"></a>
+    <strong>character:setBloodToxicity (bloodToxicity)</strong>
     </dt>
     <dd>
     set the character's current mental state, 0 (good) - 100 (bad).
@@ -2543,8 +2600,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:setDescription"></a>
-    <strong>Character:setDescription (desc)</strong>
+    <a name = "character:setDescription"></a>
+    <strong>character:setDescription (desc)</strong>
     </dt>
     <dd>
     set the full description for an NPC (what you see when looking at them).
@@ -2564,8 +2621,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:setInstalledCyber"></a>
-    <strong>Character:setInstalledCyber (cyberType, installed, the)</strong>
+    <a name = "character:setInstalledCyber"></a>
+    <strong>character:setInstalledCyber (cyberType, installed, the)</strong>
     </dt>
     <dd>
     set whether a character has a given cyber type installed.
@@ -2594,8 +2651,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:setLongDescription"></a>
-    <strong>Character:setLongDescription (desc)</strong>
+    <a name = "character:setLongDescription"></a>
+    <strong>character:setLongDescription (desc)</strong>
     </dt>
     <dd>
     set the long description for an NPC (what you see when looking in the room).
@@ -2614,13 +2671,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:setLongDescription(<span class="string">"An angry pirate captain stands here drinking ale."</span>)</pre>
+        <pre class="example">ch:<span class="function-name">setLongDescription</span>(<span class="string">"An angry pirate captain stands here drinking ale."</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:setMentalState"></a>
-    <strong>Character:setMentalState (mentalState)</strong>
+    <a name = "character:setMentalState"></a>
+    <strong>character:setMentalState (mentalState)</strong>
     </dt>
     <dd>
     set the character's current mental state, 0 (good) - 100 (bad).
@@ -2646,8 +2703,8 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
 </dd>
     <dt>
-    <a name = "Character:setName"></a>
-    <strong>Character:setName (desc)</strong>
+    <a name = "character:setName"></a>
+    <strong>character:setName (desc)</strong>
     </dt>
     <dd>
     set the name (keywords) for a character.
@@ -2666,13 +2723,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:setName(<span class="string">"pirate captain angry"</span>)</pre>
+        <pre class="example">ch:<span class="function-name">setName</span>(<span class="string">"pirate captain angry"</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:setSex"></a>
-    <strong>Character:setSex (sex)</strong>
+    <a name = "character:setSex"></a>
+    <strong>character:setSex (sex)</strong>
     </dt>
     <dd>
     set the sex for an NPC.
@@ -2691,13 +2748,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:setSex(<span class="string">"female"</span>)</pre>
+        <pre class="example">ch:<span class="function-name">setSex</span>(<span class="string">"female"</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:setShortDescription"></a>
-    <strong>Character:setShortDescription (desc)</strong>
+    <a name = "character:setShortDescription"></a>
+    <strong>character:setShortDescription (desc)</strong>
     </dt>
     <dd>
     set the short description for an NPC.
@@ -2716,13 +2773,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:setShortDescription(<span class="string">"an angry pirate captain"</span>)</pre>
+        <pre class="example">ch:<span class="function-name">setShortDescription</span>(<span class="string">"an angry pirate captain"</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:setVar"></a>
-    <strong>Character:setVar (varName, value, ttl)</strong>
+    <a name = "character:setVar"></a>
+    <strong>character:setVar (varName, value, ttl)</strong>
     </dt>
     <dd>
     set a variable on a character
@@ -2749,15 +2806,15 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <h3>Usage:</h3>
     <ul>
         <li><pre class="example"><span class="comment">-- remove the wroona.onQuest variable
-</span>ch:setVar(<span class="string">"wroona.onQuest"</span>, <span class="keyword">nil</span>)</pre></li>
+</span>ch:<span class="function-name">setVar</span>(<span class="string">"wroona.onQuest"</span>, <span class="keyword">nil</span>)</pre></li>
         <li><pre class="example"><span class="comment">-- set the wroona.didQuest variable and keep it for 24 hours
-</span>ch:setVar(<span class="string">"wroona.didQuest"</span>, <span class="keyword">true</span>, <span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>)</pre></li>
+</span>ch:<span class="function-name">setVar</span>(<span class="string">"wroona.didQuest"</span>, <span class="keyword">true</span>, <span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>)</pre></li>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:slay"></a>
-    <strong>Character:slay (byCh)</strong>
+    <a name = "character:slay"></a>
+    <strong>character:slay (byCh)</strong>
     </dt>
     <dd>
     instantly kill a character.
@@ -2777,13 +2834,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:slay(dragonMob)</pre>
+        <pre class="example">ch:<span class="function-name">slay</span>(dragonMob)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:stun"></a>
-    <strong>Character:stun (seconds)</strong>
+    <a name = "character:stun"></a>
+    <strong>character:stun (seconds)</strong>
     </dt>
     <dd>
     stun (lag) a player for a given number of seconds.
@@ -2805,13 +2862,13 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
     <h3>Usage:</h3>
     <ul>
         <pre class="example"><span class="comment">-- Lag for 5 seconds
-</span>ch:stun(<span class="number">5</span>)</pre>
+</span>ch:<span class="function-name">stun</span>(<span class="number">5</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:toRoom"></a>
-    <strong>Character:toRoom (room)</strong>
+    <a name = "character:toRoom"></a>
+    <strong>character:toRoom (room)</strong>
     </dt>
     <dd>
     transfer the character to the given room.
@@ -2830,14 +2887,14 @@ ch:awardCredits(-<span class="number">50000</span>)</pre></li>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">ch:toRoom(<span class="number">12345</span>)
-ch:force(<span class="string">"look"</span>)</pre>
+        <pre class="example">ch:<span class="function-name">toRoom</span>(<span class="number">12345</span>)
+ch:<span class="function-name">force</span>(<span class="string">"look"</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "Character:wearing"></a>
-    <strong>Character:wearing ()</strong>
+    <a name = "character:wearing"></a>
+    <strong>character:wearing ()</strong>
     </dt>
     <dd>
     get an iterator over objects the character is wearing.
@@ -2854,7 +2911,7 @@ ch:force(<span class="string">"look"</span>)</pre>
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:wearing() <span class="keyword">do</span>
+        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:<span class="function-name">wearing</span>() <span class="keyword">do</span>
   <span class="comment">-- do something
 </span><span class="keyword">end</span></pre>
     </ul>
@@ -2884,10 +2941,10 @@ ch:force(<span class="string">"look"</span>)</pre>
     <h3>Usage:</h3>
     <ul>
         <pre class="example"><span class="comment">-- Move all players to room 10
-</span><span class="keyword">local</span> room = Room.getFromVNum(<span class="number">10</span>)
-<span class="keyword">for</span> ch <span class="keyword">in</span> Character.connected() <span class="keyword">do</span>
-  ch:toRoom(room)
-  ch:echoAt(<span class="string">"You've been transferred!"</span>)
+</span><span class="keyword">local</span> room = Room.<span class="function-name">getFromVNum</span>(<span class="number">10</span>)
+<span class="keyword">for</span> ch <span class="keyword">in</span> Character.<span class="function-name">connected</span>() <span class="keyword">do</span>
+  ch:<span class="function-name">toRoom</span>(room)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You've been transferred!"</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
@@ -2920,9 +2977,9 @@ ch:force(<span class="string">"look"</span>)</pre>
     <h3>Usage:</h3>
     <ul>
         <pre class="example"><span class="comment">-- Find player "Puff"
-</span><span class="keyword">local</span> puff = Character.getFromName(<span class="string">"Puff"</span>)
+</span><span class="keyword">local</span> puff = Character.<span class="function-name">getFromName</span>(<span class="string">"Puff"</span>)
 <span class="keyword">if</span> <span class="keyword">not</span> puff <span class="keyword">then</span>
-  LOTJ.log(<span class="string">"Couldn't find Puff."</span>)
+  LOTJ.<span class="function-name">log</span>(<span class="string">"Couldn't find Puff."</span>)
 <span class="keyword">end</span></pre>
     </ul>
 
@@ -2955,11 +3012,11 @@ ch:force(<span class="string">"look"</span>)</pre>
     <h3>Usage:</h3>
     <ul>
         <li><pre class="example"><span class="comment">-- invoke mob 10000 and put it in a room
-</span>Character.invoke(<span class="number">10000</span>):toRoom(someRoom)</pre></li>
+</span>Character.<span class="function-name">invoke</span>(<span class="number">10000</span>):<span class="function-name">toRoom</span>(someRoom)</pre></li>
         <li><pre class="example"><span class="comment">-- invoke mob 1234 and do a few things with it
-</span><span class="keyword">local</span> newCh = Character.invoke(<span class="number">1234</span>)
-newCh:toRoom(someRoom)
-newCh:say(<span class="string">"Hello, I'm here!"</span>)</pre></li>
+</span><span class="keyword">local</span> newCh = Character.<span class="function-name">invoke</span>(<span class="number">1234</span>)
+newCh:<span class="function-name">toRoom</span>(someRoom)
+newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm here!"</span>)</pre></li>
     </ul>
 
 </dd>
@@ -2969,8 +3026,8 @@ newCh:say(<span class="string">"Hello, I'm here!"</span>)</pre></li>
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

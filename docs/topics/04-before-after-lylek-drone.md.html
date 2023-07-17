@@ -107,17 +107,17 @@
 
 
 <pre>
-self:onFight(<span class="keyword">function</span>(self, target)
-  <span class="keyword">if</span> <span class="global">math</span>.random(<span class="number">100</span>) &lt;= <span class="number">13</span> <span class="keyword">then</span>
+self:<span class="function-name">onFight</span>(<span class="keyword">function</span>(self, target)
+  <span class="keyword">if</span> <span class="global">math</span>.<span class="function-name">random</span>(<span class="number">100</span>) &lt;= <span class="number">13</span> <span class="keyword">then</span>
     <span class="comment">-- Using {} tokens in echo means we can put the name of the mob and target
 </span>    <span class="comment">-- in easily, rather than typing out any names here.
-</span>    self:echo(<span class="string">"{1} lashes out violently at {2} with a tentacle!"</span>, self, target)
+</span>    self:<span class="function-name">echo</span>(<span class="string">"{1} lashes out violently at {2} with a tentacle!"</span>, self, target)
 
     <span class="comment">-- Note that we don't check for damage-reducing effects because this damage
 </span>    <span class="comment">-- function automatically accounts for them.
 </span>    <span class="comment">-- Also, let's make it a little fancier by randomizing the damage.
 </span>    <span class="comment">-- Instead of always 150, this will be 101-200
-</span>    target:damage(<span class="number">100</span>+<span class="global">math</span>.random(<span class="number">100</span>), self)
+</span>    target:<span class="function-name">damage</span>(<span class="number">100</span>+<span class="global">math</span>.<span class="function-name">random</span>(<span class="number">100</span>), self)
   <span class="keyword">end</span>
 <span class="keyword">end</span>)
 </pre>
@@ -133,8 +133,8 @@ self:onFight(<span class="keyword">function</span>(self, target)
 
 
 <pre>
-self:onDeath(<span class="keyword">function</span>(self, killer)
-  killer:gainExp(<span class="string">"bounty hunting"</span>, <span class="number">20000</span>)
+self:<span class="function-name">onDeath</span>(<span class="keyword">function</span>(self, killer)
+  killer:<span class="function-name">gainExp</span>(<span class="string">"bounty hunting"</span>, <span class="number">20000</span>)
 <span class="keyword">end</span>)
 </pre>
 
@@ -152,10 +152,10 @@ self:onDeath(<span class="keyword">function</span>(self, killer)
 
 
 <pre>
-self:onGreet(<span class="keyword">function</span>(self, ch)
-  <span class="keyword">if</span> ch:isPC() <span class="keyword">then</span>
-    self:echo(<span class="string">"{1} snarls with a high pitched, aggressive hiss!"</span>, self)
-    self:attack(ch)
+self:<span class="function-name">onGreet</span>(<span class="keyword">function</span>(self, ch)
+  <span class="keyword">if</span> ch:<span class="function-name">isPC</span>() <span class="keyword">then</span>
+    self:<span class="function-name">echo</span>(<span class="string">"{1} snarls with a high pitched, aggressive hiss!"</span>, self)
+    self:<span class="function-name">attack</span>(ch)
   <span class="keyword">end</span>
 <span class="keyword">end</span>)
 </pre>
@@ -171,10 +171,10 @@ self:onGreet(<span class="keyword">function</span>(self, ch)
 
 
 <pre>
-self:onAct(<span class="string">"is stunned, but will probably recover"</span>, <span class="keyword">function</span>(self, ch)
+self:<span class="function-name">onAct</span>(<span class="string">"is stunned, but will probably recover"</span>, <span class="keyword">function</span>(self, ch)
   <span class="comment">-- Let's add a message so it's less mysterious to others in the room.
-</span>  self:echo(<span class="string">"{1} capitalizes on {2.'s} injuries and unleashes a sudden attack!"</span>, self, ch)
-  ch:slay(self) <span class="comment">-- We intend to hospitalize them here, so just do it directly instead of using damage
+</span>  self:<span class="function-name">echo</span>(<span class="string">"{1} capitalizes on {2.'s} injuries and unleashes a sudden attack!"</span>, self, ch)
+  ch:<span class="function-name">slay</span>(self) <span class="comment">-- We intend to hospitalize them here, so just do it directly instead of using damage
 </span><span class="keyword">end</span>)
 </pre>
 
@@ -202,14 +202,14 @@ self:onAct(<span class="string">"is stunned, but will probably recover"</span>, 
 
 
 <pre>
-self:onAct(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, ch)
-  self:attack(ch)
-  self:echo(<span class="string">"{1} lashes out violently at {2} with a tentacle!"</span>, self, ch)
-  ch:damage(<span class="number">100</span>+<span class="global">math</span>.random(<span class="number">100</span>), self)
+self:<span class="function-name">onAct</span>(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, ch)
+  self:<span class="function-name">attack</span>(ch)
+  self:<span class="function-name">echo</span>(<span class="string">"{1} lashes out violently at {2} with a tentacle!"</span>, self, ch)
+  ch:<span class="function-name">damage</span>(<span class="number">100</span>+<span class="global">math</span>.<span class="function-name">random</span>(<span class="number">100</span>), self)
   <span class="comment">-- interrupt() is a built-in function for stopping an action. When available, always use built-in
 </span>  <span class="comment">-- functions like interrupt and drop rather than forcing the command, as this bypasses things that
 </span>  <span class="comment">-- might block the player from executing the action normally.
-</span>  ch:interrupt()
+</span>  ch:<span class="function-name">interrupt</span>()
 <span class="keyword">end</span>)
 </pre>
 
@@ -227,11 +227,11 @@ self:onAct(<span class="string">"begins drawing a bead on you!"</span>, <span cl
 
 
 <pre>
-self:onAct(<span class="string">"grabs ahold of you!"</span>, <span class="keyword">function</span>(self, ch)
-  self:force(<span class="string">"struggle"</span>)
-  self:emote(<span class="string">"lashes out with a snarl!"</span>)
-  ch:damage(<span class="number">300</span>, self)
-  self:force(<span class="string">"struggle"</span>)
+self:<span class="function-name">onAct</span>(<span class="string">"grabs ahold of you!"</span>, <span class="keyword">function</span>(self, ch)
+  self:<span class="function-name">force</span>(<span class="string">"struggle"</span>)
+  self:<span class="function-name">emote</span>(<span class="string">"lashes out with a snarl!"</span>)
+  ch:<span class="function-name">damage</span>(<span class="number">300</span>, self)
+  self:<span class="function-name">force</span>(<span class="string">"struggle"</span>)
 <span class="keyword">end</span>)
 </pre>
 
@@ -240,8 +240,8 @@ self:onAct(<span class="string">"grabs ahold of you!"</span>, <span class="keywo
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

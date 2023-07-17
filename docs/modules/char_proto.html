@@ -84,56 +84,76 @@
 <h2><a href="#Class_CharProto">Class CharProto </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onAct">CharProto:onAct (message, callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:getDescription">charproto:getDescription ()</a></td>
+	<td class="summary">Gets the description for the mob prototype.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#charproto:getName">charproto:getName ()</a></td>
+	<td class="summary">Gets the name for the mob prototype.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#charproto:onAct">charproto:onAct (message, callback)</a></td>
 	<td class="summary">registers a function to run when the given action message is shown to the mob.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onBribe">CharProto:onBribe (amount, callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onBribe">charproto:onBribe (amount, callback)</a></td>
 	<td class="summary">registers a function to run when the given number of credits is given to the character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onDamage">CharProto:onDamage (callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onDamage">charproto:onDamage (callback)</a></td>
 	<td class="summary">registers a function to run each time the mob is damaged.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onDeath">CharProto:onDeath (callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onDeath">charproto:onDeath (callback)</a></td>
 	<td class="summary">registers a function to run when a mob is killed.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onEnter">CharProto:onEnter (callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onEnter">charproto:onEnter (callback)</a></td>
 	<td class="summary">registers a function to run whenever the mob itself enters a new room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onFight">CharProto:onFight (callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onFight">charproto:onFight (callback)</a></td>
 	<td class="summary">registers a function to run during each combat round the mob is in.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onGive">CharProto:onGive (callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onGive">charproto:onGive (callback)</a></td>
 	<td class="summary">registers a function to run every time any object is given to this character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onGreet">CharProto:onGreet (callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onGreet">charproto:onGreet (callback)</a></td>
 	<td class="summary">registers a function to run when another character enters the room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onLook">CharProto:onLook (callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onLook">charproto:onLook (callback)</a></td>
 	<td class="summary">registers a function to run when a character looks at this one.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onRandom">CharProto:onRandom (chance, callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onRandom">charproto:onRandom (chance, callback)</a></td>
 	<td class="summary">registers a function with a chance to run every mob tick (10 seconds).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onSpawned">CharProto:onSpawned (callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onSayto">charproto:onSayto (callback)</a></td>
+	<td class="summary">registers a function to run when something is said to a mob using sayto</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#charproto:onSpawned">charproto:onSpawned (callback)</a></td>
 	<td class="summary">registers a function to run when a mob is spawned via reset.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onSpeech">CharProto:onSpeech (message, callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onSpeech">charproto:onSpeech (message, callback)</a></td>
 	<td class="summary">registers a function to run when the given text is spoken in the room.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#CharProto:onTime">CharProto:onTime (hour, callback)</a></td>
+	<td class="name" nowrap><a href="#charproto:onTime">charproto:onTime (hour, callback)</a></td>
 	<td class="summary">registers a function to run every time the hour changes to a certain value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#charproto:setDescription">charproto:setDescription (desc)</a></td>
+	<td class="summary">set the full description for a mob prototype.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#charproto:setName">charproto:setName (name)</a></td>
+	<td class="summary">set the name for a mob prototype.</td>
 	</tr>
 </table>
 
@@ -148,8 +168,48 @@
           </div>
     <dl class="function">
     <dt>
-    <a name = "CharProto:onAct"></a>
-    <strong>CharProto:onAct (message, callback)</strong>
+    <a name = "charproto:getDescription"></a>
+    <strong>charproto:getDescription ()</strong>
+    </dt>
+    <dd>
+    Gets the description for the mob prototype.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the description value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "charproto:getName"></a>
+    <strong>charproto:getName ()</strong>
+    </dt>
+    <dd>
+    Gets the name for the mob prototype.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the name value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "charproto:onAct"></a>
+    <strong>charproto:onAct (message, callback)</strong>
     </dt>
     <dd>
     registers a function to run when the given action message is shown to the mob.
@@ -175,15 +235,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onAct(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, actor, fullText)
-  actor:echoAt(<span class="string">"You can't aim at me!"</span>)
+        <pre class="example">self:<span class="function-name">onAct</span>(<span class="string">"begins drawing a bead on you!"</span>, <span class="keyword">function</span>(self, actor, fullText)
+  actor:<span class="function-name">echoAt</span>(<span class="string">"You can't aim at me!"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onBribe"></a>
-    <strong>CharProto:onBribe (amount, callback)</strong>
+    <a name = "charproto:onBribe"></a>
+    <strong>charproto:onBribe (amount, callback)</strong>
     </dt>
     <dd>
     registers a function to run when the given number of credits is given to the character.
@@ -208,16 +268,16 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onBribe(<span class="number">10000</span>, <span class="keyword">function</span>(self, ch)
-  self:sayTo(ch, <span class="string">"Thank you for your patronage."</span>)
-  self:awardCredits(-<span class="number">10000</span>) <span class="comment">-- Clean up the credits
+        <pre class="example">self:<span class="function-name">onBribe</span>(<span class="number">10000</span>, <span class="keyword">function</span>(self, ch)
+  self:<span class="function-name">sayTo</span>(ch, <span class="string">"Thank you for your patronage."</span>)
+  self:<span class="function-name">awardCredits</span>(-<span class="number">10000</span>) <span class="comment">-- Clean up the credits
 </span><span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onDamage"></a>
-    <strong>CharProto:onDamage (callback)</strong>
+    <a name = "charproto:onDamage"></a>
+    <strong>charproto:onDamage (callback)</strong>
     </dt>
     <dd>
     registers a function to run each time the mob is damaged.
@@ -240,15 +300,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onDamage(<span class="keyword">function</span>(self, ch, amount)
-  self:sayTo(ch, <span class="string">"You hit me for "</span>..amount..<span class="string">" damage"</span>)
+        <pre class="example">self:<span class="function-name">onDamage</span>(<span class="keyword">function</span>(self, ch, amount)
+  self:<span class="function-name">sayTo</span>(ch, <span class="string">"You hit me for "</span>..amount..<span class="string">" damage"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onDeath"></a>
-    <strong>CharProto:onDeath (callback)</strong>
+    <a name = "charproto:onDeath"></a>
+    <strong>charproto:onDeath (callback)</strong>
     </dt>
     <dd>
     registers a function to run when a mob is killed.
@@ -271,18 +331,18 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onDeath(<span class="keyword">function</span>(self, byChar)
+        <pre class="example">self:<span class="function-name">onDeath</span>(<span class="keyword">function</span>(self, byChar)
   <span class="keyword">if</span> <span class="keyword">not</span> byChar <span class="keyword">then</span>
     <span class="keyword">return</span>
   <span class="keyword">end</span>
-  byChar:echoAt(<span class="string">"Good job, you killed "</span>..self:getShortDescription()..<span class="string">"!"</span>)
+  byChar:<span class="function-name">echoAt</span>(<span class="string">"Good job, you killed "</span>..self:<span class="function-name">getShortDescription</span>()..<span class="string">"!"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onEnter"></a>
-    <strong>CharProto:onEnter (callback)</strong>
+    <a name = "charproto:onEnter"></a>
+    <strong>charproto:onEnter (callback)</strong>
     </dt>
     <dd>
     registers a function to run whenever the mob itself enters a new room.
@@ -303,15 +363,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onEnter(<span class="keyword">function</span>(self, oldRoom)
+        <pre class="example">self:<span class="function-name">onEnter</span>(<span class="keyword">function</span>(self, oldRoom)
   <span class="comment">-- Do stuff
 </span><span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onFight"></a>
-    <strong>CharProto:onFight (callback)</strong>
+    <a name = "charproto:onFight"></a>
+    <strong>charproto:onFight (callback)</strong>
     </dt>
     <dd>
     registers a function to run during each combat round the mob is in.
@@ -333,15 +393,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onFight(<span class="keyword">function</span>(self, target)
-  target:echoAt(<span class="string">"I'll win this fight yet!"</span>)
+        <pre class="example">self:<span class="function-name">onFight</span>(<span class="keyword">function</span>(self, target)
+  target:<span class="function-name">echoAt</span>(<span class="string">"I'll win this fight yet!"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onGive"></a>
-    <strong>CharProto:onGive (callback)</strong>
+    <a name = "charproto:onGive"></a>
+    <strong>charproto:onGive (callback)</strong>
     </dt>
     <dd>
     registers a function to run every time any object is given to this character.
@@ -363,21 +423,21 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onGive(<span class="keyword">function</span>(self, obj, ch)
-  <span class="keyword">if</span> obj:getVNum() == <span class="number">1000</span> <span class="keyword">then</span>
-    self:sayTo(ch, <span class="string">"Great, this is what I needed."</span>)
+        <pre class="example">self:<span class="function-name">onGive</span>(<span class="keyword">function</span>(self, obj, ch)
+  <span class="keyword">if</span> obj:<span class="function-name">getVNum</span>() == <span class="number">1000</span> <span class="keyword">then</span>
+    self:<span class="function-name">sayTo</span>(ch, <span class="string">"Great, this is what I needed."</span>)
   <span class="keyword">else</span>
-    self:sayTo(ch, <span class="string">"Huh? I don't want that."</span>)
-    self:emote(<span class="string">"returns "</span>..obj:getShortDescription()..<span class="string">"."</span>)
-    obj:toChar(ch)
+    self:<span class="function-name">sayTo</span>(ch, <span class="string">"Huh? I don't want that."</span>)
+    self:<span class="function-name">emote</span>(<span class="string">"returns "</span>..obj:<span class="function-name">getShortDescription</span>()..<span class="string">"."</span>)
+    obj:<span class="function-name">toChar</span>(ch)
   <span class="keyword">end</span>
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onGreet"></a>
-    <strong>CharProto:onGreet (callback)</strong>
+    <a name = "charproto:onGreet"></a>
+    <strong>charproto:onGreet (callback)</strong>
     </dt>
     <dd>
     registers a function to run when another character enters the room.
@@ -399,15 +459,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onGreet(<span class="keyword">function</span>(self, target, fromRoom)
-  target:echoAt(<span class="string">"You notice "</span>..self:getShortDescription()..<span class="string">" waving at you."</span>)
+        <pre class="example">self:<span class="function-name">onGreet</span>(<span class="keyword">function</span>(self, target, fromRoom)
+  target:<span class="function-name">echoAt</span>(<span class="string">"You notice "</span>..self:<span class="function-name">getShortDescription</span>()..<span class="string">" waving at you."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onLook"></a>
-    <strong>CharProto:onLook (callback)</strong>
+    <a name = "charproto:onLook"></a>
+    <strong>charproto:onLook (callback)</strong>
     </dt>
     <dd>
     registers a function to run when a character looks at this one.
@@ -428,15 +488,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onLook(<span class="keyword">function</span>(self, ch)
-  self:sayTo(ch, <span class="string">"What are you looking at?"</span>)
+        <pre class="example">self:<span class="function-name">onLook</span>(<span class="keyword">function</span>(self, ch)
+  self:<span class="function-name">sayTo</span>(ch, <span class="string">"What are you looking at?"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onRandom"></a>
-    <strong>CharProto:onRandom (chance, callback)</strong>
+    <a name = "charproto:onRandom"></a>
+    <strong>charproto:onRandom (chance, callback)</strong>
     </dt>
     <dd>
     registers a function with a chance to run every mob tick (10 seconds).
@@ -460,15 +520,45 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onRandom(<span class="number">25</span>, <span class="keyword">function</span>(self)
+        <pre class="example">self:<span class="function-name">onRandom</span>(<span class="number">25</span>, <span class="keyword">function</span>(self)
   <span class="comment">-- Do stuff
 </span><span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onSpawned"></a>
-    <strong>CharProto:onSpawned (callback)</strong>
+    <a name = "charproto:onSayto"></a>
+    <strong>charproto:onSayto (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when something is said to a mob using sayto
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/character.html#Character">Character</a> being said to
+ 2. the <a href="../modules/character.html#Character">Character</a> doing the speaking
+ 2. a string of what was said
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">self:<span class="function-name">onSayto</span>(<span class="keyword">function</span>(self, speaker, text)
+  self:<span class="function-name">force</span>(<span class="string">"say You said "</span>..text..<span class="string">" to me!"</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "charproto:onSpawned"></a>
+    <strong>charproto:onSpawned (callback)</strong>
     </dt>
     <dd>
     registers a function to run when a mob is spawned via reset.
@@ -489,16 +579,16 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onSpawned(<span class="keyword">function</span>(self)
-  Object.invoke(<span class="number">170050</span>):toChar(self)
-  self:force(<span class="string">"wield sword"</span>)
+        <pre class="example">self:<span class="function-name">onSpawned</span>(<span class="keyword">function</span>(self)
+  Object.<span class="function-name">invoke</span>(<span class="number">170050</span>):<span class="function-name">toChar</span>(self)
+  self:<span class="function-name">force</span>(<span class="string">"wield sword"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onSpeech"></a>
-    <strong>CharProto:onSpeech (message, callback)</strong>
+    <a name = "charproto:onSpeech"></a>
+    <strong>charproto:onSpeech (message, callback)</strong>
     </dt>
     <dd>
     registers a function to run when the given text is spoken in the room.
@@ -524,15 +614,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onSpeech(<span class="string">"assistance"</span>, <span class="keyword">function</span>(self, speaker, fullText)
-  speaker:echoAt(<span class="string">"Yeah, sure, I need some help with the womp rats in the warehouse."</span>)
+        <pre class="example">self:<span class="function-name">onSpeech</span>(<span class="string">"assistance"</span>, <span class="keyword">function</span>(self, speaker, fullText)
+  speaker:<span class="function-name">echoAt</span>(<span class="string">"Yeah, sure, I need some help with the womp rats in the warehouse."</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "CharProto:onTime"></a>
-    <strong>CharProto:onTime (hour, callback)</strong>
+    <a name = "charproto:onTime"></a>
+    <strong>charproto:onTime (hour, callback)</strong>
     </dt>
     <dd>
     registers a function to run every time the hour changes to a certain value.
@@ -556,10 +646,52 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onTime(<span class="number">6</span>, <span class="keyword">function</span>(self)
-  self:say(<span class="string">"Good morning!"</span>)
+        <pre class="example">self:<span class="function-name">onTime</span>(<span class="number">6</span>, <span class="keyword">function</span>(self)
+  self:<span class="function-name">say</span>(<span class="string">"Good morning!"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "charproto:setDescription"></a>
+    <strong>charproto:setDescription (desc)</strong>
+    </dt>
+    <dd>
+    set the full description for a mob prototype.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">desc</span>
+            <span class="types"><span class="type">string</span></span>
+         the new description
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "charproto:setName"></a>
+    <strong>charproto:setName (name)</strong>
+    </dt>
+    <dd>
+    set the name for a mob prototype.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the new name
+        </li>
+    </ul>
+
+
+
+
 
 </dd>
 </dl>
@@ -568,8 +700,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

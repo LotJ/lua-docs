@@ -84,31 +84,31 @@
 <h2><a href="#Class_ShipTemplate">Class ShipTemplate </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#ShipTemplate:getBaseName">ShipTemplate:getBaseName ()</a></td>
+	<td class="name" nowrap><a href="#shiptemplate:getBaseName">shiptemplate:getBaseName ()</a></td>
 	<td class="summary">returns the basename for this ship template.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ShipTemplate:getFilename">ShipTemplate:getFilename ()</a></td>
+	<td class="name" nowrap><a href="#shiptemplate:getFilename">shiptemplate:getFilename ()</a></td>
 	<td class="summary">returns the filename for this ship template</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ShipTemplate:onCreate">ShipTemplate:onCreate (callback)</a></td>
+	<td class="name" nowrap><a href="#shiptemplate:onCreate">shiptemplate:onCreate (callback)</a></td>
 	<td class="summary">registers a function to run when a ship is first built or created.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ShipTemplate:onDestroyed">ShipTemplate:onDestroyed (callback)</a></td>
+	<td class="name" nowrap><a href="#shiptemplate:onDestroyed">shiptemplate:onDestroyed (callback)</a></td>
 	<td class="summary">registers a function to run when a ship is destroyed.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ShipTemplate:onSpawned">ShipTemplate:onSpawned (callback)</a></td>
+	<td class="name" nowrap><a href="#shiptemplate:onSpawned">shiptemplate:onSpawned (callback)</a></td>
 	<td class="summary">registers a function to run when a ship is placed in a system via a space spawn.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ShipTemplate:onTargeted">ShipTemplate:onTargeted (callback)</a></td>
+	<td class="name" nowrap><a href="#shiptemplate:onTargeted">shiptemplate:onTargeted (callback)</a></td>
 	<td class="summary">registers a function to run when a ship is targeted by another ship.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#ShipTemplate:onTick">ShipTemplate:onTick (callback)</a></td>
+	<td class="name" nowrap><a href="#shiptemplate:onTick">shiptemplate:onTick (callback)</a></td>
 	<td class="summary">registers a function to run every space tick (20 seconds, when the space prompt shows).</td>
 	</tr>
 </table>
@@ -124,8 +124,8 @@
           </div>
     <dl class="function">
     <dt>
-    <a name = "ShipTemplate:getBaseName"></a>
-    <strong>ShipTemplate:getBaseName ()</strong>
+    <a name = "shiptemplate:getBaseName"></a>
+    <strong>shiptemplate:getBaseName ()</strong>
     </dt>
     <dd>
     returns the basename for this ship template.
@@ -143,8 +143,8 @@
 
 </dd>
     <dt>
-    <a name = "ShipTemplate:getFilename"></a>
-    <strong>ShipTemplate:getFilename ()</strong>
+    <a name = "shiptemplate:getFilename"></a>
+    <strong>shiptemplate:getFilename ()</strong>
     </dt>
     <dd>
     returns the filename for this ship template
@@ -162,8 +162,8 @@
 
 </dd>
     <dt>
-    <a name = "ShipTemplate:onCreate"></a>
-    <strong>ShipTemplate:onCreate (callback)</strong>
+    <a name = "shiptemplate:onCreate"></a>
+    <strong>shiptemplate:onCreate (callback)</strong>
     </dt>
     <dd>
     registers a function to run when a ship is first built or created.
@@ -184,16 +184,16 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onCreate(<span class="keyword">function</span>(self)
+        <pre class="example">self:<span class="function-name">onCreate</span>(<span class="keyword">function</span>(self)
   <span class="comment">-- Place a mob in the ship's cockpit
-</span>  Character.invoke(<span class="number">12345</span>):toRoom(self:getCockpit())
+</span>  Character.<span class="function-name">invoke</span>(<span class="number">12345</span>):<span class="function-name">toRoom</span>(self:<span class="function-name">getCockpit</span>())
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ShipTemplate:onDestroyed"></a>
-    <strong>ShipTemplate:onDestroyed (callback)</strong>
+    <a name = "shiptemplate:onDestroyed"></a>
+    <strong>shiptemplate:onDestroyed (callback)</strong>
     </dt>
     <dd>
     registers a function to run when a ship is destroyed.
@@ -218,18 +218,18 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onDestroyed(<span class="keyword">function</span>(self, byShip, byChar)
+        <pre class="example">self:<span class="function-name">onDestroyed</span>(<span class="keyword">function</span>(self, byShip, byChar)
   <span class="keyword">if</span> <span class="keyword">not</span> byChar <span class="keyword">then</span>
     <span class="keyword">return</span>
   <span class="keyword">end</span>
-  ch:echoAt(<span class="string">"Good job, you destroyed the pirate!"</span>)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"Good job, you destroyed the pirate!"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ShipTemplate:onSpawned"></a>
-    <strong>ShipTemplate:onSpawned (callback)</strong>
+    <a name = "shiptemplate:onSpawned"></a>
+    <strong>shiptemplate:onSpawned (callback)</strong>
     </dt>
     <dd>
     registers a function to run when a ship is placed in a system via a space spawn.
@@ -249,16 +249,16 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onSpawned(<span class="keyword">function</span>(self)
+        <pre class="example">self:<span class="function-name">onSpawned</span>(<span class="keyword">function</span>(self)
   <span class="comment">-- Place a mob in the ship's cockpit
-</span>  Character.invoke(<span class="number">12345</span>):toRoom(self:getCockpit())
+</span>  Character.<span class="function-name">invoke</span>(<span class="number">12345</span>):<span class="function-name">toRoom</span>(self:<span class="function-name">getCockpit</span>())
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ShipTemplate:onTargeted"></a>
-    <strong>ShipTemplate:onTargeted (callback)</strong>
+    <a name = "shiptemplate:onTargeted"></a>
+    <strong>shiptemplate:onTargeted (callback)</strong>
     </dt>
     <dd>
     registers a function to run when a ship is targeted by another ship.
@@ -279,15 +279,15 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onTargeted(<span class="keyword">function</span>(self, targeter)
-  self:radio(<span class="string">"Help! I'm being attacked by "</span>..targeter:getName())
+        <pre class="example">self:<span class="function-name">onTargeted</span>(<span class="keyword">function</span>(self, targeter)
+  self:<span class="function-name">radio</span>(<span class="string">"Help! I'm being attacked by "</span>..targeter:<span class="function-name">getName</span>())
 <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
     <dt>
-    <a name = "ShipTemplate:onTick"></a>
-    <strong>ShipTemplate:onTick (callback)</strong>
+    <a name = "shiptemplate:onTick"></a>
+    <strong>shiptemplate:onTick (callback)</strong>
     </dt>
     <dd>
     registers a function to run every space tick (20 seconds, when the space prompt shows).
@@ -308,8 +308,8 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">self:onTick(<span class="keyword">function</span>(self)
-  self:echoToSystem(<span class="string">"Red lights flash on the exterior of "</span>..self:getName())
+        <pre class="example">self:<span class="function-name">onTick</span>(<span class="keyword">function</span>(self)
+  self:<span class="function-name">echoToSystem</span>(<span class="string">"Red lights flash on the exterior of "</span>..self:<span class="function-name">getName</span>())
 <span class="keyword">end</span>)</pre>
     </ul>
 
@@ -320,8 +320,8 @@
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
-<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2023-02-14 19:24:06 </i>
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-07-17 22:47:01 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
