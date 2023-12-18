@@ -157,6 +157,10 @@
 	<td class="summary">award experience to the player.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:getAlignment">character:getAlignment ()</a></td>
+	<td class="summary">get the character's current alignment.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:getBio">character:getBio ()</a></td>
 	<td class="summary">get the full bio for a player character (what you see when looking at them).</td>
 	</tr>
@@ -213,6 +217,14 @@
 	<td class="summary">get the character's current force attribute.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:getForceClass">character:getForceClass ()</a></td>
+	<td class="summary">get the character's current force class.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:getForceRank">character:getForceRank ()</a></td>
+	<td class="summary">get the character's current force rank.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:getHp">character:getHp ()</a></td>
 	<td class="summary">get the character's current hp.</td>
 	</tr>
@@ -255,6 +267,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:getMaxHp">character:getMaxHp ()</a></td>
 	<td class="summary">get the character's maximum hp.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:getMaxLevel">character:getMaxLevel ()</a></td>
+	<td class="summary">get the character's maximum level in the given class name.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:getMaxMana">character:getMaxMana ()</a></td>
@@ -337,6 +353,10 @@
 	<td class="summary">get a character's variable by name</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:getVarTimer">character:getVarTimer (varName)</a></td>
+	<td class="summary">get the remaining time on a character's variable, by name</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:getVisibleRace">character:getVisibleRace ()</a></td>
 	<td class="summary">get the character's race, or what they're disguised as.</td>
 	</tr>
@@ -397,6 +417,10 @@
 	<td class="summary">whether this character is immune to the given attack type.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:isJailed">character:isJailed ()</a></td>
+	<td class="summary">whether this character is presently jailed.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:isNPC">character:isNPC ()</a></td>
 	<td class="summary">whether this character is an NPC.</td>
 	</tr>
@@ -429,6 +453,10 @@
 	<td class="summary">set a flag on this character.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:setAlignment">character:setAlignment (alignment)</a></td>
+	<td class="summary">set the character's current alignment, -1000 (evil) - 1000 (good).</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:setBio">character:setBio (bio)</a></td>
 	<td class="summary">set the full bio for a PC.</td>
 	</tr>
@@ -441,8 +469,20 @@
 	<td class="summary">set the full description for an NPC (what you see when looking at them).</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:setForceClass">character:setForceClass (class)</a></td>
+	<td class="summary">set the character's current force class, 0 - 8</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setForceRank">character:setForceRank (rank)</a></td>
+	<td class="summary">set the character's current force rank, 0 - 3</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:setInstalledCyber">character:setInstalledCyber (cyberType, installed, the)</a></td>
 	<td class="summary">set whether a character has a given cyber type installed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setJailed">character:setJailed (the)</a></td>
+	<td class="summary">set the date/time the character was jailed.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setLongDescription">character:setLongDescription (desc)</a></td>
@@ -483,6 +523,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:wearing">character:wearing ()</a></td>
 	<td class="summary">get an iterator over objects the character is wearing.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:whenJailed">character:whenJailed ()</a></td>
+	<td class="summary">the date/time the character was jailed</td>
 	</tr>
 </table>
 <h2><a href="#Global_functions">Global functions </a></h2>
@@ -1001,6 +1045,26 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:getAlignment"></a>
+    <strong>character:getAlignment ()</strong>
+    </dt>
+    <dd>
+    get the character's current alignment.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the character's current alignment
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:getBio"></a>
     <strong>character:getBio ()</strong>
     </dt>
@@ -1295,6 +1359,46 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:getForceClass"></a>
+    <strong>character:getForceClass ()</strong>
+    </dt>
+    <dd>
+    get the character's current force class.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's current force class for players, or 0 for NPCs
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:getForceRank"></a>
+    <strong>character:getForceRank ()</strong>
+    </dt>
+    <dd>
+    get the character's current force rank.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's current force rank for players, or 0 for NPCs
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:getHp"></a>
     <strong>character:getHp ()</strong>
     </dt>
@@ -1535,6 +1639,32 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 
 
+
+</dd>
+    <dt>
+    <a name = "character:getMaxLevel"></a>
+    <strong>character:getMaxLevel ()</strong>
+    </dt>
+    <dd>
+    get the character's maximum level in the given class name.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the character's maximum level in this class
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">getMaxLevel</span>(<span class="string">"force"</span>) &gt; <span class="number">1</span> <span class="keyword">then</span>
+  <span class="comment">-- do stuff
+</span><span class="keyword">end</span></pre>
+    </ul>
 
 </dd>
     <dt>
@@ -1967,6 +2097,39 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:getVarTimer"></a>
+    <strong>character:getVarTimer (varName)</strong>
+    </dt>
+    <dd>
+    get the remaining time on a character's variable, by name
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">varName</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the variable whose timer you want to get
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the integer value of seconds remaining in the timer, or 0 if it's expired, or nil if the variable is not set.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="keyword">if</span> ch:<span class="function-name">getVarTimer</span>(<span class="string">"wroona.onQuest"</span>) &gt; <span class="number">10</span> <span class="keyword">then</span>
+  <span class="comment">-- do stuff
+</span><span class="keyword">end</span></pre></li>
+        <li><pre class="example">ch:<span class="function-name">echoAt</span>(<span class="string">"You have "</span>..ch:<span class="function-name">getVarTimer</span>(<span class="string">"wroona.timesMetMob"</span>)..<span class="string">" seconds left."</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "character:getVisibleRace"></a>
     <strong>character:getVisibleRace ()</strong>
     </dt>
@@ -2345,6 +2508,32 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:isJailed"></a>
+    <strong>character:isJailed ()</strong>
+    </dt>
+    <dd>
+    whether this character is presently jailed.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the character is in jail, false otherwise.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">isJailed</span>() <span class="keyword">then</span>
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You're currently in jail."</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "character:isNPC"></a>
     <strong>character:isNPC ()</strong>
     </dt>
@@ -2552,6 +2741,33 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setAlignment"></a>
+    <strong>character:setAlignment (alignment)</strong>
+    </dt>
+    <dd>
+    set the character's current alignment, -1000 (evil) - 1000 (good).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">alignment</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new alignment
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:setBio"></a>
     <strong>character:setBio (bio)</strong>
     </dt>
@@ -2621,6 +2837,60 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setForceClass"></a>
+    <strong>character:setForceClass (class)</strong>
+    </dt>
+    <dd>
+    set the character's current force class, 0 - 8
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">class</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new class
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setForceRank"></a>
+    <strong>character:setForceRank (rank)</strong>
+    </dt>
+    <dd>
+    set the character's current force rank, 0 - 3
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">rank</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new rank
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:setInstalledCyber"></a>
     <strong>character:setInstalledCyber (cyberType, installed, the)</strong>
     </dt>
@@ -2645,6 +2915,33 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
         </li>
     </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setJailed"></a>
+    <strong>character:setJailed (the)</strong>
+    </dt>
+    <dd>
+    set the date/time the character was jailed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         date/time the character was jailed, or 0 if the character is no longer in jail.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
 
 
 
@@ -2917,6 +3214,26 @@ ch:<span class="function-name">force</span>(<span class="string">"look"</span>)<
     </ul>
 
 </dd>
+    <dt>
+    <a name = "character:whenJailed"></a>
+    <strong>character:whenJailed ()</strong>
+    </dt>
+    <dd>
+    the date/time the character was jailed
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the time the character was jailed, or 0 if the character isn't in jail.
+    </ol>
+
+
+
+
+</dd>
 </dl>
     <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
 
@@ -3027,7 +3344,7 @@ newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm he
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-07-17 23:15:14 </i>
+<i style="float:right;">Last updated 2023-12-18 16:45:37 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
