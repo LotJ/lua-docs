@@ -157,6 +157,10 @@
 	<td class="summary">award experience to the player.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:gainLevels">character:gainLevels (amount, ability)</a></td>
+	<td class="summary">award levels to the player.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:getAlignment">character:getAlignment ()</a></td>
 	<td class="summary">get the character's current alignment.</td>
 	</tr>
@@ -293,6 +297,10 @@
 	<td class="summary">get the name (keywords) for a character.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:getNumAttacks">character:getNumAttacks ()</a></td>
+	<td class="summary">get the character's number of attacks</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:getPermCharisma">character:getPermCharisma ()</a></td>
 	<td class="summary">get the character's permanent charisma attribute.</td>
 	</tr>
@@ -373,12 +381,36 @@
 	<td class="summary">get whether an act flag is set on this character.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:hasAffect">character:hasAffect (the)</a></td>
+	<td class="summary">checks if the character has an affect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:hasAttack">character:hasAttack (the)</a></td>
+	<td class="summary">checks if the character has an attack</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:hasBestowment">character:hasBestowment (bestowment)</a></td>
 	<td class="summary">get whether a player has a given bestowment/empowerment</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:hasDefense">character:hasDefense (the)</a></td>
+	<td class="summary">checks if the character has a defense</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:hasImmune">character:hasImmune (the)</a></td>
+	<td class="summary">checks if the character has an immunity</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:hasPlrFlag">character:hasPlrFlag (flag)</a></td>
 	<td class="summary">get whether a player flag is set on this character.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:hasResistant">character:hasResistant (the)</a></td>
+	<td class="summary">checks if the character has a resistance</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:hasSusceptible">character:hasSusceptible (the)</a></td>
+	<td class="summary">checks if the character has a susceptibility</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:heal">character:heal (amount)</a></td>
@@ -453,8 +485,16 @@
 	<td class="summary">set a flag on this character.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:setAffect">character:setAffect (the, to)</a></td>
+	<td class="summary">sets an affect for a character</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:setAlignment">character:setAlignment (alignment)</a></td>
 	<td class="summary">set the character's current alignment, -1000 (evil) - 1000 (good).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setAttack">character:setAttack (the, to)</a></td>
+	<td class="summary">sets an attack for a character</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setBio">character:setBio (bio)</a></td>
@@ -469,6 +509,18 @@
 	<td class="summary">set the character's current clan</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:setClanDiv">character:setClanDiv (the)</a></td>
+	<td class="summary">set the character's current clan division</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setClanRank">character:setClanRank (the)</a></td>
+	<td class="summary">set the character's current clan rank</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setDefense">character:setDefense (the, to)</a></td>
+	<td class="summary">sets a defense for a character</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:setDescription">character:setDescription (desc)</a></td>
 	<td class="summary">set the full description for an NPC (what you see when looking at them).</td>
 	</tr>
@@ -481,6 +533,10 @@
 	<td class="summary">set the character's current force rank, 0 - 3</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:setImmune">character:setImmune (the, to)</a></td>
+	<td class="summary">sets an immunity for a character</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:setInstalledCyber">character:setInstalledCyber (cyberType, installed, the)</a></td>
 	<td class="summary">set whether a character has a given cyber type installed.</td>
 	</tr>
@@ -489,8 +545,28 @@
 	<td class="summary">set the date/time the character was jailed.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:setLevel">character:setLevel (the, ability)</a></td>
+	<td class="summary">sets a player's ability class level.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:setLongDescription">character:setLongDescription (desc)</a></td>
 	<td class="summary">set the long description for an NPC (what you see when looking in the room).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setMainAbility">character:setMainAbility (the)</a></td>
+	<td class="summary">sets the character's main ability class</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setMaxHp">character:setMaxHp (the)</a></td>
+	<td class="summary">sets the character's maximum hp.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setMaxMana">character:setMaxMana (the)</a></td>
+	<td class="summary">sets the character's maximum mana.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setMaxMove">character:setMaxMove (the)</a></td>
+	<td class="summary">sets the character's maximum movement.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setMentalState">character:setMentalState (mentalState)</a></td>
@@ -501,12 +577,64 @@
 	<td class="summary">set the name (keywords) for a character.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:setNumAttacks">character:setNumAttacks (the)</a></td>
+	<td class="summary">sets the character's number of attacks</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setPermCharisma">character:setPermCharisma (the)</a></td>
+	<td class="summary">sets the character's permanent charisma attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setPermConstitution">character:setPermConstitution (the)</a></td>
+	<td class="summary">sets the character's permanent constitution attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setPermDexterity">character:setPermDexterity (the)</a></td>
+	<td class="summary">sets the character's permanent dexterity attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setPermForce">character:setPermForce (the)</a></td>
+	<td class="summary">sets the character's permanent force attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setPermIntelligence">character:setPermIntelligence (the)</a></td>
+	<td class="summary">sets the character's permanent intelligence attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setPermLuck">character:setPermLuck (the)</a></td>
+	<td class="summary">sets the character's permanent luck attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setPermStrength">character:setPermStrength (the)</a></td>
+	<td class="summary">sets the character's permanent strength attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setPermWisdom">character:setPermWisdom (the)</a></td>
+	<td class="summary">sets the character's permanent wisdom attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setRace">character:setRace (the)</a></td>
+	<td class="summary">sets the character's race</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setResistant">character:setResistant (the, to)</a></td>
+	<td class="summary">sets a resistance for a character</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:setSex">character:setSex (sex)</a></td>
 	<td class="summary">set the sex for an NPC.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setShortDescription">character:setShortDescription (desc)</a></td>
 	<td class="summary">set the short description for an NPC.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setSkill">character:setSkill (skill, val)</a></td>
+	<td class="summary">set a character's skill percentage</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setSusceptible">character:setSusceptible (the, to)</a></td>
+	<td class="summary">sets a susceptibility for a character</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setVar">character:setVar (varName, value, ttl)</a></td>
@@ -1049,6 +1177,35 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
     <h3>Usage:</h3>
     <ul>
         <pre class="example">ch:<span class="function-name">gainExp</span>(<span class="number">10000</span>, <span class="string">"combat"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:gainLevels"></a>
+    <strong>character:gainLevels (amount, ability)</strong>
+    </dt>
+    <dd>
+    award levels to the player.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amount</span>
+            <span class="types"><span class="type">number</span></span>
+         the number of levels to award (1 to 149)
+        </li>
+        <li><span class="parameter">ability</span>
+            <span class="types"><span class="type">string</span></span>
+         the class name (bounty hunting, combat, etc)
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">gainLevels</span>(<span class="number">1</span>, <span class="string">"combat"</span>)</pre>
     </ul>
 
 </dd>
@@ -1708,7 +1865,7 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
     <ol>
 
            <span class="types"><span class="type">integer</span></span>
-        the character's maximum movemenv
+        the character's maximum movement
     </ol>
 
 
@@ -1769,6 +1926,26 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
            <span class="types"><span class="type">string</span></span>
         the keyword(s) for this character
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:getNumAttacks"></a>
+    <strong>character:getNumAttacks ()</strong>
+    </dt>
+    <dd>
+    get the character's number of attacks
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the number of attacks
     </ol>
 
 
@@ -2238,6 +2415,60 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:hasAffect"></a>
+    <strong>character:hasAffect (the)</strong>
+    </dt>
+    <dd>
+    checks if the character has an affect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         affect to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the char has the affect, false if not
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:hasAttack"></a>
+    <strong>character:hasAttack (the)</strong>
+    </dt>
+    <dd>
+    checks if the character has an attack
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         attack to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the char has the attack, false if not
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:hasBestowment"></a>
     <strong>character:hasBestowment (bestowment)</strong>
     </dt>
@@ -2258,6 +2489,60 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
            <span class="types"><span class="type">boolean</span></span>
         true if the player has that bestowment, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:hasDefense"></a>
+    <strong>character:hasDefense (the)</strong>
+    </dt>
+    <dd>
+    checks if the character has a defense
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         defense to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the char has the defense, false if not
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:hasImmune"></a>
+    <strong>character:hasImmune (the)</strong>
+    </dt>
+    <dd>
+    checks if the character has an immunity
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         immunity to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the char has the immunity, false if not
     </ol>
 
 
@@ -2295,6 +2580,60 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
   ch:<span class="function-name">echoAt</span>(<span class="string">"You just saw the exits."</span>)
 <span class="keyword">end</span></pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "character:hasResistant"></a>
+    <strong>character:hasResistant (the)</strong>
+    </dt>
+    <dd>
+    checks if the character has a resistance
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         resistance to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the char has the resistance, false if not
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:hasSusceptible"></a>
+    <strong>character:hasSusceptible (the)</strong>
+    </dt>
+    <dd>
+    checks if the character has a susceptibility
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         susceptibility to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the char has the susceptibility, false if not
+    </ol>
+
+
+
 
 </dd>
     <dt>
@@ -2749,6 +3088,37 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setAffect"></a>
+    <strong>character:setAffect (the, to)</strong>
+    </dt>
+    <dd>
+    sets an affect for a character
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         affect to set
+        </li>
+        <li><span class="parameter">to</span>
+            <span class="types"><span class="type">boolean</span></span>
+         enable or disable the affect
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:setAlignment"></a>
     <strong>character:setAlignment (alignment)</strong>
     </dt>
@@ -2761,6 +3131,37 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
         <li><span class="parameter">alignment</span>
             <span class="types"><span class="type">integer</span></span>
          the new alignment
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setAttack"></a>
+    <strong>character:setAttack (the, to)</strong>
+    </dt>
+    <dd>
+    sets an attack for a character
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         attack to set
+        </li>
+        <li><span class="parameter">to</span>
+            <span class="types"><span class="type">boolean</span></span>
+         enable or disable the attack
         </li>
     </ul>
 
@@ -2851,6 +3252,91 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setClanDiv"></a>
+    <strong>character:setClanDiv (the)</strong>
+    </dt>
+    <dd>
+    set the character's current clan division
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">int</span></span>
+         division number
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setClanRank"></a>
+    <strong>character:setClanRank (the)</strong>
+    </dt>
+    <dd>
+    set the character's current clan rank
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">int</span></span>
+         rank number
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setDefense"></a>
+    <strong>character:setDefense (the, to)</strong>
+    </dt>
+    <dd>
+    sets a defense for a character
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         defense to set
+        </li>
+        <li><span class="parameter">to</span>
+            <span class="types"><span class="type">boolean</span></span>
+         enable or disable the defense
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:setDescription"></a>
     <strong>character:setDescription (desc)</strong>
     </dt>
@@ -2926,6 +3412,37 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setImmune"></a>
+    <strong>character:setImmune (the, to)</strong>
+    </dt>
+    <dd>
+    sets an immunity for a character
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         immunity to set
+        </li>
+        <li><span class="parameter">to</span>
+            <span class="types"><span class="type">boolean</span></span>
+         enable or disable the immunity
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:setInstalledCyber"></a>
     <strong>character:setInstalledCyber (cyberType, installed, the)</strong>
     </dt>
@@ -2983,6 +3500,35 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setLevel"></a>
+    <strong>character:setLevel (the, ability)</strong>
+    </dt>
+    <dd>
+    sets a player's ability class level.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">number</span></span>
+         level to set (1 to 150)
+        </li>
+        <li><span class="parameter">ability</span>
+            <span class="types"><span class="type">string</span></span>
+         the class name (bounty hunting, combat, etc)
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">setLevel</span>(<span class="number">150</span>, <span class="string">"combat"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "character:setLongDescription"></a>
     <strong>character:setLongDescription (desc)</strong>
     </dt>
@@ -3005,6 +3551,114 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
     <ul>
         <pre class="example">ch:<span class="function-name">setLongDescription</span>(<span class="string">"An angry pirate captain stands here drinking ale."</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "character:setMainAbility"></a>
+    <strong>character:setMainAbility (the)</strong>
+    </dt>
+    <dd>
+    sets the character's main ability class
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         new ability class
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setMaxHp"></a>
+    <strong>character:setMaxHp (the)</strong>
+    </dt>
+    <dd>
+    sets the character's maximum hp.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 1,000,000)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setMaxMana"></a>
+    <strong>character:setMaxMana (the)</strong>
+    </dt>
+    <dd>
+    sets the character's maximum mana.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 1,000,000)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setMaxMove"></a>
+    <strong>character:setMaxMove (the)</strong>
+    </dt>
+    <dd>
+    sets the character's maximum movement.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 1,000,000)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
 
 </dd>
     <dt>
@@ -3060,6 +3714,307 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setNumAttacks"></a>
+    <strong>character:setNumAttacks (the)</strong>
+    </dt>
+    <dd>
+    sets the character's number of attacks
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 0 and 20)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setPermCharisma"></a>
+    <strong>character:setPermCharisma (the)</strong>
+    </dt>
+    <dd>
+    sets the character's permanent charisma attribute.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 25)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setPermConstitution"></a>
+    <strong>character:setPermConstitution (the)</strong>
+    </dt>
+    <dd>
+    sets the character's permanent constitution attribute.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 25)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setPermDexterity"></a>
+    <strong>character:setPermDexterity (the)</strong>
+    </dt>
+    <dd>
+    sets the character's permanent dexterity attribute.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 25)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setPermForce"></a>
+    <strong>character:setPermForce (the)</strong>
+    </dt>
+    <dd>
+    sets the character's permanent force attribute.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 25)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setPermIntelligence"></a>
+    <strong>character:setPermIntelligence (the)</strong>
+    </dt>
+    <dd>
+    sets the character's permanent intelligence attribute.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 25)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setPermLuck"></a>
+    <strong>character:setPermLuck (the)</strong>
+    </dt>
+    <dd>
+    sets the character's permanent luck attribute.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 25)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setPermStrength"></a>
+    <strong>character:setPermStrength (the)</strong>
+    </dt>
+    <dd>
+    sets the character's permanent strength attribute.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 25)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setPermWisdom"></a>
+    <strong>character:setPermWisdom (the)</strong>
+    </dt>
+    <dd>
+    sets the character's permanent wisdom attribute.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         new value (between 1 and 25)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setRace"></a>
+    <strong>character:setRace (the)</strong>
+    </dt>
+    <dd>
+    sets the character's race
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         new race
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setResistant"></a>
+    <strong>character:setResistant (the, to)</strong>
+    </dt>
+    <dd>
+    sets a resistance for a character
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         resistance to set
+        </li>
+        <li><span class="parameter">to</span>
+            <span class="types"><span class="type">boolean</span></span>
+         enable or disable the resistance
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:setSex"></a>
     <strong>character:setSex (sex)</strong>
     </dt>
@@ -3107,6 +4062,68 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
     <ul>
         <pre class="example">ch:<span class="function-name">setShortDescription</span>(<span class="string">"an angry pirate captain"</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "character:setSkill"></a>
+    <strong>character:setSkill (skill, val)</strong>
+    </dt>
+    <dd>
+    set a character's skill percentage
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">skill</span>
+            <span class="types"><span class="type">string</span></span>
+         the skill name
+        </li>
+        <li><span class="parameter">val</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new value (between 0 and 100)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setSusceptible"></a>
+    <strong>character:setSusceptible (the, to)</strong>
+    </dt>
+    <dd>
+    sets a susceptibility for a character
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         susceptibility to set
+        </li>
+        <li><span class="parameter">to</span>
+            <span class="types"><span class="type">boolean</span></span>
+         enable or disable the susceptibility
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
 
 </dd>
     <dt>
@@ -3410,7 +4427,7 @@ newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm he
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-01-30 21:55:51 </i>
+<i style="float:right;">Last updated 2024-02-08 17:44:45 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
