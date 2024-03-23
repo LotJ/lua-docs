@@ -64,6 +64,7 @@
   <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
   <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
   <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+  <li><a href="../topics/gptnpcs.md.html">gptnpcs</a></li>
 </ul>
 <h2>Examples</h2>
 <ul class="nowrap">
@@ -85,7 +86,7 @@
 <h2><a href="#Global_functions">Global functions </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Furniture.create">Furniture.create (short, long)</a></td>
+	<td class="name" nowrap><a href="#Furniture.create">Furniture.create (shortdesc, longdesc, fulldesc)</a></td>
 	<td class="summary">create a new piece of furniture.</td>
 	</tr>
 	<tr>
@@ -96,8 +97,24 @@
 <h2><a href="#Class_Furniture">Class Furniture </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#furniture:delete">furniture:delete ()</a></td>
+	<td class="summary">deletes the furniture outright</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#furniture:fromRoom">furniture:fromRoom (the)</a></td>
+	<td class="summary">removes this furniture from a room</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#furniture:fromRooms">furniture:fromRooms ()</a></td>
+	<td class="summary">removes this furniture from all rooms</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#furniture:getComfort">furniture:getComfort ()</a></td>
 	<td class="summary">gets the comfort value of this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#furniture:getFullDescription">furniture:getFullDescription ()</a></td>
+	<td class="summary">gets the full description of this furniture.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#furniture:getId">furniture:getId ()</a></td>
@@ -105,7 +122,7 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#furniture:getInRoom">furniture:getInRoom ()</a></td>
-	<td class="summary">gets the room this furniture is in, or nil if not set.</td>
+	<td class="summary">gets the first room this furniture is in, or nil if not in any room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#furniture:getLongDescription">furniture:getLongDescription ()</a></td>
@@ -120,8 +137,16 @@
 	<td class="summary">gets whether a given position is enabled on this furniture.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#furniture:rooms">furniture:rooms ()</a></td>
+	<td class="summary">get an iterator over ships in the starsystem</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#furniture:setComfort">furniture:setComfort (the)</a></td>
 	<td class="summary">sets the comfort value of this furniture.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#furniture:setFullDescription">furniture:setFullDescription (the)</a></td>
+	<td class="summary">sets the full description of this furniture.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#furniture:setLongDescription">furniture:setLongDescription (the)</a></td>
@@ -137,7 +162,7 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#furniture:toRoom">furniture:toRoom (the)</a></td>
-	<td class="summary">moves this furniture to a new room</td>
+	<td class="summary">adds this furniture to a room</td>
 	</tr>
 </table>
 
@@ -150,7 +175,7 @@
     <dl class="function">
     <dt>
     <a name = "Furniture.create"></a>
-    <strong>Furniture.create (short, long)</strong>
+    <strong>Furniture.create (shortdesc, longdesc, fulldesc)</strong>
     </dt>
     <dd>
     create a new piece of furniture.
@@ -158,13 +183,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">short</span>
+        <li><span class="parameter">shortdesc</span>
             <span class="types"><span class="type">string</span></span>
          the short description (required)
         </li>
-        <li><span class="parameter">long</span>
+        <li><span class="parameter">longdesc</span>
             <span class="types"><span class="type">string</span></span>
-         the long description (optional, defaults to short description)
+         the long description (optional)
+        </li>
+        <li><span class="parameter">fulldesc</span>
+            <span class="types"><span class="type">string</span></span>
+         the full description (optional)
         </li>
     </ul>
 
@@ -214,6 +243,67 @@
           </div>
     <dl class="function">
     <dt>
+    <a name = "furniture:delete"></a>
+    <strong>furniture:delete ()</strong>
+    </dt>
+    <dd>
+    deletes the furniture outright
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "furniture:fromRoom"></a>
+    <strong>furniture:fromRoom (the)</strong>
+    </dt>
+    <dd>
+    removes this furniture from a room
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
+         room (or vnum) to remove the furniture from
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        this furniture, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "furniture:fromRooms"></a>
+    <strong>furniture:fromRooms ()</strong>
+    </dt>
+    <dd>
+    removes this furniture from all rooms
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        this furniture, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "furniture:getComfort"></a>
     <strong>furniture:getComfort ()</strong>
     </dt>
@@ -227,6 +317,27 @@
 
            <span class="types"><span class="type">number</span></span>
         the furniture's current comfort value.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "furniture:getFullDescription"></a>
+    <strong>furniture:getFullDescription ()</strong>
+    </dt>
+    <dd>
+    gets the full description of this furniture.
+ Can return nil if it's not set, in which case the full description is used in the room.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the furniture's current full description, or nil if unset.
     </ol>
 
 
@@ -258,7 +369,7 @@
     <strong>furniture:getInRoom ()</strong>
     </dt>
     <dd>
-    gets the room this furniture is in, or nil if not set.
+    gets the first room this furniture is in, or nil if not in any room.
 
 
 
@@ -266,7 +377,7 @@
     <ol>
 
            <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
-        the room where the furniture is located, or nil if not set.
+        the first room where the furniture is located, or nil if not in any room.
     </ol>
 
 
@@ -342,6 +453,31 @@
 
 </dd>
     <dt>
+    <a name = "furniture:rooms"></a>
+    <strong>furniture:rooms ()</strong>
+    </dt>
+    <dd>
+    get an iterator over ships in the starsystem
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/room.html#Room">Room</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> room <span class="keyword">in</span> furniture:<span class="function-name">rooms</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "furniture:setComfort"></a>
     <strong>furniture:setComfort (the)</strong>
     </dt>
@@ -369,6 +505,33 @@
 
 </dd>
     <dt>
+    <a name = "furniture:setFullDescription"></a>
+    <strong>furniture:setFullDescription (the)</strong>
+    </dt>
+    <dd>
+    sets the full description of this furniture.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         new full description of the furniture. Can pass empty string to clear it.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/furniture.html#Furniture">Furniture</a></span>
+        this furniture, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "furniture:setLongDescription"></a>
     <strong>furniture:setLongDescription (the)</strong>
     </dt>
@@ -380,7 +543,7 @@
     <ul>
         <li><span class="parameter">the</span>
             <span class="types"><span class="type">string</span></span>
-         new long description of the furniture. Can pass empty string to clear it and use the short desc instead.
+         new long description of the furniture. Can pass empty string to clear it.
         </li>
     </ul>
 
@@ -457,14 +620,14 @@
     <strong>furniture:toRoom (the)</strong>
     </dt>
     <dd>
-    moves this furniture to a new room
+    adds this furniture to a room
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">the</span>
             <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
-         room (or vnum) to move the furniture to. Nil will remove it from any room.
+         room (or vnum) to move the furniture to.
         </li>
     </ul>
 
@@ -486,7 +649,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-02-22 23:37:20 </i>
+<i style="float:right;">Last updated 2024-03-23 22:37:15 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

@@ -64,6 +64,7 @@
   <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
   <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
   <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+  <li><a href="../topics/gptnpcs.md.html">gptnpcs</a></li>
 </ul>
 <h2>Examples</h2>
 <ul class="nowrap">
@@ -107,6 +108,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:awardCredits">character:awardCredits (amount)</a></td>
 	<td class="summary">award (or fine) credits.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:callBackup">character:callBackup ()</a></td>
+	<td class="summary">call police backup</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:callMob">character:callMob (vnum, rounds)</a></td>
@@ -167,6 +172,11 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:gainLevels">character:gainLevels (amount, ability)</a></td>
 	<td class="summary">award levels to the player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:getAIDescription">character:getAIDescription ()</a></td>
+	<td class="summary">get the description of the character proided to gpt based AI systems
+ as a prompt for the AI to use</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:getAlignment">character:getAlignment ()</a></td>
@@ -237,6 +247,10 @@
 	<td class="summary">get the character's current force rank.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:getGName">character:getGName (looker)</a></td>
+	<td class="summary">get the greet name for a character.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:getHp">character:getHp ()</a></td>
 	<td class="summary">get the character's current hp.</td>
 	</tr>
@@ -247,6 +261,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:getInRoom">character:getInRoom ()</a></td>
 	<td class="summary">get the character's current room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:getInShip">character:getInShip ()</a></td>
+	<td class="summary">getInShip</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:getInstalledCyber">character:getInstalledCyber (cyberType)</a></td>
@@ -361,6 +379,14 @@
 	<td class="summary">get the character's current strength attribute.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:getSwitched">character:getSwitched ()</a></td>
+	<td class="summary">get the inverse character if switched (e.g., returns the PC controlled if used on a possessed NPC).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:getTerminal">character:getTerminal ()</a></td>
+	<td class="summary">gets the terminal in the same room as the char</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:getVNum">character:getVNum ()</a></td>
 	<td class="summary">return the mob's vnum</td>
 	</tr>
@@ -403,6 +429,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:hasDefense">character:hasDefense (the)</a></td>
 	<td class="summary">checks if the character has a defense</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:hasEncryptedHistory">character:hasEncryptedHistory ()</a></td>
+	<td class="summary">whether this player has an encrypted history</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:hasImmune">character:hasImmune (the)</a></td>
@@ -487,6 +517,11 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:sayTo">character:sayTo (target, text)</a></td>
 	<td class="summary">say some text to a target.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setAIDescription">character:setAIDescription (desc)</a></td>
+	<td class="summary">set the description of the character provided to gpt based AI systems
+ as a prompt for the AI to use</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setActFlag">character:setActFlag (flag, value)</a></td>
@@ -653,6 +688,42 @@
 	<td class="summary">instantly kill a character.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:startFearing">character:startFearing (target)</a></td>
+	<td class="summary">start fearing</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:startHating">character:startHating (target)</a></td>
+	<td class="summary">start hating</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:startHunting">character:startHunting (target)</a></td>
+	<td class="summary">start hunting</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:startTracking">character:startTracking (target)</a></td>
+	<td class="summary">start tracking</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:stopFearing">character:stopFearing ()</a></td>
+	<td class="summary">stop fearing</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:stopFighting">character:stopFighting (optional)</a></td>
+	<td class="summary">make this npc stop fighting</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:stopHating">character:stopHating ()</a></td>
+	<td class="summary">stop hating</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:stopHunting">character:stopHunting ()</a></td>
+	<td class="summary">stop hunting</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:stopTracking">character:stopTracking ()</a></td>
+	<td class="summary">stop tracking</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:stun">character:stun (seconds)</a></td>
 	<td class="summary">stun (lag) a player for a given number of seconds.</td>
 	</tr>
@@ -811,6 +882,12 @@ ch:<span class="function-name">adjustMove</span>(-<span class="number">100</span
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the attack was started successfully, false if not.
+    </ol>
 
 
 
@@ -849,6 +926,26 @@ ch:<span class="function-name">awardCredits</span>(<span class="number">5000</sp
         <li><pre class="example">ch:<span class="function-name">echoAt</span>(<span class="string">"Uh oh! The pirate takes a lot of your credits."</span>)
 ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</span>)</pre></li>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "character:callBackup"></a>
+    <strong>character:callBackup ()</strong>
+    </dt>
+    <dd>
+    call police backup
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the call was successful, false if not.
+    </ol>
+
+
+
 
 </dd>
     <dt>
@@ -1284,6 +1381,27 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:getAIDescription"></a>
+    <strong>character:getAIDescription ()</strong>
+    </dt>
+    <dd>
+    get the description of the character proided to gpt based AI systems
+ as a prompt for the AI to use
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the aidescription for this character
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:getAlignment"></a>
     <strong>character:getAlignment ()</strong>
     </dt>
@@ -1638,6 +1756,33 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:getGName"></a>
+    <strong>character:getGName (looker)</strong>
+    </dt>
+    <dd>
+    get the greet name for a character.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">looker</span>
+            <span class="types"><span class="type">character</span></span>
+         (optional) The character looking at the target person.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the greet name of the target character
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:getHp"></a>
     <strong>character:getHp ()</strong>
     </dt>
@@ -1691,6 +1836,26 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
            <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the room
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:getInShip"></a>
+    <strong>character:getInShip ()</strong>
+    </dt>
+    <dd>
+    getInShip
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the ship the character is in
     </ol>
 
 
@@ -2300,6 +2465,50 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:getSwitched"></a>
+    <strong>character:getSwitched ()</strong>
+    </dt>
+    <dd>
+    get the inverse character if switched (e.g., returns the PC controlled if used on a possessed NPC).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        the character, or nil if not found (or not switched)
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">getSwitched</span>()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:getTerminal"></a>
+    <strong>character:getTerminal ()</strong>
+    </dt>
+    <dd>
+    gets the terminal in the same room as the char
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">terminal</span></span>
+        the Terminal, or nil if there is none
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:getVNum"></a>
     <strong>character:getVNum ()</strong>
     </dt>
@@ -2590,6 +2799,26 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
            <span class="types"><span class="type">boolean</span></span>
         true if the char has the defense, false if not
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:hasEncryptedHistory"></a>
+    <strong>character:hasEncryptedHistory ()</strong>
+    </dt>
+    <dd>
+    whether this player has an encrypted history
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the player has an encrypted history, false otherwise
     </ol>
 
 
@@ -3124,6 +3353,28 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
         <li><span class="parameter">text</span>
             <span class="types"><span class="type">string</span></span>
          the text to speak
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setAIDescription"></a>
+    <strong>character:setAIDescription (desc)</strong>
+    </dt>
+    <dd>
+    set the description of the character provided to gpt based AI systems
+ as a prompt for the AI to use
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">desc</span>
+            <span class="types"><span class="type">string</span></span>
+         the new aidescription
         </li>
     </ul>
 
@@ -4262,6 +4513,202 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:startFearing"></a>
+    <strong>character:startFearing (target)</strong>
+    </dt>
+    <dd>
+    start fearing
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to fear.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">startFearing</span>(otherPerson)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:startHating"></a>
+    <strong>character:startHating (target)</strong>
+    </dt>
+    <dd>
+    start hating
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to hate.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">startHating</span>(otherPerson)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:startHunting"></a>
+    <strong>character:startHunting (target)</strong>
+    </dt>
+    <dd>
+    start hunting
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to hunt.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">startHunting</span>(otherPerson)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:startTracking"></a>
+    <strong>character:startTracking (target)</strong>
+    </dt>
+    <dd>
+    start tracking
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">target</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to track.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">startTracking</span>(otherPerson)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:stopFearing"></a>
+    <strong>character:stopFearing ()</strong>
+    </dt>
+    <dd>
+    stop fearing
+
+
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">stopFearing</span>()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:stopFighting"></a>
+    <strong>character:stopFighting (optional)</strong>
+    </dt>
+    <dd>
+    make this npc stop fighting
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">optional</span>
+        ) boolean, stop both the character and their target from fighting
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">stopFighting</span>()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:stopHating"></a>
+    <strong>character:stopHating ()</strong>
+    </dt>
+    <dd>
+    stop hating
+
+
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">stopHating</span>()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:stopHunting"></a>
+    <strong>character:stopHunting ()</strong>
+    </dt>
+    <dd>
+    stop hunting
+
+
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">stopHunting</span>()</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "character:stopTracking"></a>
+    <strong>character:stopTracking ()</strong>
+    </dt>
+    <dd>
+    stop tracking
+
+
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">stopTracking</span>()</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "character:stun"></a>
     <strong>character:stun (seconds)</strong>
     </dt>
@@ -4501,7 +4948,7 @@ newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm he
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-02-22 23:37:20 </i>
+<i style="float:right;">Last updated 2024-03-23 22:37:15 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

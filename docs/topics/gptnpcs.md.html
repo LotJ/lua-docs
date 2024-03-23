@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#The_basics">The basics </a></li>
+<li><a href="#Getting_advanced">Getting advanced </a></li>
+<li><a href="#internals">internals </a></li>
+</ul>
+
+
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+  <li><strong>gptnpcs</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/exit.html">exit</a></li>
+  <li><a href="../modules/furniture.html">furniture</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><a href="../modules/structure.html">structure</a></li>
+  <li><a href="../modules/timer.html">timer</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/mixrmastr-bartender-droid.lua.html">mixrmastr-bartender-droid.lua</a></li>
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    LotJ supports using OpenAI GPT-4 (and other models) as an engine for NPC AI and dialogue. The framework endeavors to make this as simple to implement as possible, while preserving the ability to customize and extend capabilities. This guide serves as an introduction to how to use this capability.</p>
+
+<p><a name="The_basics"></a></p>
+<h2>The basics</h2>
+
+<h3>chatgpt flag</h3>
+<p>All GPT powered NPCs start with the "chatgpt" flag. As soon as you add this flag the NPC gains the ability to respond to "sayto" events. These responses will be based on basic information about the NPC (race, gender, shortdesc, longdesc, if it is fighting anyone) and some information about the environment (the description of the room it is in). The NPC only gets the players GName, so it will use the most generic and IC friendly terms to refer to the end user. Even this much works surprisingly well for many NPCs if they have good descriptive text, and are in a room that fits with their character. </p>
+
+<h3>aidesc</h3>
+<p>The next level of intelligence comes from the aidesc. Aidesc is included as an additional prompt in the context sent to OpenAI. Given its placement, it has a lot of influence on the NPCs behavior, so you can use it to define who the character is, what it knows, how it will behave, etc. By turning on the flag and then providing a rich aidesc you can get a pretty good character going for regular chat interactions. </p>
+
+<h3>aidesc templates</h3>
+<p>The next level up is to use templates to make your aidescs more intelligent. The aidesc is processed by the etlua templating library before it gets provided to openai. You can see the docs for rtlua here - https://github.com/leafo/etlua. Basically it lets you mix lua with other output to render the template. The template includes the <code>npc</code>, the <code>speaker</code>, and the <a href="../modules/room.html#">room</a>. Here is an example of how to use it.</p>
+
+
+<pre>
+You are just a simple farmer who wants to be left alone to tend to your crops.
+&lt;% <span class="keyword">if</span> speaker:<span class="function-name">getLevel</span>(<span class="string">"force"</span>) &gt; <span class="number">2</span> <span class="keyword">then</span> %&gt;
+You can sense that &lt;%= speaker:<span class="function-name">getGName</span>() %&gt; is sensitive to the force.
+You are an ancient jedi master, although you live <span class="keyword">in</span> secret to avoid being hunted down <span class="keyword">and</span> killed by the empire. You know that your apparent role as a simple farmer is but a disguise to keep you safe.
+&lt;% <span class="keyword">else</span> %&gt;
+You can sense that &lt;%= speaker:<span class="function-name">getGName</span>() %&gt; is <span class="keyword">not</span> sensitive to the force.
+&lt;% <span class="keyword">end</span> %&gt;
+</pre>
+
+
+<p>Note of course that you don't want the NPC to potentially reveal things to other players in the room with its dialogue so use this thoughtfully. A really obvious application would be quest or variable driven behavior, or behaviors that should only happen if the npc is talking to a fellow clan member in a secure location. </p>
+
+<p><a name="Getting_advanced"></a></p>
+<h2>Getting advanced</h2>
+<p>The flag and aidesc can really do a lot for you, but sometimes you want your NPCs to do more than just talk. For this, you can use traditional lua lprogs to add functionality to your gpt powered NPCs. GPT-4 has been trained to use functions, which enables it to directly interact with other systems and it makes remarkably good choices sometimes. Normally managing the function interface takes a little bit of work but our framework makes it much easier to put the pieces together. </p>
+
+<p>In a nutshell, you need to define and register the functions you want your NPC to give GPT access to <em>in the lprog for the npc itself</em>, and the framework will do the rest. Let's consider a worked example. Note, this will only work <em>in the npc's lprog</em>. </p>
+
+
+<pre>
+<span class="keyword">local</span> GPTNPCFunctions = Loom.<span class="function-name">include</span>(<span class="string">"gptnpcfunctions.loom"</span>)
+<span class="keyword">local</span> gptfuncs = GPTNPCFunctions:<span class="function-name">new</span>()
+gptfuncs:<span class="function-name">register</span>(
+{
+    name = <span class="string">"call_backup"</span>,
+    description = <span class="string">"Call police mobs to your location to engage with a threat"</span>,
+    parameters = {
+      <span class="global">type</span> = <span class="string">"object"</span>,
+      properties = {
+        target = {
+          <span class="global">type</span> = <span class="string">"string"</span>,
+          description = <span class="string">"The person to call backup on"</span>
+        },
+      },
+      required = {<span class="string">"target"</span>}
+    },
+    func = <span class="keyword">function</span>(npc, pc, args)
+      LOTJ.<span class="function-name">log</span>(<span class="global">table</span>.<span class="global">tostring</span>(args))
+      <span class="keyword">local</span> player = npc:<span class="function-name">getInRoom</span>():<span class="function-name">findChar</span>(args.target,npc)
+      <span class="keyword">if</span> player <span class="keyword">then</span>
+        <span class="keyword">return</span> npc:<span class="function-name">callBackup</span>(player) <span class="keyword">and</span> <span class="string">"called"</span> <span class="keyword">or</span> <span class="string">"the call failed, you are on your own"</span>
+      <span class="keyword">else</span>
+        LOTJ.<span class="function-name">log</span>(<span class="string">"Invalid player"</span>)
+      <span class="keyword">end</span>
+    <span class="keyword">end</span>
+  }
+)
+</pre>
+
+
+<p>In the above example we include the loom for gptnpcfunctions and instantiate it. We then call the <code>register</code> function to register a new function. Within that definition we have a table which sets a few values - the name of the function, a description of what the function does, the parameters for the function, and then a handle to the function itself. </p>
+
+<p>Note the structure for how parameters are specificed. This bleeds through directly from OpenAI's APIs, and rather than try to transform it into something even more opaque, the framework just leaves you to work with it as it is. Basically just follow the structure and you will be fine. If your function does not take parameters, you can set this to nil.</p>
+
+<p>For the function definition, note the parameters that are passed in. The first is always a handle to the GPT powered NPC, and the second is always a handle to the PC who initaited the interaction (if applicable). For example, if this is all a consequence of someone using sayto on the mob, then it is the pc who used sayto that is represented here. This parameter could be nil under some circumstances. The third parameter is a table of the arguments passed in from OpenAI. The contents of this table will follow the structure that you specified in parameters above.</p>
+
+<p>Now that you know how it is structured, let's look at what this function does. It is called "call_backup," and the description specifies that it will summon police mobs to your location to engage with a threat. It takes one parameter, the name of the person to call the backup "on," and that parameter is required.</p>
+
+<p>When we look at the implementation, we use the findChar function to find the pc in the room. Because the PC may be a description such as "a human male" we need to pass in the NPC as well so that it will find the target based on the npc's "view" of things. This is not a behavior specific to the gpt implementation, but it is worth explaining as it is not necessarily intuitive.</p>
+
+<p>If we successfully find the player, we call the <a href="../modules/character.html#character:callBackup">callBackup</a> function on that target, and if it returns true, we return "called," and if it returns false we return a message letting OpenAI know that the function did not achieve what it hoped. These return values are important, because they tell the AI what the result of the function was, and it will then respond/behave accordingly. They are not strictly necessary, but they do help with behavior a bunch.</p>
+
+<p>Here are some additional examples for study and reference. Note, these are registered with successive calls to <code>register</code>. You can call this function as many times as you like.</p>
+
+
+<pre>
+gptfuncs:<span class="function-name">register</span>(
+{
+    name = <span class="string">"attack"</span>,
+    description = <span class="string">"Attack a target. Starts a fight."</span>,
+    func = <span class="keyword">function</span>(npc, pc, args)
+      LOTJ.<span class="function-name">log</span>(<span class="global">table</span>.<span class="global">tostring</span>(args))
+      <span class="keyword">local</span> player = npc:<span class="function-name">getInRoom</span>():<span class="function-name">findChar</span>(args.target, npc)
+      <span class="keyword">if</span> player <span class="keyword">then</span>
+    LOTJ.<span class="function-name">log</span>(<span class="string">"Attacking..."</span>)
+        <span class="keyword">return</span> npc:<span class="function-name">attack</span>(player) <span class="keyword">and</span> <span class="string">"OK"</span> <span class="keyword">or</span> <span class="string">"Unable to attack"</span>
+      <span class="keyword">else</span>
+    LOTJ.<span class="function-name">log</span>(<span class="string">"Unable to get player to attack"</span>)
+        <span class="keyword">return</span> <span class="string">"invalid player"</span>
+      <span class="keyword">end</span>
+    <span class="keyword">end</span>,
+    parameters = {
+      <span class="global">type</span> = <span class="string">"object"</span>,
+      properties = {
+        target = {
+          <span class="global">type</span> = <span class="string">"string"</span>,
+          description = <span class="string">"The person to attack"</span>
+        },
+      },
+      required = {<span class="string">"target"</span>}
+    }
+  }
+)
+
+gptfuncs:<span class="function-name">register</span>(
+{
+    name = <span class="string">"stop_fighting"</span>,
+    description = <span class="string">"Stop fighting."</span>,
+    func = <span class="keyword">function</span>(npc, pc, args)
+      LOTJ.<span class="function-name">log</span>(<span class="string">"Stop fighting"</span>)
+      npc:<span class="function-name">stopFighting</span>(<span class="keyword">true</span>)
+      npc:<span class="function-name">stopHating</span>()
+      npc:<span class="function-name">stopHunting</span>()
+      npc:<span class="function-name">stopTracking</span>()
+      <span class="keyword">return</span> <span class="string">"OK"</span>
+    <span class="keyword">end</span>,
+    parameters = <span class="keyword">nil</span>
+  }
+)
+</pre>
+
+<p><a name="internals"></a></p>
+<h2>internals</h2>
+<p>OK, so how does this all work for the curious? At the bottom we have the rpcsidecar which sends requests to openai. On top of that, we have mqtt, and the rpc interface (rpc.lua) which is used by openai.lua to expose the openai functions we want to use in lua. These are then used by <code>basicgptbot.loom</code> to create the basic nuts and bolts of an interaction. Basicgptbot handles things like making recursive calls for functions, storing the state of the conversation, cleaning up, json encoding/parsing where required, etc. On top of basicgptbot, we have <code>gptnpc.loom</code> which layers in all our special npc behaviors, includes some basline prompting, and sets up the wiring for remote calls to our lprog if you are using <code>gptnpcfunctions</code>. Finally, we have <code>chatterbox.loom</code> which registers a trigger for all sayto activity in the game, and invokes gptnpc for npcs that have the chatgpt flag. </p>
+
+<p><code>gptnpcfunctions</code> works through the use of the Remote interface in the LotJ lua layer. Remote allows us to call functions in other progs that have been exported. This is useful for a variety of special use cases, like privileged / non privileged separations (sending messages to discord), or accessing functionality that one prog will expose to another. In this case, it looks up the prog for the npc, and checks to see if it is exporting functions to get a list of registered functions, and to handle function calls. If it is, gptnpc bootstraps your lprog's registered functions automatically. </p>
+
+<p>That's it, in a nutshell.
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2024-03-23 22:37:15 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
