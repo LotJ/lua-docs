@@ -1,0 +1,1495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Global_functions">Global functions </a></li>
+<li><a href="#Class_Event">Class Event </a></li>
+<li><a href="#Class_Broadcast">Class Broadcast </a></li>
+<li><a href="#Class_Effect">Class Effect </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><strong>events</strong></li>
+  <li><a href="../modules/exit.html">exit</a></li>
+  <li><a href="../modules/furniture.html">furniture</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><a href="../modules/structure.html">structure</a></li>
+  <li><a href="../modules/timer.html">timer</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+  <li><a href="../topics/gptnpcs.md.html">gptnpcs</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/mixrmastr-bartender-droid.lua.html">mixrmastr-bartender-droid.lua</a></li>
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>events</code></h1>
+<p>Functions for events</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Event.all">Event.all ()</a></td>
+	<td class="summary">returns an iterator over all events.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Event.create">Event.create (name)</a></td>
+	<td class="summary">creates a new event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Events.getFromName">Events.getFromName (name)</a></td>
+	<td class="summary">finds any event by name</td>
+	</tr>
+</table>
+<h2><a href="#Class_Event">Class Event </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#event:addBroadcast">event:addBroadcast (message)</a></td>
+	<td class="summary">adds a new broadcast to the event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:addEffect">event:addEffect (clan)</a></td>
+	<td class="summary">adds a new effect to the event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:broadcasts">event:broadcasts ()</a></td>
+	<td class="summary">returns an iterator over all broadcasts in an event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:delete">event:delete ()</a></td>
+	<td class="summary">deletes an event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:effects">event:effects ()</a></td>
+	<td class="summary">returns an iterator over all effects in an event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:getBroadcast">event:getBroadcast (id)</a></td>
+	<td class="summary">gets an event broadcast by ID</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:getDuration">event:getDuration ()</a></td>
+	<td class="summary">get the event's duration</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:getEffect">event:getEffect (id)</a></td>
+	<td class="summary">gets an event effect by ID</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:getEndDate">event:getEndDate ()</a></td>
+	<td class="summary">get the event's end date</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:getFrequency">event:getFrequency ()</a></td>
+	<td class="summary">get the event's broadcast frequency</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:getId">event:getId ()</a></td>
+	<td class="summary">returns the id of the event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:getName">event:getName ()</a></td>
+	<td class="summary">get the name of the event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:getStartDate">event:getStartDate ()</a></td>
+	<td class="summary">get the event's start date</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:getStatus">event:getStatus ()</a></td>
+	<td class="summary">get the status of the event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:isActiveEvent">event:isActiveEvent ()</a></td>
+	<td class="summary">checks if the event is currently running</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:setDuration">event:setDuration (duration)</a></td>
+	<td class="summary">set the event's duration</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:setEndDate">event:setEndDate (date, timezone)</a></td>
+	<td class="summary">set the event's end date</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:setFrequency">event:setFrequency (frequency)</a></td>
+	<td class="summary">set the event's broadcast frequency</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:setName">event:setName (name)</a></td>
+	<td class="summary">set the event's name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:setStartDate">event:setStartDate (date, timezone)</a></td>
+	<td class="summary">set the event's start date.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:start">event:start (announce)</a></td>
+	<td class="summary">starts an event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event:stop">event:stop (hardstop)</a></td>
+	<td class="summary">stops an event</td>
+	</tr>
+</table>
+<h2><a href="#Class_Broadcast">Class Broadcast </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#broadcast:delete">broadcast:delete ()</a></td>
+	<td class="summary">deletes the specific broadcast</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#broadcast:getDecay">broadcast:getDecay ()</a></td>
+	<td class="summary">get the specific broadcast's decay rate</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#broadcast:getFrequency">broadcast:getFrequency ()</a></td>
+	<td class="summary">get the specific broadcast's frequency</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#broadcast:getId">broadcast:getId ()</a></td>
+	<td class="summary">returns the id of the broadcast</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#broadcast:getMessage">broadcast:getMessage ()</a></td>
+	<td class="summary">returns the broadcast's message text</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#broadcast:setDecay">broadcast:setDecay (decay)</a></td>
+	<td class="summary">set the specific broadcast's decay rate</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#broadcast:setFrequency">broadcast:setFrequency (frequency)</a></td>
+	<td class="summary">set the specific broadcast's frequency</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#broadcast:setText">broadcast:setText (message)</a></td>
+	<td class="summary">sets the broadcast message</td>
+	</tr>
+</table>
+<h2><a href="#Class_Effect">Class Effect </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#effect:addPlanet">effect:addPlanet (planet)</a></td>
+	<td class="summary">adds a planet to the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:delete">effect:delete ()</a></td>
+	<td class="summary">deletes the specific effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getClan">effect:getClan ()</a></td>
+	<td class="summary">returns the clan tied to the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getCrime">effect:getCrime ()</a></td>
+	<td class="summary">get the effect's crime rating modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getId">effect:getId ()</a></td>
+	<td class="summary">returns the id of the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getMilitary">effect:getMilitary ()</a></td>
+	<td class="summary">get the effect's military rating modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getOpinion">effect:getOpinion ()</a></td>
+	<td class="summary">get the effect's public opinion modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:planets">effect:planets ()</a></td>
+	<td class="summary">returns an iterator over all planets in an effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:removePlanet">effect:removePlanet (planet)</a></td>
+	<td class="summary">removes a planet from the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:setClan">effect:setClan (clan)</a></td>
+	<td class="summary">changes the clan tied to the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:setCrime">effect:setCrime (modifier)</a></td>
+	<td class="summary">set the effect's crime rating modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:setMilitary">effect:setMilitary (modifier)</a></td>
+	<td class="summary">set the effect's military rating modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:setOpinion">effect:setOpinion (modifier)</a></td>
+	<td class="summary">set the effect's public opinion modifier</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Event.all"></a>
+    <strong>Event.all ()</strong>
+    </dt>
+    <dd>
+    returns an iterator over all events.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/events.html#Event">Event</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> event <span class="keyword">in</span> Event.<span class="function-name">all</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Event.create"></a>
+    <strong>Event.create (name)</strong>
+    </dt>
+    <dd>
+    creates a new event
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the event name.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        the event
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Events.getFromName"></a>
+    <strong>Events.getFromName (name)</strong>
+    </dt>
+    <dd>
+    finds any event by name
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the event name.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        the event, or nil if not found
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Class_Event"></a>Class Event </h2>
+
+          <div class="section-description">
+          Functions on event variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "event:addBroadcast"></a>
+    <strong>event:addBroadcast (message)</strong>
+    </dt>
+    <dd>
+    adds a new broadcast to the event
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><span class="type">string</span></span>
+         the broadcast message
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Broadcast">Broadcast</a></span>
+        the new broadcast, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">addBroadcast</span>(<span class="string">"This is a breaking news alert..."</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:addEffect"></a>
+    <strong>event:addEffect (clan)</strong>
+    </dt>
+    <dd>
+    adds a new effect to the event
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">clan</span>
+            <span class="types"><span class="type">clan</span></span>
+         the clan the effect is tied to
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        the new effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> empire = Clan.<span class="function-name">getFromName</span>(<span class="string">"The Galactic Empire"</span>)
+event:<span class="function-name">addEffect</span>(empire)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:broadcasts"></a>
+    <strong>event:broadcasts ()</strong>
+    </dt>
+    <dd>
+    returns an iterator over all broadcasts in an event
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/events.html#Broadcast">Broadcast</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> broadcast <span class="keyword">in</span> event:<span class="function-name">broadcasts</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:delete"></a>
+    <strong>event:delete ()</strong>
+    </dt>
+    <dd>
+    deletes an event
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event:effects"></a>
+    <strong>event:effects ()</strong>
+    </dt>
+    <dd>
+    returns an iterator over all effects in an event
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/events.html#Effect">Effect</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> effect <span class="keyword">in</span> event:<span class="function-name">effects</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:getBroadcast"></a>
+    <strong>event:getBroadcast (id)</strong>
+    </dt>
+    <dd>
+    gets an event broadcast by ID
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+            <span class="types"><span class="type">number</span></span>
+         the broadcast ID
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Broadcast">Broadcast</a></span>
+        the broadcast, or nil if not found
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">getBroadcast</span>(<span class="number">4</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:getDuration"></a>
+    <strong>event:getDuration ()</strong>
+    </dt>
+    <dd>
+    get the event's duration
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's duration (in hours)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event:getEffect"></a>
+    <strong>event:getEffect (id)</strong>
+    </dt>
+    <dd>
+    gets an event effect by ID
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+            <span class="types"><span class="type">number</span></span>
+         the effect ID
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        the effect, or nil if not found
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">getEffect</span>(<span class="number">4</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:getEndDate"></a>
+    <strong>event:getEndDate ()</strong>
+    </dt>
+    <dd>
+    get the event's end date
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's end date (as a raw number)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event:getFrequency"></a>
+    <strong>event:getFrequency ()</strong>
+    </dt>
+    <dd>
+    get the event's broadcast frequency
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's broadcast frequency (in minutes)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event:getId"></a>
+    <strong>event:getId ()</strong>
+    </dt>
+    <dd>
+    returns the id of the event
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event id
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event:getName"></a>
+    <strong>event:getName ()</strong>
+    </dt>
+    <dd>
+    get the name of the event
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the event name
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event:getStartDate"></a>
+    <strong>event:getStartDate ()</strong>
+    </dt>
+    <dd>
+    get the event's start date
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's start date (as a raw time value)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event:getStatus"></a>
+    <strong>event:getStatus ()</strong>
+    </dt>
+    <dd>
+    get the status of the event
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the event status
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event:isActiveEvent"></a>
+    <strong>event:isActiveEvent ()</strong>
+    </dt>
+    <dd>
+    checks if the event is currently running
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if the event is active, false otherwise.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> event:<span class="function-name">isActive</span>() <span class="keyword">do</span>
+  ch:<span class="function-name">say</span>(<span class="string">"The event's running!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:setDuration"></a>
+    <strong>event:setDuration (duration)</strong>
+    </dt>
+    <dd>
+    set the event's duration
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount of time (in hours)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        this event, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">setDuration</span>(<span class="number">5</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:setEndDate"></a>
+    <strong>event:setEndDate (date, timezone)</strong>
+    </dt>
+    <dd>
+    set the event's end date
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">date</span>
+            <span class="types"><span class="type">string</span></span>
+         the date/time (using natural language)
+        </li>
+        <li><span class="parameter">timezone</span>
+            <span class="types"><span class="type">number</span></span>
+         the timezone value (use 0 for system time)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        this event, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">setEndDate</span>(<span class="string">"March 20 2024 11:30 pm"</span>, <span class="number">0</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:setFrequency"></a>
+    <strong>event:setFrequency (frequency)</strong>
+    </dt>
+    <dd>
+    set the event's broadcast frequency
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">frequency</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount of time (in minutes)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        this event, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">setFrequency</span>(<span class="number">30</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:setName"></a>
+    <strong>event:setName (name)</strong>
+    </dt>
+    <dd>
+    set the event's name
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the name for the event
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        this event, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">setName</span>(<span class="string">"Big Ewok Parade"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:setStartDate"></a>
+    <strong>event:setStartDate (date, timezone)</strong>
+    </dt>
+    <dd>
+    set the event's start date.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">date</span>
+            <span class="types"><span class="type">string</span></span>
+         the date/time (using natural language)
+        </li>
+        <li><span class="parameter">timezone</span>
+            <span class="types"><span class="type">number</span></span>
+         the timezone value (use 0 for system time)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        this event, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">setStartDate</span>(<span class="string">"March 20 2024 11:30 pm"</span>, <span class="number">0</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:start"></a>
+    <strong>event:start (announce)</strong>
+    </dt>
+    <dd>
+    starts an event
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">announce</span>
+            <span class="types"><span class="type">boolean</span></span>
+         to publicly announce the event is starting
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        this event, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">start</span>(<span class="keyword">false</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "event:stop"></a>
+    <strong>event:stop (hardstop)</strong>
+    </dt>
+    <dd>
+    stops an event
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">hardstop</span>
+            <span class="types"><span class="type">boolean</span></span>
+         to cut the effects off immediately
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        this event, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">stop</span>(<span class="keyword">true</span>)</pre>
+    </ul>
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Class_Broadcast"></a>Class Broadcast </h2>
+
+          <div class="section-description">
+          Functions on event broadcast variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "broadcast:delete"></a>
+    <strong>broadcast:delete ()</strong>
+    </dt>
+    <dd>
+    deletes the specific broadcast
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "broadcast:getDecay"></a>
+    <strong>broadcast:getDecay ()</strong>
+    </dt>
+    <dd>
+    get the specific broadcast's decay rate
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's broadcast decay rate (in minutes)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "broadcast:getFrequency"></a>
+    <strong>broadcast:getFrequency ()</strong>
+    </dt>
+    <dd>
+    get the specific broadcast's frequency
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's broadcast frequency (in minutes)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "broadcast:getId"></a>
+    <strong>broadcast:getId ()</strong>
+    </dt>
+    <dd>
+    returns the id of the broadcast
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the broadcast id
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "broadcast:getMessage"></a>
+    <strong>broadcast:getMessage ()</strong>
+    </dt>
+    <dd>
+    returns the broadcast's message text
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the broadcast message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "broadcast:setDecay"></a>
+    <strong>broadcast:setDecay (decay)</strong>
+    </dt>
+    <dd>
+    set the specific broadcast's decay rate
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">decay</span>
+            <span class="types"><span class="type">number</span></span>
+         the decay rate (in minutes)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        this event, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">setDecay</span>(<span class="number">30</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "broadcast:setFrequency"></a>
+    <strong>broadcast:setFrequency (frequency)</strong>
+    </dt>
+    <dd>
+    set the specific broadcast's frequency
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">frequency</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount of time (in minutes)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Event">Event</a></span>
+        this event, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">event:<span class="function-name">setFrequency</span>(<span class="number">30</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "broadcast:setText"></a>
+    <strong>broadcast:setText (message)</strong>
+    </dt>
+    <dd>
+    sets the broadcast message
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><span class="type">string</span></span>
+         the new text for the broadcast
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Broadcast">Broadcast</a></span>
+        this broadcast, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Class_Effect"></a>Class Effect </h2>
+
+          <div class="section-description">
+          Functions on event effect variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "effect:addPlanet"></a>
+    <strong>effect:addPlanet (planet)</strong>
+    </dt>
+    <dd>
+    adds a planet to the effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">planet</span>
+            <span class="types"><span class="type">planet</span></span>
+         the planet to add to the effect
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> hfw = Planet.<span class="function-name">getFromName</span>(<span class="string">"Hologram Fun World"</span>)
+effect:<span class="function-name">addPlanet</span>(hfw)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:delete"></a>
+    <strong>effect:delete ()</strong>
+    </dt>
+    <dd>
+    deletes the specific effect
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getClan"></a>
+    <strong>effect:getClan ()</strong>
+    </dt>
+    <dd>
+    returns the clan tied to the effect
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">clan</span></span>
+        clan the clan the effect is tied to
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getCrime"></a>
+    <strong>effect:getCrime ()</strong>
+    </dt>
+    <dd>
+    get the effect's crime rating modifier
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's crime rating modifier
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getId"></a>
+    <strong>effect:getId ()</strong>
+    </dt>
+    <dd>
+    returns the id of the effect
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the effect id
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getMilitary"></a>
+    <strong>effect:getMilitary ()</strong>
+    </dt>
+    <dd>
+    get the effect's military rating modifier
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's military rating modifier
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getOpinion"></a>
+    <strong>effect:getOpinion ()</strong>
+    </dt>
+    <dd>
+    get the effect's public opinion modifier
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's public opinion modifier
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:planets"></a>
+    <strong>effect:planets ()</strong>
+    </dt>
+    <dd>
+    returns an iterator over all planets in an effect
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/planet.html#Planet">Planet</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> planet <span class="keyword">in</span> effect:<span class="function-name">planets</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:removePlanet"></a>
+    <strong>effect:removePlanet (planet)</strong>
+    </dt>
+    <dd>
+    removes a planet from the effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">planet</span>
+            <span class="types"><span class="type">planet</span></span>
+         the planet to remove from the effect
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> hoth = Planet.<span class="function-name">getFromName</span>(<span class="string">"Hoth"</span>)
+effect:<span class="function-name">removePlanet</span>(hoth)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:setClan"></a>
+    <strong>effect:setClan (clan)</strong>
+    </dt>
+    <dd>
+    changes the clan tied to the effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">clan</span>
+            <span class="types"><span class="type">clan</span></span>
+         the clan the effect is tied to
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> empire = Clan.<span class="function-name">getFromName</span>(<span class="string">"The Galactic Empire"</span>)
+effect:<span class="function-name">setClan</span>(empire)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:setCrime"></a>
+    <strong>effect:setCrime (modifier)</strong>
+    </dt>
+    <dd>
+    set the effect's crime rating modifier
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">modifier</span>
+            <span class="types"><span class="type">number</span></span>
+         the crime rating modifier (-100.00 to 100.00)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">effect:<span class="function-name">setCrime</span>(<span class="number">85.00</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:setMilitary"></a>
+    <strong>effect:setMilitary (modifier)</strong>
+    </dt>
+    <dd>
+    set the effect's military rating modifier
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">modifier</span>
+            <span class="types"><span class="type">number</span></span>
+         the military rating modifier (-100.00 to 100.00)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">effect:<span class="function-name">setMilitary</span>(-<span class="number">75.00</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:setOpinion"></a>
+    <strong>effect:setOpinion (modifier)</strong>
+    </dt>
+    <dd>
+    set the effect's public opinion modifier
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">modifier</span>
+            <span class="types"><span class="type">number</span></span>
+         the public opinion modifier (-100.00 to 100.00)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">effect:<span class="function-name">setOpinion</span>(-<span class="number">75.00</span>)</pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2024-03-28 16:59:20 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
