@@ -123,7 +123,7 @@
 	<td class="summary">whether this character can see the given object or character.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#character:carrying">character:carrying ()</a></td>
+	<td class="name" nowrap><a href="#character:carrying">character:carrying (params)</a></td>
 	<td class="summary">get an iterator over objects in the character's inventory.</td>
 	</tr>
 	<tr>
@@ -376,6 +376,10 @@
 	<td class="summary">get the player's home</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:getPosition">character:getPosition ()</a></td>
+	<td class="summary">get the character's position</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:getRace">character:getRace ()</a></td>
 	<td class="summary">get the character's race.</td>
 	</tr>
@@ -402,6 +406,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:getTerminal">character:getTerminal ()</a></td>
 	<td class="summary">gets the terminal in the same room as the char</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:getTimezone">character:getTimezone ()</a></td>
+	<td class="summary">gets the integer timezone value for a character (defaults to UTC +0 for NPCs)</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:getVNum">character:getVNum ()</a></td>
@@ -500,10 +508,6 @@
 	<td class="summary">whether this character is an immortal (RPC or higher).</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#character:isImmune">character:isImmune (risName)</a></td>
-	<td class="summary">whether this character is immune to the given attack type.</td>
-	</tr>
-	<tr>
 	<td class="name" nowrap><a href="#character:isJailed">character:isJailed ()</a></td>
 	<td class="summary">whether this character is presently jailed.</td>
 	</tr>
@@ -516,12 +520,8 @@
 	<td class="summary">whether this character is a player.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#character:isResistant">character:isResistant (risName)</a></td>
-	<td class="summary">whether this character is resistant to the given attack type.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#character:isSusceptible">character:isSusceptible (risName)</a></td>
-	<td class="summary">whether this character is susceptible to the given attack type.</td>
+	<td class="name" nowrap><a href="#character:isValid">character:isValid ()</a></td>
+	<td class="summary">isValid</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:restore">character:restore ()</a></td>
@@ -551,6 +551,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:setAlignment">character:setAlignment (alignment)</a></td>
 	<td class="summary">set the character's current alignment, -1000 (evil) - 1000 (good).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setAllSkills">character:setAllSkills (val)</a></td>
+	<td class="summary">set a character's skill percentage for all knowable skills</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setAttack">character:setAttack (the, to)</a></td>
@@ -675,6 +679,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:setPermWisdom">character:setPermWisdom (the)</a></td>
 	<td class="summary">sets the character's permanent wisdom attribute.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setPosition">character:setPosition (the)</a></td>
+	<td class="summary">sets the character's position</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setRace">character:setRace (the)</a></td>
@@ -1050,13 +1058,20 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 </dd>
     <dt>
     <a name = "character:carrying"></a>
-    <strong>character:carrying ()</strong>
+    <strong>character:carrying (params)</strong>
     </dt>
     <dd>
     get an iterator over objects in the character's inventory.
  Any objects they're wearing are ignored, as our items inside containers.
 
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">params</span>
+            <span class="types"><span class="type">table</span></span>
+         (optional) a table to limit matches. In this case, only accepts "stacks" as the key and true/false as the value.
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>
@@ -1068,9 +1083,13 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:<span class="function-name">carrying</span>() <span class="keyword">do</span>
+        <li><pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> ch:<span class="function-name">carrying</span>() <span class="keyword">do</span>
   <span class="comment">-- do something
-</span><span class="keyword">end</span></pre>
+</span><span class="keyword">end</span></pre></li>
+        <li><pre class="example"><span class="comment">-- get the stacked objects in a character's inventory
+</span><span class="keyword">for</span> obj <span class="keyword">in</span> ch:<span class="function-name">carrying</span>({ stacks = <span class="keyword">true</span> }) <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre></li>
     </ul>
 
 </dd>
@@ -2507,6 +2526,26 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:getPosition"></a>
+    <strong>character:getPosition ()</strong>
+    </dt>
+    <dd>
+    get the character's position
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the character's position
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:getRace"></a>
     <strong>character:getRace ()</strong>
     </dt>
@@ -2657,6 +2696,26 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
            <span class="types"><span class="type">terminal</span></span>
         the Terminal, or nil if there is none
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:getTimezone"></a>
+    <strong>character:getTimezone ()</strong>
+    </dt>
+    <dd>
+    gets the integer timezone value for a character (defaults to UTC +0 for NPCs)
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the timezone value
     </ol>
 
 
@@ -3034,7 +3093,7 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">hasActFlag</span>(<span class="string">"autoexits"</span>) <span class="keyword">do</span>
+        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">hasPlrFlag</span>(<span class="string">"autoexits"</span>) <span class="keyword">do</span>
   ch:<span class="function-name">echoAt</span>(<span class="string">"You just saw the exits."</span>)
 <span class="keyword">end</span></pre>
     </ul>
@@ -3280,39 +3339,6 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
-    <a name = "character:isImmune"></a>
-    <strong>character:isImmune (risName)</strong>
-    </dt>
-    <dd>
-    whether this character is immune to the given attack type.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">risName</span>
-            <span class="types"><span class="type">string</span></span>
-         the type of attack to check (energy, slash, cold, etc)
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">boolean</span></span>
-        true if the character is immune, false otherwise.
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">isImmune</span>(<span class="string">"fire"</span>) <span class="keyword">then</span>
-  ch:<span class="function-name">echoAt</span>(<span class="string">"You're protected from the fire."</span>)
-<span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
     <a name = "character:isJailed"></a>
     <strong>character:isJailed ()</strong>
     </dt>
@@ -3385,69 +3411,23 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
-    <a name = "character:isResistant"></a>
-    <strong>character:isResistant (risName)</strong>
+    <a name = "character:isValid"></a>
+    <strong>character:isValid ()</strong>
     </dt>
     <dd>
-    whether this character is resistant to the given attack type.
+    isValid
 
 
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">risName</span>
-            <span class="types"><span class="type">string</span></span>
-         the type of attack to check (energy, slash, cold, etc)
-        </li>
-    </ul>
 
     <h3>Returns:</h3>
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
-        true if the character is resistant, false otherwise.
+        true if the character is valid, false if not
     </ol>
 
 
 
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">isResistant</span>(<span class="string">"fire"</span>) <span class="keyword">then</span>
-  ch:<span class="function-name">echoAt</span>(<span class="string">"You're slightly protected from the fire."</span>)
-<span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "character:isSusceptible"></a>
-    <strong>character:isSusceptible (risName)</strong>
-    </dt>
-    <dd>
-    whether this character is susceptible to the given attack type.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">risName</span>
-            <span class="types"><span class="type">string</span></span>
-         the type of attack to check (energy, slash, cold, etc)
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">boolean</span></span>
-        true if the character is susceptible, false otherwise.
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">if</span> ch:<span class="function-name">isSusceptible</span>(<span class="string">"fire"</span>) <span class="keyword">then</span>
-  ch:<span class="function-name">echoAt</span>(<span class="string">"You're burning up from the fire!"</span>)
-<span class="keyword">end</span></pre>
-    </ul>
 
 </dd>
     <dt>
@@ -3611,6 +3591,33 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
         <li><span class="parameter">alignment</span>
             <span class="types"><span class="type">integer</span></span>
          the new alignment
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setAllSkills"></a>
+    <strong>character:setAllSkills (val)</strong>
+    </dt>
+    <dd>
+    set a character's skill percentage for all knowable skills
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">val</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new value (between 0 and 100)
         </li>
     </ul>
 
@@ -4468,6 +4475,33 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setPosition"></a>
+    <strong>character:setPosition (the)</strong>
+    </dt>
+    <dd>
+    sets the character's position
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         new position
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:setRace"></a>
     <strong>character:setRace (the)</strong>
     </dt>
@@ -5165,7 +5199,7 @@ newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm he
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-04-10 02:11:29 </i>
+<i style="float:right;">Last updated 2024-09-16 17:21:59 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
