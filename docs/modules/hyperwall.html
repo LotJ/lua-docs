@@ -1,0 +1,710 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Global_functions">Global functions </a></li>
+<li><a href="#Class_Hyperwall">Class Hyperwall </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/events.html">events</a></li>
+  <li><a href="../modules/exit.html">exit</a></li>
+  <li><a href="../modules/furniture.html">furniture</a></li>
+  <li><strong>hyperwall</strong></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><a href="../modules/structure.html">structure</a></li>
+  <li><a href="../modules/timer.html">timer</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+  <li><a href="../topics/gptnpcs.md.html">gptnpcs</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/mixrmastr-bartender-droid.lua.html">mixrmastr-bartender-droid.lua</a></li>
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>hyperwall</code></h1>
+<p>Functions for hyperwalls</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Hyperwall.create">Hyperwall.create (name)</a></td>
+	<td class="summary">creates a new hyperwall (in a disabled state)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Hyperwall.getFromId">Hyperwall.getFromId (id)</a></td>
+	<td class="summary">finds (or generates) any hyperwall by its UID</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Hyperwall.getFromName">Hyperwall.getFromName (name)</a></td>
+	<td class="summary">finds any hyperwall by name</td>
+	</tr>
+</table>
+<h2><a href="#Class_Hyperwall">Class Hyperwall </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:addLabel">hyperwall:addLabel (label)</a></td>
+	<td class="summary">adds a label to the hyperwall.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:delete">hyperwall:delete ()</a></td>
+	<td class="summary">deletes the hyperwall</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:getEnd">hyperwall:getEnd ()</a></td>
+	<td class="summary">get the ending coordinates of the hyperwall</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:getId">hyperwall:getId ()</a></td>
+	<td class="summary">get the UID of the hyperwall</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:getMaxShipClass">hyperwall:getMaxShipClass ()</a></td>
+	<td class="summary">get the maximum ship class impacted by the hyperwall.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:getMinShipClass">hyperwall:getMinShipClass ()</a></td>
+	<td class="summary">get the minimum ship class impacted by the hyperwall.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:getName">hyperwall:getName ()</a></td>
+	<td class="summary">get the name of the hyperwall</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:getStart">hyperwall:getStart ()</a></td>
+	<td class="summary">get the starting coordinates of the hyperwall</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:hasLabel">hyperwall:hasLabel (label)</a></td>
+	<td class="summary">get whether the hyperwall has a label.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:isEnabled">hyperwall:isEnabled ()</a></td>
+	<td class="summary">get whether a hyperwall is enabled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:removeLabel">hyperwall:removeLabel (label)</a></td>
+	<td class="summary">removes a label from the hyperwall.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:setEnabled">hyperwall:setEnabled (enabled)</a></td>
+	<td class="summary">set whether a hyperwall is enabled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:setEnd">hyperwall:setEnd (xpos, ypos)</a></td>
+	<td class="summary">sets the ending coordinates of the hyperwall</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:setMaxShipClass">hyperwall:setMaxShipClass (maxShipClass)</a></td>
+	<td class="summary">set the maximum ship class blocked by the hyperwall.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:setMinShipClass">hyperwall:setMinShipClass (minShipClass)</a></td>
+	<td class="summary">set the minimum ship class blocked by the hyperwall.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:setName">hyperwall:setName (name)</a></td>
+	<td class="summary">sets the name of the hyperwall</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hyperwall:setStart">hyperwall:setStart (xpos, ypos)</a></td>
+	<td class="summary">sets the starting coordinates of the hyperwall</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Hyperwall.create"></a>
+    <strong>Hyperwall.create (name)</strong>
+    </dt>
+    <dd>
+    creates a new hyperwall (in a disabled state)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the hyperwall name.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, or nil if it can't be created
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Hyperwall.getFromId"></a>
+    <strong>Hyperwall.getFromId (id)</strong>
+    </dt>
+    <dd>
+    finds (or generates) any hyperwall by its UID
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+            <span class="types"><span class="type">integer</span></span>
+         the numeric UID
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, or nil if not found
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Hyperwall.getFromName"></a>
+    <strong>Hyperwall.getFromName (name)</strong>
+    </dt>
+    <dd>
+    finds any hyperwall by name
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the hyperwall name.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, or nil if not found
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Class_Hyperwall"></a>Class Hyperwall </h2>
+
+          <div class="section-description">
+          Functions on hyperwall variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "hyperwall:addLabel"></a>
+    <strong>hyperwall:addLabel (label)</strong>
+    </dt>
+    <dd>
+    adds a label to the hyperwall.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">label</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the label to add
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:delete"></a>
+    <strong>hyperwall:delete ()</strong>
+    </dt>
+    <dd>
+    deletes the hyperwall
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:getEnd"></a>
+    <strong>hyperwall:getEnd ()</strong>
+    </dt>
+    <dd>
+    get the ending coordinates of the hyperwall
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        the X coordinate of the ending system</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        the Y coordinate of the ending system</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> x, y = hyperwall:<span class="function-name">getEnd</span>()
+ch:<span class="function-name">echoAt</span>(<span class="string">"The system is at "</span>..x..<span class="string">", "</span>..y)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "hyperwall:getId"></a>
+    <strong>hyperwall:getId ()</strong>
+    </dt>
+    <dd>
+    get the UID of the hyperwall
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the UID of the hyperwall.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:getMaxShipClass"></a>
+    <strong>hyperwall:getMaxShipClass ()</strong>
+    </dt>
+    <dd>
+    get the maximum ship class impacted by the hyperwall.
+ Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
+ All hyperwalls default to 10 (satellites) as the largest impacted ships.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the maximum ship class blocked by the hyperwall.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:getMinShipClass"></a>
+    <strong>hyperwall:getMinShipClass ()</strong>
+    </dt>
+    <dd>
+    get the minimum ship class impacted by the hyperwall.
+ Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
+ All hyperwalls default to 0 (fighters) as the smallest impacted ships.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the minimum ship class blocked by the hyperwall.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:getName"></a>
+    <strong>hyperwall:getName ()</strong>
+    </dt>
+    <dd>
+    get the name of the hyperwall
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">string</span></span>
+        the name of the hyperwall.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:getStart"></a>
+    <strong>hyperwall:getStart ()</strong>
+    </dt>
+    <dd>
+    get the starting coordinates of the hyperwall
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        the X coordinate of the starting system</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        the Y coordinate of the starting system</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> x, y = hyperwall:<span class="function-name">getStart</span>()
+ch:<span class="function-name">echoAt</span>(<span class="string">"The system is at "</span>..x..<span class="string">", "</span>..y)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "hyperwall:hasLabel"></a>
+    <strong>hyperwall:hasLabel (label)</strong>
+    </dt>
+    <dd>
+    get whether the hyperwall has a label.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">label</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the label to check for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if label exists, false otherwise.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:isEnabled"></a>
+    <strong>hyperwall:isEnabled ()</strong>
+    </dt>
+    <dd>
+    get whether a hyperwall is enabled.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if enabled, false otherwise.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:removeLabel"></a>
+    <strong>hyperwall:removeLabel (label)</strong>
+    </dt>
+    <dd>
+    removes a label from the hyperwall.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">label</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the label to remove
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:setEnabled"></a>
+    <strong>hyperwall:setEnabled (enabled)</strong>
+    </dt>
+    <dd>
+    set whether a hyperwall is enabled.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">enabled</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether to enable or disable the hyperwall
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:setEnd"></a>
+    <strong>hyperwall:setEnd (xpos, ypos)</strong>
+    </dt>
+    <dd>
+    sets the ending coordinates of the hyperwall
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">xpos</span>
+            <span class="types"><span class="type">integer</span></span>
+         the x position of the ending system
+        </li>
+        <li><span class="parameter">ypos</span>
+            <span class="types"><span class="type">integer</span></span>
+         the y position of the ending system
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:setMaxShipClass"></a>
+    <strong>hyperwall:setMaxShipClass (maxShipClass)</strong>
+    </dt>
+    <dd>
+    set the maximum ship class blocked by the hyperwall.
+ Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
+ All hyperwalls default to 10 (satellites) as the largest impacted ships.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">maxShipClass</span>
+            <span class="types"><span class="type">integer</span></span>
+         the maximum ship class blocked by the hyperwall
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:setMinShipClass"></a>
+    <strong>hyperwall:setMinShipClass (minShipClass)</strong>
+    </dt>
+    <dd>
+    set the minimum ship class blocked by the hyperwall.
+ Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
+ All hyperwalls default to 0 (fighters) as the smallest impacted ships.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">minShipClass</span>
+            <span class="types"><span class="type">integer</span></span>
+         the minimum ship class blocked by the hyperwall
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:setName"></a>
+    <strong>hyperwall:setName (name)</strong>
+    </dt>
+    <dd>
+    sets the name of the hyperwall
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the name to set
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hyperwall:setStart"></a>
+    <strong>hyperwall:setStart (xpos, ypos)</strong>
+    </dt>
+    <dd>
+    sets the starting coordinates of the hyperwall
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">xpos</span>
+            <span class="types"><span class="type">integer</span></span>
+         the x position of the starting system
+        </li>
+        <li><span class="parameter">ypos</span>
+            <span class="types"><span class="type">integer</span></span>
+         the y position of the starting system
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/hyperwall.html#Hyperwall">Hyperwall</a></span>
+        the hyperwall, for function chaining
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2024-09-16 17:27:43 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
