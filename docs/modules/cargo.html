@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Class_Cargo">Class Cargo </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/area.html">area</a></li>
+  <li><strong>cargo</strong></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/events.html">events</a></li>
+  <li><a href="../modules/exit.html">exit</a></li>
+  <li><a href="../modules/furniture.html">furniture</a></li>
+  <li><a href="../modules/hyperwall.html">hyperwall</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><a href="../modules/structure.html">structure</a></li>
+  <li><a href="../modules/timer.html">timer</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+  <li><a href="../topics/gptnpcs.md.html">gptnpcs</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/mixrmastr-bartender-droid.lua.html">mixrmastr-bartender-droid.lua</a></li>
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>cargo</code></h1>
+<p>Functions for cargo</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Class_Cargo">Class Cargo </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#cargo:delete">cargo:delete ()</a></td>
+	<td class="summary">deletes the cargo pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:getAmount">cargo:getAmount ()</a></td>
+	<td class="summary">get the amount of cargo in the pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:getCost">cargo:getCost ()</a></td>
+	<td class="summary">get the average cost of cargo in the pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:getOrigin">cargo:getOrigin ()</a></td>
+	<td class="summary">get the origin of cargo in the pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:getSize">cargo:getSize ()</a></td>
+	<td class="summary">get the size of the cargo pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:getType">cargo:getType ()</a></td>
+	<td class="summary">get the type of cargo in the pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:setAmount">cargo:setAmount (amount)</a></td>
+	<td class="summary">sets the amount of cargo in the pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:setCost">cargo:setCost (cost)</a></td>
+	<td class="summary">sets the average cost of cargo in the pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:setOrigin">cargo:setOrigin (origin)</a></td>
+	<td class="summary">sets the origin of cargo in the pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:setSize">cargo:setSize (size)</a></td>
+	<td class="summary">sets the size of the cargo pod</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cargo:setType">cargo:setType (type)</a></td>
+	<td class="summary">sets the type of cargo in the pod</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header has-description"><a name="Class_Cargo"></a>Class Cargo </h2>
+
+          <div class="section-description">
+          Functions on cargo variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "cargo:delete"></a>
+    <strong>cargo:delete ()</strong>
+    </dt>
+    <dd>
+    deletes the cargo pod
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:getAmount"></a>
+    <strong>cargo:getAmount ()</strong>
+    </dt>
+    <dd>
+    get the amount of cargo in the pod
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the amount of cargo in the pod
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:getCost"></a>
+    <strong>cargo:getCost ()</strong>
+    </dt>
+    <dd>
+    get the average cost of cargo in the pod
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the average cost of cargo in the pod
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:getOrigin"></a>
+    <strong>cargo:getOrigin ()</strong>
+    </dt>
+    <dd>
+    get the origin of cargo in the pod
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the origin of cargo in the pod (i.e., the planet's UID)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:getSize"></a>
+    <strong>cargo:getSize ()</strong>
+    </dt>
+    <dd>
+    get the size of the cargo pod
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the size of the cargo pod
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:getType"></a>
+    <strong>cargo:getType ()</strong>
+    </dt>
+    <dd>
+    get the type of cargo in the pod
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the type of cargo in the pod
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:setAmount"></a>
+    <strong>cargo:setAmount (amount)</strong>
+    </dt>
+    <dd>
+    sets the amount of cargo in the pod
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amount</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new amount of cargo in the pod
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/cargo.html#Cargo">Cargo</a></span>
+        the cargo pod, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:setCost"></a>
+    <strong>cargo:setCost (cost)</strong>
+    </dt>
+    <dd>
+    sets the average cost of cargo in the pod
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">cost</span>
+            <span class="types"><span class="type">number</span></span>
+         the new average cost of cargo in the pod
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/cargo.html#Cargo">Cargo</a></span>
+        the cargo pod, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:setOrigin"></a>
+    <strong>cargo:setOrigin (origin)</strong>
+    </dt>
+    <dd>
+    sets the origin of cargo in the pod
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">origin</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new origin of cargo in the pod (i.e., the planet's UID)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/cargo.html#Cargo">Cargo</a></span>
+        the cargo pod, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:setSize"></a>
+    <strong>cargo:setSize (size)</strong>
+    </dt>
+    <dd>
+    sets the size of the cargo pod
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">size</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new size of the pod
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/cargo.html#Cargo">Cargo</a></span>
+        the cargo pod, for function chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cargo:setType"></a>
+    <strong>cargo:setType (type)</strong>
+    </dt>
+    <dd>
+    sets the type of cargo in the pod
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">type</span>
+            <span class="types"><span class="type">integer</span></span>
+         the new type of cargo in the pod
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/cargo.html#Cargo">Cargo</a></span>
+        the cargo pod, for function chaining
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2024-12-09 20:53:05 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

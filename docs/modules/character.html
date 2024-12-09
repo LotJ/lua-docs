@@ -33,14 +33,15 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Class_Character">Class Character </a></li>
 <li><a href="#Global_functions">Global functions </a></li>
+<li><a href="#Class_Character">Class Character </a></li>
 </ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/cargo.html">cargo</a></li>
   <li><a href="../modules/char_proto.html">char_proto</a></li>
   <li><strong>character</strong></li>
   <li><a href="../modules/clan.html">clan</a></li>
@@ -85,6 +86,21 @@
 </p>
 
 
+<h2><a href="#Global_functions">Global functions </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Character.connected">Character.connected ()</a></td>
+	<td class="summary">get an iterator over all connected players.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character.getFromName">Character.getFromName (name)</a></td>
+	<td class="summary">get any character in the world by name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character.invoke">Character.invoke (vnum)</a></td>
+	<td class="summary">create an instance of a mob.</td>
+	</tr>
+</table>
 <h2><a href="#Class_Character">Class Character </a></h2>
 <table class="function_list">
 	<tr>
@@ -798,26 +814,114 @@
 	<td class="summary">get a list of objects worn on a given location</td>
 	</tr>
 </table>
-<h2><a href="#Global_functions">Global functions </a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#Character.connected">Character.connected ()</a></td>
-	<td class="summary">get an iterator over all connected players.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character.getFromName">Character.getFromName (name)</a></td>
-	<td class="summary">get any character in the world by name.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Character.invoke">Character.invoke (vnum)</a></td>
-	<td class="summary">create an instance of a mob.</td>
-	</tr>
-</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Character.connected"></a>
+    <strong>Character.connected ()</strong>
+    </dt>
+    <dd>
+    get an iterator over all connected players.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/character.html#Character">Character</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Move all players to room 10
+</span><span class="keyword">local</span> room = Room.<span class="function-name">getFromVNum</span>(<span class="number">10</span>)
+<span class="keyword">for</span> ch <span class="keyword">in</span> Character.<span class="function-name">connected</span>() <span class="keyword">do</span>
+  ch:<span class="function-name">toRoom</span>(room)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"You've been transferred!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character.getFromName"></a>
+    <strong>Character.getFromName (name)</strong>
+    </dt>
+    <dd>
+    get any character in the world by name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the mob name
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        the character, or nil if not found
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Find player "Puff"
+</span><span class="keyword">local</span> puff = Character.<span class="function-name">getFromName</span>(<span class="string">"Puff"</span>)
+<span class="keyword">if</span> <span class="keyword">not</span> puff <span class="keyword">then</span>
+  LOTJ.<span class="function-name">log</span>(<span class="string">"Couldn't find Puff."</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character.invoke"></a>
+    <strong>Character.invoke (vnum)</strong>
+    </dt>
+    <dd>
+    create an instance of a mob.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vnum</span>
+            <span class="types"><span class="type">number</span></span>
+         the mob vnum
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        the new character
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="comment">-- invoke mob 10000 and put it in a room
+</span>Character.<span class="function-name">invoke</span>(<span class="number">10000</span>):<span class="function-name">toRoom</span>(someRoom)</pre></li>
+        <li><pre class="example"><span class="comment">-- invoke mob 1234 and do a few things with it
+</span><span class="keyword">local</span> newCh = Character.<span class="function-name">invoke</span>(<span class="number">1234</span>)
+newCh:<span class="function-name">toRoom</span>(someRoom)
+newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm here!"</span>)</pre></li>
+    </ul>
+
+</dd>
+</dl>
     <h2 class="section-header has-description"><a name="Class_Character"></a>Class Character </h2>
 
           <div class="section-description">
@@ -5218,116 +5322,13 @@ ch:<span class="function-name">force</span>(<span class="string">"look"</span>)<
 
 </dd>
 </dl>
-    <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "Character.connected"></a>
-    <strong>Character.connected ()</strong>
-    </dt>
-    <dd>
-    get an iterator over all connected players.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-        an iterator of <a href="../modules/character.html#Character">Character</a>
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="comment">-- Move all players to room 10
-</span><span class="keyword">local</span> room = Room.<span class="function-name">getFromVNum</span>(<span class="number">10</span>)
-<span class="keyword">for</span> ch <span class="keyword">in</span> Character.<span class="function-name">connected</span>() <span class="keyword">do</span>
-  ch:<span class="function-name">toRoom</span>(room)
-  ch:<span class="function-name">echoAt</span>(<span class="string">"You've been transferred!"</span>)
-<span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character.getFromName"></a>
-    <strong>Character.getFromName (name)</strong>
-    </dt>
-    <dd>
-    get any character in the world by name.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">name</span>
-            <span class="types"><span class="type">string</span></span>
-         the mob name
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
-        the character, or nil if not found
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="comment">-- Find player "Puff"
-</span><span class="keyword">local</span> puff = Character.<span class="function-name">getFromName</span>(<span class="string">"Puff"</span>)
-<span class="keyword">if</span> <span class="keyword">not</span> puff <span class="keyword">then</span>
-  LOTJ.<span class="function-name">log</span>(<span class="string">"Couldn't find Puff."</span>)
-<span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "Character.invoke"></a>
-    <strong>Character.invoke (vnum)</strong>
-    </dt>
-    <dd>
-    create an instance of a mob.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">vnum</span>
-            <span class="types"><span class="type">number</span></span>
-         the mob vnum
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
-        the new character
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <li><pre class="example"><span class="comment">-- invoke mob 10000 and put it in a room
-</span>Character.<span class="function-name">invoke</span>(<span class="number">10000</span>):<span class="function-name">toRoom</span>(someRoom)</pre></li>
-        <li><pre class="example"><span class="comment">-- invoke mob 1234 and do a few things with it
-</span><span class="keyword">local</span> newCh = Character.<span class="function-name">invoke</span>(<span class="number">1234</span>)
-newCh:<span class="function-name">toRoom</span>(someRoom)
-newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm here!"</span>)</pre></li>
-    </ul>
-
-</dd>
-</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-10-22 16:05:00 </i>
+<i style="float:right;">Last updated 2024-12-09 20:53:05 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
