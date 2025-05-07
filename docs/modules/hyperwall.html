@@ -125,11 +125,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#hyperwall:getMaxShipClass">hyperwall:getMaxShipClass ()</a></td>
-	<td class="summary">get the maximum ship class impacted by the hyperwall.</td>
+	<td class="summary">get the maximum ship class allowed through the hyperwall.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#hyperwall:getMinShipClass">hyperwall:getMinShipClass ()</a></td>
-	<td class="summary">get the minimum ship class impacted by the hyperwall.</td>
+	<td class="summary">get the minimum ship class allowed through the hyperwall.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#hyperwall:getName">hyperwall:getName ()</a></td>
@@ -161,11 +161,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#hyperwall:setMaxShipClass">hyperwall:setMaxShipClass (maxShipClass)</a></td>
-	<td class="summary">set the maximum ship class blocked by the hyperwall.</td>
+	<td class="summary">set the maximum ship class allowed through the hyperwall.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#hyperwall:setMinShipClass">hyperwall:setMinShipClass (minShipClass)</a></td>
-	<td class="summary">set the minimum ship class blocked by the hyperwall.</td>
+	<td class="summary">set the minimum ship class allowed through the hyperwall.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#hyperwall:setName">hyperwall:setName (name)</a></td>
@@ -389,9 +389,9 @@ ch:<span class="function-name">echoAt</span>(<span class="string">"The system is
     <strong>hyperwall:getMaxShipClass ()</strong>
     </dt>
     <dd>
-    get the maximum ship class impacted by the hyperwall.
+    get the maximum ship class allowed through the hyperwall.
  Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
- All hyperwalls default to 10 (satellites) as the largest impacted ships.
+ All hyperwalls default to 10 (satellites) as the largest permitted ships. This virtually means that every mobile ship is blocked.
 
 
 
@@ -399,7 +399,7 @@ ch:<span class="function-name">echoAt</span>(<span class="string">"The system is
     <ol>
 
            <span class="types"><span class="type">integer</span></span>
-        the maximum ship class blocked by the hyperwall.
+        the maximum ship class allowed through the hyperwall
     </ol>
 
 
@@ -411,9 +411,9 @@ ch:<span class="function-name">echoAt</span>(<span class="string">"The system is
     <strong>hyperwall:getMinShipClass ()</strong>
     </dt>
     <dd>
-    get the minimum ship class impacted by the hyperwall.
+    get the minimum ship class allowed through the hyperwall.
  Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
- All hyperwalls default to 0 (fighters) as the smallest impacted ships.
+ All hyperwalls default to 10 (satellites) as the smallest permitted ships. This virtually means that every mobile ship is blocked.
 
 
 
@@ -421,7 +421,7 @@ ch:<span class="function-name">echoAt</span>(<span class="string">"The system is
     <ol>
 
            <span class="types"><span class="type">integer</span></span>
-        the minimum ship class blocked by the hyperwall.
+        the minimum ship class allowed through the hyperwall
     </ol>
 
 
@@ -613,16 +613,16 @@ ch:<span class="function-name">echoAt</span>(<span class="string">"The system is
     <strong>hyperwall:setMaxShipClass (maxShipClass)</strong>
     </dt>
     <dd>
-    set the maximum ship class blocked by the hyperwall.
+    set the maximum ship class allowed through the hyperwall.
  Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
- All hyperwalls default to 10 (satellites) as the largest impacted ships.
+ All hyperwalls default to 10 (satellites) as the largest permitted ships. This virtually means that every mobile ship is blocked.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">maxShipClass</span>
             <span class="types"><span class="type">integer</span></span>
-         the maximum ship class blocked by the hyperwall
+         the maximum ship class allowed through the hyperwall
         </li>
     </ul>
 
@@ -642,16 +642,16 @@ ch:<span class="function-name">echoAt</span>(<span class="string">"The system is
     <strong>hyperwall:setMinShipClass (minShipClass)</strong>
     </dt>
     <dd>
-    set the minimum ship class blocked by the hyperwall.
+    set the minimum ship class allowed through the hyperwall.
  Uses the same class numbers as the <code>images</code> and <code>setship</code> commands: 0 = fighter, 1 = transport, etc.
- All hyperwalls default to 0 (fighters) as the smallest impacted ships.
+ All hyperwalls default to 10 (satellites) as the smallest permitted ships. This virtually means that every mobile ship is blocked.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">minShipClass</span>
             <span class="types"><span class="type">integer</span></span>
-         the minimum ship class blocked by the hyperwall
+         the minimum ship class allowed through the hyperwall
         </li>
     </ul>
 
@@ -731,7 +731,7 @@ ch:<span class="function-name">echoAt</span>(<span class="string">"The system is
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-12-09 20:53:05 </i>
+<i style="float:right;">Last updated 2025-05-07 01:27:56 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

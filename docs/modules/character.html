@@ -33,6 +33,7 @@
 
 <h2>Contents</h2>
 <ul>
+<li><a href="#Functions">Functions</a></li>
 <li><a href="#Global_functions">Global functions </a></li>
 <li><a href="#Class_Character">Class Character </a></li>
 </ul>
@@ -86,6 +87,41 @@
 </p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#getInShip">getInShip ()</a></td>
+	<td class="summary">getInShip</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hasEncryptedHistory">hasEncryptedHistory ()</a></td>
+	<td class="summary">whether this player has an encrypted history</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isAFK">isAFK ()</a></td>
+	<td class="summary">whether this player is AFK.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isBotting">isBotting ()</a></td>
+	<td class="summary">whether this player is botting.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isFighting">isFighting ()</a></td>
+	<td class="summary">whether this character is fighting.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isImmortal">isImmortal ()</a></td>
+	<td class="summary">whether this character is an immortal (RPC or higher).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isPC">isPC ()</a></td>
+	<td class="summary">whether this character is a player.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#wornOnLocation">wornOnLocation (wearflag)</a></td>
+	<td class="summary">get a list of objects worn on a given location</td>
+	</tr>
+</table>
 <h2><a href="#Global_functions">Global functions </a></h2>
 <table class="function_list">
 	<tr>
@@ -99,6 +135,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Character.invoke">Character.invoke (vnum)</a></td>
 	<td class="summary">create an instance of a mob.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Character.onStun">Character.onStun (callback)</a></td>
+	<td class="summary">registers a function to run each time the character is stunned (by blaster effects).</td>
 	</tr>
 </table>
 <h2><a href="#Class_Character">Class Character </a></h2>
@@ -168,8 +208,8 @@
 	<td class="summary">send a message to everyone in the character's room except for them, using the speaker's language for speech.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#character:emote">character:emote (text)</a></td>
-	<td class="summary">perform the given emote.</td>
+	<td class="name" nowrap><a href="#character:emote">character:emote (emote)</a></td>
+	<td class="summary">causes the character to emote.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:focus">character:focus (target)</a></td>
@@ -207,6 +247,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:getBloodToxicity">character:getBloodToxicity ()</a></td>
 	<td class="summary">get the character's current blood toxicity, 0 (good) - 100 (bad).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:getCGTeam">character:getCGTeam ()</a></td>
+	<td class="summary">get the character's CG team.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:getCTime">character:getCTime (time)</a></td>
@@ -283,10 +327,6 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:getInRoom">character:getInRoom ()</a></td>
 	<td class="summary">get the character's current room.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#character:getInShip">character:getInShip ()</a></td>
-	<td class="summary">getInShip</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:getInstalledCyber">character:getInstalledCyber (cyberType)</a></td>
@@ -473,12 +513,12 @@
 	<td class="summary">get whether a player has a given bestowment/empowerment</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#character:hasDefense">character:hasDefense (the)</a></td>
-	<td class="summary">checks if the character has a defense</td>
+	<td class="name" nowrap><a href="#character:hasCookie">character:hasCookie (the)</a></td>
+	<td class="summary">checks if the character has a cookie</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#character:hasEncryptedHistory">character:hasEncryptedHistory ()</a></td>
-	<td class="summary">whether this player has an encrypted history</td>
+	<td class="name" nowrap><a href="#character:hasDefense">character:hasDefense (the)</a></td>
+	<td class="summary">checks if the character has a defense</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:hasImmune">character:hasImmune (the)</a></td>
@@ -505,16 +545,8 @@
 	<td class="summary">interrupt any timed action the character is doing.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#character:isAFK">character:isAFK ()</a></td>
-	<td class="summary">whether this player is AFK.</td>
-	</tr>
-	<tr>
 	<td class="name" nowrap><a href="#character:isAffected">character:isAffected (effectName)</a></td>
 	<td class="summary">whether this character is affected by the given effect name.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#character:isBotting">character:isBotting ()</a></td>
-	<td class="summary">whether this player is botting.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:isCitizen">character:isCitizen ()</a></td>
@@ -529,24 +561,12 @@
 	<td class="summary">whether this character is a droid.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#character:isFighting">character:isFighting ()</a></td>
-	<td class="summary">whether this character is fighting.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#character:isImmortal">character:isImmortal ()</a></td>
-	<td class="summary">whether this character is an immortal (RPC or higher).</td>
-	</tr>
-	<tr>
 	<td class="name" nowrap><a href="#character:isJailed">character:isJailed ()</a></td>
 	<td class="summary">whether this character is presently jailed.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:isNPC">character:isNPC ()</a></td>
 	<td class="summary">whether this character is an NPC.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#character:isPC">character:isPC ()</a></td>
-	<td class="summary">whether this character is a player.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:isPolice">character:isPolice ()</a></td>
@@ -562,11 +582,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:say">character:say (text)</a></td>
-	<td class="summary">say some text.</td>
+	<td class="summary">causes the character to speak a message to the room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:sayTo">character:sayTo (target, text)</a></td>
-	<td class="summary">say some text to a target.</td>
+	<td class="summary">causes the character to speak a message to a target in the room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setAIDescription">character:setAIDescription (desc)</a></td>
@@ -602,6 +622,10 @@
 	<td class="summary">set the character's current mental state, 0 (good) - 100 (bad).</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:setCGTeam">character:setCGTeam (the)</a></td>
+	<td class="summary">sets the character's CG team.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:setClan">character:setClan (clan)</a></td>
 	<td class="summary">set the character's current clan</td>
 	</tr>
@@ -612,6 +636,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:setClanRank">character:setClanRank (the)</a></td>
 	<td class="summary">set the character's current clan rank</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setCookie">character:setCookie (the, to)</a></td>
+	<td class="summary">sets a cookie for a character</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:setCredits">character:setCredits (credits)</a></td>
@@ -809,16 +837,187 @@
 	<td class="name" nowrap><a href="#character:whenJailed">character:whenJailed ()</a></td>
 	<td class="summary">the date/time the character was jailed</td>
 	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#character:wornOnLocation">character:wornOnLocation (wearflag)</a></td>
-	<td class="summary">get a list of objects worn on a given location</td>
-	</tr>
 </table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "getInShip"></a>
+    <strong>getInShip ()</strong>
+    </dt>
+    <dd>
+    getInShip
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the ship the character is in
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hasEncryptedHistory"></a>
+    <strong>hasEncryptedHistory ()</strong>
+    </dt>
+    <dd>
+    whether this player has an encrypted history
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the player has an encrypted history, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isAFK"></a>
+    <strong>isAFK ()</strong>
+    </dt>
+    <dd>
+    whether this player is AFK.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the player is AFK, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isBotting"></a>
+    <strong>isBotting ()</strong>
+    </dt>
+    <dd>
+    whether this player is botting.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the player is botting, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isFighting"></a>
+    <strong>isFighting ()</strong>
+    </dt>
+    <dd>
+    whether this character is fighting.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is fighting, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isImmortal"></a>
+    <strong>isImmortal ()</strong>
+    </dt>
+    <dd>
+    whether this character is an immortal (RPC or higher).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is an immortal.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isPC"></a>
+    <strong>isPC ()</strong>
+    </dt>
+    <dd>
+    whether this character is a player.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the character is a player, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "wornOnLocation"></a>
+    <strong>wornOnLocation (wearflag)</strong>
+    </dt>
+    <dd>
+    get a list of objects worn on a given location
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">wearflag</span>
+            <span class="types"><span class="type">string</span></span>
+         of the location to check
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">table</span></span>
+        a list of objects worn on the given location
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="function-name">wornOnLocation</span>(<span class="string">"head"</span>)</pre>
+    </ul>
+
+</dd>
+</dl>
     <h2 class="section-header "><a name="Global_functions"></a>Global functions </h2>
 
     <dl class="function">
@@ -918,6 +1117,36 @@
 </span><span class="keyword">local</span> newCh = Character.<span class="function-name">invoke</span>(<span class="number">1234</span>)
 newCh:<span class="function-name">toRoom</span>(someRoom)
 newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm here!"</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Character.onStun"></a>
+    <strong>Character.onStun (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run each time the character is stunned (by blaster effects).
+ This is called each time a stun succeeds, even if the target was already stunned.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. this <a href="../modules/character.html#Character">Character</a>
+ 2. the <a href="../modules/character.html#Character">Character</a> who landed the stun hit (can be nil)
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Character.<span class="function-name">onStun</span>(<span class="keyword">function</span>(ch, attacker)
+  attacker:<span class="function-name">echoAt</span>(<span class="string">"You did good, kid."</span>)
+<span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
@@ -1394,24 +1623,27 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 </dd>
     <dt>
     <a name = "character:emote"></a>
-    <strong>character:emote (text)</strong>
+    <strong>character:emote (emote)</strong>
     </dt>
     <dd>
-    perform the given emote.
- Convenience alias for <code>self:force(&quot;emote &quot;..text)</code>
+    causes the character to emote.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">text</span>
+        <li><span class="parameter">emote</span>
             <span class="types"><span class="type">string</span></span>
-         the action to emote
+         the emote to perform.
         </li>
     </ul>
 
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">emote</span>(<span class="string">"takes a swig from his flask."</span>)</pre>
+    </ul>
 
 </dd>
     <dt>
@@ -1630,6 +1862,26 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
            <span class="types"><span class="type">number</span></span>
         the character's blood toxicity
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:getCGTeam"></a>
+    <strong>character:getCGTeam ()</strong>
+    </dt>
+    <dd>
+    get the character's CG team.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the character's CG team (0 for unassigned, 1: red, 2: blue, 3: yellow, 4: green)
     </ol>
 
 
@@ -2043,26 +2295,6 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
            <span class="types"><a class="type" href="../modules/room.html#Room">Room</a></span>
         the room
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "character:getInShip"></a>
-    <strong>character:getInShip ()</strong>
-    </dt>
-    <dd>
-    getInShip
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
-        the ship the character is in
     </ol>
 
 
@@ -3138,6 +3370,33 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:hasCookie"></a>
+    <strong>character:hasCookie (the)</strong>
+    </dt>
+    <dd>
+    checks if the character has a cookie
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         cookie to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the char has the cookie, false if not
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:hasDefense"></a>
     <strong>character:hasDefense (the)</strong>
     </dt>
@@ -3158,26 +3417,6 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
            <span class="types"><span class="type">boolean</span></span>
         true if the char has the defense, false if not
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "character:hasEncryptedHistory"></a>
-    <strong>character:hasEncryptedHistory ()</strong>
-    </dt>
-    <dd>
-    whether this player has an encrypted history
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        true if the player has an encrypted history, false otherwise
     </ol>
 
 
@@ -3345,26 +3584,6 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
-    <a name = "character:isAFK"></a>
-    <strong>character:isAFK ()</strong>
-    </dt>
-    <dd>
-    whether this player is AFK.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        true if the player is AFK, false otherwise
-    </ol>
-
-
-
-
-</dd>
-    <dt>
     <a name = "character:isAffected"></a>
     <strong>character:isAffected (effectName)</strong>
     </dt>
@@ -3395,26 +3614,6 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
   self:<span class="function-name">force</span>(<span class="string">"say I didn't see you come in!"</span>)
 <span class="keyword">end</span></pre>
     </ul>
-
-</dd>
-    <dt>
-    <a name = "character:isBotting"></a>
-    <strong>character:isBotting ()</strong>
-    </dt>
-    <dd>
-    whether this player is botting.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        true if the player is botting, false otherwise
-    </ol>
-
-
-
 
 </dd>
     <dt>
@@ -3484,46 +3683,6 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
-    <a name = "character:isFighting"></a>
-    <strong>character:isFighting ()</strong>
-    </dt>
-    <dd>
-    whether this character is fighting.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        true if the character is fighting, false otherwise
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "character:isImmortal"></a>
-    <strong>character:isImmortal ()</strong>
-    </dt>
-    <dd>
-    whether this character is an immortal (RPC or higher).
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        true if the character is an immortal.
-    </ol>
-
-
-
-
-</dd>
-    <dt>
     <a name = "character:isJailed"></a>
     <strong>character:isJailed ()</strong>
     </dt>
@@ -3573,26 +3732,6 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
   ch:<span class="function-name">echoAt</span>(<span class="string">"You're a player!"</span>)
 <span class="keyword">end</span></pre>
     </ul>
-
-</dd>
-    <dt>
-    <a name = "character:isPC"></a>
-    <strong>character:isPC ()</strong>
-    </dt>
-    <dd>
-    whether this character is a player.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        true if the character is a player, false otherwise
-    </ol>
-
-
-
 
 </dd>
     <dt>
@@ -3658,21 +3797,24 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
     <strong>character:say (text)</strong>
     </dt>
     <dd>
-    say some text.
- Convenience alias for <code>self:force(&quot;say &quot;..text)</code>
+    causes the character to speak a message to the room.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">text</span>
             <span class="types"><span class="type">string</span></span>
-         the text to speak
+         the message to speak.
         </li>
     </ul>
 
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">say</span>(<span class="string">"I hear a strange sound in the distance..."</span>)</pre>
+    </ul>
 
 </dd>
     <dt>
@@ -3680,25 +3822,28 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
     <strong>character:sayTo (target, text)</strong>
     </dt>
     <dd>
-    say some text to a target.
- Convenience alias for <code>self:force(&quot;sayto \&quot;&quot;..target:getName()..&quot;\&quot;&quot; &quot;..text)</code>
+    causes the character to speak a message to a target in the room.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">target</span>
             <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
-         the person to speak to
+         the character to speak the message at.
         </li>
         <li><span class="parameter">text</span>
             <span class="types"><span class="type">string</span></span>
-         the text to speak
+         the message to speak.
         </li>
     </ul>
 
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">sayTo</span>(target,<span class="string">"Do you hear a strange sound in the distance? It's freaking me out..."</span>)</pre>
+    </ul>
 
 </dd>
     <dt>
@@ -3917,6 +4062,33 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setCGTeam"></a>
+    <strong>character:setCGTeam (the)</strong>
+    </dt>
+    <dd>
+    sets the character's CG team.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         CG team (0 for unassigned, 1: red, 2: blue, 3: yellow, 4: green)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:setClan"></a>
     <strong>character:setClan (clan)</strong>
     </dt>
@@ -3983,6 +4155,37 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
         <li><span class="parameter">the</span>
             <span class="types"><span class="type">int</span></span>
          rank number
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+        this character, for call chaining.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:setCookie"></a>
+    <strong>character:setCookie (the, to)</strong>
+    </dt>
+    <dd>
+    sets a cookie for a character
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         cookie to set
+        </li>
+        <li><span class="parameter">to</span>
+            <span class="types"><span class="type">boolean</span></span>
+         add or remove the cookie
         </li>
     </ul>
 
@@ -5290,37 +5493,6 @@ ch:<span class="function-name">force</span>(<span class="string">"look"</span>)<
 
 
 </dd>
-    <dt>
-    <a name = "character:wornOnLocation"></a>
-    <strong>character:wornOnLocation (wearflag)</strong>
-    </dt>
-    <dd>
-    get a list of objects worn on a given location
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">wearflag</span>
-            <span class="types"><span class="type">string</span></span>
-         of the location to check
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">table</span></span>
-        a list of objects worn on the given location
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="function-name">wornOnLocation</span>(<span class="string">"head"</span>)</pre>
-    </ul>
-
-</dd>
 </dl>
 
 
@@ -5328,7 +5500,7 @@ ch:<span class="function-name">force</span>(<span class="string">"look"</span>)<
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-12-09 20:53:05 </i>
+<i style="float:right;">Last updated 2025-05-07 01:27:56 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
