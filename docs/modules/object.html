@@ -209,6 +209,10 @@
 	<td class="summary">Extracts the object.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#object:separate">object:separate (qty)</a></td>
+	<td class="summary">separates an object off the stack</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#object:setBlueprint">object:setBlueprint (blueprint)</a></td>
 	<td class="summary">set the blueprint string on an object</td>
 	</tr>
@@ -271,6 +275,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#object:setWeight">object:setWeight (weight)</a></td>
 	<td class="summary">set the object's weight.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#object:stack">object:stack ()</a></td>
+	<td class="summary">stacks an object and returns the stack</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#object:toChar">object:toChar (ch)</a></td>
@@ -968,6 +976,33 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
 
 </dd>
     <dt>
+    <a name = "object:separate"></a>
+    <strong>object:separate (qty)</strong>
+    </dt>
+    <dd>
+    separates an object off the stack
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">qty</span>
+            <span class="types"><span class="type">integer</span></span>
+         the number of objects to separate off of the stack (optional, defaults to 1 if not specified)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the separated object (or object stack)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "object:setBlueprint"></a>
     <strong>object:setBlueprint (blueprint)</strong>
     </dt>
@@ -983,6 +1018,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1004,12 +1045,6 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">string</span></span>
-        the extradesc to set
-    </ol>
 
 
 
@@ -1035,6 +1070,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1060,6 +1101,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1081,6 +1128,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1102,6 +1155,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1123,6 +1182,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1144,6 +1209,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1165,6 +1236,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1186,6 +1263,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1207,6 +1290,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1228,6 +1317,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1249,6 +1344,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1308,6 +1409,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1333,6 +1440,32 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "object:stack"></a>
+    <strong>object:stack ()</strong>
+    </dt>
+    <dd>
+    stacks an object and returns the stack
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object stack
+    </ol>
 
 
 
@@ -1356,6 +1489,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1381,6 +1520,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the first object, for call chaining
+    </ol>
 
 
 
@@ -1408,6 +1553,12 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/object.html#Object">Object</a></span>
+        the object, for call chaining
+    </ol>
 
 
 
@@ -1425,7 +1576,7 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2025-10-29 14:53:52 </i>
+<i style="float:right;">Last updated 2025-12-31 21:57:50 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
