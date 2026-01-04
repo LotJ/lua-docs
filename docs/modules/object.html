@@ -47,6 +47,7 @@
   <li><a href="../modules/character.html">character</a></li>
   <li><a href="../modules/clan.html">clan</a></li>
   <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/effect.html">effect</a></li>
   <li><a href="../modules/events.html">events</a></li>
   <li><a href="../modules/exit.html">exit</a></li>
   <li><a href="../modules/furniture.html">furniture</a></li>
@@ -101,12 +102,20 @@
 <h2><a href="#Class_Object">Class Object </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#object:addEffect">object:addEffect (effectType, modifier)</a></td>
+	<td class="summary">add an effect to an object.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#object:contents">object:contents ()</a></td>
 	<td class="summary">get an iterator over objects inside this one</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#object:echo">object:echo (message, args)</a></td>
 	<td class="summary">send a message to the occupants of the room the object is in.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#object:effects">object:effects ()</a></td>
+	<td class="summary">get an iterator over the object's effects</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#object:getBlueprint">object:getBlueprint ()</a></td>
@@ -207,6 +216,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#object:purge">object:purge ()</a></td>
 	<td class="summary">Extracts the object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#object:removeEffect">object:removeEffect (effectType, modifier)</a></td>
+	<td class="summary">remove an effect from an object.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#object:separate">object:separate (qty)</a></td>
@@ -370,6 +383,37 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
           </div>
     <dl class="function">
     <dt>
+    <a name = "object:addEffect"></a>
+    <strong>object:addEffect (effectType, modifier)</strong>
+    </dt>
+    <dd>
+    add an effect to an object.
+ Object must not be worn at the time.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">effectType</span>
+            <span class="types"><span class="type">string</span></span>
+         the type of effect (hitpoints, wisdom, resistant, affected, etc)
+        </li>
+        <li><span class="parameter">modifier</span>
+         damage type or effect name for resistant/immune/susceptible/affected, numeric amount for anything else
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">obj:<span class="function-name">addEffect</span>(<span class="string">"strength"</span>, <span class="number">3</span>)
+obj:<span class="function-name">addEffect</span>(<span class="string">"affected"</span>, <span class="string">"sanctuary"</span>)
+obj:<span class="function-name">addEffect</span>(<span class="string">"resistant"</span>, <span class="string">"slash"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "object:contents"></a>
     <strong>object:contents ()</strong>
     </dt>
@@ -429,6 +473,31 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
     self:<span class="function-name">echo</span>(<span class="string">"{1} begins humming softly on the ground."</span>, self)
   <span class="keyword">end</span>
 <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "object:effects"></a>
+    <strong>object:effects ()</strong>
+    </dt>
+    <dd>
+    get an iterator over the object's effects
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/effect.html#Effect">Effect</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> obj <span class="keyword">in</span> self:<span class="function-name">effects</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
@@ -973,6 +1042,37 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
 
 
 
+
+</dd>
+    <dt>
+    <a name = "object:removeEffect"></a>
+    <strong>object:removeEffect (effectType, modifier)</strong>
+    </dt>
+    <dd>
+    remove an effect from an object.
+ Searches for an effect matching the given settings and removes the first one. If no such effect exists
+ on the object, logs a warning but does not throw an error.
+ Object must not be worn at the time, and must be an effect set on the instance itself, not the prototype.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">effectType</span>
+            <span class="types"><span class="type">string</span></span>
+         the type of effect (hitpoints, wisdom, resistant, affected, etc)
+        </li>
+        <li><span class="parameter">modifier</span>
+         damage type or effect name for resistant/immune/susceptible/affected, numeric amount for anything else
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">obj:<span class="function-name">removeEffect</span>(<span class="string">"strength"</span>, <span class="number">3</span>)</pre>
+    </ul>
 
 </dd>
     <dt>
@@ -1576,7 +1676,7 @@ newObj:<span class="function-name">echo</span>(<span class="string">"{1} appears
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2025-12-31 21:59:29 </i>
+<i style="float:right;">Last updated 2026-01-04 19:41:57 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

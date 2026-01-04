@@ -33,19 +33,10 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Using_these_Docs">Using these Docs </a></li>
-<li><a href="#Using_an_Editor">Using an Editor </a></li>
+<li><a href="#Class_Effect">Class Effect </a></li>
 </ul>
 
 
-<h2>Topics</h2>
-<ul class="">
-  <li><strong>Introduction</strong></li>
-  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
-  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
-  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
-  <li><a href="../topics/gptnpcs.md.html">gptnpcs</a></li>
-</ul>
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/LuaDB.html">LuaDB</a></li>
@@ -55,7 +46,7 @@
   <li><a href="../modules/character.html">character</a></li>
   <li><a href="../modules/clan.html">clan</a></li>
   <li><a href="../modules/core.html">core</a></li>
-  <li><a href="../modules/effect.html">effect</a></li>
+  <li><strong>effect</strong></li>
   <li><a href="../modules/events.html">events</a></li>
   <li><a href="../modules/exit.html">exit</a></li>
   <li><a href="../modules/furniture.html">furniture</a></li>
@@ -71,6 +62,14 @@
   <li><a href="../modules/structure.html">structure</a></li>
   <li><a href="../modules/timer.html">timer</a></li>
 </ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+  <li><a href="../topics/gptnpcs.md.html">gptnpcs</a></li>
+</ul>
 <h2>Examples</h2>
 <ul class="nowrap">
   <li><a href="../examples/mixrmastr-bartender-droid.lua.html">mixrmastr-bartender-droid.lua</a></li>
@@ -81,26 +80,79 @@
 
 <div id="content">
 
+<h1>Module <code>effect</code></h1>
+<p>Functions for effects</p>
+<p>
 
-<h1>Introduction</h1>
+</p>
 
-<p>It's possible to attach Lua code to entities in LOTJ by setting their <code>lprog</code>. Compared with traditional mud progs, Lua allows for much richer dynamic behavior. For example, you can loop over each character in a room, or echo dynamic content to players including references to other variables.</p>
 
-<p><a name="Using_these_Docs"></a></p>
-<h2>Using these Docs</h2>
+<h2><a href="#Class_Effect">Class Effect </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#effect:getModifier">effect:getModifier ()</a></td>
+	<td class="summary">get the modifier of the effect.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getType">effect:getType ()</a></td>
+	<td class="summary">get the type of the effect (which stat it impacts)</td>
+	</tr>
+</table>
 
-<p>The "Topics" section of this documentation will cover basic concepts and high-level guidance. Once you're ready to write a Lua prog, you can reference the sections under "Modules" on the side. If you want to know what you can do with a character variable, for example, see the "character" module.</p>
+<br/>
+<br/>
 
-<p>Apart from the "Lua Basics" section, these docs are intended to be heavily example-based. Most functions will come with a basic example of what it might look like to use them.</p>
 
-<p><a name="Using_an_Editor"></a></p>
-<h2>Using an Editor</h2>
+    <h2 class="section-header has-description"><a name="Class_Effect"></a>Class Effect </h2>
 
-<p>It is <strong>highly</strong> recommended to write your lua code in another program and then copy/paste it into the game. This will help a lot with syntax and formatting.</p>
+          <div class="section-description">
+          Functions on effect variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "effect:getModifier"></a>
+    <strong>effect:getModifier ()</strong>
+    </dt>
+    <dd>
+    get the modifier of the effect.
+ For numeric stats, this is the number (positive or negative).
+ For resist/immune/susceptible, it's the name of the relevant damage type.
+ For affected, it's the first effect name set. (only supports single-type affected effects)
 
-<p><a href="https://onecompiler.com/lua">OneCompiler</a> seems like a good tool for this. Others have used Notepad++ or other local code editors.</p>
 
-<p>For learning Lua basics and practicing, you can use OneCompiler to write and execute some test code. Although any LOTJ-specific functions obviously won't work there, it can still help with syntax.</p>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">any</span></span>
+        the modifier
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getType"></a>
+    <strong>effect:getType ()</strong>
+    </dt>
+    <dd>
+    get the type of the effect (which stat it impacts)
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        the effect type
+    </ol>
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->

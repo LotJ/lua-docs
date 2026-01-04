@@ -34,9 +34,9 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Global_functions">Global functions </a></li>
+<li><a href="#Class_Effect">Class Effect </a></li>
 <li><a href="#Class_Event">Class Event </a></li>
 <li><a href="#Class_Broadcast">Class Broadcast </a></li>
-<li><a href="#Class_Effect">Class Effect </a></li>
 </ul>
 
 
@@ -49,6 +49,7 @@
   <li><a href="../modules/character.html">character</a></li>
   <li><a href="../modules/clan.html">clan</a></li>
   <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/effect.html">effect</a></li>
   <li><strong>events</strong></li>
   <li><a href="../modules/exit.html">exit</a></li>
   <li><a href="../modules/furniture.html">furniture</a></li>
@@ -106,6 +107,61 @@
 	<tr>
 	<td class="name" nowrap><a href="#Event.getFromName">Event.getFromName (name)</a></td>
 	<td class="summary">finds any event by name</td>
+	</tr>
+</table>
+<h2><a href="#Class_Effect">Class Effect </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#effect:addPlanet">effect:addPlanet (planet)</a></td>
+	<td class="summary">adds a planet to the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:delete">effect:delete ()</a></td>
+	<td class="summary">deletes the specific effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getClan">effect:getClan ()</a></td>
+	<td class="summary">returns the clan tied to the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getCrime">effect:getCrime ()</a></td>
+	<td class="summary">get the effect's crime rating modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getMilitary">effect:getMilitary ()</a></td>
+	<td class="summary">get the effect's military rating modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getNum">effect:getNum ()</a></td>
+	<td class="summary">returns the relative number of the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:getOpinion">effect:getOpinion ()</a></td>
+	<td class="summary">get the effect's public opinion modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:planets">effect:planets ()</a></td>
+	<td class="summary">returns an iterator over all planets in an effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:removePlanet">effect:removePlanet (planet)</a></td>
+	<td class="summary">removes a planet from the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:setClan">effect:setClan (clan)</a></td>
+	<td class="summary">changes the clan tied to the effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:setCrime">effect:setCrime (modifier)</a></td>
+	<td class="summary">set the effect's crime rating modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:setMilitary">effect:setMilitary (modifier)</a></td>
+	<td class="summary">set the effect's military rating modifier</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#effect:setOpinion">effect:setOpinion (modifier)</a></td>
+	<td class="summary">set the effect's public opinion modifier</td>
 	</tr>
 </table>
 <h2><a href="#Class_Event">Class Event </a></h2>
@@ -238,61 +294,6 @@
 	<td class="summary">sets the broadcast message</td>
 	</tr>
 </table>
-<h2><a href="#Class_Effect">Class Effect </a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#effect:addPlanet">effect:addPlanet (planet)</a></td>
-	<td class="summary">adds a planet to the effect</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:delete">effect:delete ()</a></td>
-	<td class="summary">deletes the specific effect</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:getClan">effect:getClan ()</a></td>
-	<td class="summary">returns the clan tied to the effect</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:getCrime">effect:getCrime ()</a></td>
-	<td class="summary">get the effect's crime rating modifier</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:getMilitary">effect:getMilitary ()</a></td>
-	<td class="summary">get the effect's military rating modifier</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:getNum">effect:getNum ()</a></td>
-	<td class="summary">returns the relative number of the effect</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:getOpinion">effect:getOpinion ()</a></td>
-	<td class="summary">get the effect's public opinion modifier</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:planets">effect:planets ()</a></td>
-	<td class="summary">returns an iterator over all planets in an effect</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:removePlanet">effect:removePlanet (planet)</a></td>
-	<td class="summary">removes a planet from the effect</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:setClan">effect:setClan (clan)</a></td>
-	<td class="summary">changes the clan tied to the effect</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:setCrime">effect:setCrime (modifier)</a></td>
-	<td class="summary">set the effect's crime rating modifier</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:setMilitary">effect:setMilitary (modifier)</a></td>
-	<td class="summary">set the effect's military rating modifier</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#effect:setOpinion">effect:setOpinion (modifier)</a></td>
-	<td class="summary">set the effect's public opinion modifier</td>
-	</tr>
-</table>
 
 <br/>
 <br/>
@@ -405,6 +406,341 @@
 
 
 
+
+</dd>
+</dl>
+    <h2 class="section-header has-description"><a name="Class_Effect"></a>Class Effect </h2>
+
+          <div class="section-description">
+          Functions on effect variables
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "effect:addPlanet"></a>
+    <strong>effect:addPlanet (planet)</strong>
+    </dt>
+    <dd>
+    adds a planet to the effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">planet</span>
+            <span class="types"><span class="type">planet</span></span>
+         the planet to add to the effect
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> hfw = Planet.<span class="function-name">getFromName</span>(<span class="string">"Hologram Fun World"</span>)
+effect:<span class="function-name">addPlanet</span>(hfw)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:delete"></a>
+    <strong>effect:delete ()</strong>
+    </dt>
+    <dd>
+    deletes the specific effect
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getClan"></a>
+    <strong>effect:getClan ()</strong>
+    </dt>
+    <dd>
+    returns the clan tied to the effect
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">clan</span></span>
+        clan the clan the effect is tied to
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getCrime"></a>
+    <strong>effect:getCrime ()</strong>
+    </dt>
+    <dd>
+    get the effect's crime rating modifier
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's crime rating modifier
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getMilitary"></a>
+    <strong>effect:getMilitary ()</strong>
+    </dt>
+    <dd>
+    get the effect's military rating modifier
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's military rating modifier
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getNum"></a>
+    <strong>effect:getNum ()</strong>
+    </dt>
+    <dd>
+    returns the relative number of the effect
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the effect num
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:getOpinion"></a>
+    <strong>effect:getOpinion ()</strong>
+    </dt>
+    <dd>
+    get the effect's public opinion modifier
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the event's public opinion modifier
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "effect:planets"></a>
+    <strong>effect:planets ()</strong>
+    </dt>
+    <dd>
+    returns an iterator over all planets in an effect
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/planet.html#Planet">Planet</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> planet <span class="keyword">in</span> effect:<span class="function-name">planets</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:removePlanet"></a>
+    <strong>effect:removePlanet (planet)</strong>
+    </dt>
+    <dd>
+    removes a planet from the effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">planet</span>
+            <span class="types"><span class="type">planet</span></span>
+         the planet to remove from the effect
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> hoth = Planet.<span class="function-name">getFromName</span>(<span class="string">"Hoth"</span>)
+effect:<span class="function-name">removePlanet</span>(hoth)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:setClan"></a>
+    <strong>effect:setClan (clan)</strong>
+    </dt>
+    <dd>
+    changes the clan tied to the effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">clan</span>
+            <span class="types"><span class="type">clan</span></span>
+         the clan the effect is tied to
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> empire = Clan.<span class="function-name">getFromName</span>(<span class="string">"The Galactic Empire"</span>)
+effect:<span class="function-name">setClan</span>(empire)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:setCrime"></a>
+    <strong>effect:setCrime (modifier)</strong>
+    </dt>
+    <dd>
+    set the effect's crime rating modifier
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">modifier</span>
+            <span class="types"><span class="type">number</span></span>
+         the crime rating modifier (-100.00 to 100.00)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">effect:<span class="function-name">setCrime</span>(<span class="number">85.00</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:setMilitary"></a>
+    <strong>effect:setMilitary (modifier)</strong>
+    </dt>
+    <dd>
+    set the effect's military rating modifier
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">modifier</span>
+            <span class="types"><span class="type">number</span></span>
+         the military rating modifier (-100.00 to 100.00)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">effect:<span class="function-name">setMilitary</span>(-<span class="number">75.00</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "effect:setOpinion"></a>
+    <strong>effect:setOpinion (modifier)</strong>
+    </dt>
+    <dd>
+    set the effect's public opinion modifier
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">modifier</span>
+            <span class="types"><span class="type">number</span></span>
+         the public opinion modifier (-100.00 to 100.00)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
+        this effect, for call chaining.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">effect:<span class="function-name">setOpinion</span>(-<span class="number">75.00</span>)</pre>
+    </ul>
 
 </dd>
 </dl>
@@ -1227,348 +1563,13 @@ event:<span class="function-name">addEffect</span>(empire)</pre>
 
 </dd>
 </dl>
-    <h2 class="section-header has-description"><a name="Class_Effect"></a>Class Effect </h2>
-
-          <div class="section-description">
-          Functions on event effect variables
-          </div>
-    <dl class="function">
-    <dt>
-    <a name = "effect:addPlanet"></a>
-    <strong>effect:addPlanet (planet)</strong>
-    </dt>
-    <dd>
-    adds a planet to the effect
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">planet</span>
-            <span class="types"><span class="type">planet</span></span>
-         the planet to add to the effect
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
-        this effect, for call chaining.
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">local</span> hfw = Planet.<span class="function-name">getFromName</span>(<span class="string">"Hologram Fun World"</span>)
-effect:<span class="function-name">addPlanet</span>(hfw)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "effect:delete"></a>
-    <strong>effect:delete ()</strong>
-    </dt>
-    <dd>
-    deletes the specific effect
-
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "effect:getClan"></a>
-    <strong>effect:getClan ()</strong>
-    </dt>
-    <dd>
-    returns the clan tied to the effect
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">clan</span></span>
-        clan the clan the effect is tied to
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "effect:getCrime"></a>
-    <strong>effect:getCrime ()</strong>
-    </dt>
-    <dd>
-    get the effect's crime rating modifier
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the event's crime rating modifier
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "effect:getMilitary"></a>
-    <strong>effect:getMilitary ()</strong>
-    </dt>
-    <dd>
-    get the effect's military rating modifier
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the event's military rating modifier
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "effect:getNum"></a>
-    <strong>effect:getNum ()</strong>
-    </dt>
-    <dd>
-    returns the relative number of the effect
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the effect num
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "effect:getOpinion"></a>
-    <strong>effect:getOpinion ()</strong>
-    </dt>
-    <dd>
-    get the effect's public opinion modifier
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">number</span></span>
-        the event's public opinion modifier
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "effect:planets"></a>
-    <strong>effect:planets ()</strong>
-    </dt>
-    <dd>
-    returns an iterator over all planets in an effect
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-        an iterator of <a href="../modules/planet.html#Planet">Planet</a>
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">for</span> planet <span class="keyword">in</span> effect:<span class="function-name">planets</span>() <span class="keyword">do</span>
-  <span class="comment">-- do something
-</span><span class="keyword">end</span></pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "effect:removePlanet"></a>
-    <strong>effect:removePlanet (planet)</strong>
-    </dt>
-    <dd>
-    removes a planet from the effect
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">planet</span>
-            <span class="types"><span class="type">planet</span></span>
-         the planet to remove from the effect
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
-        this effect, for call chaining.
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">local</span> hoth = Planet.<span class="function-name">getFromName</span>(<span class="string">"Hoth"</span>)
-effect:<span class="function-name">removePlanet</span>(hoth)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "effect:setClan"></a>
-    <strong>effect:setClan (clan)</strong>
-    </dt>
-    <dd>
-    changes the clan tied to the effect
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">clan</span>
-            <span class="types"><span class="type">clan</span></span>
-         the clan the effect is tied to
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
-        this effect, for call chaining.
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">local</span> empire = Clan.<span class="function-name">getFromName</span>(<span class="string">"The Galactic Empire"</span>)
-effect:<span class="function-name">setClan</span>(empire)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "effect:setCrime"></a>
-    <strong>effect:setCrime (modifier)</strong>
-    </dt>
-    <dd>
-    set the effect's crime rating modifier
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">modifier</span>
-            <span class="types"><span class="type">number</span></span>
-         the crime rating modifier (-100.00 to 100.00)
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
-        this effect, for call chaining.
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">effect:<span class="function-name">setCrime</span>(<span class="number">85.00</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "effect:setMilitary"></a>
-    <strong>effect:setMilitary (modifier)</strong>
-    </dt>
-    <dd>
-    set the effect's military rating modifier
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">modifier</span>
-            <span class="types"><span class="type">number</span></span>
-         the military rating modifier (-100.00 to 100.00)
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
-        this effect, for call chaining.
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">effect:<span class="function-name">setMilitary</span>(-<span class="number">75.00</span>)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "effect:setOpinion"></a>
-    <strong>effect:setOpinion (modifier)</strong>
-    </dt>
-    <dd>
-    set the effect's public opinion modifier
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">modifier</span>
-            <span class="types"><span class="type">number</span></span>
-         the public opinion modifier (-100.00 to 100.00)
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="../modules/events.html#Effect">Effect</a></span>
-        this effect, for call chaining.
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example">effect:<span class="function-name">setOpinion</span>(-<span class="number">75.00</span>)</pre>
-    </ul>
-
-</dd>
-</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2025-12-31 21:59:29 </i>
+<i style="float:right;">Last updated 2026-01-04 19:41:57 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
