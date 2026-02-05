@@ -106,6 +106,10 @@
 <h2><a href="#Class_Room">Class Room </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#room:addEffect">room:addEffect (effectType, duration, modifier)</a></td>
+	<td class="summary">add an effect to a room.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#room:characters">room:characters ()</a></td>
 	<td class="summary">get an iterator over characters in the room</td>
 	</tr>
@@ -120,6 +124,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#room:echo">room:echo (message, args)</a></td>
 	<td class="summary">send a message to the occupants of a room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#room:effects">room:effects ()</a></td>
+	<td class="summary">get an iterator over the room's effects</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#room:exits">room:exits ()</a></td>
@@ -214,16 +222,16 @@
 	<td class="summary">get the remaining time on a room's variable, by name</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#room:hasAffect">room:hasAffect (the)</a></td>
-	<td class="summary">checks if the room has an affect</td>
-	</tr>
-	<tr>
 	<td class="name" nowrap><a href="#room:hasFlag">room:hasFlag (flag)</a></td>
 	<td class="summary">get whether a flag is set on this room.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#room:hookKnockout">room:hookKnockout (callback)</a></td>
 	<td class="summary">registers a hook function to run when a character gets knocked out due to damage</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#room:isAffectedBy">room:isAffectedBy (the)</a></td>
+	<td class="summary">checks if the room has a base-level "affected by" flag</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#room:isPublicSpace">room:isPublicSpace ()</a></td>
@@ -274,12 +282,16 @@
 	<td class="summary">chooses a random player in the room and returns them.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#room:removeEffect">room:removeEffect (effectType, modifier)</a></td>
+	<td class="summary">remove an effect from a room.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#room:setAccessDoor">room:setAccessDoor (dir, keywords, accessCheck)</a></td>
 	<td class="summary">sets up a voice-activated locked door.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#room:setAffect">room:setAffect (the, to)</a></td>
-	<td class="summary">sets an affect for a room</td>
+	<td class="name" nowrap><a href="#room:setAffectedBy">room:setAffectedBy (the, to)</a></td>
+	<td class="summary">sets a base-level "affected by" flag</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#room:setClanAccessDoor">room:setClanAccessDoor (dir, keywords, clanName)</a></td>
@@ -422,6 +434,38 @@
           </div>
     <dl class="function">
     <dt>
+    <a name = "room:addEffect"></a>
+    <strong>room:addEffect (effectType, duration, modifier)</strong>
+    </dt>
+    <dd>
+    add an effect to a room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">effectType</span>
+            <span class="types"><span class="type">string</span></span>
+         the type of effect (hitpoints, wisdom, resistant, affected, etc)
+        </li>
+        <li><span class="parameter">duration</span>
+         the duration for the effect
+        </li>
+        <li><span class="parameter">modifier</span>
+         for the effect (optional, defaults to 0)
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">room:<span class="function-name">addEffect</span>(<span class="string">"miasma"</span>, <span class="number">300</span>)
+room:<span class="function-name">addEffect</span>(<span class="string">"napalm"</span>, <span class="number">60</span>, <span class="number">5</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "room:characters"></a>
     <strong>room:characters ()</strong>
     </dt>
@@ -516,6 +560,31 @@
 </span>  <span class="comment">-- For anyone else, it will show their name and correct possessive pronoun.
 </span>  self:<span class="function-name">echo</span>(<span class="string">"A security camera turns to focus on {1} and a spotlight illuminates {1.s} features."</span>, ch)
 <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "room:effects"></a>
+    <strong>room:effects ()</strong>
+    </dt>
+    <dd>
+    get an iterator over the room's effects
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/effect.html#Effect">Effect</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> aff <span class="keyword">in</span> self:<span class="function-name">effects</span>() <span class="keyword">do</span>
+  <span class="comment">-- do something
+</span><span class="keyword">end</span></pre>
     </ul>
 
 </dd>
@@ -1087,33 +1156,6 @@
 
 </dd>
     <dt>
-    <a name = "room:hasAffect"></a>
-    <strong>room:hasAffect (the)</strong>
-    </dt>
-    <dd>
-    checks if the room has an affect
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">the</span>
-            <span class="types"><span class="type">string</span></span>
-         affect to look for
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">boolean</span></span>
-        true if the room has the affect, false if not
-    </ol>
-
-
-
-
-</dd>
-    <dt>
     <a name = "room:hasFlag"></a>
     <strong>room:hasFlag (flag)</strong>
     </dt>
@@ -1181,6 +1223,33 @@
   <span class="keyword">return</span> <span class="keyword">true</span>
 <span class="keyword">end</span>)</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "room:isAffectedBy"></a>
+    <strong>room:isAffectedBy (the)</strong>
+    </dt>
+    <dd>
+    checks if the room has a base-level "affected by" flag
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">string</span></span>
+         affect to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the room has the affect, false if not
+    </ol>
+
+
+
 
 </dd>
     <dt>
@@ -1544,6 +1613,37 @@
 
 </dd>
     <dt>
+    <a name = "room:removeEffect"></a>
+    <strong>room:removeEffect (effectType, modifier)</strong>
+    </dt>
+    <dd>
+    remove an effect from a room.
+ Searches for an effect matching the given settings and removes the first one. If no such effect exists
+ on the room, logs a warning but does not throw an error.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">effectType</span>
+            <span class="types"><span class="type">string</span></span>
+         the type of effect (hitpoints, wisdom, resistant, affected, etc)
+        </li>
+        <li><span class="parameter">modifier</span>
+         (optional) damage type or effect name for resistant/immune/susceptible/affected, numeric amount for anything else
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">room:<span class="function-name">removeEffect</span>(<span class="string">"miasma"</span>)
+room:<span class="function-name">removeEffect</span>(<span class="string">"napalm"</span>, <span class="number">5</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "room:setAccessDoor"></a>
     <strong>room:setAccessDoor (dir, keywords, accessCheck)</strong>
     </dt>
@@ -1607,11 +1707,11 @@
 
 </dd>
     <dt>
-    <a name = "room:setAffect"></a>
-    <strong>room:setAffect (the, to)</strong>
+    <a name = "room:setAffectedBy"></a>
+    <strong>room:setAffectedBy (the, to)</strong>
     </dt>
     <dd>
-    sets an affect for a room
+    sets a base-level "affected by" flag
 
 
     <h3>Parameters:</h3>
@@ -1902,7 +2002,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2026-01-04 19:41:57 </i>
+<i style="float:right;">Last updated 2026-02-05 17:31:24 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
