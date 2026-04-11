@@ -106,6 +106,66 @@
 	<td class="name" nowrap><a href="#Ship.getOrCreate">Ship.getOrCreate (templateName, name, owner)</a></td>
 	<td class="summary">Utility function to find a ship by name, or create one with the given template and owner if it's not found.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onCreate">onCreate (callback)</a></td>
+	<td class="summary">registers a function to run when a ship is first built or created.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onDestroyed">onDestroyed (callback)</a></td>
+	<td class="summary">registers a function to run when a ship is destroyed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onDock">onDock (callback)</a></td>
+	<td class="summary">registers a function to run when a ship starts docking</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onDocked">onDocked (callback)</a></td>
+	<td class="summary">registers a function to run when a ship finishes docking</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onHyper">onHyper (callback)</a></td>
+	<td class="summary">registers a function to run when a ship enters hyperspace</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onHyperExit">onHyperExit (callback)</a></td>
+	<td class="summary">registers a function to run when a ship exits hyperspace</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onLand">onLand (callback)</a></td>
+	<td class="summary">registers a function to run when a ship starts landing</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onLanded">onLanded (callback)</a></td>
+	<td class="summary">registers a function to run when a ship finishes landing</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onLaunch">onLaunch (callback)</a></td>
+	<td class="summary">registers a function to run when a ship starts launching</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onLaunched">onLaunched (callback)</a></td>
+	<td class="summary">registers a function to run when a ship finishes launching</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onSpawned">onSpawned (callback)</a></td>
+	<td class="summary">registers a function to run when a ship is placed in a system via a space spawn.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onTargeted">onTargeted (callback)</a></td>
+	<td class="summary">registers a function to run when a ship is targeted by another ship.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onTick">onTick (callback)</a></td>
+	<td class="summary">registers a function to run every space tick (20 seconds, when the space prompt shows).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onUndock">onUndock (callback)</a></td>
+	<td class="summary">registers a function to run when a ship begins undocking</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onUndocked">onUndocked (callback)</a></td>
+	<td class="summary">registers a function to run when a ship finishes undocking</td>
+	</tr>
 </table>
 <h2><a href="#Class_Ship">Class Ship </a></h2>
 <table class="function_list">
@@ -780,6 +840,435 @@
 
 
 
+
+</dd>
+    <dt>
+    <a name = "onCreate"></a>
+    <strong>onCreate (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship is first built or created.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> being created
+ 2. the <a href="../modules/character.html#Character">Character</a> who finished it. Can be nil.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onCreate</span>(<span class="keyword">function</span>(ship)
+  <span class="comment">-- Place a mob in the ship's cockpit
+</span>  Character.<span class="function-name">invoke</span>(<span class="number">12345</span>):<span class="function-name">toRoom</span>(ship:<span class="function-name">getCockpit</span>())
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onDestroyed"></a>
+    <strong>onDestroyed (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship is destroyed.
+ This function will run after the ship destruction message is shown to the system,
+ but before any players inside the ship are dealt with. You can use it to move
+ players off of the ship before they're killed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> being destroyed
+ 2. the <a href="../modules/ship.html#Ship">Ship</a> destroying it (can be nil)
+ 3. the <a href="../modules/character.html#Character">Character</a> destroying it (can be nil)
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onDestroyed</span>(<span class="keyword">function</span>(ship, byShip, byChar)
+  <span class="keyword">if</span> <span class="keyword">not</span> byChar <span class="keyword">then</span>
+    <span class="keyword">return</span>
+  <span class="keyword">end</span>
+  byChar:<span class="function-name">echoAt</span>(<span class="string">"Good job, you destroyed the pirate!"</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onDock"></a>
+    <strong>onDock (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship starts docking
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> initiating docking
+ 2. the <a href="../modules/ship.html#Ship">Ship</a> being docked with
+ 3. the <a href="../modules/starsystem.html#Starsystem">Starsystem</a> the ships are in
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onDock</span>(<span class="keyword">function</span>(ship, target, system)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onDocked"></a>
+    <strong>onDocked (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship finishes docking
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> that initiated docking
+ 2. the <a href="../modules/ship.html#Ship">Ship</a> it docked with
+ 3. the <a href="../modules/starsystem.html#Starsystem">Starsystem</a> the ships are in
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onDocked</span>(<span class="keyword">function</span>(ship, target, system)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onHyper"></a>
+    <strong>onHyper (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship enters hyperspace
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> entering hyperspace
+ 2. the <a href="../modules/starsystem.html#Starsystem">Starsystem</a> just exited
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onHyper</span>(<span class="keyword">function</span>(ship, system)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onHyperExit"></a>
+    <strong>onHyperExit (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship exits hyperspace
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> exiting hyperspace
+ 2. the <a href="../modules/starsystem.html#Starsystem">Starsystem</a> just entered
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onHyperExit</span>(<span class="keyword">function</span>(ship, system)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onLand"></a>
+    <strong>onLand (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship starts landing
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> landing
+ 2. the <a href="../modules/starsystem.html#Starsystem">Starsystem</a> being exited
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onLand</span>(<span class="keyword">function</span>(ship, system)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onLanded"></a>
+    <strong>onLanded (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship finishes landing
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> just landed
+ 2. the <a href="../modules/room.html#Room">Room</a> just landed into
+ 3. the <a href="../modules/starsystem.html#Starsystem">Starsystem</a> just exited
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onLanded</span>(<span class="keyword">function</span>(ship, room, system)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onLaunch"></a>
+    <strong>onLaunch (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship starts launching
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> being launched
+ 2. the <a href="../modules/room.html#Room">Room</a> being launched from
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onLaunch</span>(<span class="keyword">function</span>(ship, room)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onLaunched"></a>
+    <strong>onLaunched (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship finishes launching
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> just launched
+ 2. the <a href="../modules/room.html#Room">Room</a> just launched from
+ 3. the <a href="../modules/starsystem.html#Starsystem">Starsystem</a> just launched into
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onLaunched</span>(<span class="keyword">function</span>(ship, room, system)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onSpawned"></a>
+    <strong>onSpawned (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship is placed in a system via a space spawn.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> being spawned
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onSpawned</span>(<span class="keyword">function</span>(ship)
+  <span class="comment">-- Place a mob in the ship's cockpit
+</span>  Character.<span class="function-name">invoke</span>(<span class="number">12345</span>):<span class="function-name">toRoom</span>(ship:<span class="function-name">getCockpit</span>())
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onTargeted"></a>
+    <strong>onTargeted (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship is targeted by another ship.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> being targeted
+ 2. the <a href="../modules/ship.html#Ship">Ship</a> targeting it
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onTargeted</span>(<span class="keyword">function</span>(ship, targeter)
+  ship:<span class="function-name">radio</span>(<span class="string">"Help! I'm being attacked by "</span>..targeter:<span class="function-name">getName</span>())
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onTick"></a>
+    <strong>onTick (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run every space tick (20 seconds, when the space prompt shows).
+ Only fires for ships which are in a starsystem, not landed/in hyperspace/launching/etc
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a>
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onTick</span>(<span class="keyword">function</span>(ship)
+  ship:<span class="function-name">echoToSystem</span>(<span class="string">"Red lights flash on the exterior of "</span>..ship:<span class="function-name">getName</span>())
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onUndock"></a>
+    <strong>onUndock (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship begins undocking
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> initiating the undocking
+ 2. the <a href="../modules/ship.html#Ship">Ship</a> it was docked with
+ 3. the <a href="../modules/starsystem.html#Starsystem">Starsystem</a> the ships are in
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onUndock</span>(<span class="keyword">function</span>(ship, target, system)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onUndocked"></a>
+    <strong>onUndocked (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a ship finishes undocking
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/ship.html#Ship">Ship</a> that initiated undocking
+ 2. the <a href="../modules/ship.html#Ship">Ship</a> it was docked with
+ 3. the <a href="../modules/starsystem.html#Starsystem">Starsystem</a> the ships are in
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Ship.<span class="function-name">onUndocked</span>(<span class="keyword">function</span>(ship, target, system)</pre>
+    </ul>
 
 </dd>
 </dl>
@@ -3980,7 +4469,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2026-02-08 06:17:47 </i>
+<i style="float:right;">Last updated 2026-04-11 01:55:33 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
