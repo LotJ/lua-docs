@@ -167,6 +167,10 @@
 	<td class="summary">increase or decrease a player's percentage in a skill.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:approach">character:approach (victim)</a></td>
+	<td class="summary">immediately approach the given character.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:attack">character:attack (target)</a></td>
 	<td class="summary">make this character attack another.</td>
 	</tr>
@@ -189,6 +193,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:carrying">character:carrying (params)</a></td>
 	<td class="summary">get an iterator over objects in the character's inventory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:clearWanted">character:clearWanted (planet_name[, crime])</a></td>
+	<td class="summary">clear the wanted status of this character on a planet.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:damage">character:damage (amount, byCh)</a></td>
@@ -500,6 +508,10 @@
 	<td class="summary">get the character's race, or what they're disguised as.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#character:getWantedCrimes">character:getWantedCrimes (planet_name)</a></td>
+	<td class="summary">get the list of crimes a character is wanted for on a planet.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#character:getWasInRoom">character:getWasInRoom ()</a></td>
 	<td class="summary">get the character's previous room.</td>
 	</tr>
@@ -586,6 +598,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:isValid">character:isValid ()</a></td>
 	<td class="summary">isValid</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:isWanted">character:isWanted (planet_name)</a></td>
+	<td class="summary">check if this character is wanted on a planet.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:isWearing">character:isWearing (vnum)</a></td>
+	<td class="summary">check if this character is wearing an object or has it equipped</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:restore">character:restore ()</a></td>
@@ -791,6 +811,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#character:setVar">character:setVar (varName, value, ttl)</a></td>
 	<td class="summary">set a variable on a character</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#character:setWanted">character:setWanted (planet_name, crime, setter_name)</a></td>
+	<td class="summary">mark this character as wanted on a planet for a specific crime.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#character:skills">character:skills ()</a></td>
@@ -1307,6 +1331,35 @@ ch:<span class="function-name">adjustMove</span>(-<span class="number">100</span
 
 </dd>
     <dt>
+    <a name = "character:approach"></a>
+    <strong>character:approach (victim)</strong>
+    </dt>
+    <dd>
+    immediately approach the given character.
+ Takes effect right away, without the approach timer, and sends no echoes
+ to the room or to either character. Passing nil instead immediately
+ steps the character away using the same near-character relinking that
+ the in-game approach command applies when its "move away" completes.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">victim</span>
+            <span class="types"><a class="type" href="../modules/character.html#Character">Character</a></span>
+         the character to approach, must be in the same room, or nil to unapproach
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ch:<span class="function-name">approach</span>(victim)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "character:attack"></a>
     <strong>character:attack (target)</strong>
     </dt>
@@ -1499,6 +1552,32 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
   <span class="comment">-- do something
 </span><span class="keyword">end</span></pre></li>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "character:clearWanted"></a>
+    <strong>character:clearWanted (planet_name[, crime])</strong>
+    </dt>
+    <dd>
+    clear the wanted status of this character on a planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">planet_name</span>
+            <span class="types"><span class="type">string</span></span>
+         the planet to clear wanted status on
+        </li>
+        <li><span class="parameter">crime</span>
+            <span class="types"><span class="type">string</span></span>
+         the crime flag name to remove (e.g. "murder"). If omitted, clears all wanted status on the planet.
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
 
 </dd>
     <dt>
@@ -3288,6 +3367,33 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:getWantedCrimes"></a>
+    <strong>character:getWantedCrimes (planet_name)</strong>
+    </dt>
+    <dd>
+    get the list of crimes a character is wanted for on a planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">planet_name</span>
+            <span class="types"><span class="type">string</span></span>
+         the planet name to check
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">table</span></span>
+        a table of crime description strings (empty if not wanted)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:getWasInRoom"></a>
     <strong>character:getWasInRoom ()</strong>
     </dt>
@@ -3840,6 +3946,60 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
            <span class="types"><span class="type">boolean</span></span>
         true if the character is valid, false if not
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:isWanted"></a>
+    <strong>character:isWanted (planet_name)</strong>
+    </dt>
+    <dd>
+    check if this character is wanted on a planet.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">planet_name</span>
+            <span class="types"><span class="type">string</span></span>
+         the planet name to check
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the character is wanted on that planet, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "character:isWearing"></a>
+    <strong>character:isWearing (vnum)</strong>
+    </dt>
+    <dd>
+    check if this character is wearing an object or has it equipped
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vnum</span>
+            <span class="types"><span class="type">integer</span></span>
+         the vnum of the object to check for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the character has it equipped, false if not
     </ol>
 
 
@@ -5245,6 +5405,41 @@ ch:<span class="function-name">awardCredits</span>(-<span class="number">50000</
 
 </dd>
     <dt>
+    <a name = "character:setWanted"></a>
+    <strong>character:setWanted (planet_name, crime, setter_name)</strong>
+    </dt>
+    <dd>
+    mark this character as wanted on a planet for a specific crime.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">planet_name</span>
+            <span class="types"><span class="type">string</span></span>
+         the planet to mark the character as wanted on
+        </li>
+        <li><span class="parameter">crime</span>
+            <span class="types"><span class="type">string</span></span>
+         the crime flag name (e.g. "murder", "trafficking")
+        </li>
+        <li><span class="parameter">setter_name</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of who is setting the wanted status (informational)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the wanted status was set successfully, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "character:skills"></a>
     <strong>character:skills ()</strong>
     </dt>
@@ -5618,7 +5813,7 @@ ch:<span class="function-name">force</span>(<span class="string">"look"</span>)<
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2026-05-20 17:22:48 </i>
+<i style="float:right;">Last updated 2026-09-07 01:42:29 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

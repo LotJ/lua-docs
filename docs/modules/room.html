@@ -107,6 +107,14 @@
 	<td class="name" nowrap><a href="#onEffect">onEffect (name, callback)</a></td>
 	<td class="summary">registers a function to run when a room effect runs.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onEnter">onEnter (callback)</a></td>
+	<td class="summary">registers a function to run when a character (player or NPC) enters a room.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onLeave">onLeave (callback)</a></td>
+	<td class="summary">registers a function to run when a character (player or NPC) leaves a room.</td>
+	</tr>
 </table>
 <h2><a href="#Class_Room">Class Room </a></h2>
 <table class="function_list">
@@ -157,6 +165,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#room:getCharByVNum">room:getCharByVNum ()</a></td>
 	<td class="summary">returns the first character found in this room with the given vnum.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#room:getCoordinates">room:getCoordinates ()</a></td>
+	<td class="summary">get a room's x/y/z mapper coordinates</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#room:getDescription">room:getDescription ()</a></td>
@@ -239,10 +251,6 @@
 	<td class="summary">checks if the room has a base-level "affected by" flag</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#room:isPublicSpace">room:isPublicSpace ()</a></td>
-	<td class="summary">returns whether this room is accessible by hail or public landing pad.</td>
-	</tr>
-	<tr>
 	<td class="name" nowrap><a href="#room:lockers">room:lockers ()</a></td>
 	<td class="summary">get an iterator over lockers in the room</td>
 	</tr>
@@ -303,12 +311,16 @@
 	<td class="summary">sets a base-level "affected by" flag</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#room:setClanAccessDoor">room:setClanAccessDoor (dir, keywords, clanName)</a></td>
+	<td class="name" nowrap><a href="#room:setClanAccessDoor">room:setClanAccessDoor (dir, clanName, keywords)</a></td>
 	<td class="summary">sets up a voice-activated locked door which works for members of the given clan.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#room:setClanLeaderAccessDoor">room:setClanLeaderAccessDoor (dir, keywords, clanName)</a></td>
+	<td class="name" nowrap><a href="#room:setClanLeaderAccessDoor">room:setClanLeaderAccessDoor (dir, clanName, keywords)</a></td>
 	<td class="summary">sets up a voice-activated locked door which works for leader/first/second of the given clan.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#room:setCoordinates">room:setCoordinates (the, the, the)</a></td>
+	<td class="summary">sets a room's x/y/z mapper coordinates</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#room:setDescription">room:setDescription (description)</a></td>
@@ -464,6 +476,66 @@
    <span class="keyword">for</span> ch <span class="keyword">in</span> room:<span class="function-name">characters</span>() <span class="keyword">do</span>
        ch:<span class="function-name">echoAt</span>(<span class="string">"&amp;OYour sanity continues to wane. Seekest thou a cleric!\n"</span>)
    <span class="keyword">end</span>
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onEnter"></a>
+    <strong>onEnter (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character (player or NPC) enters a room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/room.html#Room">Room</a> they're entering
+ 2. the <a href="../modules/character.html#Character">Character</a> entering the room
+ 3. the <a href="../modules/room.html#Room">Room</a> they're coming from
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Room.<span class="function-name">onEnter</span>(<span class="keyword">function</span>(room, ch, fromRoom)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"As you enter from "</span>..fromRoom:<span class="function-name">getName</span>()..<span class="string">", you notice something interesting!"</span>)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onLeave"></a>
+    <strong>onLeave (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character (player or NPC) leaves a room.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run, taking arguments:
+ 1. the <a href="../modules/room.html#Room">Room</a> they're coming from
+ 2. the <a href="../modules/character.html#Character">Character</a> entering the room
+ 3. the <a href="../modules/room.html#Room">Room</a> they're going to
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Room.<span class="function-name">onLeave</span>(<span class="keyword">function</span>(room, ch, toRoom)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"Right before you leave for "</span>..toRoom:<span class="function-name">getName</span>()..<span class="string">", you hear a loud noise!"</span>)
 <span class="keyword">end</span>)</pre>
     </ul>
 
@@ -821,6 +893,36 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
 
 
 
+
+</dd>
+    <dt>
+    <a name = "room:getCoordinates"></a>
+    <strong>room:getCoordinates ()</strong>
+    </dt>
+    <dd>
+    get a room's x/y/z mapper coordinates
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        the room's x coordinate</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        the room's y coordinate</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        the room's z coordinate</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> x, y, z = room:<span class="function-name">getCoordinates</span>()</pre>
+    </ul>
 
 </dd>
     <dt>
@@ -1306,26 +1408,6 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
 
 </dd>
     <dt>
-    <a name = "room:isPublicSpace"></a>
-    <strong>room:isPublicSpace ()</strong>
-    </dt>
-    <dd>
-    returns whether this room is accessible by hail or public landing pad.
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        true if there's a path to a hail point or public landing pad, false otherwise
-    </ol>
-
-
-
-
-</dd>
-    <dt>
     <a name = "room:lockers"></a>
     <strong>room:lockers ()</strong>
     </dt>
@@ -1487,9 +1569,9 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
         <li><span class="parameter">callback</span>
             <span class="types"><span class="type">func</span></span>
          the function to run, taking arguments:
- 1. the <a href="../modules/room.html#Room">Room</a>
+ 1. the <a href="../modules/room.html#Room">Room</a> they're entering
  2. the <a href="../modules/character.html#Character">Character</a> entering the room
- 3. the <a href="../modules/room.html#Room">Room</a> they came from
+ 3. the <a href="../modules/room.html#Room">Room</a> they're coming from
         </li>
     </ul>
 
@@ -1517,8 +1599,9 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
         <li><span class="parameter">callback</span>
             <span class="types"><span class="type">func</span></span>
          the function to run, taking arguments:
- 1. the <a href="../modules/room.html#Room">Room</a>
+ 1. the <a href="../modules/room.html#Room">Room</a> they're coming from
  2. the <a href="../modules/character.html#Character">Character</a> entering the room
+ 3. the <a href="../modules/room.html#Room">Room</a> they're going to
         </li>
     </ul>
 
@@ -1819,7 +1902,7 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
 </dd>
     <dt>
     <a name = "room:setClanAccessDoor"></a>
-    <strong>room:setClanAccessDoor (dir, keywords, clanName)</strong>
+    <strong>room:setClanAccessDoor (dir, clanName, keywords)</strong>
     </dt>
     <dd>
     sets up a voice-activated locked door which works for members of the given clan.
@@ -1838,13 +1921,13 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
             <span class="types"><span class="type">string</span></span>
          the name of the exit (n, north, etc)
         </li>
+        <li><span class="parameter">clanName</span>
+            <span class="types"><span class="type">string</span></span>
+         the clan which the door works for. Use <code>&quot;local&quot;</code> to check the current planet government.
+        </li>
         <li><span class="parameter">keywords</span>
             <span class="types"><span class="type">string</span></span>
          the list of words to trigger the door. (Optional, uses "<exitName> access enter entry" if not set.)
-        </li>
-        <li><span class="parameter">clanName</span>
-            <span class="types"><span class="type">string</span></span>
-         the clan which the door works for
         </li>
     </ul>
 
@@ -1854,9 +1937,12 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
     <h3>Usage:</h3>
     <ul>
         <li><pre class="example"><span class="comment">-- Set up a basic access door which works for everyone in the Galactic Empire
-</span>self:<span class="function-name">setClanAccessDoor</span>(<span class="string">"north"</span>, <span class="keyword">nil</span>, <span class="string">"The Galactic Empire"</span>)</pre></li>
+</span>self:<span class="function-name">setClanAccessDoor</span>(<span class="string">"north"</span>, <span class="string">"The Galactic Empire"</span>)</pre></li>
+        <li><pre class="example"><span class="comment">-- Set up a door which works for whichever clan currently governs this planet,
+</span><span class="comment">-- so it changes hands automatically when the planet is captured.
+</span>self:<span class="function-name">setClanAccessDoor</span>(<span class="string">"north"</span>, <span class="string">"local"</span>)</pre></li>
         <li><pre class="example"><span class="comment">-- Set up a basic access door which works for everyone in the Galactic Empire, with custom messages
-</span>self:<span class="function-name">setClanAccessDoor</span>(<span class="string">"north"</span>, <span class="keyword">nil</span>, <span class="string">"The Galactic Empire"</span>,
+</span>self:<span class="function-name">setClanAccessDoor</span>(<span class="string">"north"</span>, <span class="string">"The Galactic Empire"</span>, <span class="keyword">nil</span>,
   <span class="string">""</span>, <span class="comment">-- No happy message when it works. This is the Empire, after all.
 </span>  <span class="string">"&amp;zA harsh voice barks out, \"&amp;REntry is only permitted to Imperial personnel!&amp;z\""</span>
 )</pre></li>
@@ -1865,7 +1951,7 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
 </dd>
     <dt>
     <a name = "room:setClanLeaderAccessDoor"></a>
-    <strong>room:setClanLeaderAccessDoor (dir, keywords, clanName)</strong>
+    <strong>room:setClanLeaderAccessDoor (dir, clanName, keywords)</strong>
     </dt>
     <dd>
     sets up a voice-activated locked door which works for leader/first/second of the given clan.
@@ -1884,13 +1970,13 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
             <span class="types"><span class="type">string</span></span>
          the name of the exit (n, north, etc)
         </li>
-        <li><span class="parameter">keywords</span>
-            <span class="types"><span class="type">string</span></span>
-         the list of words to trigger the door. (Optional, uses "<exitName> access enter entry" if not set.)
-        </li>
         <li><span class="parameter">clanName</span>
             <span class="types"><span class="type">string</span></span>
          the clan which the door works for. Use <code>&quot;local&quot;</code> to check the current planet government.
+        </li>
+        <li><span class="parameter">keywords</span>
+            <span class="types"><span class="type">string</span></span>
+         the list of words to trigger the door. (Optional, uses "<exitName> access enter entry" if not set.)
         </li>
     </ul>
 
@@ -1900,12 +1986,45 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
     <h3>Usage:</h3>
     <ul>
         <li><pre class="example"><span class="comment">-- Set up a basic access door which works for leaders in the Galactic Empire
-</span>self:<span class="function-name">setClanLeaderAccessDoor</span>(<span class="string">"north"</span>, <span class="keyword">nil</span>, <span class="string">"The Galactic Empire"</span>)</pre></li>
+</span>self:<span class="function-name">setClanLeaderAccessDoor</span>(<span class="string">"north"</span>, <span class="string">"The Galactic Empire"</span>)</pre></li>
         <li><pre class="example"><span class="comment">-- Set up a basic access door which works for leaders in the Galactic Empire, with custom messages
-</span>self:<span class="function-name">setClanLeaderAccessDoor</span>(<span class="string">"north"</span>, <span class="keyword">nil</span>, <span class="string">"The Galactic Empire"</span>,
+</span>self:<span class="function-name">setClanLeaderAccessDoor</span>(<span class="string">"north"</span>, <span class="string">"The Galactic Empire"</span>, <span class="keyword">nil</span>,
   <span class="string">"&amp;zA speaker says, \"&amp;GImperial vault access granted.&amp;z\""</span>,
   <span class="string">"&amp;zA harsh voice barks out, \"&amp;RVault access denied!&amp;z\""</span>
 )</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "room:setCoordinates"></a>
+    <strong>room:setCoordinates (the, the, the)</strong>
+    </dt>
+    <dd>
+    sets a room's x/y/z mapper coordinates
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         room's z coordinate
+        </li>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         room's z coordinate
+        </li>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">integer</span></span>
+         room's z coordinate
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">room:<span class="function-name">setCoordinates</span>(<span class="number">12</span>, <span class="number">22</span>, <span class="number">104</span>)</pre>
     </ul>
 
 </dd>
@@ -2082,7 +2201,7 @@ room:<span class="function-name">addEffect</span>(<span class="string">"napalm"<
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2026-05-20 17:22:48 </i>
+<i style="float:right;">Last updated 2026-09-07 01:42:29 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
