@@ -47,6 +47,7 @@
   <li><a href="../modules/char_proto.html">char_proto</a></li>
   <li><strong>character</strong></li>
   <li><a href="../modules/clan.html">clan</a></li>
+  <li><a href="../modules/command.html">command</a></li>
   <li><a href="../modules/core.html">core</a></li>
   <li><a href="../modules/effect.html">effect</a></li>
   <li><a href="../modules/events.html">events</a></li>
@@ -128,6 +129,10 @@
 <h2><a href="#Global_functions">Global functions </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Character.all">Character.all ()</a></td>
+	<td class="summary">get an iterator over all characters (including PCs and NPCs).</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character.connected">Character.connected ()</a></td>
 	<td class="summary">get an iterator over all connected players.</td>
 	</tr>
@@ -140,12 +145,24 @@
 	<td class="summary">create an instance of a mob.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Character.npcs">Character.npcs ()</a></td>
+	<td class="summary">get an iterator over all all NPCs.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Character.onStun">Character.onStun (callback)</a></td>
 	<td class="summary">registers a function to run each time the character is stunned (by blaster effects).</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#onEffect">onEffect (name, callback)</a></td>
 	<td class="summary">registers a function to run when a character effect runs.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onLogin">onLogin (callback)</a></td>
+	<td class="summary">registers a function to run when a character logs in.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onLogout">onLogout (callback)</a></td>
+	<td class="summary">registers a function to run when a character logs out.</td>
 	</tr>
 </table>
 <h2><a href="#Class_Character">Class Character </a></h2>
@@ -1065,6 +1082,32 @@
 
     <dl class="function">
     <dt>
+    <a name = "Character.all"></a>
+    <strong>Character.all ()</strong>
+    </dt>
+    <dd>
+    get an iterator over all characters (including PCs and NPCs).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/character.html#Character">Character</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">for</span> ch <span class="keyword">in</span> Character.<span class="function-name">all</span>() <span class="keyword">do</span>
+  ch:<span class="function-name">toRoom</span>(<span class="number">10</span>)
+  ch:<span class="function-name">echoAt</span>(<span class="string">"Into the paper bag I cast thee!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character.connected"></a>
     <strong>Character.connected ()</strong>
     </dt>
@@ -1164,6 +1207,34 @@ newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm he
 
 </dd>
     <dt>
+    <a name = "Character.npcs"></a>
+    <strong>Character.npcs ()</strong>
+    </dt>
+    <dd>
+    get an iterator over all all NPCs.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        an iterator of <a href="../modules/character.html#Character">Character</a>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> cnt = <span class="number">0</span>
+<span class="keyword">for</span> ch <span class="keyword">in</span> Character.<span class="function-name">npcs</span>() <span class="keyword">do</span>
+  ch:<span class="function-name">extract</span>()
+  cnt = cnt + <span class="number">1</span>
+<span class="keyword">end</span>
+LOTJ.<span class="function-name">log</span>(<span class="string">"Extracted "</span> .. cnt .. <span class="string">" NPCs."</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Character.onStun"></a>
     <strong>Character.onStun (callback)</strong>
     </dt>
@@ -1224,6 +1295,60 @@ newCh:<span class="function-name">say</span>(<span class="string">"Hello, I'm he
            tch:<span class="function-name">echoAt</span>(<span class="string">"&amp;RYou notice "</span> .. ch:<span class="function-name">getGName</span>(tch) .. <span class="string">" really hulking out. Best get to safety!\n"</span>)
        <span class="keyword">end</span>
    <span class="keyword">end</span>
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onLogin"></a>
+    <strong>onLogin (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character logs in.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Character.<span class="function-name">onLogin</span>(<span class="keyword">function</span>(ch, room)
+    LOTJ.<span class="function-name">log</span>(<span class="string">"Character "</span> .. ch:<span class="function-name">getName</span>() .. <span class="string">" logging in in room "</span> .. room:<span class="function-name">getName</span>())
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onLogout"></a>
+    <strong>onLogout (callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a character logs out.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">Character.<span class="function-name">onLogout</span>(<span class="keyword">function</span>(ch, room)
+    LOTJ.<span class="function-name">log</span>(<span class="string">"Character "</span> .. ch:<span class="function-name">getName</span>() .. <span class="string">" logging out in room "</span> .. room:<span class="function-name">getName</span>())
 <span class="keyword">end</span>)</pre>
     </ul>
 
@@ -5813,7 +5938,7 @@ ch:<span class="function-name">force</span>(<span class="string">"look"</span>)<
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2026-09-07 01:42:29 </i>
+<i style="float:right;">Last updated 2026-10-05 16:16:27 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

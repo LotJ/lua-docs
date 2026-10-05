@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>LotJ Lua API</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>LOTJ Lua API</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/LuaDB.html">LuaDB</a></li>
+  <li><a href="../modules/area.html">area</a></li>
+  <li><a href="../modules/cargo.html">cargo</a></li>
+  <li><a href="../modules/char_proto.html">char_proto</a></li>
+  <li><a href="../modules/character.html">character</a></li>
+  <li><a href="../modules/clan.html">clan</a></li>
+  <li><strong>command</strong></li>
+  <li><a href="../modules/core.html">core</a></li>
+  <li><a href="../modules/effect.html">effect</a></li>
+  <li><a href="../modules/events.html">events</a></li>
+  <li><a href="../modules/exit.html">exit</a></li>
+  <li><a href="../modules/furniture.html">furniture</a></li>
+  <li><a href="../modules/hyperwall.html">hyperwall</a></li>
+  <li><a href="../modules/locker.html">locker</a></li>
+  <li><a href="../modules/obj_proto.html">obj_proto</a></li>
+  <li><a href="../modules/object.html">object</a></li>
+  <li><a href="../modules/planet.html">planet</a></li>
+  <li><a href="../modules/room.html">room</a></li>
+  <li><a href="../modules/ship.html">ship</a></li>
+  <li><a href="../modules/ship_template.html">ship_template</a></li>
+  <li><a href="../modules/space_spawn.html">space_spawn</a></li>
+  <li><a href="../modules/starsystem.html">starsystem</a></li>
+  <li><a href="../modules/structure.html">structure</a></li>
+  <li><a href="../modules/timer.html">timer</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/01-introduction.md.html">Introduction</a></li>
+  <li><a href="../topics/02-lua-basics.md.html">Lua Basics</a></li>
+  <li><a href="../topics/03-creating-an-lprog.md.html">Creating an lprog</a></li>
+  <li><a href="../topics/04-before-after-lylek-drone.md.html">Before and After: Lylek Drone</a></li>
+  <li><a href="../topics/ainpcs.md.html">ainpcs</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/mixrmastr-bartender-droid.lua.html">mixrmastr-bartender-droid.lua</a></li>
+  <li><a href="../examples/yatta-invisible-market.lua.html">yatta-invisible-market.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>command</code></h1>
+<p>Functions for registering, hooking, and triggering off of commands.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#hookCommand">hookCommand (name, callback)</a></td>
+	<td class="summary">registers a function to run when a command is attempted.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hookSubCommand">hookSubCommand (name, callback)</a></td>
+	<td class="summary">registers a function to run when a command is attempted with a specific subcommand.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onCmd">onCmd (name, callback)</a></td>
+	<td class="summary">registers a function to run when a command or skill is executed.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "hookCommand"></a>
+    <strong>hookCommand (name, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a command is attempted.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the command to intercept.
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Stop buying cargo in hell. Returning true aborts the command, returning false allows it to proceed
+</span>Command.<span class="function-name">hookCommand</span>(<span class="string">"buycontraband"</span>, <span class="keyword">function</span>(cmd, ch, args)
+    <span class="keyword">local</span> room = ch:<span class="function-name">getInRoom</span>()
+    <span class="keyword">if</span> ( room ~= <span class="keyword">nil</span> <span class="keyword">and</span> room:<span class="function-name">getVNum</span>() == <span class="number">6</span> ) <span class="keyword">then</span>
+        ch:<span class="function-name">sendTo</span>(<span class="string">"&amp;RYou can't buy cargo in hell!"</span>)
+        <span class="keyword">return</span> <span class="keyword">true</span>
+    <span class="keyword">else</span>
+        <span class="keyword">return</span> <span class="keyword">false</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "hookSubCommand"></a>
+    <strong>hookSubCommand (name, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a command is attempted with a specific subcommand.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the base command to intercept.
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Adds a "descai" feature/subcommand to the existing C-based "mset" command
+</span>Command.<span class="function-name">hookSubCommand</span>(<span class="string">"mset"</span>, <span class="keyword">function</span>(cmd, ch, args, victim, subcmd, argument)
+    <span class="keyword">if</span> subcmd == <span class="string">"descai"</span> <span class="keyword">then</span> <span class="comment">-- This fires specifically on "mset descai"
+</span>        <span class="keyword">if</span> argument == <span class="keyword">nil</span> <span class="keyword">or</span> <span class="global">tonumber</span>(argument) == <span class="keyword">nil</span> <span class="keyword">then</span>
+            ch:<span class="function-name">sendTo</span>( <span class="string">"&amp;zSyntax: &amp;Cmset &lt;vnum&gt; descai &lt;anchor vnum&gt;\n\r"</span>)
+            ch:<span class="function-name">sendTo</span>( <span class="string">"&amp;zGenerate a mob description based on the mob name and anchor vnum.\n\r"</span>)
+            <span class="keyword">return</span> <span class="keyword">true</span> <span class="comment">-- The underlying command was successfully overridden
+</span>        <span class="keyword">end</span>
+        <span class="keyword">local</span> anchorvict = CharProto.<span class="function-name">getFromVNum</span>( <span class="global">tonumber</span>( argument ) )
+        <span class="keyword">if</span> anchorvict == <span class="keyword">nil</span> <span class="keyword">then</span>
+            ch:<span class="function-name">sendTo</span>(<span class="string">"Can't find a mob with the provided vnum"</span>)
+            <span class="keyword">return</span> <span class="keyword">true</span> <span class="comment">-- The underlying command was successfully overridden
+</span>        <span class="keyword">end</span>
+        <span class="keyword">if</span> anchorvict:<span class="function-name">getDescription</span>() == <span class="keyword">nil</span> <span class="keyword">or</span> anchorvict:<span class="function-name">getDescription</span>() == <span class="string">""</span> <span class="keyword">then</span>
+            ch:<span class="function-name">sendTo</span>(<span class="string">"Your anchor mob doesn't have a description"</span>)
+            <span class="keyword">return</span> <span class="keyword">true</span> <span class="comment">-- The underlying command was successfully overridden
+</span>        <span class="keyword">end</span>
+        <span class="comment">-- AI stuff happens here
+</span>        <span class="keyword">return</span> <span class="keyword">true</span> <span class="comment">-- The underlying command was successfully overridden
+</span>    <span class="keyword">end</span>
+    <span class="keyword">return</span> <span class="keyword">false</span> <span class="comment">-- The subcommand didn't match "descai" so the underlying command resolves normally.
+</span><span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "onCmd"></a>
+    <strong>onCmd (name, callback)</strong>
+    </dt>
+    <dd>
+    registers a function to run when a command or skill is executed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><span class="type">string</span></span>
+         the name of the command to trigger off of.
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">func</span></span>
+         the function to run.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Triggers based on running ponder. Result 0 is success, 1 is failure.
+</span>Command.<span class="function-name">onCmd</span>(<span class="string">"ponder"</span>, <span class="keyword">function</span>(ch, result)
+    <span class="keyword">if</span> ( result == <span class="number">0</span> ) <span class="keyword">then</span>
+        LOTJ.<span class="function-name">log</span>(<span class="string">"Character "</span> .. ch:<span class="function-name">getName</span>() .. <span class="string">" successfully pondered."</span>)
+    <span class="keyword">else</span>
+        LOTJ.<span class="function-name">log</span>(<span class="string">"Character "</span> .. ch:<span class="function-name">getName</span>() .. <span class="string">" failed at pondering."</span>)
+    <span class="keyword">end</span>
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/ldoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-10-05 16:16:27 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
